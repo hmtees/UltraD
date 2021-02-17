@@ -1,3 +1,5 @@
+//Connect to the firestore
+
 //display case title & Key Image
 document.getElementById("diagnosis").innerText = localStorage.case1Title;
 document.getElementById("keyImage").src = ("http://drive.google.com/uc?export=view&id=" + localStorage.case1KeyImg);
@@ -53,4 +55,32 @@ $('#decPoints1').text(decision_score);
 $('#timePoints1').text(time_score);
 localStorage.case1Score = time_score + decision_score;
 $('#totalPoints1').text(time_score+decision_score);
+
+var db = firebase.firestore();
+console.log('userId:' + localStorage.userId)
+
+//go to the sessions collection for current user
+var file_path = '/users/' + localStorage.userId +'/sessions'
+//add a session doc with random generated id and set timestamp to now
+
+collectionRef = db.collection(file_path);
+//get the most recent session
+
+var sessionID;
+collectionRef.orderBy('timestamp', 'desc').limit(1).get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data())
+        globalThis.sessionID = doc.id
+        console.log(sessionID + 'session')
+        // get the session ID, go to the cases there. Set the case number and the score
+        var session_file_path = '/users/' + localStorage.userId +'/sessions/' + sessionID +'/cases'
+        // this works, but it feels bad
+        db.collection(session_file_path).doc('case1').set({
+            score : time_score + decision_score,
+            case_number : parseInt(localStorage.caseNum)
+        })  
+    });
+
+})
 

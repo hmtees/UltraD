@@ -20,7 +20,6 @@ $('#score2').text(localStorage.case2Score);
 $('#score3').text(localStorage.case3Score);
 $('#score4').text(localStorage.case4Score);
 $('#score5').text(localStorage.case5Score);
-console.log(localStorage.case5Score)
 //If click shift review, clear local localStorage
 $("#new-shift").click(function() {
   console.log('starting new shift, clearing storage');
@@ -28,5 +27,23 @@ $("#new-shift").click(function() {
     
 
   });
-  console.log(localStorage.minutes, localStorage.seconds);
+
+//hide shift review links if no data for those shifts yet.
+// Copied from Stack overflow to implement string format function
+//https://stackoverflow.com/questions/20729823/jquery-string-format-issue-with-0
+String.prototype.format = function() {
+  var str = this;
+  for (var i = 0; i < arguments.length; i++) {       
+    var reg = new RegExp("\\{" + i + "\\}", "gm");             
+    str = str.replace(reg, arguments[i]);
+  }
+  return str;
+}
+
+for (var i = 1; i <= 5;i++ ){
+  if (localStorage.getItem('case{0}Score'.format(i)) === null) {
+  $('#case{0}review'.format(i)).toggle();
+  }
+}
+
 
