@@ -7,97 +7,91 @@ Center Header
 Navigation Links into Buttons
 */
 
-
-.grid-container {
-    display: grid;
-    grid-template-columns: 12.5% 25% 25% 25% 12.5%;
-    grid-template-rows: 10% 10% 20% 60% 10% 10%;
-    gap: 0px 0px;
-    grid-template-areas:
-      ". Header Header Header ."
-      ". Action . . ."
-      ". ActionIcon ActionInfo ActionInfo ."
-      ". RememberBox RememberBox RememberBox ."
-      ". ReviewActions . ActionNav ."
-      ". NavBar NavBar NavBar .";
-    font-family: consolas;
-    color:#fcf2c2;
-  }
-  
-  .ActionIcon { grid-area: ActionIcon;
-    height:10vw;    
-}
-  
-  .Action { grid-area: Action; 
-    text-align:center;    
-}
-  
-  .ActionInfo { grid-area: ActionInfo; }
-  
-  .RememberBox { grid-area: RememberBox; }
-  
-  .Header { grid-area: Header; 
-  font-family: consolas;
-  }
-  
-  .ReviewActions { grid-area: ReviewActions; }
-
-  .ActionNav { grid-area: ActionNav; }
-
-  .NavBar { grid-area: NavBar; }
-  
-
-
-.Tabs{
-    text-align:center;
+.parent {
+font-family: Consolas;
+color:#fcf2c2; 
 }
 
-
-.remembericon {
-    height:7vw;
+.ANavigation {
+  background-color: #0096DF;
+  overflow: hidden;
 }
 
-.arrow {
-    height:3vw;
+/* Navigation links */
+.ANavigation a {
+  padding: 10px;
+  float: left;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  width: 23%;
+  text-align: center;
 }
 
-#RememberBox {
+/* Add a background color on mouse-over */
+.ANavigation a:hover {
+  background-color: #31BBF6;
+}
+
+/* Style the current/active link */
+.ANavigation a.active {
+  background-color: #4CAF50;
+}
+
+.Action {
+    display: block;
+    text-align: center;
+    font-family: Consolas;
+}
+
+.ActionIcon {
+    display: block;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    height:10vw;
+    padding: 5px;
+    }
+
+.ActionInfo {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    font-family: Consolas;
+}
+
+.RememberBox {
+    display: block;
     margin-left:auto;
     margin-right:auto;
-    width:fill;
+    width:40vw;
+    padding: 10px;
 }
 
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
+.Navigation {
+  align-items: center;
+  overflow: auto;
+  width: 100%;
+}
+
+.Navigation a {
+  float: left;
   display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
+  margin: 20px;
+  background-color: #0096DF;
+  color: white;
+  text-align: center;
   text-decoration: none;
-  display: block;
+  font-size: 18px;
+  width: 30%;
+  border-radius: 5px;
+  border: 2px solid black;
 }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover 
-{
-background-color: #ddd; 
+.Navigation a:hover {
+  background-color: #31BBF6;
 }
 
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {
-  display:block;
+.NavIcon {
+    height:20px;
 }
