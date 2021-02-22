@@ -17,8 +17,8 @@ To-Do:
     grid-template-areas:
     ". Outcome Points ."
     ". Action Key ."
-    ". Remember Key ."
-    ". . Point-Breakdown ."
+    ". . Key ."
+    ". Remember Point-Breakdown ."
     "Navigation Navigation Navigation Navigation";
     font-family: consolas;
     color:#fcf2c2;
