@@ -54,3 +54,4 @@ $('#decPoints1').text(decision_score);
 $('#timePoints1').text(time_score);
 localStorage.case3Score = time_score + decision_score;
 $('#totalPoints1').text(time_score+decision_score);
+$('#c3points').text(time_score+decision_score+" Points");

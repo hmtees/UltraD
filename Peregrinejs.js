@@ -203,17 +203,3 @@ function actionIntervene() {
     record_time()
     window.location.href = "Outcome1.html";
 }
-
-
-
-//success or fail message
-/*
-if (actionChoice === "CT Scan") {
-    document.getElementById("result").innerText = ("Success!!") //!! to test js fxn
-}
-else {document.getElementById("result").innerText = ("Uh Oh!!");
-}
-*/
-
-//display outcomes on outcome pages
-//if i give outcomes their own js page, how will the ultimate outcome be recorded? 

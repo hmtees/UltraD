@@ -11,25 +11,30 @@ To-Do:
 
 .grid-container {
     display: grid;
-    grid-template-columns: 10vw 40vw 40vw 10vw;
-    grid-template-rows: 10vw 25vw 20vw 30vw 10vw;
-    gap: 1px 1px;
+    grid-template-columns: 5% 45% 45% 5%;
+    grid-template-rows: 10vw 25vw 20vw 22vw 10vw;
+    gap: 1px 5px;
     grid-template-areas:
     ". Outcome Points ."
     ". Action Key ."
     ". . Key ."
     ". Remember Point-Breakdown ."
-    "Navigation Navigation Navigation Navigation";
+    ". Navigation Navigation .";
     font-family: consolas;
     color:#fcf2c2;
 }
+
 .Outcome { grid-area: Outcome;
     font-size:3vw;}
 
 .Points { grid-area: Points;
     margin-top:3vw;
-    font-size:2vw;}
+    font-size:2vw;
+    text-align: center;
+}
+
 .Action { grid-area: Action;
+    text-align:center;
 }
 
 #explanation {
@@ -37,14 +42,14 @@ To-Do:
 }
 
 .Remember { grid-area: Remember;
-    margin: 1vw;
+    margin: 0 5vw;
     }
 .Key { grid-area: Key;}
 
 .Navigation {
     display: grid;
-    grid-template-columns: 17% 25% 25% 30%;
-    gap: 1px 1px;
+    grid-template-columns: 15vw 20vw 23vw 25vw;
+    gap: 0px 0px;
     grid-template-areas:
     "Retry NextCase Review-Set Progress-Report";
     grid-area: Navigation;
@@ -59,14 +64,13 @@ To-Do:
 .Point-Breakdown {
     grid-area: Point-Breakdown;
     display: grid;
-    font-size:2vw;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    font-size:3vw;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 1px 1px;
     grid-template-areas:
     "points points"
     "Decision-Making decPoints"
-    "Image-Acquisition imagePoints"
     "Time timePoints"
     "Total totalPoints";
     border:dotted;
@@ -96,7 +100,7 @@ To-Do:
 
 
 h3 {
-    color:purple;
+    color:#fd88f3;
     font-size:2vw;
 }
 
