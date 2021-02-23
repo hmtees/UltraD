@@ -73,14 +73,33 @@ collectionRef.orderBy('timestamp', 'desc').limit(1).get().then((querySnapshot) =
         console.log(doc.id, " => ", doc.data())
         globalThis.sessionID = doc.id
         console.log(sessionID + 'session')
+        session_file_path = '/users/' + localStorage.userId + '/sessions'
+        var sessionRef = db.collection(session_file_path).doc(sessionID)
+        sessionRef.update({
+            case_count : 1,
+            session_score : time_score + decision_score,
+            possible_points : 400
+        })
         // get the session ID, go to the cases there. Set the case number and the score
         var session_file_path = '/users/' + localStorage.userId +'/sessions/' + sessionID +'/cases'
         // this works, but it feels bad
         db.collection(session_file_path).doc('case1').set({
             score : time_score + decision_score,
             case_number : parseInt(localStorage.caseNum)
-        })  
+        })
+        var user_file_path = '/users'
+        db.collection(user_file_path).doc(localStorage.userId).update({
+            total_score: firebase.firestore.FieldValue.increment(time_score+decision_score),
+            total_cases: firebase.firestore.FieldValue.increment(1),
+            total_possible_points: firebase.firestore.FieldValue.increment(400)
+        })   
     });
 
 })
 
+//var washingtonRef = db.collection('cities').doc('DC');
+
+// Atomically increment the population of the city by 50.
+//washingtonRef.update({
+//    population: firebase.firestore.FieldValue.increment(50)
+//});

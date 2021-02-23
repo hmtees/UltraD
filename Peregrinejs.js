@@ -1,6 +1,5 @@
 
 
-
 var JSONFEED = 'https://spreadsheets.google.com/feeds/list/1dpcguZ2Ak0zc0Sh1WoPV0c0tXVxre3yGWC1Wo5ElWtc/1/public/basic?alt=json';
 
 $(document).ready(function() {
@@ -230,4 +229,5 @@ var docref = db.collection(file_path).doc()
 docref.set({
     timestamp: firebase.firestore.FieldValue.serverTimestamp()
 })
+
 collectionRef = db.collection(file_path);
