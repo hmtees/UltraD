@@ -31,7 +31,6 @@ $("#new-shift").click(function() {
     
 
   });
-  console.log(localStorage.minutes, localStorage.seconds);
 
   function dropdown() {
     document.getElementById("myDropdown").classList.toggle("show");
