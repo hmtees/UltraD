@@ -2,38 +2,35 @@ html {background-color:#282b2b}
 
 .home {
         display: grid;
-        grid-template-columns: 10vw 15vw 15vw 15vw 15vw 15vw 20vw;
-        grid-template-rows: 5vw 10vw 15vw 15vw 15vw 15vw 5vw;
-        gap: 0px 0px;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: 10% 40% 40%;
+        gap: 15px 0px;
         grid-template-areas:
-          ". . . . . . ."
-          ". UltraEM UltraEM UltraEM . . ."
-          ". . . . Logo Logo ."
-          ". . . . Logo Logo ."
-          ". Start Start Start Start Start ."
-          ". Start Start Start Start Start ."
-          ". . . . . . .";
+          ". UltraEM UltraEM . ."
+          ". UltraEM UltraEM Logo ."
+          "Start Start Start Start Start";
     
     border-style: dotted;
     font-family: Consolas;
     font-style: normal;
     font-weight: normal;
-    font-size: 6vw;
+    font-size: 4vw;
     text-align: center;
     color: #FF3500;
     background-color:#282b2b;
-    margin-top:0vw;
 }
 
-.UltraEM { grid-area: UltraEM; }
-      .Logo { grid-area: Logo; 
+.UltraEM { grid-area: UltraEM; 
+    margin:auto;
+}
+.Logo { grid-area: Logo; 
     }
-      .Start { grid-area: Start; }
+
+.Start { grid-area: Start; }
 
 
 #logo {
-    width: 23vw;
-    object-fit: cover;
+    width: 15vw;
 }
 
 
@@ -43,11 +40,10 @@ html {background-color:#282b2b}
     border-radius: 15px;
     border: 5px solid #0b0e07;
     display: inline-block;
-    cursor: pointer;
     color: #ffffff;
     font-family: Consolas;
     font-size: 8vw;
-    padding: 4vw 8vw;
+    padding: 2vw 8vw;
     text-decoration: none;
     text-shadow: 0px 1px 0px #263666;
 }
