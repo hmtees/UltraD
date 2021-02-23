@@ -3,7 +3,7 @@ html {background-color: #282b2b;}
 To-Do:
 NavBar Buttons - Style
 Fit all content on Screen
-
+Show images on hover
 
 */
 
@@ -132,7 +132,16 @@ b {
  z-index: 0;
 }
 
-
+#ruqicon:hover {
+  position: relative;
+}
+#ruqicon:hover:after {
+  content: url(./USLibrary/gifs/ruq-nl-2.gif); /* no need for qoutes */
+  display: block;
+  position: absolute;
+  /*left: 123px;  change this value to one that suits you */
+  /*top: 56px;  change this value to one that suits you */
+}
 #ruqicon {
  position: absolute;
  z-index: 1;
@@ -220,3 +229,4 @@ b {
  position: relative;
  top: 1px;
  }
+
