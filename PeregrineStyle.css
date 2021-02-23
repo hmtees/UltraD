@@ -59,15 +59,15 @@ html {background-color:#282b2b}
 
 .UI-container {
     display: grid;
-    grid-template-columns: 8vw 10vw 14vw 14vw 14vw 27vw 10vw;
-    grid-template-rows: 3.5vw 10vw 10vw 10vw 5vw 3vw 4vw 8vw;
+    grid-template-columns: 8% 10% 14% 14% 14% 27% 10%;
+    grid-template-rows: 7% 21% 21% 21% 2% 5% 5% 10%;
     gap: 1px 1px;
     grid-template-areas:
     "Help . Location Location Location Location time"
     "Body Body Ultrasound Ultrasound Ultrasound Ultrasound Actions"
     "Body Body Ultrasound Ultrasound Ultrasound Ultrasound Actions"
     "Body Body Ultrasound Ultrasound Ultrasound Ultrasound Actions"
-    "Body Body Ultrasound Ultrasound Ultrasound Ultrasound Actions"
+    ". . . . . . ."
     ". Case-Details Case-Details Case-Details . Vitals ."
     ". Case-Details Case-Details Case-Details . Vitals ."
     ". Case-Details Case-Details Case-Details . Vitals .";
@@ -86,7 +86,7 @@ html {background-color:#282b2b}
 }
 
 #bodyImage{
-    height:35vw;
+    height:30vw;
     object-fit:cover;
 }
 #ruqicon {
@@ -137,7 +137,7 @@ html {background-color:#282b2b}
 .Ultrasound { grid-area: Ultrasound; }
 
 .USimage {
-    height:35vw;
+    height:31vw;
     width: 67vw;
 }
 
