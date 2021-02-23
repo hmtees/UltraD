@@ -67,7 +67,6 @@ function drawDiv(divData, thehistory, parent, loc) {
   console.log("Key Action: " + localStorage.case1KeyAction);
 
   var $caseDiv = $("<div/>");
-  $caseDiv.addClass('Case-Details');  
   var casedetails = $("<p></p>").html("A " + age + "-year-old " + gender + " " + scenario); 
   $caseDiv.prepend(casedetails);
   $('#caseDetails').append($caseDiv);

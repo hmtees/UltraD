@@ -71,18 +71,15 @@ html {background-color:#282b2b}
     ". Case-Details Case-Details Case-Details . Vitals ."
     ". Case-Details Case-Details Case-Details . Vitals ."
     ". Case-Details Case-Details Case-Details . Vitals .";
+    font-family:consolas;
 }
-.Help { grid-area: Help;
-}
-#help {
-    height: 3vw;
-}
+.Help { grid-area: Help;}
 
-.Body { grid-area: Body;
-}
-.Body>img {
-    vertical-align:center;
-}
+#help {    height: 3vw;}
+
+.Body { grid-area: Body;}
+
+
 .parent{
     position:absolute;
     z-index:0;
@@ -152,7 +149,6 @@ html {background-color:#282b2b}
     padding-top:0;
     text-align:center;
     font-size: 2.7vw;
-    font-family: Consolas;
     color:#FCFDC2
 }
 .Actions { grid-area: Actions;
@@ -160,12 +156,10 @@ html {background-color:#282b2b}
     border-radius: 1vw;
     font-size:1.5vw;
     text-align:center;
-    font-family: Consolas;
 }
 .Actions>h3 {
     font-size:1.7vw;
     margin-bottom:0;
-    font-family: Consolas;
     color:#FCFDC2;
 }
 
@@ -177,7 +171,6 @@ html {background-color:#282b2b}
 }
 #obsButton,#ctButton,#surgeryButton,#interveneButton {
     width:9vw;
-    font-family: Consolas;
     font-size: 1vw;
 }
 
@@ -197,14 +190,11 @@ html {background-color:#282b2b}
     background-color:#F6B331;
 }
 
-
-
-
 .Vitals {
     grid-area: Vitals;
     border:solid;
     border-radius:1vw;
-    border-color:eff0e2;
+    border-color:#eff0e2;
     margin-top:0px;
     padding-top:5px;
     align-content:center;
@@ -216,7 +206,6 @@ html {background-color:#282b2b}
 }
 .Vital-Signs { grid-area: Vital-Signs;
     font-size:1.5vw;
-    font-family: Consolas;
 }
 .Vital-Signs>h3 {
     text-align:center;
@@ -225,8 +214,7 @@ html {background-color:#282b2b}
     color:#FCFDC2;
 }
 .BP,.HR,.T,.O2 {
-    font-size:1.4vw;
-    font-family: monaco, Consolas, "Lucida Console";
+    font-size:2vw;
     color:#eff0e2
 }
 
@@ -238,23 +226,23 @@ html {background-color:#282b2b}
     grid-area: Case-Details;
     border:solid;
     border-radius:1vw;
+    border-color:#eff0e2;
 }
 .Case-Details>h3 {
     text-align:center;
     margin-top:3px;
     margin-bottom: auto;
-    font-family: Consolas;
     color:#FCFDC2;
 }
 .Case-Details>p {
     font-size: 1.5vw;
     padding: 0 1vw 0 1vw;
-    font-family: Consolas;
     color:#eff0e2;
 }
 .time {
     grid-area: time; 
     color:#eff0e2;
+    text-align: center;
     }
 
 .active, .btn:hover {
