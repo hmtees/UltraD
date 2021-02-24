@@ -1,6 +1,32 @@
 <!--User Story:  As a student I should be able to understand the actual diagnosis of the case I’ve completed to see where I went wrong in order to improve my ability to conduct FAST exams.
 -->
 <head>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+  <script>
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyDazXuLjulvof69k00gM2i2Q9bwVlAwrzM",
+      authDomain: "project-ultra-14a78.firebaseapp.com",
+      databaseURL: "https://project-ultra-14a78-default-rtdb.firebaseio.com",
+      projectId: "project-ultra-14a78",
+      storageBucket: "project-ultra-14a78.appspot.com",
+      messagingSenderId: "405691008774",
+      appId: "1:405691008774:web:905795e75c371024b98087",
+      measurementId: "G-Y58FK549GV"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VVHMBP13JW"></script>
 <script>
@@ -28,9 +54,9 @@
   <div class="results">
     <br>
     <ul class="results-ovrvw">
-      <li><strong>Total Points:</strong> <span id="shiftpoints"></span></li>
-      <li><strong>Total Cases:</strong> <span id="totalcases">5</span></li>
-      <li><strong>Most Missed Action:</strong> <span ><em>CT Scan</em></span></li>
+      <li ><strong>Total Points:</strong> <span id = 'shift-score'></span></li>
+      <li><strong>Total Cases:</strong> <span id ='case-count'></span></li>
+      <li><strong>Accuracy:</strong> <span id='Accuracy'></span></li>
       <li><strong>Location of Most Misses:</strong> <span><em>Right Upper Quadrant</em></span></li>
     </ul>
   </div>
@@ -49,35 +75,35 @@
         <td id='score1'></td></td>
         <td id='case1'></td>
         <td id='case1KeyLoc'></td>
-        <td><a href="Outcome1.html">Review Case</a></td>
+        <td><a id='case1review' href="Outcome1.html">Review Case</a></td>
       </tr>
       <tr>
         <td>2</td>
         <td id = 'score2'></td>
         <td id ='case2'></td>
         <td id='case2KeyLoc'></td>
-        <td><a href="Outcome2.html">Review Case</a></td>
+        <td><a id='case2review' href="Outcome2.html">Review Case</a></td>
       </tr>
       <tr>
         <td>3</td>
         <td id = 'score3'></td>
         <td id='case3'></td>
         <td id ='case3KeyLoc'></td>
-        <td><a href="Outcome3.html">Review Case</a></td>
+        <td><a id='case3review' href="Outcome3.html">Review Case</a></td>
       </tr>
       <tr>
         <td>4</td>
         <td id='score4'></td>
         <td id='case4'></td>
         <td id='case4KeyLoc'></td>
-        <td><a href="Outcome4.html">Review Case</a></td>
+        <td><a  id='case4review' href="Outcome4.html">Review Case</a></td>
       </tr>
       <tr>
         <td>5</td>
         <td id='score5'></td>
         <td id='case5'></td>
         <td id ='case5KeyLoc'></td>
-        <td><a href="Outcome5.html">Review Case</a></td>
+        <td><a id='case5review' href="Outcome5.html">Review Case</a></td>
       </tr>
     </table>
   </div>

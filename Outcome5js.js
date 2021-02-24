@@ -20,8 +20,8 @@ document.getElementById("action").innerHTML = localStorage.case5Action;
 console.log("You Chose: " + localStorage.case5Action);
 console.log("Key Action: " + localStorage.case5KeyAction);
     //display image matching action
-if (localStorage.case5Action === "Observation")
-    {document.getElementById("actionicon").src= './ProgramFiles/Icons/obs.png'}
+if (localStorage.case5Action === "Observation"){
+        $('#actionicon').src= './ProgramFiles/Icons/obs.png'}
 
 if (localStorage.case5Action === "CT Scan")
     {document.getElementById("actionicon").src= './ProgramFiles/Icons/ctScan.png'}
@@ -53,5 +53,43 @@ $('#decPoints1').text(decision_score);
 $('#timePoints1').text(time_score);
 localStorage.case5Score = time_score + decision_score;
 $('#totalPoints1').text(time_score+decision_score);
+
+console.log(localStorage.case5KeyAction, localStorage.case5KeyAction)
+var sessionID;
+var file_path = '/users/' + localStorage.userId +'/sessions'
+var db = firebase.firestore();
+
 $('#c5points').text(time_score+decision_score+" Points");
 
+
+collectionRef = db.collection(file_path);
+
+collectionRef.orderBy('timestamp', 'desc').limit(1).get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data())
+        globalThis.sessionID = doc.id
+        console.log(sessionID + 'session')
+        session_file_path = '/users/' + localStorage.userId + '/sessions'
+        var sessionRef = db.collection(session_file_path).doc(sessionID)
+        sessionRef.update({
+            case_count: firebase.firestore.FieldValue.increment(1),
+            session_score : firebase.firestore.FieldValue.increment(time_score+decision_score),
+            possible_points : firebase.firestore.FieldValue.increment(400)
+        });
+        // get the session ID, go to the cases there. Set the case number and the score
+        var session_file_path = '/users/' + localStorage.userId +'/sessions/' + sessionID +'/cases'
+        // this works, but it feels bad
+        db.collection(session_file_path).doc('case5').set({
+            score : time_score + decision_score,
+            case_number : parseInt(localStorage.caseNum)
+        }) 
+        var user_file_path = '/users'
+        db.collection(user_file_path).doc(localStorage.userId).update({
+            total_score: firebase.firestore.FieldValue.increment(time_score+decision_score),
+            total_cases: firebase.firestore.FieldValue.increment(1),
+            total_possible_points: firebase.firestore.FieldValue.increment(400)
+        })   
+    });
+
+})
