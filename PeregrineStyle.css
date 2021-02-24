@@ -1,20 +1,38 @@
+html {background-color:#282b2b}
+
 .home {
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: 10% 40% 40%;
+        gap: 15px 0px;
+        grid-template-areas:
+          ". UltraEM UltraEM . ."
+          ". UltraEM UltraEM Logo ."
+          "Start Start Start Start Start";
+    
     border-style: dotted;
     font-family: Consolas;
     font-style: normal;
     font-weight: normal;
-    font-size: 6vw;
+    font-size: 4vw;
     text-align: center;
     color: #FF3500;
     background-color:#282b2b;
-    margin-top:0vw;
 }
 
-html {background-color:#282b2b}
+.UltraEM { grid-area: UltraEM; 
+    margin:auto;
+}
+.Logo { grid-area: Logo; 
+    }
+
+.Start { grid-area: Start; }
+
 
 #logo {
     width: 15vw;
 }
+
 
 .myButton {
     box-shadow: inset 0px -3px 10px 10px #29bbff;
@@ -22,11 +40,10 @@ html {background-color:#282b2b}
     border-radius: 15px;
     border: 5px solid #0b0e07;
     display: inline-block;
-    cursor: pointer;
     color: #ffffff;
-    font-family: Courier New;
+    font-family: Consolas;
     font-size: 8vw;
-    padding: 40px 80px;
+    padding: 2vw 8vw;
     text-decoration: none;
     text-shadow: 0px 1px 0px #263666;
 }
@@ -42,37 +59,34 @@ html {background-color:#282b2b}
 
 .UI-container {
     display: grid;
-    grid-template-columns: 8vw 10vw 14vw 14vw 14vw 27vw 10vw;
-    grid-template-rows: 3.5vw 10vw 10vw 10vw 5vw 3vw 4vw 8vw;
+    grid-template-columns: 8% 10% 14% 14% 14% 27% 10%;
+    grid-template-rows: 7% 21% 21% 21% 2% 5% 5% 10%;
     gap: 1px 1px;
     grid-template-areas:
     "Help . Location Location Location Location time"
     "Body Body Ultrasound Ultrasound Ultrasound Ultrasound Actions"
     "Body Body Ultrasound Ultrasound Ultrasound Ultrasound Actions"
     "Body Body Ultrasound Ultrasound Ultrasound Ultrasound Actions"
-    "Body Body Ultrasound Ultrasound Ultrasound Ultrasound Actions"
+    ". . . . . . ."
     ". Case-Details Case-Details Case-Details . Vitals ."
     ". Case-Details Case-Details Case-Details . Vitals ."
     ". Case-Details Case-Details Case-Details . Vitals .";
+    font-family:consolas;
 }
-.Help { grid-area: Help;
-}
-#help {
-    height: 3vw;
-}
+.Help { grid-area: Help;}
 
-.Body { grid-area: Body;
-}
-.Body>img {
-    vertical-align:center;
-}
+#help {    height: 3vw;}
+
+.Body { grid-area: Body;}
+
+
 .parent{
     position:absolute;
     z-index:0;
 }
 
 #bodyImage{
-    height:35vw;
+    height:30vw;
     object-fit:cover;
 }
 #ruqicon {
@@ -123,7 +137,7 @@ html {background-color:#282b2b}
 .Ultrasound { grid-area: Ultrasound; }
 
 .USimage {
-    height:35vw;
+    height:31vw;
     width: 67vw;
 }
 
@@ -135,20 +149,17 @@ html {background-color:#282b2b}
     padding-top:0;
     text-align:center;
     font-size: 2.7vw;
-    font-family: Consolas;
     color:#FCFDC2
 }
+
 .Actions { grid-area: Actions;
-    border:solid;
-    border-radius: 1vw;
     font-size:1.5vw;
     text-align:center;
-    font-family: Consolas;
 }
+
 .Actions>h3 {
     font-size:1.7vw;
     margin-bottom:0;
-    font-family: Consolas;
     color:#FCFDC2;
 }
 
@@ -158,10 +169,11 @@ html {background-color:#282b2b}
     display: inline-block;    
     border-radius:3vw;
 }
+
 #obsButton,#ctButton,#surgeryButton,#interveneButton {
     width:9vw;
-    font-family: Consolas;
     font-size: 1vw;
+    border-radius:2vw;
 }
 
 #obsButton {
@@ -173,21 +185,18 @@ html {background-color:#282b2b}
 }
 
 #surgeryButton {
-    background-color:#FF0000;
+    background-color:#fc4f4f;
 }
 
 #interveneButton {
     background-color:#F6B331;
 }
 
-
-
-
 .Vitals {
     grid-area: Vitals;
     border:solid;
     border-radius:1vw;
-    border-color:eff0e2;
+    border-color:#eff0e2;
     margin-top:0px;
     padding-top:5px;
     align-content:center;
@@ -199,7 +208,6 @@ html {background-color:#282b2b}
 }
 .Vital-Signs { grid-area: Vital-Signs;
     font-size:1.5vw;
-    font-family: Consolas;
 }
 .Vital-Signs>h3 {
     text-align:center;
@@ -208,8 +216,7 @@ html {background-color:#282b2b}
     color:#FCFDC2;
 }
 .BP,.HR,.T,.O2 {
-    font-size:1.4vw;
-    font-family: monaco, Consolas, "Lucida Console";
+    font-size:2vw;
     color:#eff0e2
 }
 
@@ -221,23 +228,23 @@ html {background-color:#282b2b}
     grid-area: Case-Details;
     border:solid;
     border-radius:1vw;
+    border-color:#eff0e2;
 }
 .Case-Details>h3 {
     text-align:center;
     margin-top:3px;
     margin-bottom: auto;
-    font-family: Consolas;
     color:#FCFDC2;
 }
 .Case-Details>p {
     font-size: 1.5vw;
     padding: 0 1vw 0 1vw;
-    font-family: Consolas;
     color:#eff0e2;
 }
 .time {
     grid-area: time; 
     color:#eff0e2;
+    text-align: center;
     }
 
 .active, .btn:hover {

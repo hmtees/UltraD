@@ -64,7 +64,6 @@ function drawDiv(divData, thehistory, parent) {
   localStorage.case3KeyLoc = keyLocation;
   
   var $caseDiv = $("<div/>");
-  $caseDiv.addClass('Case-Details');  
   var casedetails = $("<p></p>").html("A " + age + "-year-old " + gender + " " + scenario); 
   $caseDiv.prepend(casedetails);
   $('#caseDetails').append($caseDiv);

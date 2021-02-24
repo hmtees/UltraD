@@ -37,6 +37,7 @@
 </script>
 </head>
   <link rel="stylesheet" href="PRStyle.css">
+  <link rel="stylesheet" href="NavBar.css">
 
   <head>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -46,7 +47,7 @@
   <div class="ProgressReportBox">
 
     <div class="Logo">
-      <img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s23fed97fdd82c008/image/id3ac249f26752511/version/1567494251/image.png">
+      <img src="ProgramFiles/Icons/Logo.png">
     </div>
 
     <div class="Title">
@@ -94,10 +95,10 @@
     </div>
 
     <div class="LocationBreakdown">
-      <div class="parent">
+      <div class="body">
         <img src="http://drive.google.com/uc?export=view&id=1K1HOA7fwUs_QaC4rCxgXKKPdjYCZ_Lv9" id="body">
         <div class="locations">
-          <a href="Location-RUQ.html"> <img id="ruqicon" title="Testing" src="http://drive.google.com/uc?export=view&id=1npaApAJXuHfPUXFkmzk7qwD-oaw895go"></a>
+          <a href="Location-RUQ.html"> <img id="ruqicon" src="http://drive.google.com/uc?export=view&id=1npaApAJXuHfPUXFkmzk7qwD-oaw895go"></a>
           <a href="Location-LUQ.html"> <img id="luqicon" src="http://drive.google.com/uc?export=view&id=1npaApAJXuHfPUXFkmzk7qwD-oaw895go"></a>
           <a href="Location-Subxi.html"> <img id="subxicon" src="http://drive.google.com/uc?export=view&id=1npaApAJXuHfPUXFkmzk7qwD-oaw895go"></a>
           <a href="Location-Bladder.html"> <img id="bladdericon" src="http://drive.google.com/uc?export=view&id=1npaApAJXuHfPUXFkmzk7qwD-oaw895go"></a>
@@ -106,26 +107,45 @@
         </div>
       </div>
     </div>
-
+<!-- 
     <div class="LocationReveal">
       <h2>Exam Image</h2>
       <div class="XRayImages">
-        <img id="RightLungImage" src="Case2/nl-lung-2-c2-R.gif">
-        <img id="LeftLungImage" src="Case2/nl-lung-1-c2-L.gif">
-        <img id="SubXImage" src="Case1/subxi-nl-1.gif">
-        <img id="RUQImage" src="https://images.squarespace-cdn.com/content/v1/58118909e3df282037abfad7/1507764829491-PDTO9VHHH83GTZFGJCN5/ke17ZwdGBToddI8pDm48kJbosy0LGK_KqcAZRQ_Qph1Zw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpzkC6kmM1CbNgeHQVxASNv0wiXikHv274BIFe4LR7nd1rKmAka4uxYMJ9FupazBoaU/bowra+neg+fast+ruq.gif?format=1500w">
-        <img id="LUQImage" src="Case2/luq-nl-c2.gif">
-        <img id="BladderImage" src="Case1/bladder-nl.gif">
+        <img id="RightLungImage" src="/USLibrary/gifs/normal-lung-slide.gif">
+        <img id="LeftLungImage" src="/USLibrary/gifs/ptx2.gif">
+        <img id="SubXImage" src="/USLibrary/gifs/subxi-nl-1.gif">
+        <img id="RUQImage" src="/USLibrary/gifs/ruq-nl-6.gif">
+        <img id="LUQImage" src="/USLibrary/gifs/luq-nl-c4.gif">
+        <img id="BladderImage" src="/USLibrary/gifs/bladder-nl-c7.gif">
       </div>
     </div>
-
+ -->
     <div class="Navigation">
-      <a href=ShiftReview.html class="ShiftButton">Review Shift</a>
-      <a href=Case%20Details.html class="ShiftButton">New Shift</a></button>
-    </div>
-
-
+        <div class="dropdown">
+          <button onclick="dropdown()" class="dropbtn">Locations <img src="./ProgramFiles/Icons/capicon/capicon/png/black/038.png" class="NavIcon"></button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="Location-RUQ.html">Right Upper Quadrant</a>
+            <a href="Location-LUQ.html">Left Upper Quadrant</a>
+            <a href="Location-Subxi.html">Subxiphoid</a>
+            <a href="Location-Bladder.html">Bladder</a>
+            <a href="Location-Lung.html">Lungs</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button onclick="dropdown()" class="NavButton">Actions <img src="./ProgramFiles/Icons/capicon/capicon/png/black/089.png" class="NavIcon"></button>
+          <div id="ActionDropdown" class="dropdown-content">
+            <a href="ActionInfo-Obs.html">Observation</a>
+            <a href="ActionInfo-CT.html">CT Scan</a>
+            <a href="ActionInfo-Surgery.html">Surgery</a>
+            <a href="ActionInfo-Intervene.html">Intervention</a>
+          </div>
+        </div>
+        <a class="NavButton" href="Progress%20Report.html">Progress Report <img src="ProgramFiles/Icons/progress.svg" class="NavIcon"></a>
+        <a class="NavButton" href="ShiftReview.html">Shift Review <img src="ProgramFiles/Icons/server.svg" class="NavIcon"></a>
+        <a class="NavButton" href="Main%20UI.html">New Shift <img src="./ProgramFiles/Icons/capicon/capicon/png/black/076.png" class="NavIcon">
+      </div>
   </div>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="Progress.js"></script>
 </html>

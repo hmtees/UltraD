@@ -38,13 +38,16 @@
 </script>
 </head>
 <link rel="stylesheet" href="SRStyle.css">
+<link rel="stylesheet" href="NavBar.css">
+
+
 <div class="topbar">
     <div class="heading">
       <h1>Shift Review</h1>
     </div>
   
     <div class="logo">
-      <img id=ultra-logo src="http://drive.google.com/uc?export=view&id=1p90Akr2T0H-eQCgiu_y68IWQ5DaU1haG" alt="The name of the program, Ultra EM, in red against a black background" align="left">
+      <img id=ultra-logo src="ProgramFiles/Icons/Logo.png" alt="Ultra EM Logo" align="left">
     </div>
   </div>
   
@@ -54,21 +57,8 @@
       <li ><strong>Total Points:</strong> <span id = 'shift-score'></span></li>
       <li><strong>Total Cases:</strong> <span id ='case-count'></span></li>
       <li><strong>Accuracy:</strong> <span id='Accuracy'></span></li>
-      <li><strong>Most Missed Action:</strong> <span><em>CT Scan</em></span></li>
       <li><strong>Location of Most Misses:</strong> <span><em>Right Upper Quadrant</em></span></li>
     </ul>
-  
-  
-    <div class=results-buttons>
-      <a href="Progress Report.html">
-      <button id="toProgress" type="button">Go to Progress Report</button>
-      </a>
-      <br>
-      <br>
-      <a id='new_shift_link' href='Main UI.html'>
-      <button id='new-shift' type="button">Start New Shift</button>
-      </a>
-    </div>
   </div>
   
   <div class="results-table">
@@ -77,7 +67,7 @@
         <th>Case #</th>
         <th>Score</th>
         <th>Item</th>
-        <th>Remarks</th>
+        <th>Location</th>
         <th>Action</th>
       </tr>
       <tr>
@@ -117,12 +107,34 @@
       </tr>
     </table>
   </div>
-  
   <div class="toggle-chart">
     <br>
     <button id="toggle-chart">Show/Hide Chart</button>
   </div>
-  
+
+  <div class="Navigation">
+    <div class="dropdown">
+      <button onclick="dropdown()" class="NavButton">Locations <img src="./ProgramFiles/Icons/capicon/capicon/png/white/038.png" class="NavIcon"></button>
+      <div id="myDropdown" class="dropdown-content">
+        <a href="Location-RUQ.html">Right Upper Quadrant</a>
+        <a href="Location-LUQ.html">Left Upper Quadrant</a>
+        <a href="Location-Subxi.html">Subxiphoid</a>
+        <a href="Location-Bladder.html">Bladder</a>
+        <a href="Location-Lung.html">Lungs</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button onclick="dropdown()" class="NavButton">Actions <img src="./ProgramFiles/Icons/capicon/capicon/png/white/089.png" class="NavIcon"></button>
+      <div id="ActionDropdown" class="dropdown-content">
+        <a href="ActionInfo-Obs.html">Observation</a>
+        <a href="ActionInfo-CT.html">CT Scan</a>
+        <a href="ActionInfo-Surgery.html">Surgery</a>
+        <a href="ActionInfo-Intervene.html">Intervention</a>
+      </div>
+    </div>
+    <a class="NavButton" href="Progress%20Report.html">Progress Report <img src="ProgramFiles/Icons/capicon/capicon/png/white/135.png" class="NavIcon"></a>
+    <a class="NavButton" href="Main%20UI.html">New Shift <img src="./ProgramFiles/Icons/capicon/capicon/png/white/076.png" class="NavIcon">
+  </div>
   <div class="chart">
   <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQygCJU1vasuwQzyJ0cXgCtll9EyYoMq3yxYKS9UQuUxMHgSKccJ38yEO7Y8NxpnsuvVuap75Yy2DQr/pubchart?oid=1179381065&format=image" alt="Chart tracking the student's scores over time">
   </div>

@@ -1,21 +1,40 @@
+html {background-color: #282b2b;}
+
+/* 
+To-Do:
+    Align Content titles
+    Fit US Image in grid
+    Nav Bar spacing
+    Point Border - Change color & round borders
+*/
+
+
 .grid-container {
     display: grid;
-    grid-template-columns: 48vw 49vw;
-    grid-template-rows: 10vw 25vw 31vw 10vw;
-    gap: 1px 1px;
+    grid-template-columns: 5% 45% 45% 5%;
+    grid-template-rows: 10vw 25vw 20vw 22vw 10vw;
+    gap: 1px 5px;
     grid-template-areas:
-    "Outcome Points"
-    "Action Key"
-    "Remember Key"
-    "Point-Breakdown Navigation";
+    ". Outcome Points ."
+    ". Action Key ."
+    ". . Key ."
+    ". Remember Point-Breakdown ."
+    ". Navigation Navigation .";
+    font-family: consolas;
+    color:#fcf2c2;
 }
+
 .Outcome { grid-area: Outcome;
     font-size:3vw;}
 
 .Points { grid-area: Points;
     margin-top:3vw;
-    font-size:2vw;}
+    font-size:2vw;
+    text-align: center;
+}
+
 .Action { grid-area: Action;
+    text-align:center;
 }
 
 #explanation {
@@ -23,18 +42,16 @@
 }
 
 .Remember { grid-area: Remember;
-    margin: 1vw;
+    margin: 0 5vw;
     }
 .Key { grid-area: Key;}
 
 .Navigation {
     display: grid;
-    grid-template-columns: 20vw 30vw;
-    grid-template-rows: 10vw 10vw;
-    gap: 1px 1px;
+    grid-template-columns: 15vw 20vw 23vw 25vw;
+    gap: 0px 0px;
     grid-template-areas:
-    "Retry NextCase"
-    "Review-Set Progress-Report";
+    "Retry NextCase Review-Set Progress-Report";
     grid-area: Navigation;
     align-items: center;
     display:inline-grid;
@@ -47,16 +64,16 @@
 .Point-Breakdown {
     grid-area: Point-Breakdown;
     display: grid;
-    font-size:2vw;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    font-size:3vw;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 1px 1px;
     grid-template-areas:
     "points points"
     "Decision-Making decPoints"
-    "Image-Acquisition imagePoints"
     "Time timePoints"
     "Total totalPoints";
+    border:dotted;
 }
 .points { grid-area: points;
     text-align:center;}
@@ -80,149 +97,27 @@
     border-radius:50%;
     height:6vw;
 }
-#action {
-
-}
 
 
 h3 {
-    color:purple;
+    color:#fd88f3;
     font-size:2vw;
 }
 
-#takeAwayBox {
-    border:dot-dot-dash;
-}
 
 .remember{
     height:8vw;
 }
 
-figure {
-    text-align:center;
-    font-size:2.5vw;
-}
 
-.arrow {
-    height:4vw;
-}
 
-#imageBreakdown {
 
-}
 #keyImage {
-    height:33vw;
+    width:100%;
+    height:75%;
 }
 #diagnosis {
     font-size:3vw;
     margin-bottom:0;
     text-align:center;
-}
-
-#pointBreakdown{
-
-}
-
-.RetryButton {
-    box-shadow:inset 0px 1px 0px 0px #ffffff;
-    background:linear-gradient(to bottom, #31BBF6 5%, #0096DF 100%);
-    background-color:#31BBF6;
-    text-align: center;
-    border-radius:6px;
-    border:1px solid #dcdcdc;
-    display:inline-block;
-    cursor:pointer;
-    color:#FCFDC2;
-    font-family:Arial;
-    font-size:2vw;
-    font-weight:bold;
-    padding:6px 24px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #ffffff;
-}
-.RetryButton:hover {
-    background:linear-gradient(to bottom, #0096DF 5%, #ffffff 100%);
-    background-color:#f6f6f6;
-}
-.RetryButton:active {
-    position:relative;
-    top:1px;
-}
-.NextCaseButton {
-    box-shadow:inset 0px 1px 0px 0px #ffffff;
-    background:linear-gradient(to bottom, #31BBF6 5%, #0096DF 100%);
-    background-color:#31BBF6;
-    text-align: center;
-    border-radius:6px;
-    border:1px solid #dcdcdc;
-    display:inline-block;
-    cursor:pointer;
-    color:#FCFDC2;
-    font-family:Arial;
-    font-size:2vw;
-    font-weight:bold;
-    padding:6px 24px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #ffffff;
-}
-.NextCaseButton:hover {
-    background:linear-gradient(to bottom, #0096DF 5%, #ffffff 100%);
-    background-color:#f6f6f6;
-}
-.NextCaseButton:active {
-    position:relative;
-    top:1px;
-}
-
-.ReviewShiftButton {
-    box-shadow:inset 0px 1px 0px 0px #ffffff;
-    background:linear-gradient(to bottom, #31BBF6 5%, #0096DF 100%);
-    background-color:#31BBF6;
-    text-align: center;
-    border-radius:6px;
-    border:1px solid #dcdcdc;
-    display:inline-block;
-    cursor:pointer;
-    color:#FCFDC2;
-    font-family:Arial;
-    font-size:2vw;
-    font-weight:bold;
-    padding:6px 24px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #ffffff;
-}
-.ReviewShiftButton:hover {
-    background:linear-gradient(to bottom, #0096DF 5%, #ffffff 100%);
-    background-color:#f6f6f6;
-}
-.ReviewShiftButton:active {
-    position:relative;
-    top:1px;
-}
-
-.EndShiftButton {
-    box-shadow:inset 0px 1px 0px 0px #ffffff;
-    background:linear-gradient(to bottom, #31BBF6 5%, #0096DF 100%);
-    background-color:#31BBF6;
-    text-align: center;
-    border-radius:6px;
-    border:1px solid #dcdcdc;
-    display:inline-block;
-    cursor:pointer;
-    color:#FCFDC2;
-    font-family:Arial;
-    font-size:2vw;
-    font-weight:bold;
-    padding:6px 24px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #ffffff;
-}
-.EndShiftButton:hover {
-    background:linear-gradient(to bottom, #0096DF 5%, #ffffff 100%);
-    background-color:#f6f6f6;
-}
-
-.EndShiftButton:active {
-    position:relative;
-    top:1px;
 }

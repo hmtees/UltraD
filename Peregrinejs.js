@@ -70,7 +70,6 @@ function drawDiv(divData, thehistory, parent, loc) {
   console.log("Key Action: " + localStorage.case1KeyAction);
 
   var $caseDiv = $("<div/>");
-  $caseDiv.addClass('Case-Details');  
   var casedetails = $("<p></p>").html("A " + age + "-year-old " + gender + " " + scenario); 
   $caseDiv.prepend(casedetails);
   $('#caseDetails').append($caseDiv);
@@ -94,7 +93,7 @@ function showActions() {
         x.style.display = "block";}
     else {x.style.display = "none";}
 }
-showActions();
+//showActions();
 
 let sec = 0;
 function pad(val) {return val > 9 ? val : "0" + val;}
@@ -208,9 +207,6 @@ function actionIntervene() {
     window.location.href = "Outcome1.html";
 }
 
-
-
-
 //success or fail message
 /*
 if (actionChoice === "CT Scan") {
@@ -231,3 +227,4 @@ docref.set({
 })
 
 collectionRef = db.collection(file_path);
+

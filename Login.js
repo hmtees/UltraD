@@ -74,7 +74,7 @@ $('#loginForm').submit(function() {
     } else {
       // Register the user with the Firebase API (NOTE: auto logs in)
       firebase.auth().createUserWithEmailAndPassword(email, pwd).then(function(user) {
-        window.location.replace("./Case1Details.html");
+        window.location.replace("./Main%20UI.html");
       }, function(error) {
         printErrorMessage(error, email, pwd, re_pwd)
       });

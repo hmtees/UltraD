@@ -1,5 +1,5 @@
 //display case title & Key Image
-document.getElementById("diagnosis").innerText = localStorage.case5Title;
+document.getElementById("diagnosis").innerText = ("Case 5: " + localStorage.case5Title);
 document.getElementById("keyImage").src = ("http://drive.google.com/uc?export=view&id=" + localStorage.case5KeyImg);
 var time_score = -1*( parseInt(localStorage.minutes)*60 + parseInt(localStorage.seconds));
 
@@ -36,16 +36,16 @@ document.getElementById("explanation").innerText = (localStorage.case5Outcome);
 
 //Show correct Remember Box
 if (localStorage.case5KeyAction === "Observation")
-    {document.getElementById("rememberBox").src= './ProgramFiles/RememberObs.svg'};
+    {document.getElementById("rememberBox").src= './ProgramFiles/RememberBoxes/Light/RememberObs.svg'};
 
 if (localStorage.case5KeyAction === "CT Scan")
-    {document.getElementById("rememberBox").src= './ProgramFiles/RememberCT.svg'};
+    {document.getElementById("rememberBox").src= './ProgramFiles/RememberBoxes/Light/RememberCT.svg'};
 
 if (localStorage.case5KeyAction === "Surgery")
-    {document.getElementById("rememberBox").src= './ProgramFiles/RememberSurg.svg'};
+    {document.getElementById("rememberBox").src= './ProgramFiles/RememberBoxes/Light/RememberSurg.svg'};
 
 if (localStorage.case5KeyAction === "Intervention")
-    {document.getElementById("rememberBox").src= './ProgramFiles/RememberInt.svg'};
+    {document.getElementById("rememberBox").src= './ProgramFiles/RememberBoxes/Light/RememberInt.svg'};
 //Score Calculator
 
 $('#decPoints1').text(decision_score);
@@ -53,10 +53,14 @@ $('#decPoints1').text(decision_score);
 $('#timePoints1').text(time_score);
 localStorage.case5Score = time_score + decision_score;
 $('#totalPoints1').text(time_score+decision_score);
+
 console.log(localStorage.case5KeyAction, localStorage.case5KeyAction)
 var sessionID;
 var file_path = '/users/' + localStorage.userId +'/sessions'
 var db = firebase.firestore();
+
+$('#c5points').text(time_score+decision_score+" Points");
+
 
 collectionRef = db.collection(file_path);
 

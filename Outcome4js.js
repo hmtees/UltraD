@@ -1,5 +1,5 @@
 //display case title & Key Image
-document.getElementById("diagnosis").innerText = localStorage.case4Title;
+document.getElementById("diagnosis").innerText = ("Case 4: " + localStorage.case4Title);
 document.getElementById("keyImage").src = ("http://drive.google.com/uc?export=view&id=" + localStorage.case4KeyImg);
 var time_score = -1*( parseInt(localStorage.minutes)*60 + parseInt(localStorage.seconds));
 //Show Result
@@ -37,16 +37,16 @@ document.getElementById("explanation").innerText = (localStorage.case4Outcome);
 
 //Show correct Remember Box
 if (localStorage.case4KeyAction === "Observation")
-    {document.getElementById("rememberBox").src= './ProgramFiles/RememberObs.svg'};
+    {document.getElementById("rememberBox").src= './ProgramFiles/RememberBoxes/Light/RememberObs.svg'};
 
 if (localStorage.case4KeyAction === "CT Scan")
-    {document.getElementById("rememberBox").src= './ProgramFiles/RememberCT.svg'};
+    {document.getElementById("rememberBox").src= './ProgramFiles/RememberBoxes/Light/RememberCT.svg'};
 
 if (localStorage.case4KeyAction === "Surgery")
-    {document.getElementById("rememberBox").src= './ProgramFiles/RememberSurg.svg'};
+    {document.getElementById("rememberBox").src= './ProgramFiles/RememberBoxes/Light/RememberSurg.svg'};
 
 if (localStorage.case4KeyAction === "Intervention")
-    {document.getElementById("rememberBox").src= './ProgramFiles/RememberInt.svg'};
+    {document.getElementById("rememberBox").src= './ProgramFiles/RememberBoxes/Light/RememberInt.svg'};
 //Score Calculator
 $('#decPoints1').text(decision_score);
 
@@ -89,3 +89,6 @@ collectionRef.orderBy('timestamp', 'desc').limit(1).get().then((querySnapshot) =
     });
 
 })
+
+$('#c4points').text(time_score+decision_score+" Points");
+

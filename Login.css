@@ -1,15 +1,7 @@
-/* CSS FONTS
-font-family: 'Arvo';
-font-family: 'Lato', sans-serif;*/
 
-/* CSS HEX */
-:root {
-    --baby-blue: #e6fafcff;
-    --polished-pine: #519e8aff;
-    --black: #000000ff;
-    --carolina-blue: #009ffdff;
-    --melon: #fcb9b2ff;
-  }
+
+html {background-color:#282b2b}
+
   
   /* GRID LAYOUT */
   .grid {
@@ -83,12 +75,12 @@ font-family: 'Lato', sans-serif;*/
   
   /* STYLING */
   body > * {
-    font-family: 'Arvo';
+    font-family: 'Garamond';
     font-size: 14px;
   }
   
   input {
-      font-family: 'Arvo';
+      font-family: 'Garamond';
       font-size: 14px;
   }
   
@@ -100,8 +92,8 @@ font-family: 'Lato', sans-serif;*/
   
   .item {
     height: 100%;
-    background-color: var(--baby-blue);
-    border-color: var(--carolina-blue);
+    background-color: #ff576d;
+    border-color: #c2defd;
     border-style: solid;
     border-width: 1px;
     border-radius: 1rem;
@@ -114,27 +106,29 @@ font-family: 'Lato', sans-serif;*/
   
   #title {
     font-size: 2rem;
-    color: var(--carolina-blue);
-    font-family: 'Lato', sans-serif;
+    color: #FCFDC2;
+    font-family: 'Consolas';
     font-weight: bold;
   }
   
   #loginWindow input[type=submit] {
     width: 10rem;
     border-radius: 3px;
-    background-color: var(--carolina-blue);
+    background-color: #2dabf9;
+    font-family:consolas;
+    color: #FCFDC2;
   }
   
   #loginWindow input[type=submit]:hover {
-    background-color: var(--polished-pine);
+    background-color: #0688fa;
   }
   
   #forgotPasswordButton, #signUpButton {
-    color: var(--carolina-blue);
+    color: #C0F334;
   }
   
   #forgotPasswordButton:hover, #signUpButton:hover {
-    color: var(--polished-pine);
+    color: #bfbfbf;
   }
   
   #forgotPasswordForm, #signUpForm {
@@ -143,7 +137,7 @@ font-family: 'Lato', sans-serif;*/
   
   #bottomBar span {
     padding: 2%;
-    color: var(--carolina-blue);
+    color: #FCFDC2;
     font-size: 10px;
   }
   

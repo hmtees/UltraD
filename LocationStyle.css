@@ -1,58 +1,116 @@
+html { background-color: #282b2b;}
+
+/* 
+To-Do
+Align Buttons on body
+New Shift Button
+*/
 
 
-.header {
-    position: fixed;
-    z-index: 100;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: white;
-    padding: 10px;
-    box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
-    text-align: right;
+.grid-container {
+  display: grid;
+  grid-template-columns: 10% 40% 40% 10%;
+  grid-template-rows: 7vw 10vw 20vw 40vw 10vw;
+  gap: 1px 1px;
+  grid-template-areas:
+  ". Header Header ."
+  ". Current-Location Current-Location ."
+  ". Body Probe-Location ."
+  ". Normal-Anatomy Positive-Fast ."
+  ". Navigation Navigation .";
+  font-family:consolas;
+  color: #FCFDC2
+}
+
+.Header { grid-area: Header;
+  text-align:center;
+
+}
+.navbar { grid-area: Navigation;
+  font-size:2vw;
+  text-align:center;
+  display: grid;
+  margin-top: 20px;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-gap: 1em;
   }
-  
-  a:link {
-    text-decoration: none;
-  }
-  
-  .grid1 {
-    display: grid;
-    margin-top: 20px;
-    grid-template-columns: 32% 32% 32%;
-    grid-gap: 1em;
-  }
-  
-  
-  
-  @media only screen and (max-width: 600px) {
-  
-    .aside,
-    .article {
-      grid-column: 1 / 4;
-    }
-  }
-  
-  /* Demo Specific Styles */
-  .body {
-    margin: 0 auto;
-    max-width: 100%;
-    padding: 1em 0;
-    margin-top: 140px;
-    margin-bottom: 20px;
-        
-    
-  }
-  
-  .aside,
-  .article,
-  .footer {
-    background: #eaeaea;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    display: inline-block;
-  }
+
+.Normal-Anatomy { grid-area: Normal-Anatomy;
+  text-align:center;
+  font-size:2vw;}
+.Positive-Fast { grid-area: Positive-Fast;
+  text-align:center;
+  font-size:2vw;}
+.Body { grid-area: Body; }
+.Probe-Location { grid-area: Probe-Location; }
+.Probe-Location>h2 {
+  font-size:2vw;
+}
+.Probe-Location>p {
+  font-size:1.5vw;
+}
+.Current-Location { grid-area: Current-Location; }
+
+.ultrasound {
+  height:20vw;
+  width: 35vw;
+}
+
+  #body {
+    height:30vw;
+    padding-left:8vw;
+}
+
+.parent{
+    width:2vw;
+    height:2vw;
+    position:absolute;
+    z-index:0;
+}
+
+#ruqicon {
+  position:absolute;
+  z-index:1;
+  bottom:-12vw;
+  right:-12vw;
+  height:2vw;}
+
+#luqicon {
+  position:absolute;
+  z-index:1;
+  bottom:-12vw;
+  right:-17.5vw;
+  height:2vw;}
+
+#subxicon {
+  position:absolute;
+  z-index:1;
+  bottom:-10.5vw;
+  right:-15vw;
+  height:2vw;}
+
+#bladdericon {
+  position:absolute;
+  z-index:1;
+  bottom:-17vw;
+  right:-15vw;
+  height:2vw;}
+
+#rLungicon {
+  position:absolute;
+  z-index:1;
+  bottom:-8vw;
+  right:-13vw;
+  height:2vw;}
+
+
+#lLungicon {
+  position:absolute;
+  z-index:1;
+  bottom:-8vw;
+  right:-17vw;
+  height:2vw;}
+
   
   .responsive {
     max-width: 100%;
@@ -60,7 +118,7 @@
   }
   
   .example_a, .dropbtn {
-  color: white;
+  color: #000000;
   text-transform: uppercase;
   width: 90%;
   text-decoration: none;

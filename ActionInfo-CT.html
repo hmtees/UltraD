@@ -10,34 +10,61 @@
 
   gtag('config', 'G-VVHMBP13JW');
 </script>
-</head>
+  </head>
 <link rel="stylesheet" href="ActionInfo.css">
-<div class="Tabs">
-    <a href=ActionInfo-Obs.html>Observation</a> | <a href=ActionInfo-CT.html>CT Scan</a> | <a href=ActionInfo-Surgery.html>Surgery</a> | <a href=ActionInfo-Intervene.html>Intervention</a>
+  
+<div class="parent">
+  
+<div class="ANavigation">
+  <a href="ActionInfo-Obs.html">Observation</a>
+  <a class="active" href="ActionInfo-CT.html">CT Scan</a>
+  <a href="ActionInfo-Surgery.html">Surgery</a>
+  <a href="ActionInfo-Intervene.html">Intervention</a>
 </div>
 
-
-
-<div class="Action">
-    <h1 id="reviewAction">
+  
+<div class="Action"> 
+  <h1 id="reviewAction">
         CT Scan
     </h1>
-    <img src="./ProgramFiles/Icons/ctScan.png" class="actionIcon" id="ctIcon">
-</div>
-
-<div class="ctInfo">
-    This is some information about CT scans and how they look for things in the body and their role in trauma. Multiple-word sentences, cited information, and probably some acronyms.
-</div>
-
-
-<div class="Remember">
-    <img src="ProgramFiles/RememberCT.svg">
-</div>
-
-
+  </div>
+  
+<div class="ActionIcon"> 
+  <img src="./ProgramFiles/Icons/ctScan.png" class="ActionIcon" id="ctIcon">
+  </div>
+  
+<div class="ActionInfo"> 
+  This is some information about CT scans and how they look for things in the body and their role in trauma. Multiple-word sentences, cited information, and probably some acronyms.
+  </div>
+  
+<div class="RememberBox"> 
+  <img id="RememberBox" src="ProgramFiles/RememberBoxes/Light/RememberCT.svg">
+  </div>
 
 <div class="Navigation">
-    <a href=Main%20UI.html>Begin Shift</a> | <a href=Progress%20Report.html>Progress Report</a> | <a href="ShiftReview.html">Review Shift</a>
-</div>
+     <a href="Main%20UI.html">Begin Shift<img src="ProgramFiles/Icons/capicon/capicon/png/white/012.png" class="NavIcon"></a>
+     <a href="Progress%20Report.html">Progress Report<img src="ProgramFiles/Icons/capicon/capicon/png/white/135.png" class="NavIcon"></a>
+     <a href="ShiftReview.html">Review Shift<img src="ProgramFiles/Icons/capicon/capicon/png/white/056.png" class="NavIcon"></a>
+  </div>
+  
+  </div>
+</div> 
 
+
+<div class="NavBar">
+        <div class="dropdown">
+          <button onclick="dropdown()" class="NavButton">Actions <img src="./ProgramFiles/Icons/capicon/capicon/png/black/089.png" class="NavIcon"></button>
+          <div id="ActionDropdown" class="dropdown-content">
+            <a href="ActionInfo-Obs.html">Observation</a>
+            <a href="ActionInfo-CT.html">CT Scan</a>
+            <a href="ActionInfo-Surgery.html">Surgery</a>
+            <a href="ActionInfo-Intervene.html">Intervention</a>
+          </div>
+        </div>
+        <a class="NavButton" href="Progress%20Report.html">Progress Report <img src="ProgramFiles/Icons/progress.svg" class="NavIcon"></a>
+        <a class="NavButton" href="ShiftReview.html">Shift Review <img src="ProgramFiles/Icons/server.svg" class="NavIcon"></a>
+        <a class="NavButton" href="Main%20UI.html">New Shift <img src="./ProgramFiles/Icons/capicon/capicon/png/black/076.png" class="NavIcon">
+      </div>
+</div>
+</div>
 </html>

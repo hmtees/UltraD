@@ -20,6 +20,11 @@ $('#score2').text(localStorage.case2Score);
 $('#score3').text(localStorage.case3Score);
 $('#score4').text(localStorage.case4Score);
 $('#score5').text(localStorage.case5Score);
+
+//Firestore Code updates this
+//shiftpoints = +localStorage.case1Score + +localStorage.case2Score + +localStorage.case3Score + +localStorage.case4Score + +localStorage.case5Score;
+//$('#shiftpoints').text(shiftpoints);
+
 //If click shift review, clear local localStorage
 $("#new-shift").click(function() {
   console.log('starting new shift, clearing storage');
@@ -27,6 +32,7 @@ $("#new-shift").click(function() {
     
 
   });
+
 
 //hide shift review links if no data for those shifts yet.
 // Copied from Stack overflow to implement string format function
@@ -73,3 +79,21 @@ collectionRef.orderBy('timestamp', 'desc').limit(1).get().then((querySnapshot) =
       })  
     });
 
+
+  function dropdown() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }

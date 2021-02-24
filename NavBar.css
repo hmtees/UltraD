@@ -1,0 +1,17 @@
+.NavButton {
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background-color:#31BBF6;
+    text-align: center;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:inline-block;
+    color:#ffffff;
+    font-family:Consolas;
+    font-size:2vw;
+    padding:6px 6px;
+    text-decoration:none;
+}
+
+.NavIcon {
+    height:2vw;
+}

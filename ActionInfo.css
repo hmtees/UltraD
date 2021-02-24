@@ -1,33 +1,97 @@
-.Tabs{
-    text-align:center;
+html {background-color: #282b2b;}
+
+/* 
+To-Do:
+Dropdown menu function (copy js from Locationjs - dropdown & edit from there - change 'myFunction' to 'dropdown')
+Center Header
+Navigation Links into Buttons
+*/
+
+.parent {
+font-family: Consolas;
+color:#fcf2c2; 
+}
+
+.ANavigation {
+  background-color: #0096DF;
+  overflow: hidden;
+}
+
+/* Navigation links */
+.ANavigation a {
+  padding: 10px;
+  float: left;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  width: 23%;
+  text-align: center;
+}
+
+/* Add a background color on mouse-over */
+.ANavigation a:hover {
+  background-color: #31BBF6;
+}
+
+/* Style the current/active link */
+.ANavigation a.active {
+  background-color: #4CAF50;
 }
 
 .Action {
-    text-align:center;
+    display: block;
+    text-align: center;
+    font-family: Consolas;
 }
 
-.actionIcon {
+.ActionIcon {
+    display: block;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
     height:10vw;
+    padding: 5px;
+    }
+
+.ActionInfo {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    font-family: Consolas;
 }
 
-.remembericon {
-    height:7vw;
-}
-
-.arrow {
-    height:3vw;
-}
-
-figure>img {
+.RememberBox {
+    display: block;
     margin-left:auto;
     margin-right:auto;
+    width:40vw;
+    padding: 10px;
 }
 
-.Remember {
-    border:solid;
-    border-radius:5px;
-    margin: 1vw;
-    border-width:thick;
-    border-color:purple;
+.Navigation {
+  align-items: center;
+  overflow: auto;
+  width: 100%;
+}
 
+.Navigation a {
+  float: left;
+  display: inline-block;
+  margin: 20px;
+  background-color: #0096DF;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  width: 30%;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.Navigation a:hover {
+  background-color: #31BBF6;
+}
+
+.NavIcon {
+    height:20px;
 }
