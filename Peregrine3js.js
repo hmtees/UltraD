@@ -80,7 +80,7 @@ viewedBladder = false;
 viewedLungL = false;
 viewedLungR = false;
 
-
+/*
 function showActions() {
     let x = document.getElementById("actionBox");
     if (viewedRUQ,viewedLUQ,viewedSubxi,viewedBladder,viewedLungR,viewedLungL === true) {
@@ -88,7 +88,7 @@ function showActions() {
     else {x.style.display = "none";}
 }
 showActions();
-
+*/
 let sec = 0;
 function pad(val) {return val > 9 ? val : "0" + val;}
 let timer = setInterval(function () {
@@ -105,12 +105,28 @@ function record_time(){
   localStorage.seconds = $('#seconds').html()
 }
 
+function record_views() {
+  if (viewedRUQ) {viewcount ++;}
+  if (viewedLUQ) {
+    viewcount ++;}
+  if (viewedSubxi) {
+    viewcount ++;}
+  if (viewedBladder) {
+    viewcount ++;}
+  if (viewedLungL) {
+    viewcount ++;}
+  if (viewedLungR) {
+    viewcount ++;}
+  localStorage.Case3ViewScore = viewcount;
+  console.log("View Count: "+viewcount);
+}
+
+
 function switchLUQ() {
     newLocation = "Left Upper Quadrant";
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
     document.getElementById("activeWindow").src= ("http://drive.google.com/uc?export=view&id=" + luqimg);
     viewedLUQ = true;
-    showActions();
 }
 
 function switchRUQ() {
@@ -118,7 +134,6 @@ function switchRUQ() {
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
     document.getElementById("activeWindow").src= ("http://drive.google.com/uc?export=view&id=" + ruqimg);
     viewedRUQ = true;
-    showActions();
 }
 
 function switchSubxi() {
@@ -126,7 +141,6 @@ function switchSubxi() {
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
     document.getElementById("activeWindow").src= ("http://drive.google.com/uc?export=view&id=" + subximg);
     viewedSubxi = true;
-    showActions();
 }
 
 function switchBladder() {
@@ -134,7 +148,6 @@ function switchBladder() {
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
     document.getElementById("activeWindow").src= ("http://drive.google.com/uc?export=view&id=" + bladderimg);
     viewedBladder = true;
-    showActions();
 }
 
 function switchLungr() {
@@ -142,7 +155,6 @@ function switchLungr() {
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
     document.getElementById("activeWindow").src= ("http://drive.google.com/uc?export=view&id=" + lungrimg);
     viewedLungR = true;
-    showActions();
 }
 
 function switchLungl() {
@@ -150,21 +162,14 @@ function switchLungl() {
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
     document.getElementById("activeWindow").src= ("http://drive.google.com/uc?export=view&id=" + lunglimg);
     viewedLungL = true;
-    showActions();
 }
 
 //location button control
-var header = document.getElementById("locationIcons");
-var btns = header.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function() {
-        var current = document.getElementsByClassName("active");
-        if (current.length > 0) {
-            current[0].className = current[0].className.replace(" active", "");
-        }
-        this.className += " active";
-    });
-}
+$(document).ready(function () {
+	$('button').on('click', function() {
+    $(this).addClass('active');
+  });
+});
 
 //Action Buttons Here
 function actionObs() {
@@ -174,6 +179,7 @@ function actionObs() {
         //something about using cookies & enabling samesite -- error seen bc developing on client side. Might look different when deployed.
     window.location.href = "Outcome3.html";
     record_time(); 
+    record_views();
 }
 
 
@@ -183,6 +189,7 @@ function actionCT() {
     console.log("Action: " + localStorage.case3Action);
     window.location.href = "Outcome3.html";
     record_time(); 
+    record_views();
 }
 
 function actionSurg() {
@@ -191,6 +198,7 @@ function actionSurg() {
     console.log("Action: " + localStorage.case3Action);
     window.location.href = "Outcome3.html";
     record_time(); 
+    record_views();
 }
 
 function actionIntervene() {
@@ -199,4 +207,5 @@ function actionIntervene() {
     console.log("Action: " + localStorage.case3Action);
     window.location.href = "Outcome3.html";
     record_time(); 
+    record_views();
 }

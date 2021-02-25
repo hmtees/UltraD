@@ -85,8 +85,9 @@ viewedSubxi = false;
 viewedBladder = false;
 viewedLungL = false;
 viewedLungR = false;
+viewcount = 0;
 
-
+/*
 function showActions() {
     let x = document.getElementById("actionBox");
     if (viewedRUQ,viewedLUQ,viewedSubxi,viewedBladder,viewedLungR,viewedLungL === true) {
@@ -94,6 +95,7 @@ function showActions() {
     else {x.style.display = "none";}
 }
 //showActions();
+*/
 
 let sec = 0;
 function pad(val) {return val > 9 ? val : "0" + val;}
@@ -112,7 +114,6 @@ function switchLUQ() {
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
     document.getElementById("activeWindow").src= ("http://drive.google.com/uc?export=view&id=" + luqimg);
     viewedLUQ = true;
-    showActions();
 }
 
 function switchRUQ() {
@@ -120,7 +121,6 @@ function switchRUQ() {
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
     document.getElementById("activeWindow").src= ("http://drive.google.com/uc?export=view&id=" + ruqimg);
     viewedRUQ = true;
-    showActions();
 }
 
 function switchSubxi() {
@@ -128,7 +128,6 @@ function switchSubxi() {
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
     document.getElementById("activeWindow").src= ("http://drive.google.com/uc?export=view&id=" + subximg);
     viewedSubxi = true;
-    showActions();
 }
 
 function switchBladder() {
@@ -136,7 +135,6 @@ function switchBladder() {
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
     document.getElementById("activeWindow").src= ("http://drive.google.com/uc?export=view&id=" + bladderimg);
     viewedBladder = true;
-    showActions();
 }
 
 function switchLungr() {
@@ -144,7 +142,6 @@ function switchLungr() {
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
     document.getElementById("activeWindow").src= ("http://drive.google.com/uc?export=view&id=" + lungrimg);
     viewedLungR = true;
-    showActions();
 }
 
 function switchLungl() {
@@ -152,33 +149,44 @@ function switchLungl() {
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
     document.getElementById("activeWindow").src= ("http://drive.google.com/uc?export=view&id=" + lunglimg);
     viewedLungL = true;
-    showActions();
 }
 
 //location button control
-var header = document.getElementById("locationIcons");
-var btns = header.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function() {
-        var current = document.getElementsByClassName("active");
-        if (current.length > 0) {
-            current[0].className = current[0].className.replace(" active", "");
-        }
-        this.className += " active";
-    });
-}
+$(document).ready(function () {
+	$('button').on('click', function() {
+    $(this).addClass('active');
+  });
+});
+
 
 
 function record_time(){
   localStorage.minutes = document.getElementById("minutes").innerHTML;
   localStorage.seconds = $('#seconds').html()}
+
+function record_views() {
+  if (viewedRUQ) {viewcount ++;}
+  if (viewedLUQ) {
+    viewcount ++;}
+  if (viewedSubxi) {
+    viewcount ++;}
+  if (viewedBladder) {
+    viewcount ++;}
+  if (viewedLungL) {
+    viewcount ++;}
+  if (viewedLungR) {
+    viewcount ++;}
+  localStorage.Case1ViewScore = viewcount;
+  console.log("View Count: "+viewcount);
+}
+
 //Action Buttons Here
 function actionObs() {
     localStorage.case1Action = "Observation";
     localStorage.case1Outcome = outcomeObs;
     console.log("Action: " + localStorage.case1Action);
-        //something about using cookies & enabling samesite -- error seen bc developing on client side. Might look different when deployed.
     record_time();
+    record_views();
     window.location.href = "Outcome1.html";
 }
 
@@ -187,7 +195,8 @@ function actionCT() {
     localStorage.case1Action = "CT Scan";
     localStorage.case1Outcome = outcomeCT;
     console.log("Action: " + localStorage.case1Action);
-    record_time()
+    record_time();
+    record_views();
     window.location.href = "Outcome1.html";
 }
 
@@ -195,7 +204,8 @@ function actionSurg() {
     localStorage.case1Action = "Surgery";
     localStorage.case1Outcome = outcomeSurg;
     console.log("Action: " + localStorage.case1Action);
-    record_time()
+    record_time();
+    record_views();
     window.location.href = "Outcome1.html";
 }
 
@@ -203,21 +213,11 @@ function actionIntervene() {
     localStorage.case1Action = "Intervention";
     localStorage.case1Outcome = outcomeInt;
     console.log("Action: " + localStorage.case1Action);
-    record_time()
+    record_time();
+    record_views();
     window.location.href = "Outcome1.html";
 }
 
-//success or fail message
-/*
-if (actionChoice === "CT Scan") {
-    document.getElementById("result").innerText = ("Success!!") //!! to test js fxn
-}
-else {document.getElementById("result").innerText = ("Uh Oh!!");
-}
-*/
-
-//display outcomes on outcome pages
-//if i give outcomes their own js page, how will the ultimate outcome be recorded? 
 var db = firebase.firestore();
 var file_path = '/users/' + localStorage.userId + '/sessions';
 

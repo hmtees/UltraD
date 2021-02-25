@@ -71,6 +71,7 @@ To-Do:
     grid-template-areas:
     "points points"
     "Decision-Making decPoints"
+    "Imaging imagePoints"
     "Time timePoints"
     "Total totalPoints";
     border:dotted;
@@ -79,7 +80,7 @@ To-Do:
     text-align:center;}
 .Decision-Making { grid-area: Decision-Making; }
 .decPoints { grid-area: decPoints; }
-.Image-Acquisition { grid-area: Image-Acquisition; }
+.Imaging { grid-area: Imaging; }
 .Time { grid-area: Time; }
 .Total { grid-area: Total; }
 .imagePoints { grid-area: imagePoints; }

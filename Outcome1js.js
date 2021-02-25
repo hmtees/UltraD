@@ -5,7 +5,9 @@ document.getElementById("diagnosis").innerText = ("Case 1: " + localStorage.case
 document.getElementById("keyImage").src = ("http://drive.google.com/uc?export=view&id=" + localStorage.case1KeyImg);
 
 var time_score = -1*( parseInt(localStorage.minutes)*60 + parseInt(localStorage.seconds));
+var view_score = 20*( (localStorage.Case1ViewScore));
 console.log("time score: " + time_score);
+console.log("view score: " + view_score);
 //Show Result
 if (localStorage.case1Action === localStorage.case1KeyAction)
     {
@@ -51,11 +53,11 @@ if (localStorage.case1KeyAction === "Intervention")
 //Score Calculator
 console.log(decision_score);
 $('#decPoints1').text(decision_score);
-
+$('#imgPoints1').text(view_score);
 $('#timePoints1').text(time_score);
-localStorage.case1Score = time_score + decision_score;
-$('#totalPoints1').text(time_score+decision_score);
-$('#c1points').text(time_score+decision_score+" Points");
+localStorage.case1Score = time_score + decision_score + view_score;
+$('#totalPoints1').text(time_score+decision_score+view_score);
+$('#c1points').text(time_score+decision_score+view_score+" Points");
 
 var db = firebase.firestore();
 console.log('userId:' + localStorage.userId)
@@ -78,14 +80,14 @@ collectionRef.orderBy('timestamp', 'desc').limit(1).get().then((querySnapshot) =
         var sessionRef = db.collection(session_file_path).doc(sessionID)
         sessionRef.update({
             case_count : 1,
-            session_score : time_score + decision_score,
+            session_score : total_score,
             possible_points : 400
         })
         // get the session ID, go to the cases there. Set the case number and the score
         var session_file_path = '/users/' + localStorage.userId +'/sessions/' + sessionID +'/cases'
         // this works, but it feels bad
         db.collection(session_file_path).doc('case1').set({
-            score : time_score + decision_score,
+            score : total_score,
             case_number : parseInt(localStorage.caseNum)
         })
         var user_file_path = '/users'

@@ -1,5 +1,12 @@
 html {background-color:#282b2b}
 
+/* 
+To-Do:
+Body Buttons
+    Color on viewed
+*/
+
+
 .home {
         display: grid;
         grid-template-columns: 20% 20% 20% 20% 20%;
@@ -59,8 +66,8 @@ html {background-color:#282b2b}
 
 .UI-container {
     display: grid;
-    grid-template-columns: 8% 10% 14% 14% 14% 27% 10%;
-    grid-template-rows: 7% 21% 21% 21% 2% 5% 5% 10%;
+    grid-template-columns: 8vw 10vw 14vw 14vw 14vw 27vw 10vw;
+    grid-template-rows: 5vh 20vh 20vh 20vh 1vh 10vh 10vh 10vh;
     gap: 1px 1px;
     grid-template-areas:
     "Help . Location Location Location Location time"
@@ -73,9 +80,10 @@ html {background-color:#282b2b}
     ". Case-Details Case-Details Case-Details . Vitals .";
     font-family:consolas;
 }
+
 .Help { grid-area: Help;}
 
-#help {    height: 3vw;}
+#help { height: 3vw;}
 
 .Body { grid-area: Body;}
 
@@ -86,52 +94,51 @@ html {background-color:#282b2b}
 }
 
 #bodyImage{
-    height:30vw;
-    object-fit:cover;
-}
-#ruqicon {
-    position:absolute;
-    z-index:1;
-    bottom: 21vw;
-    right:9.5vw;
-    height:2vw;
+    height:31vw;
 }
 
-#luqicon {
-    position:absolute;
-    z-index:1;
-    bottom:21vw;
-    right:5vw;
-    height:2vw;}
+#rLungicon,#lLungicon,#subxicon,#ruqicon,#luqicon,#bladdericon {
+   z-index:1;
+   height:2vw;;
+}
 
-#subxicon {
-    position:absolute;
-    z-index:1;
-    bottom:23vw;
-    right:7.25vw;
-    height:2vw;}
-
-#bladdericon {
-    position:absolute;
-    z-index:1;
-    bottom:16vw;
-    right:7.25vw;
-    height:2vw;}
 
 #rLungicon {
     position:absolute;
-    z-index:1;
-    bottom:26vw;
-    right:9.5vw;
-    height:2vw;}
+    bottom:24vw;
+    right:8.75vw;}
 
 
 #lLungicon {
     position:absolute;
     z-index:1;
-    bottom:26vw;
-    right:5vw;
-    height:2vw;}
+    bottom:24vw;
+    right:4.75vw;}
+
+#subxicon {
+    position:absolute;
+    z-index:1;
+    bottom:21vw;
+    right:6.5vw;}
+
+#ruqicon {
+    position:absolute;
+    z-index:1;
+    bottom: 19vw;
+    right:8.75vw;;
+}
+
+#luqicon {
+    position:absolute;
+    z-index:1;
+    bottom:19vw;
+    right:4.75vw;}
+
+#bladdericon {
+    position:absolute;
+    z-index:1;
+    bottom:15vw;
+    right:6.5vw;}
 
 
 .Ultrasound { grid-area: Ultrasound; }
@@ -148,7 +155,7 @@ html {background-color:#282b2b}
     margin-top: 0;
     padding-top:0;
     text-align:center;
-    font-size: 2.7vw;
+    font-size: 2.5vw;
     color:#FCFDC2
 }
 
@@ -202,22 +209,29 @@ html {background-color:#282b2b}
     align-content:center;
     margin-left:3vw;
     padding-left:3vw;
-    font-size:2.5vw;
     background-color: rgba(156, 229, 165, 0.15);
     color:#ffffff;
 }
 .Vital-Signs { grid-area: Vital-Signs;
-    font-size:1.5vw;
 }
 .Vital-Signs>h3 {
     text-align:center;
-    margin-top:0px;
-    padding-top:0px;
+    margin:0 auto 1vw auto;
+    padding-top:0;
     color:#FCFDC2;
+    font-size:3vw;
 }
 .BP,.HR,.T,.O2 {
     font-size:2vw;
-    color:#eff0e2
+    color:#eff0e2;
+}
+
+.Case-Details>h3 {
+    color:#FCFDC2;
+    text-align: center;
+    margin: 0 auto 0 auto;
+    font-size:3vw;
+    padding-top:0;
 }
 
 .BP { grid-area: BP;}
@@ -230,12 +244,7 @@ html {background-color:#282b2b}
     border-radius:1vw;
     border-color:#eff0e2;
 }
-.Case-Details>h3 {
-    text-align:center;
-    margin-top:3px;
-    margin-bottom: auto;
-    color:#FCFDC2;
-}
+
 .Case-Details>p {
     font-size: 1.5vw;
     padding: 0 1vw 0 1vw;
@@ -247,6 +256,10 @@ html {background-color:#282b2b}
     text-align: center;
     }
 
-.active, .btn:hover {
-    background-color: #1e6cdc;
+.btn:hover {
+    background-color:#1e6cdc;
 }
+
+.active{
+    background-color:#FF3500;
+  }

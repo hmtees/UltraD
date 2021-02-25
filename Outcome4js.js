@@ -2,6 +2,8 @@
 document.getElementById("diagnosis").innerText = ("Case 4: " + localStorage.case4Title);
 document.getElementById("keyImage").src = ("http://drive.google.com/uc?export=view&id=" + localStorage.case4KeyImg);
 var time_score = -1*( parseInt(localStorage.minutes)*60 + parseInt(localStorage.seconds));
+var view_score = 20*( (localStorage.Case1ViewScore));
+
 //Show Result
 if (localStorage.case4Action === localStorage.case4KeyAction)
     {
@@ -48,11 +50,12 @@ if (localStorage.case4KeyAction === "Surgery")
 if (localStorage.case4KeyAction === "Intervention")
     {document.getElementById("rememberBox").src= './ProgramFiles/RememberBoxes/Light/RememberInt.svg'};
 //Score Calculator
-$('#decPoints1').text(decision_score);
-
-$('#timePoints1').text(time_score);
-localStorage.case4Score = time_score + decision_score;
-$('#totalPoints1').text(time_score+decision_score);
+$('#decPoints4').text(decision_score);
+$('#imgPoints4').text(view_score);
+$('#timePoints4').text(time_score);
+localStorage.case4Score = time_score + decision_score+ view_score;
+$('#totalPoints4').text(time_score+decision_score+ view_score);
+$('#c4points').text(time_score+decision_score+view_score+" Points");
 
 var sessionID;
 var file_path = '/users/' + localStorage.userId +'/sessions'
@@ -70,25 +73,22 @@ collectionRef.orderBy('timestamp', 'desc').limit(1).get().then((querySnapshot) =
         var sessionRef = db.collection(session_file_path).doc(sessionID)
         sessionRef.update({
             case_count: firebase.firestore.FieldValue.increment(1),
-            session_score : firebase.firestore.FieldValue.increment(time_score+decision_score),
+            session_score : firebase.firestore.FieldValue.increment(total_score),
             possible_points : firebase.firestore.FieldValue.increment(400)
         });
         // get the session ID, go to the cases there. Set the case number and the score
         var session_file_path = '/users/' + localStorage.userId +'/sessions/' + sessionID +'/cases'
         // this works, but it feels bad
         db.collection(session_file_path).doc('case4').set({
-            score : time_score + decision_score,
+            score : total_score,
             case_number : parseInt(localStorage.caseNum)
         })  
         var user_file_path = '/users'
         db.collection(user_file_path).doc(localStorage.userId).update({
-            total_score: firebase.firestore.FieldValue.increment(time_score+decision_score),
+            total_score: firebase.firestore.FieldValue.increment(total_score),
             total_cases: firebase.firestore.FieldValue.increment(1),
             total_possible_points: firebase.firestore.FieldValue.increment(400)
         })  
     });
 
 })
-
-$('#c4points').text(time_score+decision_score+" Points");
-
