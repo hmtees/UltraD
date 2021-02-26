@@ -21,9 +21,7 @@ function readData(data) {
     for (var j = 0; j < JSONrow.length; j++) {
       val = JSONrow[j].split(':')[1];
       row[j] = val;
-    if (i !== 0) {
     	title = row[0];
-    }
     }
       drawDiv(row, title, "#caseDetails");
     
