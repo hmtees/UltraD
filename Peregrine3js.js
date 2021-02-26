@@ -31,7 +31,6 @@ function readData(data) {
 function drawDiv(divData, thehistory, parent) {
   if (divData == null) return null;
 
-  console.log("Case: " + title);
   localStorage.case3Title = title;
   console.log("Case 3: " + localStorage.case3Title);
   scenario = $.trim(divData[1]);
@@ -77,7 +76,7 @@ viewedSubxi = false;
 viewedBladder = false;
 viewedLungL = false;
 viewedLungR = false;
-
+viewcount = 0;
 /*
 function showActions() {
     let x = document.getElementById("actionBox");

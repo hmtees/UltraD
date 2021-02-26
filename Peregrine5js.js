@@ -76,7 +76,7 @@ viewedSubxi = false;
 viewedBladder = false;
 viewedLungL = false;
 viewedLungR = false;
-
+viewcount = 0;
 /*
 function showActions() {
     let x = document.getElementById("actionBox");

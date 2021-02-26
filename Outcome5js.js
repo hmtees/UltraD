@@ -57,7 +57,6 @@ $('#totalPoints5').text(time_score+decision_score+ view_score);
 $('#c5points').text(time_score+decision_score+view_score+" Points");
 
 
-console.log(localStorage.case5KeyAction, localStorage.case5KeyAction)
 var sessionID;
 var file_path = '/users/' + localStorage.userId +'/sessions'
 var db = firebase.firestore();

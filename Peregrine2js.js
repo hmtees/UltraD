@@ -31,7 +31,6 @@ function readData(data) {
 function drawDiv(divData, thehistory, parent) {
   if (divData == null) return null;
 
-  console.log("Case: " + title);
   localStorage.case2Title = title;
   console.log("Case 2: " + localStorage.case2Title);
   scenario = $.trim(divData[1]);
