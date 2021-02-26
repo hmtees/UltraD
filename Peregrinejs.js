@@ -23,7 +23,7 @@ function readData(data) {
   //console.log(i, ':i');
     var JSONrow = partfeed[i].content.$t.split(',');
     var row = [];
-   console.log('the Current Case Data is: ' + JSONrow);
+   //console.log('the Current Case Data is: ' + JSONrow);
     for (var j = 0; j < JSONrow.length; j++) {
       val = JSONrow[j].split(':')[1];
       row[j] = val;
