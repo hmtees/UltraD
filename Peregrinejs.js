@@ -19,10 +19,11 @@ function readData(data) {
   // random number for the row where the case will be pulled from
   var i = 0 + Math.floor(Math.random() * length2);
   localStorage.caseNum = i;
+  console.log("Case No: "+i);
   //console.log(i, ':i');
     var JSONrow = partfeed[i].content.$t.split(',');
     var row = [];
-   // console.log('the Current Case Data is: ' + JSONrow);
+   console.log('the Current Case Data is: ' + JSONrow);
     for (var j = 0; j < JSONrow.length; j++) {
       val = JSONrow[j].split(':')[1];
       row[j] = val;
@@ -40,7 +41,6 @@ function drawDiv(divData, thehistory, parent, loc) {
 
   console.log("Case: " + title);
   localStorage.case1Title = title;
-  console.log("Case 1: " + localStorage.case1Title);
   scenario = $.trim(divData[1]);
   age = $.trim(divData[2]);
   gender = $.trim(divData[3]);
@@ -64,7 +64,7 @@ function drawDiv(divData, thehistory, parent, loc) {
   localStorage.case1KeyImg = keyImg;
   keyLocation = $.trim(divData[21]);
   localStorage.case1KeyLoc = keyLocation;
-  console.log(localStorage.case1KeyLoc);
+  console.log("Key Location: "+localStorage.case1KeyLoc);
   keyAction = $.trim(divData[22]);
   localStorage.case1KeyAction = keyAction;
   console.log("Key Action: " + localStorage.case1KeyAction);
