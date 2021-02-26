@@ -92,7 +92,7 @@ collectionRef.orderBy('timestamp', 'desc').limit(1).get().then((querySnapshot) =
         })
         var user_file_path = '/users'
         db.collection(user_file_path).doc(localStorage.userId).update({
-            total_score: firebase.firestore.FieldValue.increment(time_score+decision_score),
+            total_score: firebase.firestore.FieldValue.increment(total_score),
             total_cases: firebase.firestore.FieldValue.increment(1),
             total_possible_points: firebase.firestore.FieldValue.increment(400)
         })   
