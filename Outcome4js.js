@@ -73,19 +73,19 @@ collectionRef.orderBy('timestamp', 'desc').limit(1).get().then((querySnapshot) =
         var sessionRef = db.collection(session_file_path).doc(sessionID)
         sessionRef.update({
             case_count: firebase.firestore.FieldValue.increment(1),
-            session_score : firebase.firestore.FieldValue.increment(total_score),
+            session_score : firebase.firestore.FieldValue.increment(time_score+decision_score+view_score),
             possible_points : firebase.firestore.FieldValue.increment(400)
         });
         // get the session ID, go to the cases there. Set the case number and the score
         var session_file_path = '/users/' + localStorage.userId +'/sessions/' + sessionID +'/cases'
         // this works, but it feels bad
         db.collection(session_file_path).doc('case4').set({
-            score : total_score,
+            score : time_score+decision_score+view_score,
             case_number : parseInt(localStorage.caseNum)
         })  
         var user_file_path = '/users'
         db.collection(user_file_path).doc(localStorage.userId).update({
-            total_score: firebase.firestore.FieldValue.increment(total_score),
+            total_score: firebase.firestore.FieldValue.increment(time_score+decision_score+view_score),
             total_cases: firebase.firestore.FieldValue.increment(1),
             total_possible_points: firebase.firestore.FieldValue.increment(400)
         })  
