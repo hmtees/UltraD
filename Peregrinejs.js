@@ -14,7 +14,7 @@ $(document).ready(function() {
 function readData(data) {
   var partfeed = data.feed.entry;
   var divData = [];
-  var length2 = Object.keys(partfeed).length-1;
+  var length2 = Object.keys(partfeed).length;
   //console.log(length2);
   // random number for the row where the case will be pulled from
   var i = 0 + Math.floor(Math.random() * length2);
