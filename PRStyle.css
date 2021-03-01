@@ -143,6 +143,10 @@ b {
   /*top: 56px; // change this value to one that suits you 
 }
 */
+.Ultrasound {
+  width: 5vw;
+}
+
 #ruqicon {
  position: absolute;
  z-index: 1;
