@@ -1,4 +1,5 @@
 //Connect to the firestore
+var db = firebase.firestore();
 
 //display case title & Key Image
 document.getElementById("diagnosis").innerText = ("Case 1: " + localStorage.case1Title);
@@ -13,10 +14,16 @@ if (localStorage.case1Action === localStorage.case1KeyAction)
     {
         document.getElementById("result").innerText = "Success!!";
         var decision_score =400;
+        var file_path = '/users/' + localStorage.userId + '/Actions/' + localStorage.case1KeyAction
+        docRef = db.doc(file_path)
+        addScore(docRef, 'correct')
     }
     else {
         document.getElementById("result").innerText = "Uh Oh...";
         var decision_score =100;
+        var file_path = '/users/' + localStorage.userId + '/Actions/' + localStorage.case1KeyAction
+        docRef = db.doc(file_path)
+        addScore(docRef, 'incorrect')
     }
 //Show Action Taken
 document.getElementById("action").innerHTML = localStorage.case1Action;
@@ -59,7 +66,6 @@ localStorage.case1Score = time_score + decision_score + view_score;
 $('#totalPoints1').text(time_score+decision_score+view_score);
 $('#c1points').text(time_score+decision_score+view_score+" Points");
 
-var db = firebase.firestore();
 console.log('userId:' + localStorage.userId)
 
 //go to the sessions collection for current user
@@ -91,11 +97,21 @@ collectionRef.orderBy('timestamp', 'desc').limit(1).get().then((querySnapshot) =
             case_number : parseInt(localStorage.caseNum)
         })
         var user_file_path = '/users'
+        var correct = localStorage.case1Action === localStorage.case1KeyAction
+        if (correct){
+            db.collection(user_file_path).doc(localStorage.userId).update({
+                total_correct: firebase.firestore.FieldValue.increment(1),
+                total_score: firebase.firestore.FieldValue.increment(time_score+decision_score+view_score),
+                total_cases: firebase.firestore.FieldValue.increment(1),
+                total_possible_points: firebase.firestore.FieldValue.increment(400)
+            }) 
+        }else{
         db.collection(user_file_path).doc(localStorage.userId).update({
             total_score: firebase.firestore.FieldValue.increment(time_score+decision_score+view_score),
             total_cases: firebase.firestore.FieldValue.increment(1),
             total_possible_points: firebase.firestore.FieldValue.increment(400)
-        })   
+        })  
+    } 
     });
 
 })
@@ -106,3 +122,42 @@ collectionRef.orderBy('timestamp', 'desc').limit(1).get().then((querySnapshot) =
 //washingtonRef.update({
 //    population: firebase.firestore.FieldValue.increment(50)
 //});
+
+//Function for adding the correct or incorrect actions to the database
+function addScore(docRef, status) {
+
+    // In a transaction, add the new rating and update the aggregate totals
+    return db.runTransaction((transaction) => {
+        return transaction.get(docRef).then((result) => {
+            if (!result.exists) {
+                throw "Document does not exist!";
+            }
+            // Compute new number of ratings
+            if (!result.data().hasOwnProperty('KeyActionCount')){
+                var KeyActionCount =  1;
+
+            }else{
+                var KeyActionCount = result.data().KeyActionCount + 1;
+            }
+            // Compute new average rating
+
+            if ( status == 'correct'){
+                if (!result.data().hasOwnProperty('Correct')){
+                    var correctCount = 1
+                }
+                else{var correctCount = result.data().Correct
+                    correctCount ++
+                    console.log('is this the problem' + correctCount)
+                }
+            }else {var correctCount = result.data().Correct}
+            var percentCorrect = correctCount / KeyActionCount;
+
+            // Commit to Firestore
+            transaction.update(docRef, {
+                Correct: correctCount,
+                KeyActionCount: KeyActionCount,
+                percentCorrect : percentCorrect
+            });
+        });
+    });
+}
