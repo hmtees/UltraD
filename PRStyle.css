@@ -15,7 +15,7 @@ b {
 
 .ProgressReportBox {
  display: grid;
- grid-template: 8vw 11vw 18vw 20vw 15vw 10vw / 20vw 15vw 5vw 20vw 15vw 15vw;
+ grid-template: 8vw 11vw 18vw 20vw 20vw 10vw / 20vw 15vw 5vw 20vw 15vw 15vw;
  gap: 1vw 1vw;
  grid-template-areas:
    ". . Logo Logo . ."
