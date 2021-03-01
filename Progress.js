@@ -60,6 +60,7 @@ userRef.get().then((doc)=>{
   console.log(user_data.total_cases)
   $('#case-count').text(user_data.total_cases)
   $('#total-score').text(user_data.total_score)
+  $('#score-average').text(user_data.total_score/user_data.total_cases)
 });
 
 var file_path_actions = '/users/' + localStorage.userId +'/Actions'
