@@ -15,8 +15,8 @@ b {
 
 .ProgressReportBox {
  display: grid;
- grid-template: 8vw 15vw 18vw 20vw 15vw 10vw / 17vw 15vw 10vw 10vw 10vw 10vw;
- gap: 15px 15px;
+ grid-template: 8vw 11vw 18vw 20vw 15vw 10vw / 20vw 15vw 5vw 20vw 15vw 15vw;
+ gap: 1vw 1vw;
  grid-template-areas:
    ". . Logo Logo . ."
    "Title Title Title Title Title Title"
@@ -24,7 +24,6 @@ b {
    "Category ActionBreakdown . LocationBreakdown LocationReveal LocationReveal"
    "Category ActionBreakdown . LocationBreakdown LocationReveal LocationReveal"
    "Navigation Navigation Navigation Navigation Navigation Navigation";
- padding: 5vw 5vw 5vw 5vw;
  font-family:consolas;
  color:#FCFDC2;
 }
@@ -42,10 +41,12 @@ b {
  text-align: center;
  font-size: 3.5vw;
  color: #E57200;
- font-weight: 150;
  background-color: #0096DF;
  border: 4px solid #FF3500;
  border-radius: 8px;
+}
+.Title h1 {
+  margin:0 0 0 0;
 }
 
 .ScoreData {
@@ -102,7 +103,7 @@ b {
 
 .Navigation {
   grid-area: Navigation;
-  grid-template-columns: 15vw 20vw 23vw 25vw;
+  grid-template-columns: 15vw 20vw 20vw 15vw;
   gap: 0px 0px;
   grid-template-areas:
   ". New-Shift Review-Set .";
