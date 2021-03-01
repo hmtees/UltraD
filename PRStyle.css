@@ -101,6 +101,10 @@ b {
  font-size: 2vw;
 }
 
+.ActionIcon {
+  width:3vw;
+}
+
 .Navigation {
   grid-area: Navigation;
   grid-template-columns: 15vw 20vw 20vw 15vw;
@@ -145,7 +149,7 @@ b {
 }
 */
 .Ultrasound {
-  width: 5vw;
+  width: 10vw;
 }
 
 #ruqicon {
