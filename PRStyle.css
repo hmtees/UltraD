@@ -13,6 +13,10 @@ b {
  font-weight: 900;
 }
 
+a:visited {
+  color:#FCFDC2
+}
+
 .ProgressReportBox {
  display: grid;
  grid-template: 8vw 11vw 18vw 6vw 38vw 10vw / 24vw 15vw 1vw 20vw 15vw 15vw;
@@ -34,7 +38,7 @@ align-content: center;
   }
 
 .Logo img {
- width: 10vw;
+ width: 7vw;
 }
 
 .Title {
@@ -152,6 +156,21 @@ align-content: center;
  text-align: center;
 }
 
+#obsButton {
+  background-color:#9CE5A3;
+}
+
+#ctButton {
+  background-color:#31BBF6;
+}
+
+#surgeryButton {
+  background-color:#fc4f4f;
+}
+
+#interveneButton {
+  background-color:#F6B331;
+}
 
 #body {
  height: 20vw;
