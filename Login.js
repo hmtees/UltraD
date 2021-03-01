@@ -78,7 +78,11 @@ $('#loginForm').submit(function() {
         user = firebase.auth().currentUser
         localStorage.userId = (user.uid);
         //There's a much better way to do this using node.js, but for now this at least works. 
-        db.collection('users').doc(user.uid).set({email: user.email}).then( function(user) {window.location.replace("./Main%20UI.html")});
+        db.collection('users').doc(user.uid).set({email: user.email})
+        db.collection('users').doc(user.uid).collection('Actions').doc('Surgery').set({Correct:0})
+        db.collection('users').doc(user.uid).collection('Actions').doc('CT Scan').set({Correct:0})
+        db.collection('users').doc(user.uid).collection('Actions').doc('Intervention').set({Correct:0})
+        db.collection('users').doc(user.uid).collection('Actions').doc('Observation').set({Correct:0}).then( function(user) {window.location.replace("./Main%20UI.html")});
       }, function(error) {
         printErrorMessage(error, email, pwd, re_pwd)
       })
