@@ -15,13 +15,13 @@ b {
 
 .ProgressReportBox {
  display: grid;
- grid-template: 8vw 11vw 18vw 20vw 20vw 10vw / 24vw 15vw 1vw 20vw 15vw 15vw;
+ grid-template: 8vw 11vw 18vw 6vw 38vw 10vw / 24vw 15vw 1vw 20vw 15vw 15vw;
  gap: 1vw 1vw;
  grid-template-areas:
    ". . Logo Logo . ."
    "Title Title Title Title Title Title"
    "ScoreData ScoreData ScoreData MostMissed MostMissed MostMissed"
-   "Category ActionBreakdown . LocationBreakdown LocationReveal LocationReveal"
+   "Category ScoreTitle . LocationBreakdown LocationReveal LocationReveal"
    "Category ActionBreakdown . LocationBreakdown LocationReveal LocationReveal"
    "Navigation Navigation Navigation Navigation Navigation Navigation";
  font-family:consolas;
@@ -48,6 +48,11 @@ align-content: center;
 }
 .Title h1 {
   margin:0 0 0 0;
+}
+
+.ScoreTitle {
+  grid-area: ScoreTitle;
+  font-size: 2vw;
 }
 
 .ScoreData {
@@ -80,8 +85,31 @@ align-content: center;
 
 .ActionBreakdown {
  grid-area: ActionBreakdown;
- font-size: 2vw;
+ font-size: 3vw;
  text-align: center;
+ grid-template-rows: 25% 25% 25% 25%;
+  gap: 0px 0px;
+  grid-template-areas:
+  "ObsScore"
+  "CTScore" 
+  "SurgScore" 
+  "IntScore";
+  align-items: center;
+  display:grid;
+}
+
+.ObsScore {
+  grid-area: ObsScore;
+}
+
+.CTScore {
+  grid-area: CTScore;
+}
+.SurgScore {
+  grid-area: SurgScore;
+}
+.IntScore {
+  grid-area: IntScore;
 }
 
 .ClassAverage {
