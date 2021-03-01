@@ -81,11 +81,10 @@ db.collection(file_path_actions).orderBy('percentCorrect').limit(1)
   querySnapshot.forEach((doc)=>{
     $('#missedActionText').html(doc.id)
     if(doc.id = 'CT Scan'){
-
       $('#missedActionLink').attr('href','ActionInfo-CT.html')
-    }else if(doc.id = 'Interverntion'){
+    }else if(doc.id = 'Intervention'){
       $('#missedActionLink').attr('href','ActionInfo-Intervene.html')
-    }else if (doc.id = 'Ovservation'){
+    }else if (doc.id = 'Observation'){
       $('#missedActionLink').attr('href','ActionInfo-Obs.html')
     }else { 
     $('#missedActionLink').attr('href','ActionInfo-Surgery.html')
