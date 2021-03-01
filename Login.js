@@ -73,13 +73,18 @@ $('#loginForm').submit(function() {
       alert("Passwords do not match.");
     } else {
       // Register the user with the Firebase API (NOTE: auto logs in)
-      firebase.auth().createUserWithEmailAndPassword(email, pwd).then(function(user) {
-        window.location.replace("./Main%20UI.html");
+      firebase.auth().createUserWithEmailAndPassword(email, pwd).then(function(userCredential) {
+        var db = firebase.firestore();
+        user = firebase.auth().currentUser
+        localStorage.userId = (user.uid);
+        //There's a much better way to do this using node.js, but for now this at least works. 
+        db.collection('users').doc(user.uid).set({email: user.email}).then( function(user) {window.location.replace("./Main%20UI.html")});
       }, function(error) {
         printErrorMessage(error, email, pwd, re_pwd)
-      });
+      })
     }
   }
+
   
   // ERROR MESSAGES
   function printErrorMessage(error, email, pwd, re_pwd) {
