@@ -196,9 +196,6 @@ align-content: center;
   /*top: 56px; // change this value to one that suits you 
 }
 */
-.Ultrasound {
-  width: 100vw;
-}
 
 #ruqicon {
  position: absolute;
@@ -250,7 +247,7 @@ align-content: center;
 
 .LocationReveal img {
  grid-area: LocationReveal;
- Width: 12vw;
+ Width: 25vw;
  Height: Auto;
  position: static;
 }
