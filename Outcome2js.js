@@ -13,16 +13,16 @@ console.log(time_score);
 //Show correct Remember Box
 if (localStorage.case2Action === localStorage.case2KeyAction)
     {
-        document.getElementById("result").innerText = "Success!!";
+   document.getElementById("result").innerText = "Success!!";
         var decision_score =400;
-        var file_path = '/users/' + localStorage.userId + '/Actions/' + localStorage.case1KeyAction
+        var file_path = '/users/' + localStorage.userId + '/Actions/' + localStorage.case2KeyAction
         docRef = db.doc(file_path)
         addScore(docRef, 'correct')
     }
     else {
         document.getElementById("result").innerText = "Uh Oh...";
         var decision_score =100;
-        var file_path = '/users/' + localStorage.userId + '/Actions/' + localStorage.case1KeyAction
+        var file_path = '/users/' + localStorage.userId + '/Actions/' + localStorage.case2KeyAction
         docRef = db.doc(file_path)
         addScore(docRef, 'incorrect')
     }
@@ -94,11 +94,21 @@ collectionRef.orderBy('timestamp', 'desc').limit(1).get().then((querySnapshot) =
             case_number : parseInt(localStorage.caseNum)
         }) 
         var user_file_path = '/users'
+        var correct = localStorage.case2Action === localStorage.case2KeyAction
+        if (correct){
+            db.collection(user_file_path).doc(localStorage.userId).update({
+                total_correct: firebase.firestore.FieldValue.increment(1),
+                total_score: firebase.firestore.FieldValue.increment(time_score+decision_score+view_score),
+                total_cases: firebase.firestore.FieldValue.increment(1),
+                total_possible_points: firebase.firestore.FieldValue.increment(400)
+            }) 
+        }else{
         db.collection(user_file_path).doc(localStorage.userId).update({
             total_score: firebase.firestore.FieldValue.increment(time_score+decision_score+view_score),
             total_cases: firebase.firestore.FieldValue.increment(1),
             total_possible_points: firebase.firestore.FieldValue.increment(400)
-        })   
+        })  
+    } 
     });
 
 })

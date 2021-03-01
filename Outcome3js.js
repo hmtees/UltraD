@@ -5,7 +5,7 @@ document.getElementById("diagnosis").innerText = ("Case 3: " + localStorage.case
 document.getElementById("keyImage").src = ("https://drive.google.com/uc?export=view&id=" + localStorage.case3KeyImg);
 
 var time_score = -1*( parseInt(localStorage.minutes)*60 + parseInt(localStorage.seconds));
-var view_score = 20*( (localStorage.Case1ViewScore));
+var view_score = 20*( (localStorage.Case3ViewScore));
 
 console.log(time_score);
 //Show Result
@@ -13,14 +13,14 @@ if (localStorage.case3Action === localStorage.case3KeyAction)
     {
         document.getElementById("result").innerText = "Success!!";
         var decision_score =400;
-        var file_path = '/users/' + localStorage.userId + '/Actions/' + localStorage.case1KeyAction
+        var file_path = '/users/' + localStorage.userId + '/Actions/' + localStorage.case3KeyAction
         docRef = db.doc(file_path)
         addScore(docRef, 'correct')
     }
     else {
         document.getElementById("result").innerText = "Uh Oh...";
         var decision_score =100;
-        var file_path = '/users/' + localStorage.userId + '/Actions/' + localStorage.case1KeyAction
+        var file_path = '/users/' + localStorage.userId + '/Actions/' + localStorage.case3KeyAction
         docRef = db.doc(file_path)
         addScore(docRef, 'incorrect')
     }
@@ -90,11 +90,21 @@ collectionRef.orderBy('timestamp', 'desc').limit(1).get().then((querySnapshot) =
             case_number : parseInt(localStorage.caseNum)
         })
         var user_file_path = '/users'
+        var correct = localStorage.case3Action === localStorage.case3KeyAction
+        if (correct){
+            db.collection(user_file_path).doc(localStorage.userId).update({
+                total_correct: firebase.firestore.FieldValue.increment(1),
+                total_score: firebase.firestore.FieldValue.increment(time_score+decision_score+view_score),
+                total_cases: firebase.firestore.FieldValue.increment(1),
+                total_possible_points: firebase.firestore.FieldValue.increment(400)
+            }) 
+        }else{
         db.collection(user_file_path).doc(localStorage.userId).update({
             total_score: firebase.firestore.FieldValue.increment(time_score+decision_score+view_score),
             total_cases: firebase.firestore.FieldValue.increment(1),
             total_possible_points: firebase.firestore.FieldValue.increment(400)
-        })    
+        })  
+    } 
     });
 
 })
