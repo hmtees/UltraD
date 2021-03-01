@@ -72,7 +72,7 @@ collectionRef.orderBy('timestamp', 'desc').limit(1).get().then((querySnapshot) =
           $('#shift-score').text(session_data.session_score)
           console.log(session_data.case_count)
           $('#case-count').text(session_data.case_count)
-          $('#Accuracy').text(session_data.session_score/session_data.possible_points)
+          $('#Accuracy').text(session_data.session_score/session_data.case_count)
           
         })
  

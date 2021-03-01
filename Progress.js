@@ -49,6 +49,7 @@ var file_path = '/users/'
 var db = firebase.firestore();
 
 
+//showing User Stats
 userRef = db.collection(file_path).doc(localStorage.userId)
         // get session data
 userRef.get().then((doc)=>{
