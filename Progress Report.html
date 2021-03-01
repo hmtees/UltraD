@@ -71,27 +71,19 @@
     </div>
 
     <div class="Category">
-      <h2>Action Category</h2>
-      <h3><a href="ActionInfo-Obs.html">Observation</a>:</h3>
-      <h3><a href="ActionInfo-CT.html">CT Scan</a>:</h3>
-      <h3><a href="ActionInfo-Surgery.html">Surgery</a>:</h3>
-      <h3><a href="ActionInfo-Intervene.html">Intervention</a>:</h3>
+      <h2>Actions</h2>
+      <h3><a href="ActionInfo-Obs.html" class="NavButton">Observation</a></h3>
+      <h3><a href="ActionInfo-CT.html" class="NavButton">CT Scan</a></h3>
+      <h3><a href="ActionInfo-Surgery.html" class="NavButton">Surgery</a></h3>
+      <h3><a href="ActionInfo-Intervene.html" class="NavButton">Intervention</a></h3>
     </div>
 
     <div class="ActionBreakdown">
-      <h2>Your Scores</h2>
-      <h3>98%</h3>
-      <h3>73%</h3>
-      <h3>96%</h3>
-      <h3>80%</h3>
-    </div>
-
-    <div class="ClassAverage">
-      <h2>Class Average</h2>
-      <h3>84%</h3>
-      <h3>81%</h3>
-      <h3>83%</h3>
-      <h3>82%</h3>
+      <h2>Scores</h2>
+      <h3 id="ObsScore">98%</h3>
+      <h3 id="CTScore">73%</h3>
+      <h3 id="SurgScore">96%</h3>
+      <h3 id="IntScore">80%</h3>
     </div>
 
     <div class="LocationBreakdown">
@@ -107,10 +99,9 @@
         </div>
       </div>
     </div>
-<!-- SHOW THIS ON HOVER
     <div class="LocationReveal">
       <h2>Exam Image</h2>
-      <div class="XRayImages">
+      <div class="USImages">
         <img id="RightLungImage" src="/USLibrary/gifs/normal-lung-slide.gif">
         <img id="LeftLungImage" src="/USLibrary/gifs/ptx2.gif">
         <img id="SubXImage" src="/USLibrary/gifs/subxi-nl-1.gif">
@@ -119,33 +110,21 @@
         <img id="BladderImage" src="/USLibrary/gifs/bladder-nl-c7.gif">
       </div>
     </div>
- -->
     <div class="Navigation">
-        <div class="dropdown">
-          <button onclick="dropdown()" class="dropbtn">Locations <img src="./ProgramFiles/Icons/capicon/capicon/png/black/038.png" class="NavIcon"></button>
-          <div id="myDropdown" class="dropdown-content">
-            <a href="Location-RUQ.html">Right Upper Quadrant</a>
-            <a href="Location-LUQ.html">Left Upper Quadrant</a>
-            <a href="Location-Subxi.html">Subxiphoid</a>
-            <a href="Location-Bladder.html">Bladder</a>
-            <a href="Location-Lung.html">Lungs</a>
-          </div>
-        </div>
-        <div class="dropdown">
-          <button onclick="dropdown()" class="NavButton">Actions <img src="./ProgramFiles/Icons/capicon/capicon/png/black/089.png" class="NavIcon"></button>
-          <div id="ActionDropdown" class="dropdown-content">
-            <a href="ActionInfo-Obs.html">Observation</a>
-            <a href="ActionInfo-CT.html">CT Scan</a>
-            <a href="ActionInfo-Surgery.html">Surgery</a>
-            <a href="ActionInfo-Intervene.html">Intervention</a>
-          </div>
-        </div>
-        <a class="NavButton" href="Progress%20Report.html">Progress Report <img src="ProgramFiles/Icons/progress.svg" class="NavIcon"></a>
-        <a class="NavButton" href="ShiftReview.html">Shift Review <img src="ProgramFiles/Icons/server.svg" class="NavIcon"></a>
-        <a class="NavButton" href="Main%20UI.html">New Shift <img src="./ProgramFiles/Icons/capicon/capicon/png/black/076.png" class="NavIcon">
+      <div class="New-Shift">
+          <a href="Main%20UI.html" class="NavButton">Next Case
+            <img src="ProgramFiles/Icons/capicon/capicon/png/white/283.png" class="NavIcon">
+          </a>
       </div>
-  </div>
+      <div class="Review-Set">
+          <a href="ShiftReview.html" class="NavButton">Review Shift
+            <img src="ProgramFiles/Icons/capicon/capicon/png/white/056.png" class="NavIcon">
+          </a>
+      </div>
+    </div>
+</div>
+</div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="Progress.js"></script>
 </html>

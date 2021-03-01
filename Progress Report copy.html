@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+    <script>
+    
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyDazXuLjulvof69k00gM2i2Q9bwVlAwrzM",
+        authDomain: "project-ultra-14a78.firebaseapp.com",
+        databaseURL: "https://project-ultra-14a78-default-rtdb.firebaseio.com",
+        projectId: "project-ultra-14a78",
+        storageBucket: "project-ultra-14a78.appspot.com",
+        messagingSenderId: "405691008774",
+        appId: "1:405691008774:web:905795e75c371024b98087",
+        measurementId: "G-Y58FK549GV"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VVHMBP13JW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VVHMBP13JW');
+</script>
+</head>
+  <link rel="stylesheet" href="PRStyle.css">
+  <link rel="stylesheet" href="NavBar.css">
+
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  </head>
+
+  <div class="ProgressReportBox">
+
+    <div class="Logo">
+      <img src="ProgramFiles/Icons/Logo.png">
+    </div>
+
+    <div class="Title">
+      <h1>Progress Report</h1>
+    </div>
+
+    <div class="ScoreData">
+      <h3>Overall Accuracy: <b id='accuracy'></b></h3>
+      <h3>Total Score: <b id ='total-score'></b></h3>
+      <h3>Cases Completed: <b id='case-count'></b></h3>
+    </div>
+
+    <div class="MostMissed">
+      <h4 id="MostMissedAction">
+        Review Action: <a href="ActionInfo-CT.html"><b>CT Scan</b></a></h4>
+      <div class="WorstLocation">
+        <h4 id="WorstLocation">
+          Review Location: <br><br> <a href="Location-RUQ.html"><b>Right Upper Quadrant</b></a>
+        </h4>
+      </div>
+    </div>
+
+    <div class="Category">
+      <h2>Action Category</h2>
+      <h3><a href="ActionInfo-Obs.html">Observation</a>:</h3>
+      <h3><a href="ActionInfo-CT.html">CT Scan</a>:</h3>
+      <h3><a href="ActionInfo-Surgery.html">Surgery</a>:</h3>
+      <h3><a href="ActionInfo-Intervene.html">Intervention</a>:</h3>
+    </div>
+
+    <div class="ActionBreakdown">
+      <h2>Your Scores</h2>
+      <h3>98%</h3>
+      <h3>73%</h3>
+      <h3>96%</h3>
+      <h3>80%</h3>
+    </div>
+
+    <div class="ClassAverage">
+      <h2>Class Average</h2>
+      <h3>84%</h3>
+      <h3>81%</h3>
+      <h3>83%</h3>
+      <h3>82%</h3>
+    </div>
+
+    <div class="LocationBreakdown">
+      <div class="body">
+        <img src="./ProgramFiles/ReviewBody.png" id="body">
+        <div class="locations">
+          <a href="Location-RUQ.html"> <img id="ruqicon" src="./ProgramFiles/Icons/positive.png"></a>
+          <a href="Location-LUQ.html"> <img id="luqicon" src="./ProgramFiles/Icons/positive.png"></a>
+          <a href="Location-Subxi.html"> <img id="subxicon" src="./ProgramFiles/Icons/positive.png"></a>
+          <a href="Location-Bladder.html"> <img id="bladdericon" src="./ProgramFiles/Icons/positive.png"></a>
+          <a href="Location-Lung.html"> <img id="rLungicon" src="./ProgramFiles/Icons/positive.png"></a>
+          <a href="Location-Lung.html"> <img id="lLungicon" src="./ProgramFiles/Icons/positive.png"></a>
+        </div>
+      </div>
+    </div>
+    <!-- 
+    <div class="LocationReveal">
+      <h2>Exam Image</h2>
+      <div class="XRayImages">
+        <img id="RightLungImage" src="/USLibrary/gifs/normal-lung-slide.gif">
+        <img id="LeftLungImage" src="/USLibrary/gifs/ptx2.gif">
+        <img id="SubXImage" src="/USLibrary/gifs/subxi-nl-1.gif">
+        <img id="RUQImage" src="/USLibrary/gifs/ruq-nl-6.gif">
+        <img id="LUQImage" src="/USLibrary/gifs/luq-nl-c4.gif">
+        <img id="BladderImage" src="/USLibrary/gifs/bladder-nl-c7.gif">
+      </div>
+    </div>
+ -->
+    <div class="Navigation">
+        <!-- <div class="dropdown"> -->
+        <div class="Locations">  
+          <button class="NavButton">Locations 
+            <img src="./ProgramFiles/Icons/capicon/capicon/png/white/038.png" class="NavIcon">
+          </button>
+          <!-- <div id="myDropdown" class="dropdown-content"> -->
+          <!-- <a href="Location-RUQ.html" class="NavButton">Right Upper Quadrant</a> -->
+          <!-- <a href="Location-LUQ.html" class="NavButton">Left Upper Quadrant</a> -->
+          <!-- <a href="Location-Subxi.html" class="NavButton">Subxiphoid</a> -->
+          <!-- <a href="Location-Bladder.html" class="NavButton">Bladder</a> -->
+          <!-- <a href="Location-Lung.html" class="NavButton">Lungs</a> -->
+          <!-- </div> -->
+        </div>
+        <!-- </div> -->
+        <!-- <div class="dropdown"> -->
+        <div class="Actions">  
+            <button class="NavButton">Actions 
+              <img src="./ProgramFiles/Icons/capicon/capicon/png/white/089.png" class="NavIcon">
+            </button>
+          <!-- <div id="myDropdown" class="dropdown-content"> -->
+          <!-- <a href="ActionInfo-Obs.html" class="NavButton">Observation</a> -->
+          <!-- <a href="ActionInfo-CT.html" class="NavButton">CT Scan</a> -->
+          <!-- <a href="ActionInfo-Surgery.html" class="NavButton">Surgery</a> -->
+          <!-- <a href="ActionInfo-Intervene.html" class="NavButton">Intervention</a> -->
+          <!-- </div> -->
+        <!-- </div> -->
+        </div>
+      <div class="New-Shift">
+          <a href=Main%20UI.html class="NavButton">Next Case
+            <img src="ProgramFiles/Icons/capicon/capicon/png/white/283.png" class="NavIcon">
+          </a>
+      </div>
+      <div class="Review-Set">
+          <a href=ShiftReview.html class="NavButton">Review Shift
+            <img src="ProgramFiles/Icons/capicon/capicon/png/white/056.png" class="NavIcon">
+          </a>
+      </div>
+      <div class="Progress-Report">
+          <a href=Progress%20Report.html class="NavButton">Progress Report
+            <img src="ProgramFiles/Icons/capicon/capicon/png/white/135.png" class="NavIcon">
+          </a>
+      </div>
+</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="Progress.js"></script>
+</html>
