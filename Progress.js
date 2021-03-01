@@ -69,7 +69,7 @@ db.collection(file_path_actions).get()
     console.log('#' + doc.id + 'percent_correct' + doc.data().percentCorrect);
     id = doc.id.replace(/\s+/g, '');
     percentCorrect = (doc.data().percentCorrect*100).toFixed(0) + '%'
-    $("#"+id).text(percentCorrect)
+    $("[name="+id+"]").text(percentCorrect)
   })
 });
 
