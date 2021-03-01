@@ -1,3 +1,4 @@
+/* 
 $(document).ready(function() {
 
     $('#LeftLungImage').hide()
@@ -45,6 +46,7 @@ $(document).ready(function() {
   
   });
 
+  */
 var file_path = '/users/'
 var db = firebase.firestore();
 
