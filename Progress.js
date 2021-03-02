@@ -82,12 +82,16 @@ db.collection(file_path_actions).orderBy('percentCorrect').limit(1)
     $('#missedActionText').html(doc.id);
     if(doc.id = 'CT Scan'){
       $('#missedActionLink').attr('href','ActionInfo-CT.html')
+      console.log("Most Missed: "+doc.id)
     }else if(doc.id = 'Intervention'){
       $('#missedActionLink').attr('href','ActionInfo-Intervene.html')
+      console.log("Most Missed: "+doc.id)
     }else if (doc.id = 'Observation'){
       $('#missedActionLink').attr('href','ActionInfo-Obs.html')
+      console.log("Most Missed: "+doc.id)
     }else { 
     $('#missedActionLink').attr('href','ActionInfo-Surgery.html')
+    console.log("Most Missed: "+doc.id)
     }
   })
 }
