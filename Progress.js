@@ -80,20 +80,20 @@ db.collection(file_path_actions).orderBy('percentCorrect').limit(1)
 .then((querySnapshot)=>{
   querySnapshot.forEach((doc)=>{
     $('#missedActionText').html(doc.id);
-    if(doc.id = 'CT Scan'){
+    if(doc.id == 'CT Scan'){
       $('#missedActionLink').attr('href','ActionInfo-CT.html')
       console.log("Most Missed: "+doc.id)
-    }else if(doc.id = 'Intervention'){
+    }else if(doc.id == 'Intervention'){
       $('#missedActionLink').attr('href','ActionInfo-Intervene.html')
       console.log("Most Missed: "+doc.id)
-    }else if (doc.id = 'Observation'){
+    }else if (doc.id == 'Observation'){
       $('#missedActionLink').attr('href','ActionInfo-Obs.html')
       console.log("Most Missed: "+doc.id)
-    }else if (doc.id = 'Surgery'){ 
+    }else if (doc.id == 'Surgery'){ 
     $('#missedActionLink').attr('href','ActionInfo-Surgery.html')
     console.log("Most Missed: "+doc.id)
     }
   })
 }
-)
+);
 //need to show correct link on MissedAction - Right text shows up but link is always CT
