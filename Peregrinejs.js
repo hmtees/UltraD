@@ -10,16 +10,22 @@ $(document).ready(function() {
     }
   });
 });
+var user 
+
+
 
 function readData(data) {
   var partfeed = data.feed.entry;
   var divData = [];
   var length2 = Object.keys(partfeed).length;
-  console.log(localStorage.caseList)
   var caseList = JSON.parse(localStorage.caseList)
+  if (localStorage.retry == 'true'){
+    i = localStorage.caseNum
+    localStorage.retry = false
+  } else {
   //console.log(length2);
   // random number for the row where the case will be pulled from
-
+ 
   var i = 0 + Math.floor(Math.random() * length2);
   // recursively assigns i if i already in the list (it's been done today)
   //During one web session, you'll do all of them before one repeats. 
@@ -34,6 +40,7 @@ function readData(data) {
     }
   caseList.push(i)
   localStorage.caseList = JSON.stringify(caseList)
+}
   localStorage.caseNum = i;
   console.log("Case No: "+i);
   //console.log(i, ':i');
@@ -232,13 +239,25 @@ function actionIntervene() {
     window.location.href = "Outcome1.html";
 }
 
-var db = firebase.firestore();
-var file_path = '/users/' + localStorage.userId + '/sessions';
+//more secure way of updating this data with the user directly from firebase. 
 
-var docref = db.collection(file_path).doc()
+var db = firebase.firestore();
+
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+    var file_path = '/users/' + user.uid+ '/sessions';
+    var docref = db.collection(file_path).doc()
 docref.set({
-    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
 })
 
-collectionRef = db.collection(file_path);
+    console.log('hello user', user.uid)
+  }
+  else {
+    // User is signed out.
+    console.log('no user apparently')
+  }
+})
+
+
 
