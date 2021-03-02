@@ -19,7 +19,7 @@ a:visited {
 
 .ProgressReportBox {
  display: grid;
- grid-template: 8vw 11vw 18vw 6vw 38vw 10vw / 24vw 15vw 1vw 20vw 15vw 15vw;
+ grid-template: 8vw 11vw 18vw 6vw 32vw 10vw / 24vw 15vw 1vw 20vw 15vw 15vw;
  gap: 1vw 1vw;
  grid-template-areas:
    ". . Logo Logo . ."
@@ -100,6 +100,11 @@ align-content: center;
   "IntScore";
   align-items: center;
   display:grid;
+}
+
+.ObsScore>h3,.CTScore>h3,.SurgScore>h3,.IntScore>h3 {
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
 }
 
 .ObsScore {
