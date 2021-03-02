@@ -51,13 +51,11 @@ html {background-color: #282b2b;}
     padding: 0 10vw 0 10vw;
   }
   
-  .chart>img {
-    grid-area: chart;
-    width: 35vw;
-    height: 23vw;
-    border-radius: 2vw;
-    border: 4px solid #FF3500;
-  }
+ #progressChart {
+  grid-area: chart;
+  border-radius: 2vw;
+  border: 4px solid #FF3500;
+}
 
   .results-ovrvw {
     grid-column: 1;
