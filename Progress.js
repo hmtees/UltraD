@@ -68,7 +68,7 @@ console.log(file_path_actions);
 db.collection(file_path_actions).get()
 .then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-    console.log('#' + doc.id + 'percent_correct' + doc.data().percentCorrect);
+    console.log('#' + doc.id + ' percent_correct: ' + doc.data().percentCorrect);
     id = doc.id.replace(/\s+/g, '');
     percentCorrect = (doc.data().percentCorrect*100).toFixed(0) + '%'
     $("[name="+id+"]").text(percentCorrect)
