@@ -89,7 +89,7 @@ db.collection(file_path_actions).orderBy('percentCorrect').limit(1)
     }else if (doc.id = 'Observation'){
       $('#missedActionLink').attr('href','ActionInfo-Obs.html')
       console.log("Most Missed: "+doc.id)
-    }else { 
+    }else if (doc.id = 'Surgery'){ 
     $('#missedActionLink').attr('href','ActionInfo-Surgery.html')
     console.log("Most Missed: "+doc.id)
     }
