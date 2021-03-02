@@ -96,4 +96,3 @@ db.collection(file_path_actions).orderBy('percentCorrect').limit(1)
   })
 }
 );
-//need to show correct link on MissedAction - Right text shows up but link is always CT
