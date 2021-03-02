@@ -7,7 +7,7 @@ document.getElementById("keyImage").src = ("https://drive.google.com/uc?export=v
 var time_score = -1*( parseInt(localStorage.minutes)*60 + parseInt(localStorage.seconds));
 var view_score = 20*( (localStorage.Case3ViewScore));
 
-console.log(time_score);
+//console.log(time_score);
 //Show Result
 if (localStorage.case3Action === localStorage.case3KeyAction)
     {
@@ -26,8 +26,8 @@ if (localStorage.case3Action === localStorage.case3KeyAction)
     }
 //Show Action Taken
 document.getElementById("action").innerHTML = localStorage.case3Action;
-console.log("You Chose: " + localStorage.case3Action);
-console.log("Key Action: " + localStorage.case3KeyAction);
+//console.log("You Chose: " + localStorage.case3Action);
+//console.log("Key Action: " + localStorage.case3KeyAction);
     //display image matching action
     //document.getElementById("actionIcon").src = ();
 if (localStorage.case3Action === "Observation")

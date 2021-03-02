@@ -45,7 +45,7 @@ align-content: center;
  grid-area: Title;
  text-align: center;
  font-size: 3.5vw;
- color: #E57200;
+ color: #FCFDC2;
  background-color: #0096DF;
  border: 4px solid #FF3500;
  border-radius: 8px;
@@ -67,7 +67,7 @@ align-content: center;
  border: 4px solid #FF3500;
  border-radius: 8px;
  text-align: center;
- font-size: 2vw;
+ font-size: 1.5vw;
 }
 
 .MostMissed {
@@ -78,7 +78,7 @@ align-content: center;
  border: 4px solid #FF3500;
  border-radius: 8px;
  text-align: center;
- font-size: 2vw;
+ font-size: 2.4vw;
 }
 
 .Category {
@@ -116,12 +116,6 @@ align-content: center;
   grid-area: IntScore;
 }
 
-.ClassAverage {
- grid-area: ClassAverage;
- font-size: 2vw;
- text-align: center;
-}
-
 .LocationBreakdown {
  grid-area: LocationBreakdown;
  text-align: center;
@@ -156,21 +150,7 @@ align-content: center;
  text-align: center;
 }
 
-#obsButton {
-  background-color:#9CE5A3;
-}
 
-#ctButton {
-  background-color:#31BBF6;
-}
-
-#surgeryButton {
-  background-color:#fc4f4f;
-}
-
-#interveneButton {
-  background-color:#F6B331;
-}
 
 #body {
  height: 20vw;
@@ -184,18 +164,6 @@ align-content: center;
  position: absolute;
  z-index: 0;
 }
-/*  
-#ruqicon:hover {
-  position: relative;
-}
-#ruqicon:hover:after {
-  content: url(./USLibrary/gifs/ruq-nl-2.gif); // no need for qoutes //
-  display: block;
-  position: absolute;
-  /*left: 123px; // change this value to one that suits you
-  /*top: 56px; // change this value to one that suits you 
-}
-*/
 
 #ruqicon {
  position: absolute;

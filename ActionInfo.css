@@ -15,16 +15,18 @@ color:#fcf2c2;
 .ANavigation {
   background-color: #0096DF;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
 }
 
 /* Navigation links */
 .ANavigation a {
-  padding: 10px;
+  padding: 1vw 1vw 1vw 1vw ;
   float: left;
   color: white;
   text-decoration: none;
-  font-size: 18px;
-  width: 23%;
+  font-size: 3vw;
+  width: 100%;
   text-align: center;
 }
 
@@ -58,6 +60,7 @@ color:#fcf2c2;
     text-align: center;
     padding: 10px;
     font-family: Consolas;
+    font-size:2vw;
 }
 
 .RememberBox {
@@ -71,21 +74,23 @@ color:#fcf2c2;
 .Navigation {
   align-items: center;
   overflow: auto;
-  width: 100%;
+  grid-template-columns: 20vw 23vw 26vw 24vw;
+  gap: 0px 0px;
+  grid-template-areas:
+  "Locations ShiftReview Progress-Report New-Shift";
+  padding: 2vw 2vw 0 2vw;
+  align-items: center;
+  display:grid;
 }
 
 .Navigation a {
-  float: left;
-  display: inline-block;
-  margin: 20px;
+  margin: 0px;
   background-color: #0096DF;
   color: white;
   text-align: center;
   text-decoration: none;
-  font-size: 18px;
-  width: 30%;
   border-radius: 5px;
-  border: 2px solid black;
+  border: 2px white;
 }
 
 .Navigation a:hover {

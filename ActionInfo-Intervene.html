@@ -13,14 +13,23 @@
 </script>
   </head>
 <link rel="stylesheet" href="ActionInfo.css">
+<link rel="stylesheet" href="NavBar.css">
   
 <div class="parent">
   
 <div class="ANavigation">
-  <a href="ActionInfo-Obs.html">Observation</a>
-  <a href="ActionInfo-CT.html">CT Scan</a>
-  <a href="ActionInfo-Surgery.html">Surgery</a>
-  <a class="active" href="ActionInfo-Intervene.html">Intervention</a>
+  <div class="ObsInfo">
+    <a href="ActionInfo-Obs.html">Observation</a>
+  </div>
+  <div class="CTInfo">
+    <a href="ActionInfo-CT.html">CT Scan</a>
+  </div> 
+  <div class="SurgInfo">
+    <a href="ActionInfo-Surgery.html">Surgery</a>
+  </div>
+  <div class="IntInfo">
+    <a class="active" href="ActionInfo-Intervene.html">Intervention</a>
+  </div>
 </div>
 
   
@@ -44,14 +53,22 @@
 </div>
 
 <div class="Navigation">
-
-     <a href="Main%20UI.html">Begin Shift<img src="ProgramFiles/Icons/capicon/capicon/png/white/012.png" class="NavIcon"></a>
-     <a href="Progress%20Report.html">Progress Report<img src="ProgramFiles/Icons/capicon/capicon/png/white/135.png" class="NavIcon"></a>
-     <a href="ShiftReview.html">Review Shift<img src="ProgramFiles/Icons/capicon/capicon/png/white/056.png" class="NavIcon"></a>
+  <div class="Locations">
+    <button onclick="RandomLoc()" class="NavButton">Locations <img src="./ProgramFiles/Icons/capicon/capicon/png/white/038.png" class="NavIcon"></button>
   </div>
+  <div class="ShiftReview">
+    <a href="ShiftReview.html" class="NavButton">Shift Review <img src="./ProgramFiles/Icons/capicon/capicon/png/white/056.png" class="NavIcon"></a>
+  </div>
+  <div class="Progress-Report">
+    <a class="NavButton" href="Progress%20Report.html">Progress Report <img src="ProgramFiles/Icons/capicon/capicon/png/white/135.png" class="NavIcon"></a>
+  </div>
+  <div class="New-Shift">
+    <a class="NavButton" href="Main%20UI.html">New Shift <img src="./ProgramFiles/Icons/capicon/capicon/png/white/076.png" class="NavIcon"></a>
+  </div>
+</div>
   
   </div>
 </div> 
-
+<script src="Albojs.js"></script>
 </html>
 

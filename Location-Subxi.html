@@ -10,6 +10,8 @@
 </script>
 </head>
 <link rel="stylesheet" href="LocationStyle.css">
+<link rel="stylesheet" href="NavBar.css">
+
 <div class="grid-container">
   <div class="Header">
     <h1>FAST Location Review</h1>
@@ -21,14 +23,14 @@
 
   <div class="body">
     <div class="parent">
-      <img src="http://drive.google.com/uc?export=view&id=1K1HOA7fwUs_QaC4rCxgXKKPdjYCZ_Lv9" id="body">
+      <img src="./ProgramFiles/ReviewBody.png" id="body">
       <div class="locations">
-          <a href="Location-RUQ.html"> <img id="ruqicon" src="http://drive.google.com/uc?export=view&id=1npaApAJXuHfPUXFkmzk7qwD-oaw895go"></a>
-          <a href="Location-LUQ.html"> <img id="luqicon" src="http://drive.google.com/uc?export=view&id=1npaApAJXuHfPUXFkmzk7qwD-oaw895go"></a>
-          <a href="Location-Subxi.html"> <img id="subxicon" src="http://drive.google.com/uc?export=view&id=1npaApAJXuHfPUXFkmzk7qwD-oaw895go"></a>
-          <a href="Location-Bladder.html"> <img id="bladdericon" src="http://drive.google.com/uc?export=view&id=1npaApAJXuHfPUXFkmzk7qwD-oaw895go"></a>
-          <a href="Location-Lung.html"> <img id="rLungicon" src="http://drive.google.com/uc?export=view&id=1npaApAJXuHfPUXFkmzk7qwD-oaw895go"></a>
-          <a href="Location-Lung.html">  <img id="lLungicon" src="http://drive.google.com/uc?export=view&id=1npaApAJXuHfPUXFkmzk7qwD-oaw895go"></a>
+          <a href="Location-RUQ.html"> <img id="ruqicon" src="./ProgramFiles/Icons/positive.png"></a>
+          <a href="Location-LUQ.html"> <img id="luqicon" src="./ProgramFiles/Icons/positive.png"></a>
+          <a href="Location-Subxi.html"> <img id="subxicon" src="./ProgramFiles/Icons/positive.png"></a>
+          <a href="Location-Bladder.html"> <img id="bladdericon" src="./ProgramFiles/Icons/positive.png"></a>
+          <a href="Location-Lung.html"> <img id="rLungicon" src="./ProgramFiles/Icons/positive.png"></a>
+          <a href="Location-Lung.html">  <img id="lLungicon" src="./ProgramFiles/Icons/positive.png"></a>
       </div>
   </div>
   </div>
@@ -55,23 +57,19 @@
     </p>
   </div>
   
-  <div class="navbar">
-    <div class="dropdown">
-      <button onclick="myFunction()" class="dropbtn">Locations <img src="./ProgramFiles/Icons/capicon/capicon/png/black/038.png" class="NavIcon"></button>
-      <div id="myDropdown" class="dropdown-content">
-        <a href="Location-RUQ.html">Right Upper Quadrant</a>
-        <a href="Location-LUQ.html">Left Upper Quadrant</a>
-        <a href="Location-Subxi.html">Subxiphoid</a>
-        <a href="Location-Bladder.html">Bladder</a>
-        <a href="Location-Lung.html">Lungs</a>
-      </div>
-    </div>
-    <div class="button_cont">
-      <a class="example_a" href="Progress%20Report.html">Progress Report<img src="ProgramFiles/Icons/progress.svg" class="NavIcon"></a></div>
-    <div class="button_cont">
-      <a class="example_a" href="ShiftReview.html">Shift Review <img src="ProgramFiles/Icons/server.svg" class="NavIcon"></a></div>
-    <div class="button_cont" href="MainUI.html">New Shift<img src="./ProgramFiles/Icons/capicon/capicon/png/black/076.png" class="NavIcon"></div>
-
+<div class="Navbar">
+  <div class="Locations">
+    <button onclick="RandomAxn()" class="NavButton">Actions <img src="./ProgramFiles/Icons/capicon/capicon/png/white/089.png" class="NavIcon"></button>
+  </div>
+  <div class="ShiftReview">
+    <a href="ShiftReview.html" class="NavButton">Shift Review <img src="./ProgramFiles/Icons/capicon/capicon/png/white/056.png" class="NavIcon"></a>
+  </div>
+  <div class="Progress-Report">
+    <a class="NavButton" href="Progress%20Report.html">Progress Report <img src="ProgramFiles/Icons/capicon/capicon/png/white/135.png" class="NavIcon"></a>
+  </div>
+  <div class="New-Shift">
+    <a class="NavButton" href="Main%20UI.html">New Shift <img src="./ProgramFiles/Icons/capicon/capicon/png/white/076.png" class="NavIcon"></a>
   </div>
 </div>
-<script src="Locationjs.js"></script>
+</div>
+<script src="Albojs.js"></script>

@@ -63,7 +63,7 @@ function drawDiv(divData, thehistory, parent) {
   if (divData == null) return null;
 
   localStorage.case5Title = title;
-  console.log("Case 5: " + localStorage.case5Title);
+ // console.log("Case 5: " + localStorage.case5Title);
   scenario = $.trim(divData[1]);
   age = $.trim(divData[2]);
   gender = $.trim(divData[3]);
@@ -88,7 +88,7 @@ function drawDiv(divData, thehistory, parent) {
   keyLocation = $.trim(divData[21]);
   keyAction = $.trim(divData[22]);
   localStorage.case5KeyAction = keyAction;
-  console.log("Key Action: " + localStorage.case5KeyAction);
+ // console.log("Key Action: " + localStorage.case5KeyAction);
   localStorage.case5KeyLoc = keyLocation;
   
   var $caseDiv = $("<div/>");
@@ -108,14 +108,7 @@ viewedBladder = false;
 viewedLungL = false;
 viewedLungR = false;
 viewcount = 0;
-/*
-function showActions() {
-    let x = document.getElementById("actionBox");
-    if (viewedRUQ,viewedLUQ,viewedSubxi,viewedBladder,viewedLungR,viewedLungL === true) {
-        x.style.display = "block";}
-    else {x.style.display = "none";}
-}
-*/
+
 let sec = 0;
 function pad(val) {return val > 9 ? val : "0" + val;}
 let timer = setInterval(function () {
@@ -125,7 +118,6 @@ let timer = setInterval(function () {
 
 setTimeout(function () {
     clearInterval(timer);}, 999999);
-//to-do: record time at point of selection - save as variable
 
 function record_time(){  
   localStorage.minutes = document.getElementById("minutes").innerHTML;
@@ -145,7 +137,7 @@ function record_views() {
   if (viewedLungR) {
     viewcount ++;}
   localStorage.Case5ViewScore = viewcount;
-  console.log("View Count: "+viewcount);
+ // console.log("View Count: "+viewcount);
 }
 
 
@@ -202,7 +194,7 @@ $(document).ready(function () {
 function actionObs() {
     localStorage.case5Action = "Observation";
     localStorage.case5Outcome = outcomeObs;
-    console.log("Action: " + localStorage.case5Action);
+  //  console.log("Action: " + localStorage.case5Action);
     window.location.href = "Outcome5.html";
     record_time(); 
     record_views();
@@ -213,7 +205,7 @@ function actionObs() {
 function actionCT() {
     localStorage.case5Action = "CT Scan";
     localStorage.case5Outcome = outcomeCT;
-    console.log("Action: " + localStorage.case5Action);
+ //   console.log("Action: " + localStorage.case5Action);
     window.location.href = "Outcome5.html";
     record_time(); 
     record_views();
@@ -223,7 +215,7 @@ function actionCT() {
 function actionSurg() {
     localStorage.case5Action = "Surgery";
     localStorage.case5Outcome = outcomeSurg;
-    console.log("Action: " + localStorage.case5Action);
+  //  console.log("Action: " + localStorage.case5Action);
     window.location.href = "Outcome5.html";
     record_time(); 
     record_views();
@@ -233,7 +225,7 @@ function actionSurg() {
 function actionIntervene() {
     localStorage.case5Action = "Intervention";
     localStorage.case5Outcome = outcomeInt;
-    console.log("Action: " + localStorage.case5Action);
+ //   console.log("Action: " + localStorage.case5Action);
     window.location.href = "Outcome5.html";
     record_time(); 
     record_views();

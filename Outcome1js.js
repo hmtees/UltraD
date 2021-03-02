@@ -7,8 +7,8 @@ document.getElementById("keyImage").src = ("https://drive.google.com/uc?export=v
 
 var time_score = -1*( parseInt(localStorage.minutes)*60 + parseInt(localStorage.seconds));
 var view_score = 20*( (localStorage.Case1ViewScore));
-console.log("time score: " + time_score);
-console.log("view score: " + view_score);
+//console.log("time score: " + time_score);
+//console.log("view score: " + view_score);
 //Show Result
 if (localStorage.case1Action === localStorage.case1KeyAction)
     {
@@ -27,8 +27,8 @@ if (localStorage.case1Action === localStorage.case1KeyAction)
     }
 //Show Action Taken
 document.getElementById("action").innerHTML = localStorage.case1Action;
-console.log("You Chose: " + localStorage.case1Action);
-console.log("Key Action: " + localStorage.case1KeyAction);
+//console.log("You Chose: " + localStorage.case1Action);
+//console.log("Key Action: " + localStorage.case1KeyAction);
     //display image matching action
     //document.getElementById("actionIcon").src = ();
 if (localStorage.case1Action === "Observation")
@@ -58,7 +58,7 @@ if (localStorage.case1KeyAction === "Surgery")
 if (localStorage.case1KeyAction === "Intervention")
     {document.getElementById("rememberBox").src= './ProgramFiles/RememberBoxes/Light/RememberInt.svg'};
 //Score Calculator
-console.log(decision_score);
+//console.log(decision_score);
 $('#decPoints1').text(decision_score);
 $('#imgPoints1').text(view_score);
 $('#timePoints1').text(time_score);

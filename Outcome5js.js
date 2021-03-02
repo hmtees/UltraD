@@ -25,8 +25,8 @@ if (localStorage.case5Action === localStorage.case5KeyAction)
     }
 //Show Action Taken
 document.getElementById("action").innerHTML = localStorage.case5Action;
-console.log("You Chose: " + localStorage.case5Action);
-console.log("Key Action: " + localStorage.case5KeyAction);
+//console.log("You Chose: " + localStorage.case5Action);
+//console.log("Key Action: " + localStorage.case5KeyAction);
     //display image matching action
 if (localStorage.case5Action === "Observation"){
         $('#actionicon').src= './ProgramFiles/Icons/obs.png'}

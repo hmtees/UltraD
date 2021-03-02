@@ -54,20 +54,21 @@ userRef = db.collection(file_path).doc(localStorage.userId)
         // get session data
 userRef.get().then((doc)=>{
   var user_data = doc.data()
-  console.log(user_data.total_score)
+ // console.log(user_data.total_score)
   var accuracy = ((user_data.total_correct/user_data.total_cases)*100).toFixed(2)+'%'
   $('#accuracy').html(accuracy)
-  console.log(user_data.total_cases)
+  //console.log(user_data.total_cases)
   $('#case-count').text(user_data.total_cases)
   $('#total-score').text(user_data.total_score)
+  $('#score-average').text(user_data.total_score/user_data.total_cases)
 });
 
-var file_path_actions = '/users/' + localStorage.userId +'/Actions'
-console.log(file_path_actions);
+var file_path_actions = '/users/' + localStorage.userId +'/Actions';
+//console.log(file_path_actions);
 db.collection(file_path_actions).get()
 .then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-    console.log('#' + doc.id + 'percent_correct' + doc.data().percentCorrect);
+    console.log('#' + doc.id + ' percent_correct: ' + (doc.data().percentCorrect)*100);
     id = doc.id.replace(/\s+/g, '');
     percentCorrect = (doc.data().percentCorrect*100).toFixed(0) + '%'
     $("[name="+id+"]").text(percentCorrect)
@@ -78,17 +79,20 @@ db.collection(file_path_actions).orderBy('percentCorrect').limit(1)
 .get()
 .then((querySnapshot)=>{
   querySnapshot.forEach((doc)=>{
-    $('#missedActionText').html(doc.id)
-    if(doc.id = 'CT Scan'){
-
+    $('#missedActionText').html(doc.id);
+    if(doc.id == 'CT Scan'){
       $('#missedActionLink').attr('href','ActionInfo-CT.html')
-    }else if(doc.id = 'Interverntion'){
+ //     console.log("Most Missed: "+doc.id)
+    }else if(doc.id == 'Intervention'){
       $('#missedActionLink').attr('href','ActionInfo-Intervene.html')
-    }else if (doc.id = 'Ovservation'){
+ //     console.log("Most Missed: "+doc.id)
+    }else if (doc.id == 'Observation'){
       $('#missedActionLink').attr('href','ActionInfo-Obs.html')
-    }else { 
+  //    console.log("Most Missed: "+doc.id)
+    }else if (doc.id == 'Surgery'){ 
     $('#missedActionLink').attr('href','ActionInfo-Surgery.html')
-  }
+  //  console.log("Most Missed: "+doc.id)
+    }
   })
 }
 );

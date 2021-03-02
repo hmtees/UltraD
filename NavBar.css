@@ -1,6 +1,6 @@
 .NavButton {
     box-shadow:inset 0px 1px 0px 0px #ffffff;
-    background-color:#31BBF6;
+    background-color:#0096DF;
     text-align: center;
     border-radius:6px;
     border:1px solid #dcdcdc;
@@ -15,3 +15,19 @@
 .NavIcon {
     height:2vw;
 }
+
+#obsButton {
+    background-color:#9CE5A3;
+  }
+  
+  #ctButton {
+    background-color:#31BBF6;
+  }
+  
+  #surgeryButton {
+    background-color:#fc4f4f;
+  }
+  
+  #interveneButton {
+    background-color:#F6B331;
+  }

@@ -60,7 +60,7 @@ function drawDiv(divData, thehistory, parent) {
   if (divData == null) return null;
 
   localStorage.case3Title = title;
-  console.log("Case 3: " + localStorage.case3Title);
+ // console.log("Case 3: " + localStorage.case3Title);
   scenario = $.trim(divData[1]);
   age = $.trim(divData[2]);
   gender = $.trim(divData[3]);
@@ -85,7 +85,7 @@ function drawDiv(divData, thehistory, parent) {
   keyLocation = $.trim(divData[21]);
   keyAction = $.trim(divData[22]);
   localStorage.case3KeyAction = keyAction;
-  console.log("Key Action: " + localStorage.case3KeyAction);
+ // console.log("Key Action: " + localStorage.case3KeyAction);
   localStorage.case3KeyLoc = keyLocation;
   
   var $caseDiv = $("<div/>");
@@ -105,15 +105,7 @@ viewedBladder = false;
 viewedLungL = false;
 viewedLungR = false;
 viewcount = 0;
-/*
-function showActions() {
-    let x = document.getElementById("actionBox");
-    if (viewedRUQ,viewedLUQ,viewedSubxi,viewedBladder,viewedLungR,viewedLungL === true) {
-        x.style.display = "block";}
-    else {x.style.display = "none";}
-}
-showActions();
-*/
+
 let sec = 0;
 function pad(val) {return val > 9 ? val : "0" + val;}
 let timer = setInterval(function () {
@@ -123,7 +115,6 @@ let timer = setInterval(function () {
 
 setTimeout(function () {
     clearInterval(timer);}, 999999);
-//to-do: record time at point of selection - save as variable
 
 function record_time(){
   localStorage.minutes = document.getElementById("minutes").innerHTML;
@@ -143,7 +134,7 @@ function record_views() {
   if (viewedLungR) {
     viewcount ++;}
   localStorage.Case3ViewScore = viewcount;
-  console.log("View Count: "+viewcount);
+//  console.log("View Count: "+viewcount);
 }
 
 
@@ -198,10 +189,9 @@ $(document).ready(function () {
 
 //Action Buttons Here
 function actionObs() {
-    localStorage.case3Action = "Observation";//want to store this choice and reference it later (in Albo)
+    localStorage.case3Action = "Observation";
     localStorage.case3Outcome = outcomeObs;
-    console.log("Action: " + localStorage.case3Action);
-        //something about using cookies & enabling samesite -- error seen bc developing on client side. Might look different when deployed.
+   // console.log("Action: " + localStorage.case3Action);
     window.location.href = "Outcome3.html";
     record_time(); 
     record_views();
@@ -211,7 +201,7 @@ function actionObs() {
 function actionCT() {
     localStorage.case3Action = "CT Scan";
     localStorage.case3Outcome = outcomeCT;
-    console.log("Action: " + localStorage.case3Action);
+  //  console.log("Action: " + localStorage.case3Action);
     window.location.href = "Outcome3.html";
     record_time(); 
     record_views();
@@ -220,7 +210,7 @@ function actionCT() {
 function actionSurg() {
     localStorage.case3Action = "Surgery";
     localStorage.case3Outcome = outcomeSurg;
-    console.log("Action: " + localStorage.case3Action);
+  //  console.log("Action: " + localStorage.case3Action);
     window.location.href = "Outcome3.html";
     record_time(); 
     record_views();
@@ -229,7 +219,7 @@ function actionSurg() {
 function actionIntervene() {
     localStorage.case3Action = "Intervention";
     localStorage.case3Outcome = outcomeInt;
-    console.log("Action: " + localStorage.case3Action);
+ //   console.log("Action: " + localStorage.case3Action);
     window.location.href = "Outcome3.html";
     record_time(); 
     record_views();
