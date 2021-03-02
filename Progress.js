@@ -54,10 +54,10 @@ userRef = db.collection(file_path).doc(localStorage.userId)
         // get session data
 userRef.get().then((doc)=>{
   var user_data = doc.data()
-  console.log(user_data.total_score)
+ // console.log(user_data.total_score)
   var accuracy = ((user_data.total_correct/user_data.total_cases)*100).toFixed(2)+'%'
   $('#accuracy').html(accuracy)
-  console.log(user_data.total_cases)
+  //console.log(user_data.total_cases)
   $('#case-count').text(user_data.total_cases)
   $('#total-score').text(user_data.total_score)
   $('#score-average').text(user_data.total_score/user_data.total_cases)
