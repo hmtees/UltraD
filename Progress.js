@@ -79,7 +79,7 @@ db.collection(file_path_actions).orderBy('percentCorrect').limit(1)
 .get()
 .then((querySnapshot)=>{
   querySnapshot.forEach((doc)=>{
-    $('#missedActionText').html(doc.id)
+    $('#missedActionText').html(doc.id);
     if(doc.id = 'CT Scan'){
       $('#missedActionLink').attr('href','ActionInfo-CT.html')
     }else if(doc.id = 'Intervention'){
@@ -93,3 +93,4 @@ db.collection(file_path_actions).orderBy('percentCorrect').limit(1)
 }
 )
 console.log("Most Missed: "+doc.id);
+//need to show correct link on MissedAction - Right text shows up but link is always CT
