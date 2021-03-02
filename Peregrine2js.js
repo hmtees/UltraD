@@ -167,10 +167,9 @@ $(document).ready(function () {
 
 //Action Buttons Here
 function actionObs() {
-    localStorage.case2Action = "Observation";//want to store this choice and reference it later (in Albo)
+    localStorage.case2Action = "Observation";
     localStorage.case2Outcome = outcomeObs;
     console.log("Action: " + localStorage.case2Action);
-        //something about using cookies & enabling samesite -- error seen bc developing on client side. Might look different when deployed.
     window.location.href = "Outcome2.html";
     record_time(); 
     record_views();

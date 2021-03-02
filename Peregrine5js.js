@@ -77,14 +77,7 @@ viewedBladder = false;
 viewedLungL = false;
 viewedLungR = false;
 viewcount = 0;
-/*
-function showActions() {
-    let x = document.getElementById("actionBox");
-    if (viewedRUQ,viewedLUQ,viewedSubxi,viewedBladder,viewedLungR,viewedLungL === true) {
-        x.style.display = "block";}
-    else {x.style.display = "none";}
-}
-*/
+
 let sec = 0;
 function pad(val) {return val > 9 ? val : "0" + val;}
 let timer = setInterval(function () {
@@ -94,7 +87,6 @@ let timer = setInterval(function () {
 
 setTimeout(function () {
     clearInterval(timer);}, 999999);
-//to-do: record time at point of selection - save as variable
 
 function record_time(){  
   localStorage.minutes = document.getElementById("minutes").innerHTML;

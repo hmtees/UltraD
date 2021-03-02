@@ -77,15 +77,7 @@ viewedBladder = false;
 viewedLungL = false;
 viewedLungR = false;
 viewcount = 0;
-/*
-function showActions() {
-    let x = document.getElementById("actionBox");
-    if (viewedRUQ,viewedLUQ,viewedSubxi,viewedBladder,viewedLungR,viewedLungL === true) {
-        x.style.display = "block";}
-    else {x.style.display = "none";}
-}
-showActions();
-*/
+
 let sec = 0;
 function pad(val) {return val > 9 ? val : "0" + val;}
 let timer = setInterval(function () {
@@ -95,7 +87,6 @@ let timer = setInterval(function () {
 
 setTimeout(function () {
     clearInterval(timer);}, 999999);
-//to-do: record time at point of selection - save as variable
 
 function record_time(){
   localStorage.minutes = document.getElementById("minutes").innerHTML;
@@ -170,10 +161,9 @@ $(document).ready(function () {
 
 //Action Buttons Here
 function actionObs() {
-    localStorage.case3Action = "Observation";//want to store this choice and reference it later (in Albo)
+    localStorage.case3Action = "Observation";
     localStorage.case3Outcome = outcomeObs;
     console.log("Action: " + localStorage.case3Action);
-        //something about using cookies & enabling samesite -- error seen bc developing on client side. Might look different when deployed.
     window.location.href = "Outcome3.html";
     record_time(); 
     record_views();
