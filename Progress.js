@@ -96,5 +96,4 @@ db.collection(file_path_actions).orderBy('percentCorrect').limit(1)
   })
 }
 )
-console.log("Most Missed: "+doc.id);
 //need to show correct link on MissedAction - Right text shows up but link is always CT
