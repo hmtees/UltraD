@@ -68,9 +68,9 @@ collectionRef.orderBy('timestamp', 'desc').limit(1).get().then((querySnapshot) =
         // get session data
         sessionRef.get().then((doc)=>{
           var session_data = doc.data()
-          console.log(session_data.session_score)
+      //    console.log(session_data.session_score)
           $('#shift-score').text(session_data.session_score)
-          console.log(session_data.case_count)
+        //  console.log(session_data.case_count)
           $('#case-count').text(session_data.case_count)
           $('#Accuracy').text(session_data.session_score/session_data.case_count)
           

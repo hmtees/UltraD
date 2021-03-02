@@ -62,10 +62,10 @@ function drawDiv(divData, thehistory, parent, loc) {
   localStorage.case1KeyImg = keyImg;
   keyLocation = $.trim(divData[21]);
   localStorage.case1KeyLoc = keyLocation;
-  console.log("Key Location: "+localStorage.case1KeyLoc);
+//  console.log("Key Location: "+localStorage.case1KeyLoc);
   keyAction = $.trim(divData[22]);
   localStorage.case1KeyAction = keyAction;
-  console.log("Key Action: " + localStorage.case1KeyAction);
+//  console.log("Key Action: " + localStorage.case1KeyAction);
 
   var $caseDiv = $("<div/>");
   var casedetails = $("<p></p>").html("A " + age + "-year-old " + gender + " " + scenario); 
