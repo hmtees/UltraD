@@ -147,7 +147,7 @@ function addScore(docRef, status) {
                 }
                 else{var correctCount = result.data().Correct
                     correctCount ++
-                    console.log('is this the problem' + correctCount)
+               //     console.log('is this the problem' + correctCount)
                 }
             }else {var correctCount = result.data().Correct}
             var percentCorrect = correctCount / KeyActionCount;
