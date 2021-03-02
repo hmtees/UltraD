@@ -43,7 +43,7 @@ html {background-color: #282b2b;}
   
   .results {
     display: grid;
-    grid-template-columns: 45vw 40vw;
+    grid-template-columns: 48vw 40vw;
     grid-template-rows: 0 25vw;
     grid-template-areas: 
       "results-ovrvw chart";
@@ -55,6 +55,8 @@ html {background-color: #282b2b;}
     grid-area: chart;
     width: 35vw;
     height: 23vw;
+    border-radius: 2vw;
+    border: 4px solid #FF3500;
   }
 
   .results-ovrvw {
@@ -66,7 +68,7 @@ html {background-color: #282b2b;}
     background-color: #0096DF;
     border: 4px solid #FF3500;
     border-radius: 8px;
-    padding: 20px 10px 20px;
+    padding: 10px 10px 20px;
     box-sizing: border-box;
     font-size: 2vw;
   }
@@ -94,6 +96,11 @@ html {background-color: #282b2b;}
     font-family: Consolas;
   }
   
+#toggle-chart {
+  font-size: 2vw;
+  font-family: consolas;
+}
+
   th,
   td {
     background-color: #FCFDC2;
