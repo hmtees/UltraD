@@ -8,7 +8,7 @@ document.getElementById("keyImage").src = ("https://drive.google.com/uc?export=v
 var time_score = -1*( parseInt(localStorage.minutes)*60 + parseInt(localStorage.seconds));
 var view_score = 20*( (localStorage.Case2ViewScore));
 
-console.log(time_score);
+//console.log(time_score);
 //Show Result
 //Show correct Remember Box
 if (localStorage.case2Action === localStorage.case2KeyAction)
@@ -28,8 +28,8 @@ if (localStorage.case2Action === localStorage.case2KeyAction)
     }
 //Show Action Taken
 document.getElementById("action").innerHTML = localStorage.case2Action;
-console.log("You Chose: " + localStorage.case2Action);
-console.log("Key Action: " + localStorage.case2KeyAction);
+//console.log("You Chose: " + localStorage.case2Action);
+//console.log("Key Action: " + localStorage.case2KeyAction);
     //display image matching action
     //document.getElementById("actionIcon").src = ();
 if (localStorage.case2Action === "Observation")

@@ -19,7 +19,7 @@ function readData(data) {
   // random number for the row where the case will be pulled from
   var i = 0 + Math.floor(Math.random() * length2);
   localStorage.caseNum = i;
-  console.log("Case No: "+i);
+//  console.log("Case No: "+i);
   //console.log(i, ':i');
     var JSONrow = partfeed[i].content.$t.split(',');
     var row = [];
@@ -37,7 +37,7 @@ function readData(data) {
 function drawDiv(divData, thehistory, parent, loc) {
   if (divData == null) return null;
 
-  console.log("Case: " + title);
+//  console.log("Case: " + title);
   localStorage.case1Title = title;
   scenario = $.trim(divData[1]);
   age = $.trim(divData[2]);
@@ -175,14 +175,14 @@ function record_views() {
   if (viewedLungR) {
     viewcount ++;}
   localStorage.Case1ViewScore = viewcount;
-  console.log("View Count: "+viewcount);
+//  console.log("View Count: "+viewcount);
 }
 
 //Action Buttons Here
 function actionObs() {
     localStorage.case1Action = "Observation";
     localStorage.case1Outcome = outcomeObs;
-    console.log("Action: " + localStorage.case1Action);
+ //   console.log("Action: " + localStorage.case1Action);
     record_time();
     record_views();
     window.location.href = "Outcome1.html";
@@ -192,7 +192,7 @@ function actionObs() {
 function actionCT() {
     localStorage.case1Action = "CT Scan";
     localStorage.case1Outcome = outcomeCT;
-    console.log("Action: " + localStorage.case1Action);
+ //   console.log("Action: " + localStorage.case1Action);
     record_time();
     record_views();
     window.location.href = "Outcome1.html";
@@ -201,7 +201,7 @@ function actionCT() {
 function actionSurg() {
     localStorage.case1Action = "Surgery";
     localStorage.case1Outcome = outcomeSurg;
-    console.log("Action: " + localStorage.case1Action);
+ //   console.log("Action: " + localStorage.case1Action);
     record_time();
     record_views();
     window.location.href = "Outcome1.html";
@@ -210,7 +210,7 @@ function actionSurg() {
 function actionIntervene() {
     localStorage.case1Action = "Intervention";
     localStorage.case1Outcome = outcomeInt;
-    console.log("Action: " + localStorage.case1Action);
+ //   console.log("Action: " + localStorage.case1Action);
     record_time();
     record_views();
     window.location.href = "Outcome1.html";

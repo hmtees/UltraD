@@ -32,7 +32,7 @@ function drawDiv(divData, thehistory, parent) {
   if (divData == null) return null;
 
   localStorage.case3Title = title;
-  console.log("Case 3: " + localStorage.case3Title);
+ // console.log("Case 3: " + localStorage.case3Title);
   scenario = $.trim(divData[1]);
   age = $.trim(divData[2]);
   gender = $.trim(divData[3]);
@@ -57,7 +57,7 @@ function drawDiv(divData, thehistory, parent) {
   keyLocation = $.trim(divData[21]);
   keyAction = $.trim(divData[22]);
   localStorage.case3KeyAction = keyAction;
-  console.log("Key Action: " + localStorage.case3KeyAction);
+ // console.log("Key Action: " + localStorage.case3KeyAction);
   localStorage.case3KeyLoc = keyLocation;
   
   var $caseDiv = $("<div/>");
@@ -106,7 +106,7 @@ function record_views() {
   if (viewedLungR) {
     viewcount ++;}
   localStorage.Case3ViewScore = viewcount;
-  console.log("View Count: "+viewcount);
+//  console.log("View Count: "+viewcount);
 }
 
 
@@ -163,7 +163,7 @@ $(document).ready(function () {
 function actionObs() {
     localStorage.case3Action = "Observation";
     localStorage.case3Outcome = outcomeObs;
-    console.log("Action: " + localStorage.case3Action);
+   // console.log("Action: " + localStorage.case3Action);
     window.location.href = "Outcome3.html";
     record_time(); 
     record_views();
@@ -173,7 +173,7 @@ function actionObs() {
 function actionCT() {
     localStorage.case3Action = "CT Scan";
     localStorage.case3Outcome = outcomeCT;
-    console.log("Action: " + localStorage.case3Action);
+  //  console.log("Action: " + localStorage.case3Action);
     window.location.href = "Outcome3.html";
     record_time(); 
     record_views();
@@ -182,7 +182,7 @@ function actionCT() {
 function actionSurg() {
     localStorage.case3Action = "Surgery";
     localStorage.case3Outcome = outcomeSurg;
-    console.log("Action: " + localStorage.case3Action);
+  //  console.log("Action: " + localStorage.case3Action);
     window.location.href = "Outcome3.html";
     record_time(); 
     record_views();
@@ -191,7 +191,7 @@ function actionSurg() {
 function actionIntervene() {
     localStorage.case3Action = "Intervention";
     localStorage.case3Outcome = outcomeInt;
-    console.log("Action: " + localStorage.case3Action);
+ //   console.log("Action: " + localStorage.case3Action);
     window.location.href = "Outcome3.html";
     record_time(); 
     record_views();

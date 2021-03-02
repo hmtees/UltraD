@@ -32,7 +32,7 @@ function drawDiv(divData, thehistory, parent) {
   if (divData == null) return null;
 
   localStorage.case4Title = title;
-  console.log("Case 4: " + localStorage.case4Title);
+//  console.log("Case 4: " + localStorage.case4Title);
   scenario = $.trim(divData[1]);
   age = $.trim(divData[2]);
   gender = $.trim(divData[3]);
@@ -57,7 +57,7 @@ function drawDiv(divData, thehistory, parent) {
   keyLocation = $.trim(divData[21]);
   keyAction = $.trim(divData[22]);
   localStorage.case4KeyAction = keyAction;
-  console.log("Key Action: " + localStorage.case4KeyAction);
+ // console.log("Key Action: " + localStorage.case4KeyAction);
   localStorage.case4KeyLoc = keyLocation;
   
   var $caseDiv = $("<div/>");
@@ -106,7 +106,7 @@ function record_views() {
   if (viewedLungR) {
     viewcount ++;}
   localStorage.Case4ViewScore = viewcount;
-  console.log("View Count: "+viewcount);
+ // console.log("View Count: "+viewcount);
 }
 
 
@@ -161,10 +161,9 @@ $(document).ready(function () {
 
 //Action Buttons Here
 function actionObs() {
-    localStorage.case4Action = "Observation";//want to store this choice and reference it later (in Albo)
+    localStorage.case4Action = "Observation";
     localStorage.case4Outcome = outcomeObs;
-    console.log("Action: " + localStorage.case4Action);
-        //something about using cookies & enabling samesite -- error seen bc developing on client side. Might look different when deployed.
+ //   console.log("Action: " + localStorage.case4Action);
     window.location.href = "Outcome4.html";
     record_time(); 
     record_views();
@@ -174,7 +173,7 @@ function actionObs() {
 function actionCT() {
     localStorage.case4Action = "CT Scan";
     localStorage.case4Outcome = outcomeCT;
-    console.log("Action: " + localStorage.case4Action);
+  //  console.log("Action: " + localStorage.case4Action);
     window.location.href = "Outcome4.html";
     record_time(); 
     record_views();
@@ -183,7 +182,7 @@ function actionCT() {
 function actionSurg() {
     localStorage.case4Action = "Surgery";
     localStorage.case4Outcome = outcomeSurg;
-    console.log("Action: " + localStorage.case4Action);
+  //  console.log("Action: " + localStorage.case4Action);
     window.location.href = "Outcome4.html";
     record_time(); 
     record_views();
@@ -192,7 +191,7 @@ function actionSurg() {
 function actionIntervene() {
     localStorage.case4Action = "Intervention";
     localStorage.case4Outcome = outcomeInt;
-    console.log("Action: " + localStorage.case4Action);
+  //  console.log("Action: " + localStorage.case4Action);
     window.location.href = "Outcome4.html";
     record_time();
     record_views();
