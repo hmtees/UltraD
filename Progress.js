@@ -88,8 +88,8 @@ db.collection(file_path_actions).orderBy('percentCorrect').limit(1)
       $('#missedActionLink').attr('href','ActionInfo-Obs.html')
     }else { 
     $('#missedActionLink').attr('href','ActionInfo-Surgery.html')
-  }
+    }
   })
 }
-);
+)
 console.log("Most Missed: "+doc.id);
