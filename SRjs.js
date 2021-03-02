@@ -79,21 +79,29 @@ collectionRef.orderBy('timestamp', 'desc').limit(1).get().then((querySnapshot) =
       })  
     });
 
+function RandomLoc() {
+  var locLinks = [
+    "Location-RUQ.html",
+    "Location-LUQ.html",
+    "Location-Subxi.html",
+    "Location-Bladder.html",
+    "Location-Lung.html"
+  ];
+  var max = (locLinks.length)
+  var randomNumber = Math.floor(Math.random()*max);
+  var link = locLinks[randomNumber];
+  window.location.href = link;
+}
 
-  function dropdown() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-  
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
+function RandomAxn() {
+  var axnLinks = [
+    "ActionInfo-Obs.html",
+    "ActionInfo-CT.html",
+    "ActionInfo-Surgery.html",
+    "ActionInfo-Intervene.html",
+  ];
+  var max = (axnLinks.length)
+  var randomNumber = Math.floor(Math.random()*max);
+  var link = axnLinks[randomNumber];
+  window.location.href = link;
+}
