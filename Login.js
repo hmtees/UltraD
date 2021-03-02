@@ -12,6 +12,7 @@ $('#loginForm').submit(function() {
     firebase.auth().signInWithEmailAndPassword(email, pwd).then(function(user) {
       //Store userId as local storage to 
       localStorage.userId = (firebase.auth().currentUser.uid);
+      localStorage.setItem('caseList',JSON.stringify([]))
       window.location.replace("./Main%20UI.html");
   
       // Idea: Make the re-direct an independant listener function that triggers when the user state changes (In Progress below)
@@ -77,6 +78,7 @@ $('#loginForm').submit(function() {
         var db = firebase.firestore();
         user = firebase.auth().currentUser
         localStorage.userId = (user.uid);
+        console.log(localStorage.caseList)
         //There's a much better way to do this using node.js, but for now this at least works. 
         db.collection('users').doc(user.uid).set({email: user.email})
         db.collection('users').doc(user.uid).collection('Actions').doc('Surgery').set({Correct:0})
