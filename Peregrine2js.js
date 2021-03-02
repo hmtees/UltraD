@@ -14,7 +14,37 @@ function readData(data) {
   var divData = [];
   var length2 = Object.keys(partfeed).length;
   //console.log(length2)
+  var caseList = JSON.parse(localStorage.caseList)
+  // if the retry button was clicked, this will be true and then it will skip
+  //the new case assignment
+  if (localStorage.retry == 'true'){
+    i = localStorage.caseNum
+    localStorage.retry = false
+  } 
+  
+  //otherwise assign new case number
+  else {
+  //console.log(length2);
+  // random number for the row where the case will be pulled from
+ 
   var i = 0 + Math.floor(Math.random() * length2);
+  // recursively assigns i if i already in the list (it's been done today)
+  //During one web session, you'll do all of them before one repeats. 
+  //Maybe there's a better design choice. 
+  while (caseList.indexOf(i)!=-1){
+      i = 0 + Math.floor(Math.random() * length2)
+      if (caseList.length >= length2){
+        //alert("you've done all of the cases");
+        caseList = []
+        i = 0 + Math.floor(Math.random() * length2)
+        break}
+    }
+  caseList.push(i)
+  localStorage.caseList = JSON.stringify(caseList)
+}
+  localStorage.caseNum = i;
+  console.log("Case No: "+i);
+  //console.log(i, ':i');
     var JSONrow = partfeed[i].content.$t.split(',');
     var row = [];
    // console.log('the Current Case Data is: ' + JSONrow);
