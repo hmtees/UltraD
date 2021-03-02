@@ -63,7 +63,7 @@ userRef.get().then((doc)=>{
   $('#score-average').text(user_data.total_score/user_data.total_cases)
 });
 
-var file_path_actions = '/users/' + localStorage.userId +'/Actions'
+var file_path_actions = '/users/' + localStorage.userId +'/Actions';
 console.log(file_path_actions);
 db.collection(file_path_actions).get()
 .then((querySnapshot) => {
@@ -92,4 +92,4 @@ db.collection(file_path_actions).orderBy('percentCorrect').limit(1)
   })
 }
 );
-console.log(doc.id);
+console.log("Most Missed: "+doc.id);
