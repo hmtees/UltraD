@@ -1,4 +1,4 @@
-<!--User Story:  As a student I should be able to understand the actual diagnosis of the case I’ve completed to see where I went wrong in order to improve my ability to conduct FAST exams.
+<!--User Story:  As a medical student I should be able to view my progress on the Fast Exam "shifts" so that I can tell if I am improving and determine what areas to focus on going forward.
 -->
 <head>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -64,20 +64,25 @@
       </div>
     </ul>
    
-    <div class="chart">
-      <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQygCJU1vasuwQzyJ0cXgCtll9EyYoMq3yxYKS9UQuUxMHgSKccJ38yEO7Y8NxpnsuvVuap75Yy2DQr/pubchart?oid=1179381065&format=image" alt="Chart tracking the student's scores over time">
-    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+  <!-- This script is related to building a chart from a table using Canvas, see chart div further below after table code -->
+
+  <div class="chart">
+    <canvas id=progressChart> </canvas>
   </div>
+  <!-- This div is related to the chart that will build from the data table -->
+</div>
   
-  <div class="results-table">
-    <table style="width:100%">
-      <tr>
-        <th>Case #</th>
-        <th>Score</th>
-        <th>Item</th>
-        <th>Location</th>
-        <th>Action</th>
-      </tr>
+<div>
+  <table style="width:100%" class="results-table" id=progressTable>
+    <thead>
+      <th>Case</th>
+      <th>Score</th>
+      <th>Item</th>
+      <th>Location</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
       <tr>
         <td>1</td>
         <td id='score1'></td></td>
@@ -113,8 +118,9 @@
         <td id ='case5KeyLoc'></td>
         <td><a id='case5review' href="Outcome5.html">Review Case</a></td>
       </tr>
-    </table>
-  </div>
+    </tbody>
+  </table>
+</div>
   
   <div class="Navigation">
     <div class="Locations">
