@@ -74,26 +74,23 @@ color:#fcf2c2;
 .Navigation {
   align-items: center;
   overflow: auto;
-  width: 100%;
+  grid-template-columns: 20vw 23vw 26vw 24vw;
+  gap: 0px 0px;
+  grid-template-areas:
+  "Locations ShiftReview Progress-Report New-Shift";
+  padding: 2vw 2vw 0 2vw;
+  align-items: center;
+  display:grid;
 }
 
 .Navigation a {
-  margin: 20px;
+  margin: 0px;
   background-color: #0096DF;
   color: white;
   text-align: center;
   text-decoration: none;
-  font-size: 18px;
-  width: 30%;
   border-radius: 5px;
-  border: 2px solid black;
-  grid-template-columns: 20vw 17vw 26vw 25vw;
-  gap: 0px 0px;
-  grid-template-areas:
-  "Locations Actions Progress-Report New-Shift";
-  padding: 2vw 2vw 0 8vw;
-  align-items: center;
-  display:grid;
+  border: 2px white;
 }
 
 .Navigation a:hover {

@@ -116,12 +116,6 @@ align-content: center;
   grid-area: IntScore;
 }
 
-.ClassAverage {
- grid-area: ClassAverage;
- font-size: 2vw;
- text-align: center;
-}
-
 .LocationBreakdown {
  grid-area: LocationBreakdown;
  text-align: center;
