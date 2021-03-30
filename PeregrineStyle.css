@@ -171,7 +171,7 @@ Body Buttons
 }
 
 .actionButton {
-    height:5.3vw;
+    height:6vw;
     text-align:center;
     display: inline-block;    
     border-radius:3vw;
@@ -181,10 +181,11 @@ Body Buttons
     width:9vw;
     font-size: 1vw;
     border-radius:2vw;
+    /* color:#eff0e2; */
 }
 
 #obsButton {
-    background-color:#9CE5A3;
+    background-color:#5fe66c;
 }
 
 #ctButton {
@@ -242,6 +243,7 @@ Body Buttons
     border:solid;
     border-radius:1vw;
     border-color:#eff0e2;
+    background-color: rgba(156, 229, 165, 0.15);
 }
 
 .Case-Details>p {

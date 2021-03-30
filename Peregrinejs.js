@@ -57,7 +57,7 @@ function readData(data) {
   }
 
 
-function drawDiv(divData, thehistory, parent, loc) {
+function drawDiv(divData, parent, loc) {
   if (divData == null) return null;
 
 //  console.log("Case: " + title);

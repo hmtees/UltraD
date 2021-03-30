@@ -56,7 +56,7 @@ html {background-color: #282b2b;}
   border-radius: 2vw;
   border: 4px solid #FF3500;
 }
-#progressChart>canvas {
+.chartjs-render-monitor{
   display: block;
   height: 20vw;
   width: 30vw;
