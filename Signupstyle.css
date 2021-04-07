@@ -1,0 +1,28 @@
+html,body{
+    background-color:#282b2b;
+    color: #fff;
+}
+
+.container-fluid {
+    margin-top:5vw;
+}
+
+.lni{
+    font-size: 64px;
+}
+
+.bg{
+    background: #282b2b !important;
+}
+
+.regform{
+    box-shadow: 0px 8px 9px 0px rgba(69, 69, 69, 0.25);
+}
+
+.form-group{
+    color:#000;
+}
+
+.sign{
+    color: #000;
+}
