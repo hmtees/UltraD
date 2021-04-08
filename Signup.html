@@ -8,6 +8,8 @@
     Fix button color
     Checkbox in line w/ opt-in
     Actions to js page
+    popup only if signup successful/complete
+    Fix popup text color
 -->
 
 <link rel="stylesheet" href="https://cdn.lineicons.com/1.0.0/LineIcons.min.css">
@@ -133,11 +135,18 @@
                 </div>
                 </form>
                 <div class="col-md-12 text-center mb-3">
-                  <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Sign Up</button>
+                  <button 
+                    type="submit" 
+                    class=" btn btn-block mybtn btn-primary tx-tfm"
+                    data-toggle="modal" 
+                    data-target="#exampleModal"
+                    >
+                      Sign Up
+                    </button>
                 </div>
                 <div class="col-md-12 ">
                   <div class="form-group">
-                    <p class="text-center"><a href="#" id="signin">Already have an account?</a></p>
+                    <p class="text-center"><a href="Login.html" id="signin">Already have an account?</a></p>
                   </div>
                 </div>
             </div>
@@ -147,6 +156,27 @@
     </div>
   </div>
 </div>
+<div class="modal fade" id="SignupConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">You're Signed Up!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">Begin Shift
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
