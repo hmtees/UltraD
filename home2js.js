@@ -4,6 +4,18 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+
+function doga(category, action, label, value) {
+  console.log('did GA');
+  console.log(category, action, label, value);
+  gtag('event', 'click', {
+    'event_category': 'Suttons',
+    'event_action': 'Doooj', 
+    'event_label': 'shlabel', 
+   // 'event_value': '1'
+  });
+}
+
 (function() {
   "use strict";
 
@@ -91,23 +103,6 @@
     }
   }, true)
 
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
 
   /**
    * Animation on scroll
