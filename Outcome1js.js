@@ -1,3 +1,10 @@
+/*
+TO-DO
+Check for sign-in on Review Shift, Progress Report, Next Case links
+    Send to signup if not signed in
+*/
+
+
 //Connect to the firestore
 var db = firebase.firestore();
 
