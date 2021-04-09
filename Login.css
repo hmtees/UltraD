@@ -75,12 +75,12 @@ html {background-color:#282b2b}
   
   /* STYLING */
   body > * {
-    font-family: 'Garamond';
+    font-family: 'Consolas';
     font-size: 14px;
   }
   
   input {
-      font-family: 'Garamond';
+      font-family: 'Consolas';
       font-size: 14px;
   }
   
@@ -97,6 +97,7 @@ html {background-color:#282b2b}
     border-style: solid;
     border-width: 1px;
     border-radius: 1rem;
+    text-align: center;
   }
   
   #homePageImage img {

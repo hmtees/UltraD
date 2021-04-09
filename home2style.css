@@ -762,6 +762,7 @@ section {
   background: rgba(27, 49, 94, 0.9);
   transition: 0.3s;
   z-index: 999;
+  color:#fcfdc2;
 }
 
 .navbar-mobile .mobile-nav-toggle {
@@ -787,7 +788,7 @@ section {
 .navbar-mobile a {
   padding: 10px 20px;
   font-size: 15px;
-  color: #101c36;
+  color: #fcfdc2;
 }
 
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
