@@ -153,21 +153,27 @@
                     <label for="text-1617828127497" class="formbuilder-text-label">
                         Email Address<span class="formbuilder-required">*</span>
                     </label>
-                    <input type="email" placeholder="Email Address" class="form-control" name="text-1617828127497" access="false" id="text-1617828127497" required="required" aria-required="true">
+                    <input type="email" placeholder="Email Address" class="form-control" name="text-1617828127497" access="false" id="signUpEmail" required="required" aria-required="true">
                 </div>
                 <div class="formbuilder-text form-group field-text-1617828351883">
                     <label for="text-1617828351883" class="formbuilder-text-label">
                         Password<span class="formbuilder-required">*</span>
                     </label>
-                        <input type="password" placeholder="Password" class="form-control" name="text-1617828351883" access="false" id="text-1617828351883" required="required" aria-required="true">
-                    </div>
+                        <input type="password" placeholder="Password" class="form-control" name="text-1617828351883" access="false" id="signUpPassword" required="required" aria-required="true">
+                </div>
+                <div class="formbuilder-text form-group field-text-1617828351883">
+                  <label for="text-1617828351883" class="formbuilder-text-label">
+                      Confirm Password<span class="formbuilder-required">*</span>
+                  </label>
+                      <input type="password" placeholder="Confirm Password" class="form-control" name="text-1617828351883" access="false" id="signUpConfirmPassword" required="required" aria-required="true">
+                </div>
                     <div class="formbuilder-text form-group field-text-1617828137212">
                         <label for="text-1617828137212" class="formbuilder-text-label">School</label>
-                        <input type="text" placeholder="School" class="form-control" name="text-1617828137212" access="false" id="text-1617828137212">
+                        <input type="text" placeholder="School" class="form-control" name="text-1617828137212" access="false" id="signUpSchool">
                     </div>
                     <div class="formbuilder-select form-group field-select-1617828216190">
                         <label for="select-1617828216190" class="formbuilder-text-label">Graduation Year</label>
-                        <select class="form-control" name="select-1617828216190" id="select-1617828216190">
+                        <select class="form-control" name="select-1617828216190" id="signUpGradYear">
                             <option value="2026" selected="true" id="select-1617828216190-0">2026</option>
                             <option value="2025" id="select-1617828216190-1">2025</option>
                             <option value="2024" id="select-1617828216190-2">2024</option>
@@ -193,6 +199,7 @@
                     class=" btn btn-block mybtn btn-primary tx-tfm"
                     data-toggle="modal" 
                     data-target="#exampleModal"
+                    id="createAccountButton"
                     >
                       Sign Up
                     </button>
