@@ -58,8 +58,8 @@ $("#signup").click(function() {
         },
         
         messages: {
-          firstname: "Please enter your firstname",
-          lastname: "Please enter your lastname",
+          firstname: "Please enter your first name",
+          lastname: "Please enter your last name",
           password: {
             required: "Please provide a password",
             minlength: "Your password must be at least 5 characters long"
