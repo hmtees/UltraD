@@ -135,7 +135,7 @@
                   <h1 class="sign">Signup</h1>
                 </div>
             </div>
-              <form action="#" name="registration">
+              <form action="#" name="registration" id="signUpForm">
                 <div class="rendered-form">
                 <div class="formbuilder-text form-group field-text-1617828106628">
                     <label for="text-1617828106628" class="formbuilder-text-label">
@@ -198,7 +198,7 @@
                     type="submit" 
                     class=" btn btn-block mybtn btn-primary tx-tfm"
                     data-toggle="modal" 
-                    data-target="#exampleModal"
+                    data-target="#SignupConfirm"
                     id="createAccountButton"
                     >
                       Sign Up
@@ -221,16 +221,12 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">You're Signed Up!</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">Begin Shift
-            <span aria-hidden="true">&times;</span>
-          </button>
         </div>
         <div class="modal-body">
-          ...
+          Press "Begin Shift" to start practicing FAST exams!
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary">Begin Shift</button>
         </div>
       </div>
     </div>
@@ -246,5 +242,6 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script src="Signupjs.js"></script>
 <script src="home2js.js"></script>

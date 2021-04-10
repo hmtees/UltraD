@@ -79,7 +79,7 @@ $('#signUpForm').submit(function() {
   signUpUser($('#signUpEmail').val(), $('#signUpPassword').val(), $('#signUpConfirmPassword').val());
 });
 
-function signUpUser(email, pwd, re_pwd) {
+function signUpUser(firstname,lastname, email, pwd, re_pwd, school, gradyear) {
   // Ensure password and re_password match
   if (pwd != re_pwd) {
     alert("Passwords do not match.");
