@@ -9,8 +9,8 @@ function doga(category, action, label, value) {
   console.log('did GA');
   console.log(category, action, label, value);
   gtag('event', 'click', {
-    'event_category': 'Suttons',
-    'event_action': 'Doooj', 
+    'event_category': 'Cases',
+    'event_action': 'Start_Case', 
     'event_label': 'shlabel', 
    // 'event_value': '1'
   });
