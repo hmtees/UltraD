@@ -11,7 +11,6 @@ $("#signup").click(function() {
     });
     
     
-      
        /*      $(function() {
                $("form[name='login']").validate({
                  rules: {
