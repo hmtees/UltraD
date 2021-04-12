@@ -14,12 +14,12 @@ html {
 
 body {
   font-family: "Roboto", sans-serif;
-  color: #9fa1a4;
+  color: #fcfdc2;
   line-height: 1.5;
 }
 
 a {
-  color: #777;
+  color: #fcfdc2;
   text-decoration: none;
   transition: .3s all ease;
 }
@@ -148,7 +148,7 @@ section {
 }
 
 .feature-1 .wrap-icon.icon-1 {
-  background: linear-gradient(-45deg, #3b87bd, #2d71a2);
+  background: linear-gradient(-45deg, #FF3500, #fa5d5d);
 }
 
 .feature-1 .wrap-icon i {
@@ -654,7 +654,7 @@ section {
   padding: 10px 0 10px 30px;
   font-size: 16px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.65);
+  color: #fcfdc2;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -831,7 +831,7 @@ section {
 # Hero Section
 --------------------------------------------------------------*/
 .hero-section {
-  background: linear-gradient(to right, rgba(39, 70, 133, 0.8) 0%, rgba(61, 179, 197, 0.8) 100%), url(../img/hero-bg.jpg);
+  background: linear-gradient(to right, #fa5d5d 1%, #282b2b 100%), url(../img/hero-bg.jpg);
   position: relative;
 }
 
@@ -962,6 +962,7 @@ section {
 .footer h3 {
   font-size: 18px;
   margin-bottom: 30px;
+  color:#fcfdc2;
 }
 
 .footer ul li {
@@ -969,7 +970,7 @@ section {
 }
 
 .footer a {
-  color: #000;
+  color: #fcfdc2;
 }
 
 .footer .copyright {
@@ -1008,4 +1009,12 @@ section {
 
 .social a i {
   line-height: 0;
+}
+
+.homeLogo {
+  height: 10vw;
+}
+
+.homeScreenshot {
+  height: 20vw;
 }
