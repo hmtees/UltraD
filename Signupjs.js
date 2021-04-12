@@ -75,8 +75,15 @@ $("#signup").click(function() {
     
 //-> Create Account button: validate email and password, redirect or throw errors
 $('#signUpForm').submit(function() {
-  signUpUser($('#signUpFirst').val(), signUpUser($('#signUpLast').val(), signUpUser($('#signUpEmail').val(), $('#signUpPassword').val(), $('#signUpConfirmPassword').val(), signUpUser($('#signUpsignUpSchool').val(), signUpUser($('#signUpsignUpGradYear').val(), );
+  signUpUser($('#signUpFirst').val(), $('#signUpLast').val(), $('#signUpEmail').val(), $('#signUpPassword').val(), $('#signUpConfirmPassword').val(), $('#signUpsignUpSchool').val(), $('#signUpsignUpGradYear').val())
 });
+
+var firstname=signUpUser($('#signUpFirst'));
+var lastname=signUpUser($('#signUpLast'));
+var email=signUpUser($('#signUpEmail'));
+var school=signUpUser($('#signUpSchool'));
+var gradyear=signUpUser($('#signUpGradYear'));
+
 
 function signUpUser(firstname,lastname, email, pwd, re_pwd, school, gradyear) {
   // Ensure password and re_password match
@@ -84,11 +91,11 @@ function signUpUser(firstname,lastname, email, pwd, re_pwd, school, gradyear) {
     alert("Passwords do not match.");
   } else {
     // Register the user with the Firebase API (NOTE: auto logs in)
-    firebase.auth().createUserWithEmailAndPassword(firstname,lastname,email,pwd,school,gradyear).then(function(userCredential) {
+    firebase.auth().createUserWithEmailAndPassword(email,pwd).then(function(userCredential) {
       var db = firebase.firestore();
-      user = firebase.auth().currentUser;
+      user = userCredential.User;
       localStorage.userId = (user.uid);
-      console.log(localStorage.caseList);
+      console.log("New User: "+localStorage.userId);
       console.log()
       //There's a much better way to do this using node.js, but for now this at least works. 
       db.collection('users').doc(user.uid).set({email: user.email})
