@@ -1,10 +1,3 @@
-/**
-* Template Name: SoftLand - v4.1.0
-* Template URL: https://bootstrapmade.com/softland-bootstrap-app-landing-page-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -13,13 +6,13 @@ html {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: Consolas;
   color: #fcfdc2;
   line-height: 1.5;
 }
 
 a {
-  color: #fcfdc2;
+  color: #fafc86;
   text-decoration: none;
   transition: .3s all ease;
 }
@@ -29,8 +22,8 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: "Poppins", sans-serif;
-  color: #000;
+  font-family: Consolas;
+  color: #fcfdc2;
 }
 
 .container {
@@ -71,7 +64,7 @@ section {
 .section-heading {
   font-size: 3rem;
   font-weight: 700;
-  background: linear-gradient(-45deg, #3db3c5, #274685);
+  background: linear-gradient(-45deg, #f76262, #852727);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -158,7 +151,7 @@ section {
 }
 
 .feature-1 h3 {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .feature-1 p {
