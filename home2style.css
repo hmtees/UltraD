@@ -955,7 +955,7 @@ section {
 .footer h3 {
   font-size: 18px;
   margin-bottom: 30px;
-  color:#fcfdc2;
+  color:#fff;
 }
 
 .footer ul li {
@@ -1011,3 +1011,9 @@ section {
 .homeScreenshot {
   height: 20vw;
 }
+
+header#header {
+  position: relative;}
+
+  h1.heading {
+    color: #fff;}

@@ -2,8 +2,6 @@
     TO-DO:
     Add analytics info
     Proper icons
-    Links to right pages
-    Align image in center
     Less space b/w form (fit on one page)
     Fix button color
     Checkbox in line w/ opt-in
@@ -59,18 +57,35 @@
 <link href="boxicons/css/boxicons.min.css" rel="stylesheet">
 <link href="swiper/swiper-bundle.min.css" rel="stylesheet">
 
+  <!-- Favicons -->
+  <link href="ProgramFiles/Icons/Logo.png" rel="icon">
+  <link href="ProgramFiles/Icons/Logo.png" rel="apple-touch-icon">
+
+
 <title>Signup - Ultra EM</title>
 
-<nav id="navbar" class="navbar">
-  <ul>
-    <li class="nav-item"><a href="home2.html">Home</a></li>
-    <li><a href="Contact.html">Contact Us</a></li>
-    <li><a href="Signup.html" onClick='doga("signup","enter_signup");'>Sign Up</a></li>
-    <li><a href="Login.html" onClick='doga("thecat", "theact", "thelabel")'>Login</a></li>
-    <li><a href="Main UI.html">Try for FREE</a></li>
-  </ul>
-  <i class="bi bi-list mobile-nav-toggle"></i>
-</nav><!-- .navbar -->
+<header id="header" class="fixed-top d-flex align-items-center">
+  <div class="container d-flex justify-content-between align-items-center">
+
+    <div class="logo">
+      <h1><a href="index.html">Ultra EM</a></h1></div>
+    <div class="logo">
+      <a href="index.html"><img src="ProgramFiles/Icons/Logo.png" alt="" class="img-fluid"></a>
+    </div>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="Contact.html" onClick='doga("signup", enter_contact)'>Contact Us</a></li>
+        <li class="nav-item"><a href="Signup.html" onClick='doga("signup","enter_signup")'>Sign Up</a></li>
+        <li class="nav-item"><a href="Login.html" onClick='doga("login", "enterlogin")'>Login</a></li>
+        <li class="nav-item"><a href="Main UI.html" onClick='doga("signup", "trial_start")'>Try for FREE</a></li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+  </div>
+</header>
 
 
 <div class="container-fluid bg">
@@ -223,7 +238,7 @@
           <h5 class="modal-title" id="exampleModalLabel">You're Signed Up!</h5>
         </div>
         <div class="modal-body">
-          Press "Begin Shift" to start practicing FAST exams!
+          Begin Shift to start practicing FAST exams!
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary">Begin Shift</button>

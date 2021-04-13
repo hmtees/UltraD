@@ -5,11 +5,7 @@
   TO-DO:
     Highlight Free Trial Button in nav
     Description for features
-    Footer navigation
-    Fix nav links
-    Fix images
     Analytics info
-    Page colors & style
     Fix mobile navbar expand
   -->
 
@@ -59,7 +55,7 @@
 
   <!-- Favicons -->
   <link href="ProgramFiles/Icons/Logo.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="ProgramFiles/Icons/Logo.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -83,18 +79,18 @@
     <div class="container d-flex justify-content-between align-items-center">
 
       <div class="logo">
-        <h1><a href="home2.html">Ultra EM</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <h1><a href="index.html">Ultra EM</a></h1></div>
+      <div class="logo">
+        <a href="index.html"><img src="ProgramFiles/Icons/Logo.png" alt="" class="img-fluid"></a>
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li class="nav-item"><a href="home2.html">Home</a></li>
-          <li><a href="Contact.html" onClick='doga("signup", enter_contact)'>Contact Us</a></li>
-          <li><a href="Signup.html" onClick='doga("signup","enter_signup");'>Sign Up</a></li>
-          <li><a href="Login.html" onClick='doga("login", "enterlogin")'>Login</a></li>
-          <li><a href="Main UI.html" onClick='doga("signup", "trial_start")'>Try for FREE</a></li>
+          <li class="nav-item"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="Contact.html" onClick='doga("signup", enter_contact)'>Contact Us</a></li>
+          <li class="nav-item"><a href="Signup.html" onClick='doga("signup","enter_signup")'>Sign Up</a></li>
+          <li class="nav-item"><a href="Login.html" onClick='doga("login", "enterlogin")'>Login</a></li>
+          <li class="nav-item"><a href="Main UI.html" onClick='doga("signup", "trial_start")'>Try for FREE</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -104,18 +100,6 @@
 
   <!-- ======= Hero Section ======= -->
   <section class="hero-section" id="hero">
-
-    <div class="wave">
-
-      <svg width="100%" height="355px" viewBox="0 0 1920 355" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <g id="Apple-TV" transform="translate(0.000000, -402.000000)" fill="#FFFFFF">
-            <path d="M0,439.134243 C175.04074,464.89273 327.944386,477.771974 458.710937,477.771974 C654.860765,477.771974 870.645295,442.632362 1205.9828,410.192501 C1429.54114,388.565926 1667.54687,411.092417 1920,477.771974 L1920,757 L1017.15166,757 L0,757 L0,439.134243 Z" id="Path"></path>
-          </g>
-        </g>
-      </svg>
-
-    </div>
 
     <div class="container">
       <div class="row align-items-center">
@@ -128,7 +112,6 @@
                 Try now for FREE</a>
             </div>
             <div class="col-lg-5 iphone-wrap">
-              <img src="ProgramFiles/Icons/Logo.png" class="homeLogo" alt="Logo">
               <img src="ProgramFiles/screenshotdemo.png" class="homeScreenshot" alt="Image">
             </div>
           </div>
@@ -204,10 +187,10 @@
             <div class="col-md-4 mb-4 mb-md-0">
               <h3>Navigation</h3>
               <ul class="list-unstyled">
-                <li><a href="home2.html">Home</a></li>
-                <li><a href="Contact.html">Contact</a></li>
-                <li><a href="Signup.html">Signup</a></li>
-                <li><a href="Login.html">Login</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Contact.html" onClick='doga("signup", enter_contact)'>Contact</a></li>
+                <li><a href="Signup.html" onClick='doga("signup","enter_signup")'>Signup</a></li>
+                <li><a href="Login.html" onClick='doga("login", "enterlogin")'>Login</a></li>
               </ul>
             </div>
           </div>
