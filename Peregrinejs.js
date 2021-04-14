@@ -12,7 +12,15 @@ $(document).ready(function() {
 });
 var user 
 
-
+function doga(category, action, label) {
+  console.log('did GA');
+  console.log(category, action, label);
+  gtag('event', 'click', {
+    'event_category': category,
+    'event_action': action, 
+    'event_label': label,
+  });
+}
 
 function readData(data) {
   var partfeed = data.feed.entry;
@@ -208,6 +216,7 @@ function actionObs() {
  //   console.log("Action: " + localStorage.case1Action);
     record_time();
     record_views();
+    doga("case","finish_case","Obs");
     window.location.href = "Outcome1.html";
 }
 
@@ -218,6 +227,7 @@ function actionCT() {
  //   console.log("Action: " + localStorage.case1Action);
     record_time();
     record_views();
+    doga("case","finish_case","CT");
     window.location.href = "Outcome1.html";
 }
 
@@ -227,6 +237,7 @@ function actionSurg() {
  //   console.log("Action: " + localStorage.case1Action);
     record_time();
     record_views();
+    doga("case","finish_case","Surg");
     window.location.href = "Outcome1.html";
 }
 
@@ -236,6 +247,7 @@ function actionIntervene() {
  //   console.log("Action: " + localStorage.case1Action);
     record_time();
     record_views();
+    doga("case","finish_case","Int");
     window.location.href = "Outcome1.html";
 }
 
