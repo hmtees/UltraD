@@ -2,6 +2,16 @@
 // Email: Ultra@UltraEM.com
 // Password: UltraEM1
 
+//Analytics function
+function doga(category, action) {
+  console.log('did GA');
+  console.log(category, action);
+  gtag('event', 'click', {
+    'event_category': category,
+    'event_action': action, 
+   // 'event_value': '1'
+  });
+}
 // LOGIN
 //-> Login Form: verify email and password, redirect or throw errors
 $('#loginForm').submit(function() {
@@ -12,7 +22,8 @@ $('#loginForm').submit(function() {
     firebase.auth().signInWithEmailAndPassword(email, pwd).then(function(user) {
       //Store userId as local storage to 
       localStorage.userId = (firebase.auth().currentUser.uid);
-      localStorage.setItem('caseList',JSON.stringify([]))
+      localStorage.setItem('caseList',JSON.stringify([]));
+      doga("login","login_success");
       window.location.replace("./Main%20UI.html");
   
       // Idea: Make the re-direct an independant listener function that triggers when the user state changes (In Progress below)
