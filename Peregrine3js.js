@@ -9,6 +9,16 @@ $(document).ready(function() {
   });
 });
 
+function doga(category, action, label) {
+  console.log('did GA');
+  console.log(category, action, label);
+  gtag('event', 'click', {
+    'event_category': category,
+    'event_action': action, 
+    'event_label': label,
+  });
+}
+
 function readData(data) {
   var partfeed = data.feed.entry;
   var divData = [];
@@ -192,6 +202,7 @@ function actionObs() {
     localStorage.case3Action = "Observation";
     localStorage.case3Outcome = outcomeObs;
    // console.log("Action: " + localStorage.case3Action);
+    doga("case","finish_case","Obs");
     window.location.href = "Outcome3.html";
     record_time(); 
     record_views();
@@ -202,6 +213,7 @@ function actionCT() {
     localStorage.case3Action = "CT Scan";
     localStorage.case3Outcome = outcomeCT;
   //  console.log("Action: " + localStorage.case3Action);
+    doga("case","finish_case","CT");
     window.location.href = "Outcome3.html";
     record_time(); 
     record_views();
@@ -211,6 +223,7 @@ function actionSurg() {
     localStorage.case3Action = "Surgery";
     localStorage.case3Outcome = outcomeSurg;
   //  console.log("Action: " + localStorage.case3Action);
+    doga("case","finish_case","Surg");
     window.location.href = "Outcome3.html";
     record_time(); 
     record_views();
@@ -220,6 +233,7 @@ function actionIntervene() {
     localStorage.case3Action = "Intervention";
     localStorage.case3Outcome = outcomeInt;
  //   console.log("Action: " + localStorage.case3Action);
+    doga("case","finish_case","Int");   
     window.location.href = "Outcome3.html";
     record_time(); 
     record_views();
