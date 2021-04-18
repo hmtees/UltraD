@@ -19,13 +19,12 @@ a:visited {
 
 .ProgressReportBox {
  display: grid;
- grid-template: 8vw 11vw 18vw 6vw 32vw 10vw / 24vw 15vw 1vw 20vw 15vw 15vw;
+ grid-template: 5vw 18vw 3vw 20vw 10vw / 24vw 15vw 1vw 20vw 15vw 15vw;
  gap: 1vw 1vw;
  grid-template-areas:
-   ". . Logo Logo . ."
    "Title Title Title Title Title Title"
    "ScoreData ScoreData ScoreData MostMissed MostMissed MostMissed"
-   "Category ScoreTitle . LocationBreakdown LocationReveal LocationReveal"
+   "ActionTitle ScoreTitle . LocationBreakdown LocationReveal LocationReveal"
    "Category ActionBreakdown . LocationBreakdown LocationReveal LocationReveal"
    "Navigation Navigation Navigation Navigation Navigation Navigation";
  font-family:consolas;
@@ -85,6 +84,15 @@ align-content: center;
  grid-area: Category;
  font-size: 2vw;
  text-align: center;
+ grid-template-rows: 25% 25% 25% 25%;
+  gap: 0px 0px;
+  grid-template-areas:
+  "ObsButton"
+  "CTButton" 
+  "SurgButton" 
+  "IntButton";
+  align-items: center;
+  display:grid;
 }
 
 .ActionBreakdown {
@@ -173,48 +181,48 @@ align-content: center;
 #ruqicon {
  position: absolute;
  z-index: 1;
- bottom: -16vw;
- right: -7.5vw;
+ bottom: -14vw;
+ right: -7vw;
  height: 2vw;
 }
 
 #luqicon {
  position: absolute;
  z-index: 1;
- bottom: -16vw;
- right: -12vw;
+ bottom: -14vw;
+ right: -11vw;
  height: 2vw;
 }
 
 #subxicon {
  position: absolute;
  z-index: 1;
- bottom: -14vw;
- right: -9.75vw;
+ bottom: -12vw;
+ right: -9vw;
  height: 2vw;
 }
 
 #bladdericon {
  position: absolute;
  z-index: 1;
- bottom: -19vw;
- right: -9.75vw;
+ bottom: -17vw;
+ right: -9vw;
  height: 2vw;
 }
 
 #rLungicon {
  position: absolute;
  z-index: 1;
- bottom: -12vw;
- right: -7.5vw;
+ bottom: -10vw;
+ right: -7vw;
  height: 2vw;
 }
 
 #lLungicon {
  position: absolute;
  z-index: 1;
- bottom: -12vw;
- right: -12vw;
+ bottom: -10vw;
+ right: -11vw;
  height: 2vw;
 }
 

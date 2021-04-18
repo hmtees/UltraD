@@ -38,7 +38,13 @@
   <!-- Favicons -->
   <link href="ProgramFiles/Icons/Logo.png" rel="icon">
   <link href="ProgramFiles/Icons/Logo.png" rel="apple-touch-icon">
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="swiper/swiper-bundle.min.css" rel="stylesheet">
 
+  <!-- Template Main CSS File -->
+  <link href="home2style.css" rel="stylesheet">
 <title>Progress Report - Ultra EM</title>
 
 </head>
@@ -47,14 +53,31 @@
 
   <head>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   </head>
-
-  <div class="ProgressReportBox">
-
-    <div class="Logo">
-      <img src="ProgramFiles/Icons/Logo.png">
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between align-items-center">
+  
+      <div class="logo">
+        <h1><a href="index.html">Ultra EM</a></h1></div>
+      <div class="logo">
+        <a href="index.html"><img src="ProgramFiles/Icons/Logo.png" alt="" class="img-fluid"></a>
+      </div>
+  
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li class="nav-item"><a href="Contact.html" onClick='doga("signup", enter_contact)'>Contact Us</a></li>
+          <li class="nav-item"><a href="Signup.html" onClick='doga("signup","enter_signup")'>Sign Up</a></li>
+          <li class="nav-item"><a href="ShiftReview.html">Shift Review</a></li>
+          <li class="nav-item"><a href="Progress Report.html">Progress Report</a></li>
+          <li class="nav-item"><a href="Main UI.html">Begin Shift</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+  
     </div>
+  </header><!-- End Header -->
+  
+  <div class="ProgressReportBox">
 
     <div class="Title">
       <h1>Progress Report</h1>
@@ -76,9 +99,10 @@
         </h4>
       </div>
     </div>
-
+<div class="ActionTitle">
+  <h2>Actions</h2>
+</div>
     <div class="Category">
-      <h2>Actions</h2>
       <h3><a href="ActionInfo-Obs.html" class="NavButton" id="obsButton">Observation
         <img class="ActionIcon" src="./ProgramFiles/Icons/obs-bw.svg">
       </a></h3>
@@ -119,12 +143,12 @@
     <div class="LocationReveal">
       <h2>Exam Image</h2>
       <div class="USImages">
-        <img id="RightLungImage" src="/USLibrary/gifs/normal-lung-slide.gif">
-        <img class="Ultrasound" id="LeftLungImage" src="/USLibrary/gifs/ptx2.gif">
-        <img class="Ultrasound" id="SubXImage" src="/USLibrary/gifs/subxi-nl-1.gif">
-        <img class="Ultrasound" id="RUQImage" src="/USLibrary/gifs/ruq-nl-6.gif">
-        <img class="Ultrasound" id="LUQImage" src="/USLibrary/gifs/luq-nl-c4.gif">
-        <img class="Ultrasound" id="BladderImage" src="/USLibrary/gifs/bladder-nl-c7.gif">
+        <img id="RightLungImage" src="./USLibrary/gifs/normal-lung-slide.gif">
+        <img class="Ultrasound" id="LeftLungImage" src="./USLibrary/gifs/ptx2.gif">
+        <img class="Ultrasound" id="SubXImage" src="./USLibrary/gifs/subxi-nl-1.gif">
+        <img class="Ultrasound" id="RUQImage" src="./USLibrary/gifs/ruq-nl-6.gif">
+        <img class="Ultrasound" id="LUQImage" src="./USLibrary/gifs/luq-nl-c4.gif">
+        <img class="Ultrasound" id="BladderImage" src="./USLibrary/gifs/bladder-nl-c7.gif">
       </div>
     </div>
     <div class="Navigation">
@@ -141,6 +165,13 @@
     </div>
 </div>
 </div>
+  <!-- Vendor JS Files -->
+  <script src="aos/aos.js"></script>
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="home2js.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="Progress.js"></script>
