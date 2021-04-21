@@ -3,15 +3,45 @@ html { background-color: #282b2b;}
 /* 
 To-Do
 Align Buttons on body
-NavButton Alignment
+NavButton Alignment/Icon Sizing
 Sizing / Layout - fit on 1 page
+Center Title
+Copy Bladder to All
+Navbar sizing
 */
 
+.LNavigation {
+  background-color: #0096DF;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+
+/* Navigation links */
+.LNavigation a {
+  padding: 1vw 1vw 1vw 1vw ;
+  float: left;
+  color: white;
+  text-decoration: none;
+  font-size: 3vw;
+  width: 100%;
+  text-align: center;
+}
+
+/* Add a background color on mouse-over */
+.LNavigation a:hover {
+  background-color: #31BBF6;
+}
+
+/* Style the current/active link */
+.LNavigation a.active {
+  background-color: #4CAF50;
+}
 
 .grid-container {
   display: grid;
   grid-template-columns: 45vw 45vw;
-  grid-template-rows: 10vw 10vw 30vw 40vw 10vw;
+  grid-template-rows: 1vw 10vw 30vw 40vw 10vw;
   gap: 1px 1px;
   grid-template-areas:
   "Header Header"
@@ -31,6 +61,7 @@ Sizing / Layout - fit on 1 page
 
 .Current-Location>h1 {
   margin: 0 0 0 3vw;
+  text-align: center;
 }
 
 .navbar { grid-area: Navigation;
@@ -75,48 +106,46 @@ Sizing / Layout - fit on 1 page
     z-index:0;
 }
 
+#ruqicon,#luqicon,#subxicon,#bladdericon,#rLungicon,#lLungicon {
+  height:3vw;
+}
+
 #ruqicon {
   position:absolute;
   z-index:1;
-  bottom:-12vw;
-  right:-12vw;
-  height:2vw;}
+  bottom:-20vw;
+  right:-22vw;}
 
 #luqicon {
   position:absolute;
   z-index:1;
-  bottom:-12vw;
-  right:-17.5vw;
-  height:2vw;}
+  bottom:-20vw;
+  right:-16vw;}
 
 #subxicon {
   position:absolute;
   z-index:1;
-  bottom:-10.5vw;
-  right:-15vw;
-  height:2vw;}
+  bottom:-17vw;
+  right:-19vw;}
 
 #bladdericon {
   position:absolute;
   z-index:1;
-  bottom:-17vw;
-  right:-15vw;
-  height:2vw;}
+  bottom:-25vw;
+  right:-19vw;}
 
 #rLungicon {
   position:absolute;
   z-index:1;
-  bottom:-8vw;
-  right:-13vw;
-  height:2vw;}
+  bottom:-13vw;
+  right:-22vw;}
 
 
 #lLungicon {
   position:absolute;
   z-index:1;
-  bottom:-8vw;
-  right:-17vw;
-  height:2vw;}
+  bottom:-13vw;
+  right:-16vw;}
 
   
   .responsive {

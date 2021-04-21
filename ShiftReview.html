@@ -76,7 +76,7 @@
 
   </div>
 </header><!-- End Header -->
-
+<body onload="ShowReviews()">
 <div class="topbar">
     <div class="heading text-center">
       <h1>Shift Review</h1>
@@ -89,8 +89,8 @@
       <li ><strong>Total Points:</strong> <span id = 'shift-score'></span></li>
       <li><strong>Total Cases:</strong> <span id ='case-count'></span></li>
       <li><strong>Average:</strong> <span id='Accuracy'></span></li>
-      <li><strong>Review Location:</strong> <span><em>Right Upper Quadrant</em></span></li>
-      <li><strong>Review Action:</strong> <span><em>Surgery</em></span></li>
+      <li><strong>Review Locations:</strong> <span><a id="rLocLink"><em id="ReviewLocation"></em></a></span></li>
+      <li><strong>Review Actions:</strong> <span ><a id="rAxnLink"><em id="ReviewAction"></em></a></span></li>
       <div class="toggle-chart">
         <button id="toggle-chart">Show/Hide Chart</button>
       </div>
@@ -168,7 +168,7 @@
       <a class="NavButton" href="Main%20UI.html">New Shift <img src="./ProgramFiles/Icons/capicon/capicon/png/white/076.png" class="NavIcon"></a>
     </div>
   </div>
-
+</body>
   <!-- Vendor JS Files -->
   <script src="aos/aos.js"></script>
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
