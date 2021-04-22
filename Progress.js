@@ -119,5 +119,9 @@ function ShowRandomLoc() {
     {document.getElementById("rLocLink").href ="./Location-Bladder.html"};
   if (ReviewLoc === "Lungs") 
     {document.getElementById("rLocLink").href ="./Location-Lung.html"};
+}
 
+function GoSignup() {
+  location.href="Signup.html"
+  doga("signup","enter_signup","From_PR")
 }

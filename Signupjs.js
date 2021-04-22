@@ -1,3 +1,12 @@
+function doga(category, action) {
+  console.log('did GA');
+  console.log(category, action);
+  gtag('event', 'click', {
+    'event_category': category,
+    'event_action': action, 
+  });
+}
+
 $("#signup").click(function() {
     $("#first").fadeOut("fast", function() {
     $("#second").fadeIn("fast");
