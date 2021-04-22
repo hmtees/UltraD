@@ -38,6 +38,7 @@
   <!-- Favicons -->
   <link href="ProgramFiles/Icons/Logo.png" rel="icon">
   <link href="ProgramFiles/Icons/Logo.png" rel="apple-touch-icon">
+  <link rel="stylesheet" href="PRStyle.css">
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="boxicons/css/boxicons.min.css" rel="stylesheet">
@@ -48,12 +49,8 @@
 <title>Progress Report - Ultra EM</title>
 
 </head>
-  <link rel="stylesheet" href="PRStyle.css">
   <link rel="stylesheet" href="NavBar.css">
 
-  <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-  </head>
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex justify-content-between align-items-center">
   
@@ -77,6 +74,7 @@
     </div>
   </header><!-- End Header -->
   
+  <body onload="ShowRandomLoc()">
   <div class="ProgressReportBox">
 
     <div class="Title">
@@ -95,7 +93,7 @@
         Review Action: <a id='missedActionLink' href=""><b id='missedActionText'></b></a></h4>
       <div class="WorstLocation">
         <h4 id="WorstLocation">
-          Review Location: <a href="Location-RUQ.html"><b>Right Upper Quadrant</b></a>
+          Review Location: <a id ="rLocLink"><b id="ReviewLocation"></b></a>
         </h4>
       </div>
     </div>
@@ -165,6 +163,7 @@
     </div>
 </div>
 </div>
+</body>
   <!-- Vendor JS Files -->
   <script src="aos/aos.js"></script>
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>

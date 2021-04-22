@@ -24,6 +24,7 @@ a:hover {
 h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: Consolas;
   color: #fcfdc2;
+  font-size:2.5vw;
 }
 
 .container {

@@ -96,3 +96,28 @@ db.collection(file_path_actions).orderBy('percentCorrect').limit(1)
   })
 }
 );
+
+function ShowRandomLoc() {
+  var locNames = [
+    "Right Upper Quadrant",
+    "Left Upper Quadrant",
+    "Subxiphoid",
+    "Bladder",
+    "Lungs"
+  ];
+  var max = (locNames.length);
+  var randomNumber = Math.floor(Math.random()*max);
+  var ReviewLoc = locNames[randomNumber];
+  document.getElementById("ReviewLocation").innerHTML =ReviewLoc;
+  if (ReviewLoc === "Right Upper Quadrant") 
+    {document.getElementById("rLocLink").href ="./Location-RUQ.html"};
+  if (ReviewLoc === "Left Upper Quadrant") 
+    {document.getElementById("rLocLink").href ="./Location-LUQ.html"};
+  if (ReviewLoc === "Subxiphoid") 
+    {document.getElementById("rLocLink").href ="./Location-Subxi.html"};
+  if (ReviewLoc === "Bladder") 
+    {document.getElementById("rLocLink").href ="./Location-Bladder.html"};
+  if (ReviewLoc === "Lungs") 
+    {document.getElementById("rLocLink").href ="./Location-Lung.html"};
+
+}
