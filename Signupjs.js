@@ -13,8 +13,8 @@ async function registerUserWithGoogle(signInInfo) {
         };
         console.log("User has been registered and auto logged in. Begin shift");
         // TODO : Now store the user into
-        firebase.firestore().collection('users').add(
-        {
+        let db = firebase.firestore();
+        let userSignUpInfo = {
           firstname: signInInfo.firstName,
           lastname: signInInfo.lastName,
           email: signInInfo.email,
@@ -23,19 +23,25 @@ async function registerUserWithGoogle(signInInfo) {
           allowUpdateNotification : signInInfo.allowUpdateNotification,
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }
-        // TODO How do you add these ?
-        // db.collection('users').doc(user.uid).collection('Actions').doc('Surgery').set({Correct:0})
-        // db.collection('users').doc(user.uid).collection('Actions').doc('CT Scan').set({Correct:0})
-        // db.collection('users').doc(user.uid).collection('Actions').doc('Intervention').set({Correct:0})
-        // db.collection('users').doc(user.uid).collection('Actions').doc('Observation').set({Correct:0})
-        ).then(function(){
-          // Successfully signed in and added the user to the data base
-        }).catch(function(error) {
-          console.error('Error creating user in database', error);
-          // Delete the user from authentication records if database save fails.
-          user.delete().then(function(){
-            alert("User unable to register. Please try again later");
-          });
+        // use the user id as an ID
+        let userDocument = db.collection("users");
+        userDocument.doc(user.uid).set(userSignUpInfo)
+            .then(() =>
+            {
+              // User document is associated with the Actions by the user.uid
+              console.log("User document successfully written");
+              console.log("Saving user actions.");
+              let actionCollection = db.collection('users').doc(user.uid);
+              actionCollection.collection('Actions').doc('Surgery').set({Correct: 0});
+              actionCollection.collection('Actions').doc('CT Scan').set({Correct: 0});
+              actionCollection.collection('Actions').doc('Intervention').set({Correct: 0});
+              actionCollection.collection('Actions').doc('Observation').set({Correct: 0});
+            }).catch(function(error) {
+              console.error('Error creating user in database', error);
+              // Delete the user from authentication records if database save fails.
+              user.delete().then(function(){
+                alert("User unable to register. Please try again later");
+            });
         });
       })
       .catch((error) => {
