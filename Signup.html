@@ -141,7 +141,7 @@
 
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4 ">
         <div class="card regform wow bounce animated" data-wow-delay="0.05s">
           <div class="card-body regform">
             <div class="myform form ">
@@ -203,35 +203,41 @@
                         </select>
                     </div>
                     <div class="formbuilder-select form-group form-inline field-select-emailme">
-                        <input type="checkbox" id="emailme" name="emailme" value="emailyes">
-                        <label for="emailme">Keep me updated when you add new cases & material</label>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <input type="checkbox" id="emailme" name="emailme" value="emailyes">
+                            </div>
+                            <div class="col-sm-8">
+                                <label for="emailme"> Keep me updated when you add new cases & material</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 </form>
+
                 <div class="col-md-12 text-center mb-3">
-                  <button 
-                    type="submit" 
-                    class=" btn btn-block mybtn btn-primary tx-tfm"
-                    data-toggle="modal"
-                    data-target="#SignupConfirm"
-                    id="createAccountButton"
-                    >
-                      Sign Up
-                    </button>
+<!--                  <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm" data-toggle="modal" data-target="#SignupConfirm" id="createAccountButton">Sign Up </button>-->
+                    <button type="submit" class="btn btn-block mybtn btn-primary tx-tfm" id="createAccountButton">Sign Up </button>
                 </div>
                 <div class="col-md-12 ">
                   <div class="form-group">
-                    <p class="text-center"><a href="Login.html" id="signin">Already have an account?</a></p>
+                    <p class="text-center">
+                        <a href="Login.html"
+                           id="signin"
+                           style="color: blue"
+                        >Already have an account?</a>
+                    </p>
                   </div>
                 </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>
-<!-- <div class="modal fade" id="SignupConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="SignupConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
