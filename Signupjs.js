@@ -125,6 +125,14 @@ async function verify(signUpDetailsObj){
   return passWordsMatch && isProvided;
 }
 
+function doga(category, action) {
+  console.log('did GA');
+  console.log(category, action);
+  gtag('event', 'click', {
+    'event_category': category,
+    'event_action': action,
+  });}
+
 function mainDriver(){
   let submitInfoBtn = document.getElementById("createAccountButton");
   submitInfoBtn.onclick = getInfoAndVerify;
