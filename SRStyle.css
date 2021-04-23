@@ -130,3 +130,7 @@ html {background-color: #282b2b;}
     align-items: center;
     display:grid;
   }
+
+#rLocLink>a{
+  color:#FCFDC2;
+}

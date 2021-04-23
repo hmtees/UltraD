@@ -93,6 +93,58 @@ function RandomLoc() {
   window.location.href = link;
 }
 
+function ShowRandomLoc() {
+  var locNames = [
+    "Right Upper Quadrant",
+    "Left Upper Quadrant",
+    "Subxiphoid",
+    "Bladder",
+    "Lungs"
+  ];
+  var max = (locNames.length);
+  var randomNumber = Math.floor(Math.random()*max);
+  var ReviewLoc = locNames[randomNumber];
+  document.getElementById("ReviewLocation").innerHTML =ReviewLoc;
+  if (ReviewLoc === "Right Upper Quadrant") 
+    {document.getElementById("rLocLink").href ="./Location-RUQ.html"};
+  if (ReviewLoc === "Left Upper Quadrant") 
+    {document.getElementById("rLocLink").href ="./Location-LUQ.html"};
+  if (ReviewLoc === "Subxiphoid") 
+    {document.getElementById("rLocLink").href ="./Location-Subxi.html"};
+  if (ReviewLoc === "Bladder") 
+    {document.getElementById("rLocLink").href ="./Location-Bladder.html"};
+  if (ReviewLoc === "Lungs") 
+    {document.getElementById("rLocLink").href ="./Location-Lung.html"};
+
+}
+
+function ShowRandomAxn() {
+  var axnNames = [
+    "Observation",
+    "CT Scan",
+    "Surgery",
+    "Intervention"
+  ];
+  var max = (axnNames.length);
+  var randomNumber = Math.floor(Math.random()*max);
+  var ReviewAxn = axnNames[randomNumber];
+  document.getElementById("ReviewAction").innerHTML =ReviewAxn;
+  if (ReviewAxn === "Observation") 
+    {document.getElementById("rAxnLink").href ="./ActionInfo-Obs.html"};
+  if (ReviewAxn === "CT Scan") 
+    {document.getElementById("rAxnLink").href ="./ActionInfo-CT.html"};
+  if (ReviewAxn === "Surgery") 
+    {document.getElementById("rAxnLink").href ="./ActionInfo-Surgery.html"};
+  if (ReviewAxn === "Intervention") 
+    {document.getElementById("rAxnLink").href ="./ActionInfo-Intervene.html"};
+
+}
+
+function ShowReviews() {
+  ShowRandomLoc();
+  ShowRandomAxn();
+}
+
 function RandomAxn() {
   var axnLinks = [
     "ActionInfo-Obs.html",
@@ -161,18 +213,14 @@ for (var i = 1; i < table.rows.length; i++) {
   json.push(rowData);
 }
 
-console.log(json);
-
 // Map JSON values back to label array
 var labels = json.map(function(e) {
   return e.case;
 });
-console.log(labels); // ["1","2","3","4","5"]
 
 // Map JSON values back to values array
 var values = json.map(function(e) {
   return e.score;
 });
-console.log(values); // ["10", "25", "55", "120"]
 
 var chart = BuildChart(labels, values, "Shift Score Progress");

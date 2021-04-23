@@ -3,9 +3,6 @@
 
 <!--
 TO-DO
-	Analytics Info
-	Add video w/ event analytics
-  Footer links
 -->
 <head>
   
@@ -67,13 +64,6 @@ TO-DO
 
   <!-- Template Main CSS File -->
   <link href="home2style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: SoftLand - v4.1.0
-  * Template URL: https://bootstrapmade.com/softland-bootstrap-app-landing-page-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -91,10 +81,10 @@ TO-DO
       <nav id="navbar" class="navbar">
         <ul>
           <li class="nav-item"><a href="index.html">Home</a></li>
-          <li class="nav-item"><a href="Contact.html" onClick='doga("signup", enter_contact)'>Contact Us</a></li>
-          <li class="nav-item"><a href="Signup.html" onClick='doga("signup","enter_signup")'>Sign Up</a></li>
-          <li class="nav-item"><a href="Login.html" onClick='doga("login", "enterlogin")'>Login</a></li>
-          <li class="nav-item"><a href="Main UI.html" onClick='doga("signup", "trial_start")'>Try for FREE</a></li>
+          <li class="nav-item"><a href="Contact.html" onclick='doga("signup", "enter_contact")'>Contact Us</a></li>
+          <li class="nav-item"><a href="Signup.html" onclick='doga("signup","enter_signup", "from_contact")'>Sign Up</a></li>
+          <li class="nav-item"><a href="Login.html" onclick='doga("login", "enterlogin", "from_contact")'>Login</a></li>
+          <li class="nav-item"><a href="Main UI.html" onclick='doga("signup", "trial_start", "from_contact")'>Try for FREE</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -128,7 +118,7 @@ TO-DO
     <section class="section">
       <div class="container">
         <div class="row mb-5 align-items-end">
-          <iframe src="https://www.youtube.com/embed/Mr9lSNIQOec" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+          <iframe src="https://www.youtube.com/embed/MT5DX2jlq30" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
           </iframe>
           <div class="col-md-6" data-aos="fade-up">
             <h2>Any Questions or Feedback?</h2>
@@ -176,7 +166,7 @@ TO-DO
                 </div>
 
                 <div class="col-md-6 form-group">
-                  <input type="submit" class="btn btn-primary d-block w-100" value="Send Message" onClick='doga("signup", submit_contact)'>
+                  <input type="submit" class="btn btn-primary d-block w-100" value="Send Message" onclick='doga("signup", "submit_contact")'>
                 </div>
               </div>
 
@@ -209,9 +199,9 @@ TO-DO
               <h3>Navigation</h3>
               <ul class="list-unstyled">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="Contact.html" onClick='doga("signup", enter_contact)'>Contact</a></li>
-                <li><a href="Signup.html" onClick='doga("signup","enter_signup")'>Signup</a></li>
-                <li><a href="Login.html" onClick='doga("login", "enterlogin")'>Login</a></li>
+                <li><a href="Contact.html" onclick='doga("signup", "enter_contact")'>Contact</a></li>
+                <li><a href="Signup.html" onclick='doga("signup","enter_signup", "from_contact")'>Signup</a></li>
+                <li><a href="Login.html" onclick='doga("login", "enterlogin", "from_contact")'>Login</a></li>
               </ul>
             </div>
           </div>
@@ -232,7 +222,6 @@ TO-DO
   <!-- Vendor JS Files -->
   <script src="aos/aos.js"></script>
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
- <!-- <script src="php-email-form/validate.js"></script>-->
   <script src="swiper/swiper-bundle.min.js"></script>
 
   <!-- Template Main JS File -->

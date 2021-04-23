@@ -23,6 +23,15 @@ async function registerUserWithGoogle(signInInfo) {
           allowUpdateNotification : signInInfo.allowUpdateNotification,
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }
+        
+        function doga(category, action) {
+  console.log('did GA');
+  console.log(category, action);
+  gtag('event', 'click', {
+    'event_category': category,
+    'event_action': action, 
+  });
+}
         // use the user id as an ID
         let userDocument = db.collection("users");
         userDocument.doc(user.uid).set(userSignUpInfo)

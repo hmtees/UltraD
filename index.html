@@ -5,7 +5,6 @@
   TO-DO:
     Highlight Free Trial Button in nav
     Description for features
-    Analytics info
     Fix mobile navbar expand
   -->
 
@@ -62,12 +61,12 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
+  <link href="aos/aos.css" rel="stylesheet">
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="swiper/swiper-bundle.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" />
-
 
   <!-- Template Main CSS File -->
   <link href="home2style.css" rel="stylesheet">
@@ -88,10 +87,10 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li class="nav-item"><a href="index.html">Home</a></li>
-          <li class="nav-item"><a href="Contact.html" onClick='doga("signup", enter_contact)'>Contact Us</a></li>
-          <li class="nav-item"><a href="Signup.html" onClick='doga("signup","enter_signup")'>Sign Up</a></li>
-          <li class="nav-item"><a href="Login.html" onClick='doga("login", "enterlogin")'>Login</a></li>
-          <li class="nav-item"><a href="Main UI.html" onClick='doga("signup", "trial_start")'>Try for FREE</a></li>
+          <li class="nav-item"><a href="Contact.html" onclick='doga("signup", "enter_contact", "from_home")'>Contact Us</a></li>
+          <li class="nav-item"><a href="Signup.html" onclick='doga("signup","enter_signup", "from_home")'>Sign Up</a></li>
+          <li class="nav-item"><a href="Login.html" onclick='doga("login", "enterlogin", "from_home")'>Login</a></li>
+          <li class="nav-item"><a href="Main UI.html" onclick='doga("signup", "trial_start", "from_home")'>Try for FREE</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -109,8 +108,8 @@
             <div class="col-lg-7 text-center text-lg-start">
               <h1>Ultra EM</h1>
               <h2 class="mb-5" >FAST Ultrasound Simulation</h2>
-              <a href="Main UI.html" class="btn btn-outline-white" onClick='doga("signup", "trial_start")'>
-                Try now for FREE</a>
+              <a href="Main UI.html" class="btn btn-outline-white" onClick='doga("signup", "trial_start", "from_home")'>
+                Try Now for FREE</a>
             </div>
             <div class="col-lg-5 iphone-wrap">
               <img src="ProgramFiles/screenshotdemo.png" class="homeScreenshot" alt="Image">
@@ -189,9 +188,9 @@
               <h3>Navigation</h3>
               <ul class="list-unstyled">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="Contact.html" onClick='doga("signup", enter_contact)'>Contact</a></li>
-                <li><a href="Signup.html" onClick='doga("signup","enter_signup")'>Signup</a></li>
-                <li><a href="Login.html" onClick='doga("login", "enterlogin")'>Login</a></li>
+                <li><a href="Contact.html" onclick='doga("signup", "enter_contact", "from_home")'>Contact</a></li>
+                <li><a href="Signup.html" onclick='doga("signup","enter_signup", "from_home")'>Signup</a></li>
+                <li><a href="Login.html" onclick='doga("login", "enterlogin", "from_home")'>Login</a></li>
               </ul>
             </div>
           </div>
@@ -208,13 +207,6 @@
   </footer>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <script src="home2js.js"></script>
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VVHMBP13JW"></script>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
 
 
   <!-- Vendor JS Files -->

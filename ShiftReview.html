@@ -1,5 +1,3 @@
-<!--User Story:  As a medical student I should be able to view my progress on the Fast Exam "shifts" so that I can tell if I am improving and determine what areas to focus on going forward.
--->
 <head>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
@@ -46,14 +44,14 @@
   <link href="swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
+  <link rel="stylesheet" href="SRStyle.css">
+  <link rel="stylesheet" href="NavBar.css">
   <link href="home2style.css" rel="stylesheet">
-
+ 
 
 <title>Shift Review - Ultra EM</title>
 
 </head>
-<link rel="stylesheet" href="SRStyle.css">
-<link rel="stylesheet" href="NavBar.css">
 <header id="header" class="fixed-top d-flex align-items-center">
   <div class="container d-flex justify-content-between align-items-center">
 
@@ -65,10 +63,10 @@
 
     <nav id="navbar" class="navbar">
       <ul>
-        <li class="nav-item"><a href="Contact.html" onClick='doga("signup", enter_contact)'>Contact Us</a></li>
-        <li class="nav-item"><a href="Signup.html" onClick='doga("signup","enter_signup")'>Sign Up</a></li>
+        <li class="nav-item"><a href="Contact.html" onclick='doga("signup", "enter_contact")'>Contact Us</a></li>
+        <li class="nav-item"><a href="Signup.html" onclick='doga("signup","enter_signup")'>Sign Up</a></li>
         <li class="nav-item"><a href="ShiftReview.html">Shift Review</a></li>
-        <li class="nav-item"><a href="Progress Report.html">Progress Report</a></li>
+        <li class="nav-item"><a href="Progress Report.html" onclick='doga("case","check_progress", "from_SR")'>Progress Report</a></li>
         <li class="nav-item"><a href="Main UI.html">Begin Shift</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
@@ -76,7 +74,7 @@
 
   </div>
 </header><!-- End Header -->
-
+<body onload="ShowReviews()">
 <div class="topbar">
     <div class="heading text-center">
       <h1>Shift Review</h1>
@@ -89,8 +87,8 @@
       <li ><strong>Total Points:</strong> <span id = 'shift-score'></span></li>
       <li><strong>Total Cases:</strong> <span id ='case-count'></span></li>
       <li><strong>Average:</strong> <span id='Accuracy'></span></li>
-      <li><strong>Review Location:</strong> <span><em>Right Upper Quadrant</em></span></li>
-      <li><strong>Review Action:</strong> <span><em>Surgery</em></span></li>
+      <li><strong>Review Locations:</strong> <span><a id="rLocLink"><em id="ReviewLocation"></em></a></span></li>
+      <li><strong>Review Actions:</strong> <span ><a id="rAxnLink"><em id="ReviewAction"></em></a></span></li>
       <div class="toggle-chart">
         <button id="toggle-chart">Show/Hide Chart</button>
       </div>
@@ -162,13 +160,13 @@
       <button onclick="RandomAxn()" class="NavButton">Actions <img src="./ProgramFiles/Icons/capicon/capicon/png/white/089.png" class="NavIcon"></button>
     </div>
     <div class="Progress-Report">
-      <a class="NavButton" href="Progress%20Report.html">Progress Report <img src="ProgramFiles/Icons/capicon/capicon/png/white/135.png" class="NavIcon"></a>
+      <a class="NavButton" href="Progress%20Report.html" onclick='doga("case","check_progress", "from_SR")'>Progress Report <img src="ProgramFiles/Icons/capicon/capicon/png/white/135.png" class="NavIcon"></a>
     </div>
     <div class="New-Shift">
       <a class="NavButton" href="Main%20UI.html">New Shift <img src="./ProgramFiles/Icons/capicon/capicon/png/white/076.png" class="NavIcon"></a>
     </div>
   </div>
-
+</body>
   <!-- Vendor JS Files -->
   <script src="aos/aos.js"></script>
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>

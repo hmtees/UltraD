@@ -12,7 +12,7 @@ body {
 }
 
 a {
-  color: #fafc86;
+  color: #fc3500;
   text-decoration: none;
   transition: .3s all ease;
 }
@@ -24,6 +24,7 @@ a:hover {
 h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: Consolas;
   color: #fcfdc2;
+  font-size:2.5vw;
 }
 
 .container {
@@ -65,7 +66,6 @@ section {
   font-size: 3rem;
   font-weight: 700;
   background: linear-gradient(-45deg, #f76262, #852727);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -167,7 +167,6 @@ section {
 
 .step .number {
   background: linear-gradient(-45deg, #1391a5, #274685);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
   letter-spacing: .2rem;

@@ -5,12 +5,13 @@
 * License: https://bootstrapmade.com/license/
 */
 
-function doga(category, action) {
+function doga(category, action, label) {
   console.log('did GA');
-  console.log(category, action);
+  console.log(category, action, label);
   gtag('event', 'click', {
     'event_category': category,
     'event_action': action, 
+    'event_label': label,
    // 'event_value': '1'
   });
 }
