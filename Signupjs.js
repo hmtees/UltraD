@@ -1,5 +1,8 @@
 $( document ).ready(mainDriver);
 
+
+function redirectToSignUpPage() { window.location.reload(); }
+
 async function registerUserWithGoogle(signInInfo) {
   // TODO - Make a connection to google and save the information.
   firebase.auth().createUserWithEmailAndPassword(signInInfo.email, signInInfo.password)
@@ -8,8 +11,8 @@ async function registerUserWithGoogle(signInInfo) {
         let user = userCredential.user;
         // store information locally for retrieval later
         localStorage.user = {
-          userId : user.uid,
-          name : user.displayName,
+          userId: user.uid,
+          name: user.displayName,
         };
         console.log("User has been registered and auto logged in. Begin shift");
         // TODO : Now store the user into
@@ -20,18 +23,9 @@ async function registerUserWithGoogle(signInInfo) {
           email: signInInfo.email,
           school: signInInfo.school,
           gradYear: signInInfo.gradYear,
-          allowUpdateNotification : signInInfo.allowUpdateNotification,
+          allowUpdateNotification: signInInfo.allowUpdateNotification,
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }
-        
-        function doga(category, action) {
-  console.log('did GA');
-  console.log(category, action);
-  gtag('event', 'click', {
-    'event_category': category,
-    'event_action': action, 
-  });
-}
         // use the user id as an ID
         let userDocument = db.collection("users");
         userDocument.doc(user.uid).set(userSignUpInfo)
@@ -50,12 +44,16 @@ async function registerUserWithGoogle(signInInfo) {
               // Delete the user from authentication records if database save fails.
               user.delete().then(function(){
                 alert("User unable to register. Please try again later");
+                redirectToSignUpPage();
             });
         });
       })
       .catch((error) => {
         console.error("Unable to create a user authentication record");
+        // TODO : Handle user who already has an account.
         console.error(error.code + " : " + error.message );
+        alert("User unable to register. Please try again later");
+        redirectToSignUpPage();
       });
 }
 
@@ -121,6 +119,8 @@ async function verify(signUpDetailsObj){
   }
   if (!isProvided || !passWordsMatch){
     alert(missing_info + gradErrorStr + passErrorStr);
+    redirectToSignUpPage();
+    return false;
   }
   return passWordsMatch && isProvided;
 }
