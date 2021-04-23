@@ -3,6 +3,10 @@ $( document ).ready(mainDriver);
 
 function redirectToSignUpPage() { window.location.reload(); }
 
+function redirectToLoginPage() {
+
+}
+
 async function registerUserWithGoogle(signInInfo) {
   // TODO - Make a connection to google and save the information.
   firebase.auth().createUserWithEmailAndPassword(signInInfo.email, signInInfo.password)
@@ -50,10 +54,36 @@ async function registerUserWithGoogle(signInInfo) {
       })
       .catch((error) => {
         console.error("Unable to create a user authentication record");
-        // TODO : Handle user who already has an account.
-        console.error(error.code + " : " + error.message );
-        alert("User unable to register. Please try again later");
-        redirectToSignUpPage();
+        // Handle Errors here.
+        let errorCode = error.code;
+        let errorMessage = error.message;
+        if (errorCode === 'auth/weak-password') {
+          alert('The password is too weak. Please enter a better password using a' +
+              ' combination of letters, numbers and symbols');
+          console.log(error);
+          redirectToSignUpPage();
+          return;
+        }else if(errorCode === 'auth/email-already-in-use'){
+          alert('You have already registered for an account with this email. Redirecting to Login');
+          console.log(error);
+          redirectToLoginPage();
+          return;
+        }else if(errorCode === 'auth/invalid-email'){
+          alert('Invalid email. Try again with the correct email format.');
+          console.log(error);
+          redirectToSignUpPage();
+          return;
+        }else if(errorCode === 'auth/operation-not-allowed'){
+          alert('Cannot save user profile at this time. Please try again at a later.');
+          console.log(error);
+          redirectToSignUpPage();
+          return;
+        }else {
+          alert(errorMessage);
+          console.log(error);
+          redirectToSignUpPage();
+          return;
+        }
       });
 }
 
