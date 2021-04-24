@@ -24,7 +24,7 @@ function readData(data) {
   var partfeed = data.feed.entry;
   var divData = [];
   var length2 = Object.keys(partfeed).length;
-  localStorage.caseList = JSON.stringify(caseList)
+  localStorage.caseList = JSON.stringify(caseList);
   var caseList = JSON.parse(localStorage.caseList);
   if (localStorage.retry == 'true'){
     i = localStorage.caseNum;
