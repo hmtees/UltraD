@@ -8,7 +8,7 @@ $(document).ready(function() {
     }
   });
 });
-var user 
+var user ;
 
 function doga(category, action, label) {
   console.log('did GA');
@@ -24,7 +24,7 @@ function readData(data) {
   var partfeed = data.feed.entry;
   var divData = [];
   var length2 = Object.keys(partfeed).length;
-  localStorage.caseList = JSON.stringify(caseList);
+  localStorage.caseList = JSON.stringify(caseList)
   var caseList = JSON.parse(localStorage.caseList);
   if (localStorage.retry == 'true'){
     i = localStorage.caseNum;
@@ -59,6 +59,7 @@ function readData(data) {
     	title = row[0];
     }
     drawDiv(row, title, "#caseDetails");
+    
   }
 
 
