@@ -825,6 +825,7 @@ section {
 .hero-section {
   background: linear-gradient(to right, #fa5d5d 1%, #282b2b 100%), url(../img/hero-bg.jpg);
   position: relative;
+  height:400vw;
 }
 
 .hero-section .wave {
@@ -847,7 +848,7 @@ section {
 
 .hero-section, .hero-section > .container > .row {
   height: 100vh;
-  min-height: 880px;
+  min-height: 80vh;
 }
 
 .hero-section.inner-page {

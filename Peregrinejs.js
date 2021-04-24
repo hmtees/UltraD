@@ -1,5 +1,3 @@
-
-
 var JSONFEED = 'https://spreadsheets.google.com/feeds/list/1dpcguZ2Ak0zc0Sh1WoPV0c0tXVxre3yGWC1Wo5ElWtc/1/public/basic?alt=json';
 
 $(document).ready(function() {
@@ -26,10 +24,11 @@ function readData(data) {
   var partfeed = data.feed.entry;
   var divData = [];
   var length2 = Object.keys(partfeed).length;
-  var caseList = JSON.parse(localStorage.caseList)
+  localStorage.caseList = JSON.stringify(caseList);
+  var caseList = JSON.parse(localStorage.caseList);
   if (localStorage.retry == 'true'){
-    i = localStorage.caseNum
-    localStorage.retry = false
+    i = localStorage.caseNum;
+    localStorage.retry = false;
   } else {
   //console.log(length2);
   // random number for the row where the case will be pulled from
@@ -47,7 +46,6 @@ function readData(data) {
         break}
     }
   caseList.push(i)
-  localStorage.caseList = JSON.stringify(caseList)
 }
   localStorage.caseNum = i;
 //  console.log("Case No: "+i);
@@ -61,7 +59,6 @@ function readData(data) {
     	title = row[0];
     }
     drawDiv(row, title, "#caseDetails");
-    
   }
 
 
