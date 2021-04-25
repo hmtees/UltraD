@@ -1,15 +1,6 @@
 var JSONFEED = 'https://spreadsheets.google.com/feeds/list/1dpcguZ2Ak0zc0Sh1WoPV0c0tXVxre3yGWC1Wo5ElWtc/1/public/basic?alt=json';
 
-$(document).ready(function() {
-  $.ajax({
-    url: JSONFEED,
-    success: function(data) {
-      readData(data);
-    }
-  });
-});
-var user ;
-
+//GA Setup
 function doga(category, action, label) {
   console.log('did GA');
   console.log(category, action, label);
@@ -20,11 +11,20 @@ function doga(category, action, label) {
   });
 }
 
+$(document).ready(function() {
+  $.ajax({
+    url: JSONFEED,
+    success: function(data) {
+      readData(data);
+    }
+  });
+});
+var user
+
 function readData(data) {
   var partfeed = data.feed.entry;
   var divData = [];
   var length2 = Object.keys(partfeed).length;
-  localStorage.caseList = JSON.stringify(caseList);
   var caseList = JSON.parse(localStorage.caseList);
   if (localStorage.retry == 'true'){
     i = localStorage.caseNum;
@@ -46,9 +46,10 @@ function readData(data) {
         break}
     }
   caseList.push(i)
+  localStorage.caseList = JSON.stringify(caseList);
 }
   localStorage.caseNum = i;
-//  console.log("Case No: "+i);
+  console.log("Case No: "+i);
   //console.log(i, ':i');
     var JSONrow = partfeed[i].content.$t.split(',');
     var row = [];
@@ -65,8 +66,7 @@ function readData(data) {
 
 function drawDiv(divData, parent, loc) {
   if (divData == null) return null;
-
-//  console.log("Case: " + title);
+  console.log("Case: " + title);
   localStorage.case1Title = title;
   scenario = $.trim(divData[1]);
   age = $.trim(divData[2]);
@@ -91,10 +91,10 @@ function drawDiv(divData, parent, loc) {
   localStorage.case1KeyImg = keyImg;
   keyLocation = $.trim(divData[21]);
   localStorage.case1KeyLoc = keyLocation;
-//  console.log("Key Location: "+localStorage.case1KeyLoc);
+  console.log("Key Location: "+localStorage.case1KeyLoc);
   keyAction = $.trim(divData[22]);
   localStorage.case1KeyAction = keyAction;
-//  console.log("Key Action: " + localStorage.case1KeyAction);
+  console.log("Key Action: " + localStorage.case1KeyAction);
 
   var $caseDiv = $("<div/>");
   var casedetails = $("<p></p>").html("A " + age + "-year-old " + gender + " " + scenario); 
@@ -134,7 +134,6 @@ let timer = setInterval(function () {
 
 setTimeout(function () {
     clearInterval(timer);}, 999999);
-//to-do: record time at point of selection - save as variable
 
 function switchLUQ() {
     newLocation = "Left Upper Quadrant";
