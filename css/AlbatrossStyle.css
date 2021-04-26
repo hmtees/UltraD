@@ -1,0 +1,109 @@
+.Tabs {
+    font-size:2vw;
+}
+
+#currentLocation {
+    text-align:center;
+    font-size: 4vw;
+    margin-bottom:0;
+}
+
+#body {
+    height:30vw;
+    padding-left:8vw;
+}
+.parent{
+    width:2vw;
+    height:2vw;
+    position:absolute;
+    z-index:0;
+}
+
+#body {
+    height:20vw;
+}
+
+.inner {
+}
+
+#ruqicon {
+    position:absolute;
+    z-index:1;
+    bottom:-12vw;
+    right:-12vw;
+    height:2vw;}
+
+#luqicon {
+    position:absolute;
+    z-index:1;
+    bottom:-12vw;
+    right:-17.5vw;
+    height:2vw;}
+
+#subxicon {
+    position:absolute;
+    z-index:1;
+    bottom:-10.5vw;
+    right:-15vw;
+    height:2vw;}
+
+#bladdericon {
+    position:absolute;
+    z-index:1;
+    bottom:-17vw;
+    right:-15vw;
+    height:2vw;}
+
+#rLungicon {
+    position:absolute;
+    z-index:1;
+    bottom:-8vw;
+    right:-13vw;
+    height:2vw;}
+
+
+#lLungicon {
+    position:absolute;
+    z-index:1;
+    bottom:-8vw;
+    right:-17vw;
+    height:2vw;}
+
+
+.ultrasound {
+    height:30vw;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 50vw 45vw;
+    grid-template-rows: 2vw 10vw 20vw 40vw 10vw;
+    gap: 1px 1px;
+    grid-template-areas:
+    "Tabs Tabs"
+    "Current-Location Current-Location"
+    "Body Probe-Location"
+    "Normal-Anatomy Positive-Fast"
+    "Navigation Navigation";
+}
+.Tabs { grid-area: Tabs;
+    text-align:center;
+
+}
+.Navigation { grid-area: Navigation;
+    font-size:2vw;
+    text-align:center;}
+.Normal-Anatomy { grid-area: Normal-Anatomy;
+    text-align:center;
+    font-size:2vw;}
+.Positive-Fast { grid-area: Positive-Fast;
+    text-align:center;
+    font-size:2vw;}
+.Body { grid-area: Body; }
+.Probe-Location { grid-area: Probe-Location; }
+.Probe-Location>h2 {
+    font-size:2vw;
+}
+.Probe-Location>p {
+    font-size:1.5vw;
+}
+.Current-Location { grid-area: Current-Location; }

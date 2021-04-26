@@ -1,0 +1,100 @@
+html {background-color: #282b2b;}
+
+/* 
+To-Do:
+Center Header
+*/
+
+.parent {
+font-family: Consolas;
+color:#fcf2c2; 
+}
+
+.ANavigation {
+  background-color: #0096DF;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+
+/* Navigation links */
+.ANavigation a {
+  padding: 1vw 1vw 1vw 1vw ;
+  float: left;
+  color: white;
+  text-decoration: none;
+  font-size: 3vw;
+  width: 100%;
+  text-align: center;
+}
+
+/* Add a background color on mouse-over */
+.ANavigation a:hover {
+  background-color: #31BBF6;
+}
+
+/* Style the current/active link */
+.ANavigation a.active {
+  background-color: #4CAF50;
+}
+
+.Action {
+    display: block;
+    text-align: center;
+    font-family: Consolas;
+}
+
+.ActionIcon {
+    display: block;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    height:10vw;
+    padding: 5px;
+    }
+
+.ActionInfo {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    font-family: Consolas;
+    font-size:2vw;
+}
+
+.RememberBox {
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    width:40vw;
+    padding: 10px;
+}
+
+.Navigation {
+  align-items: center;
+  overflow: auto;
+  grid-template-columns: 20vw 23vw 26vw 24vw;
+  gap: 0px 0px;
+  grid-template-areas:
+  "Locations ShiftReview Progress-Report New-Shift";
+  padding: 2vw 2vw 0 2vw;
+  align-items: center;
+  display:grid;
+}
+
+.Navigation a {
+  margin: 0px;
+  background-color: #0096DF;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 2px white;
+}
+
+.Navigation a:hover {
+  background-color: #31BBF6;
+}
+
+.NavIcon {
+    height:20px;
+}

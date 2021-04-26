@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <!-- Favicons -->
+  <link href="../ProgramFiles/Icons/Logo.png" rel="icon">
+  <link href="../ProgramFiles/Icons/Logo.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../aos/aos.css" rel="stylesheet">
+  <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../css/home2style.css" rel="stylesheet">
+
+
+
+<title>Login - Ultra EM</title>
+  </head>
+
+  <body>
+
+    <header id="header" class="fixed-top d-flex align-items-center">
+      <div class="container d-flex justify-content-between align-items-center">
+  
+        <div class="logo">
+          <h1><a href="../index.html">Ultra EM</a></h1></div>
+        <div class="logo">
+          <a href="../index.html"><img src="../ProgramFiles/Icons/Logo.png" alt="" class="img-fluid"></a>
+        </div>
+  
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li class="nav-item"><a href="../index.html">Home</a></li>
+            <li class="nav-item"><a href="Contact.html" onClick='doga("signup", enter_contact)'>Contact Us</a></li>
+            <li class="nav-item"><a href="Signup.html" onClick='doga("signup","enter_signup")'>Sign Up</a></li>
+            <li class="nav-item"><a href="Login.html" onClick='doga("login", "enterlogin")'>Login</a></li>
+            <li class="nav-item"><a href="Main UI.html" onClick='doga("signup", "trial_start")'>Try for FREE</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+  
+      </div>
+    </header>
+
+    <div class="grid">
+      <header class="spacer" id="topBar">
+        <!-- Spacer -->
+      </header>
+
+      <aside class="spacer" id="leftSidebar">
+        <!-- Spacer -->
+      </aside>
+
+      <article class="item" id="homePageImage">
+        <img src="../ProgramFiles/Icons/Logo.png">
+      </article>
+
+      <article class="item" id="loginWindow">
+        <!-- Default form shown for Login -->
+        <form name="loginForm" id="loginForm" method='post' onsubmit="return false">
+          <p>
+            <span id="title">Ultra EM</span><br><br>
+            <input type="email" name="Email" placeholder="Email" id="loginEmail"><br><br>
+            <input type="password" name="Password" placeholder="Password" id="loginPassword"><br><br>
+            <input type="submit" value="Login" id="loginButton">
+          </p>
+        </form>
+
+        <!-- Form shown when user clicks 'Forgot Password?' -->
+        <form name="forgotPasswordForm" id="forgotPasswordForm" method='post' onsubmit="return false">
+          <p>
+            <span id="title">Ultra EM</span><br><br>
+            <input type="email" name="Email" placeholder="Email" id="loginLinkEmail"><br><br>
+            <input type="submit" value="Send Login Link" id="sendLoginLinkButton"><br><br>
+            <input type="submit" value="Back to Login" class="backToLoginButton">
+          </p>
+        </form>
+
+        <!-- Form shown when user clicks 'Sign up' -->
+        <form name="signUpForm" id="signUpForm" method='post' onsubmit="return false">
+          <p>
+            <span id="title">Ultra EM</span><br><br>
+            <input type="name" name="Name" placeholder="Name" id="signUpName"><br><br>
+            <input type="email" name="Email" placeholder="Email" id="signUpEmail"><br><br>
+            <input type="password" name="Password" placeholder="Password" id="signUpPassword"><br><br>
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" id="signUpConfirmPassword"><br><br>
+            <input type="School" name="School" placeholder="School" id="signUpSchool"><br><br>
+            <input type="GradYear" name="GradYear" placeholder="Graduation Year" id="signUpGradYear"><br><br>
+            <input type="submit" value="Create Account" id="createAccountButton"><br><br>
+            <input type="submit" value="Back to Login" class="backToLoginButton">
+          </p>
+        </form>
+          
+      </article>
+
+      <article class="item" id="forgotPassword">
+        <p><span id="forgotPasswordButton">Forgot Password?</span></p>
+      </article>
+
+
+      <div class="item" id="signUp">
+        <span id="signUpButton">Sign up</span>
+      </div>
+
+      <aside class="spacer" id="rightSidebar">
+        <!-- Spacer -->
+      </aside>
+
+      <footer id="bottomBar">
+        <div id="linksBar">
+          <span>About</span>
+          <span>Help</span>
+          <span>Contact</span>
+        </div>
+
+        <div id="referenceBar">
+          <span>English</span>
+          <span>Copyright</span>
+        </div>
+      </footer>
+    </div>
+  </body>
+
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../js/Login.js"></script>
+<script src="../js/home2js.js"></script>
+
