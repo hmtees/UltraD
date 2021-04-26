@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <!-- Favicons -->
+  <link href="ProgramFiles/Icons/Logo.png" rel="icon">
+  <link href="ProgramFiles/Icons/Logo.png" rel="apple-touch-icon">
+  <link rel="stylesheet" href="PRStyle.css">
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="home2style.css" rel="stylesheet">
+<title>Progress Report - Ultra EM</title>
+
+</head>
+  <link rel="stylesheet" href="NavBar.css">
+
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between align-items-center">
+  
+      <div class="logo">
+        <h1><a href="index.html">Ultra EM</a></h1></div>
+      <div class="logo">
+        <a href="index.html"><img src="ProgramFiles/Icons/Logo.png" alt="" class="img-fluid"></a>
+      </div>
+  
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li class="nav-item"><a href="Contact.html" onclick='doga("signup", "enter_contact", "from_PR")'>Contact Us</a></li>
+          <li class="nav-item"><a href="Signup.html" onclick='doga("signup","enter_signup", "from_PR")'>Sign Up</a></li>
+          <li class="nav-item"><a href="ShiftReview.html" onclick='doga("case","review_shift", "from_PR")'>Shift Review</a></li>
+          <li class="nav-item"><a href="Progress Report.html">Progress Report</a></li>
+          <li class="nav-item"><a href="Main UI.html">Begin Shift</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+  
+    </div>
+  </header><!-- End Header -->
+
+  <body onload="ShowRandomLoc()">
+  <div class="ProgressReportBox">
+
+    <div class="Title">
+      <h1>Progress Report</h1>
+    </div>
+
+    <div class="ScoreData">
+      <h3>Overall Accuracy: <b id='accuracy'></b></h3>
+      <h3>Total Score: <b id ='total-score'></b></h3>
+      <h3>Cases Completed: <b id='case-count'></b></h3>
+      <h3>Case Average: <b id='score-average'></b></h3>
+    </div>
+
+    <div class="MostMissed">
+      <h4 id="MostMissedAction">
+        Review Action: <a id='missedActionLink' href=""><b id='missedActionText'></b></a></h4>
+      <div class="WorstLocation">
+        <h4 id="WorstLocation">
+          Review Location: <a id ="rLocLink"><b id="ReviewLocation"></b></a>
+        </h4>
+      </div>
+    </div>
+<div class="ActionTitle">
+  <h2>Actions</h2>
+</div>
+    <div class="Category">
+      <h3><a href="ActionInfo-Obs.html" class="NavButton" id="obsButton">Observation
+        <img class="ActionIcon" src="./ProgramFiles/Icons/obs-bw.svg">
+      </a></h3>
+      <h3><a href="ActionInfo-CT.html" class="NavButton" id="ctButton">CT Scan
+        <img class="ActionIcon" src="./ProgramFiles/Icons/ctScan-bw.svg">
+      </a></h3>
+      <h3><a href="ActionInfo-Surgery.html" class="NavButton" id="surgeryButton">Surgery
+        <img class="ActionIcon" src="./ProgramFiles/Icons/surg-bw.svg">
+      </a></h3>
+      <h3><a href="ActionInfo-Intervene.html" class="NavButton" id="interveneButton">Intervention
+        <img class="ActionIcon" src="./ProgramFiles/Icons/intervene-bw.svg">
+      </a></h3>
+    </div>
+
+    <div class="ScoreTitle">
+      <h2>Scores</h2>
+    </div>
+    <div class="ActionBreakdown">
+      <div class="ObsScore"><h3 id="ObsScore" name = 'Observation'>0</h3></div>
+      <div class="CTScore"><h3 id="CTScore" name ='CTScan'>0</h3></div>
+      <div class="SurgScore"><h3 id="SurgScore" name = 'Surgery'>0</h3></div>
+      <div class="IntScore"><h3 id="IntScore" name = 'Intervention'>0</h3></div>
+    </div>
+
+    <div class="LocationBreakdown">
+      <div class="body">
+        <img src="./ProgramFiles/ReviewBody.png" id="body">
+        <div class="locations">
+          <a href="Location-RUQ.html"> <img id="ruqicon" src="./ProgramFiles/Icons/positive.png"></a>
+          <a href="Location-LUQ.html"> <img id="luqicon" src="./ProgramFiles/Icons/positive.png"></a>
+          <a href="Location-Subxi.html"> <img id="subxicon" src="./ProgramFiles/Icons/positive.png"></a>
+          <a href="Location-Bladder.html"> <img id="bladdericon" src="./ProgramFiles/Icons/positive.png"></a>
+          <a href="Location-Lung.html"> <img id="rLungicon" src="./ProgramFiles/Icons/positive.png"></a>
+          <a href="Location-Lung.html"> <img id="lLungicon" src="./ProgramFiles/Icons/positive.png"></a>
+        </div>
+      </div>
+    </div>
+    <div class="LocationReveal">
+      <h2>Exam Image</h2>
+      <div class="USImages">
+        <img id="RightLungImage" src="./USLibrary/gifs/normal-lung-slide.gif">
+        <img class="Ultrasound" id="LeftLungImage" src="./USLibrary/gifs/ptx2.gif">
+        <img class="Ultrasound" id="SubXImage" src="./USLibrary/gifs/subxi-nl-1.gif">
+        <img class="Ultrasound" id="RUQImage" src="./USLibrary/gifs/ruq-nl-6.gif">
+        <img class="Ultrasound" id="LUQImage" src="./USLibrary/gifs/luq-nl-c4.gif">
+        <img class="Ultrasound" id="BladderImage" src="./USLibrary/gifs/bladder-nl-c7.gif">
+      </div>
+    </div>
+    <div class="Navigation">
+      <div class="New-Shift">
+          <a href="Main%20UI.html" class="NavButton">New Shift
+            <img src="ProgramFiles/Icons/capicon/capicon/png/white/076.png" class="NavIcon">
+          </a>
+      </div>
+      <div class="Review-Set">
+          <a href="ShiftReview.html" class="NavButton">Review Shift
+            <img src="ProgramFiles/Icons/capicon/capicon/png/white/056.png" class="NavIcon">
+          </a>
+      </div>
+    </div>
+</div>
+</div>
+<!-- <div class="modal fade" id="SignupSuggestion" tabindex="-1" role="dialog" aria-labelledby="PromptSignup" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="PromptSignup">Signup for Full Access!</h5>
+        </div>
+        <div class="modal-body">
+          Receive access to our complete library of FAST cases and track your progress as you learn and improve!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="GoSignup">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ -->
+</body>
+  <!-- Vendor JS Files -->
+  <script src="aos/aos.js"></script>
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="home2js.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="Progress.js"></script>
+</html>
