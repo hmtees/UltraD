@@ -10,7 +10,35 @@
 </head>
 <link rel=stylesheet href=OutcomeStyle.css>
 <link rel=stylesheet href=NavBar.css>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="swiper/swiper-bundle.min.css" rel="stylesheet">
+<link href="home2style.css" rel="stylesheet">
 
+
+<header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between align-items-center">
+  
+      <div class="logo">
+        <h1><a href="index.html">Ultra EM</a></h1></div>
+      <div class="logo">
+        <a href="index.html"><img src="ProgramFiles/Icons/Logo.png" alt="" class="img-fluid"></a>
+      </div>
+  
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li class="nav-item"><a href="Contact.html" onclick='doga("signup", "enter_contact", "from_Outcome")'>Contact Us</a></li>
+          <li class="nav-item"><a href="Signup.html" onclick='doga("signup","enter_signup", "from_Outcome")'>Sign Up</a></li>
+          <li class="nav-item"><a href="ShiftReview.html" onclick='doga("case","review_shift", "from_Outcome")'>Shift Review</a></li>
+          <li class="nav-item"><a href="Progress Report.html" onclick='doga("case","check_progress", "from_Outcome")'>Progress Report</a></li>
+          <li class="nav-item"><a href="Main UI.html">Begin Shift</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+  
+    </div>
+  </header><!-- End Header -->
 
 <div class="grid-container">
     <div class="Outcome">
@@ -74,3 +102,4 @@
  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="Outcome1js.js"></script>
+<script src="home2js.js"></script>
