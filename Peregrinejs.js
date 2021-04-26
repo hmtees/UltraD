@@ -267,6 +267,3 @@ docref.set({
     console.log('no user apparently')
   }
 })
-
-
-
