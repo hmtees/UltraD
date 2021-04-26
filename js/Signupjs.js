@@ -3,9 +3,9 @@ $( document ).ready(mainDriver);
 
 function redirectToSignUpPage() { window.location.reload(); }
 
-function redirectToLoginPage() {
+function redirectToLoginPage() { window.location.replace("Login.html"); }
 
-}
+function redirectToMainPage() { window.location.replace("MainUI.html"); }
 
 async function registerUserWithGoogle(signInInfo) {
   // TODO - Make a connection to google and save the information.
@@ -43,6 +43,11 @@ async function registerUserWithGoogle(signInInfo) {
               actionCollection.collection('Actions').doc('CT Scan').set({Correct: 0});
               actionCollection.collection('Actions').doc('Intervention').set({Correct: 0});
               actionCollection.collection('Actions').doc('Observation').set({Correct: 0});
+              localStorage.user = JSON.stringify({
+                userId: user.uid,
+                name: user.displayName,
+              });
+              redirectToMainPage();
             }).catch(function(error) {
               console.error('Error creating user in database', error);
               // Delete the user from authentication records if database save fails.
