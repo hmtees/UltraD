@@ -1,0 +1,193 @@
+html {background-color:#282b2b}
+
+/* 
+To-Do:
+Body Buttons
+Color on viewed
+*/
+
+.container-fluid {
+    font-family:consolas;
+    color:#FCFDC2;
+}
+
+
+
+.Help { grid-area: Help;}
+
+#help { height: 3vw;}
+
+.Body { grid-area: Body;}
+
+
+#bodyImage{
+    max-height:31vw;
+}
+
+#rLungicon,#lLungicon,#subxicon,#ruqicon,#luqicon,#bladdericon {
+   z-index:1;
+   height:1vw;
+   width:2vw;
+}
+
+
+#rLungicon {
+    position:relative;
+    bottom:24vw;
+    right:-3vw;    
+}
+
+
+#lLungicon {
+    position:relative;
+    bottom:24vw;
+    right:-3vw;}
+
+#subxicon {
+    position:relative;
+    bottom:19vw;
+    right:3vw;}
+
+#ruqicon {
+    position:relative;
+    bottom: 17vw;
+    right:-4vw;
+}
+
+#luqicon {
+    position:relative;
+    bottom:17vw;
+    right:-3vw;}
+
+#bladdericon {
+    position:absolute;
+    bottom:15vw;
+    right:6.5vw;}
+
+
+.Ultrasound { grid-area: Ultrasound; }
+
+.USimage {
+    height:31vw;
+    width: 67vw;
+}
+
+.Location { grid-area: Location;
+}
+
+#currentLocation {
+    margin-top: 0;
+    padding-top:0;
+    text-align:center;
+    font-size: 2.5vw;
+    color:#FCFDC2;
+    font-family:consolas;
+}
+
+.Actions { grid-area: Actions;
+    font-size:1.5vw;
+    text-align:center;
+}
+
+#Actions>h3 {
+    font-size:1.7vw;
+    margin-bottom:0;
+    color:#FCFDC2;
+    font-family:consolas;
+}
+
+.actionButton {
+    height:6vw;
+    text-align:center;
+    display: inline-block;    
+    border-radius:3vw;
+}
+
+#obsButton,#ctButton,#surgeryButton,#interveneButton {
+    width:9vw;
+    font-size: 1vw;
+    border-radius:2vw;
+}
+
+#obsButton {
+    background-color:#5fe66c;
+}
+
+#ctButton {
+    background-color:#31BBF6;
+}
+
+#surgeryButton {
+    background-color:#fc4f4f;
+}
+
+#interveneButton {
+    background-color:#F6B331;
+}
+
+#Vitals {
+    border:solid;
+    border-radius:1vw;
+    border-color:#eff0e2;
+    margin-top:0px;
+    padding-top:5px;
+    text-align:right;
+    padding-left:3vw;
+    background-color: rgba(156, 229, 165, 0.15);
+    color:#ffffff;
+}
+.Vital-Signs { grid-area: Vital-Signs;
+}
+.Vital-Signs>h3 {
+    text-align:center;
+    margin:0 auto 1vw auto;
+    padding-top:0;
+    color:#FCFDC2;
+    font-size:3vw;
+}
+.BP,.HR,.T,.O2 {
+    font-size:2vw;
+    color:#eff0e2;
+}
+
+#CaseData {
+    text-align:justify;
+}
+
+#CaseData h3 {
+    color:#FCFDC2;
+    text-align: center;
+    margin: 0 auto 0 auto;
+    font-size:3vw;
+    padding-top:0;
+}
+
+.BP { grid-area: BP;}
+.HR { grid-area: HR;}
+.T { grid-area: T;}
+.O2 { grid-area: O2;}
+#CaseInfo { 
+    border:solid;
+    border-radius:1vw;
+    border-color:#eff0e2;
+    background-color: rgba(156, 229, 165, 0.15);
+}
+
+#CaseInfo>p {
+    font-size: 1.5vw;
+    padding: 0 1vw 0 1vw;
+    color:#eff0e2;
+}
+#time {
+    color:#eff0e2;
+    text-align: right;
+    font-family:consolas;
+    }
+
+.btn:hover {
+    background-color:#1e6cdc;
+}
+
+.active{
+    background-color:#FF3500;
+  }
