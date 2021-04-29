@@ -264,3 +264,38 @@ Body Buttons
 .active{
     background-color:#FF3500;
   }
+
+@media (max-width: 700px) {
+    /*  UI-container {
+        display:grid;
+        grid-template-areas:
+            "Help"
+            "time"
+            "Body"
+            "Actions"
+            "Location"
+            "Ultrasound"
+            "Case-Details"
+            "Vitals";
+        grid-template-rows:
+            5vh 5vh 50vh 20vh 1vh 10vh 10vh 10vh;
+    }*/
+    html {
+        transform: rotate(-90deg);
+        transform-origin: left top;
+        width: 100vh;
+        height: 100vw;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        }
+}
+
+/* "Help . Location Location Location Location time"
+    "Body Body Ultrasound Ultrasound Ultrasound Ultrasound Actions"
+    "Body Body Ultrasound Ultrasound Ultrasound Ultrasound Actions"
+    "Body Body Ultrasound Ultrasound Ultrasound Ultrasound Actions"
+    ". . . . . . ."
+    ". Case-Details Case-Details Case-Details . Vitals ."
+    ". Case-Details Case-Details Case-Details . Vitals ."
+    ". Case-Details Case-Details Case-Details . Vitals ." */
