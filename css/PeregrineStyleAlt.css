@@ -34,14 +34,15 @@ Color on viewed
 #rLungicon {
     position:relative;
     bottom:24vw;
-    right:-3vw;    
+    right:0vw;    
 }
 
 
 #lLungicon {
     position:relative;
     bottom:24vw;
-    right:-3vw;}
+    right:1vw;
+}
 
 #subxicon {
     position:relative;
@@ -52,6 +53,8 @@ Color on viewed
     position:relative;
     bottom: 17vw;
     right:-4vw;
+    font-size: .75vw;
+    text-align: center;
 }
 
 #luqicon {
@@ -60,9 +63,9 @@ Color on viewed
     right:-3vw;}
 
 #bladdericon {
-    position:absolute;
-    bottom:15vw;
-    right:6.5vw;}
+    position:relative;
+    bottom:17vw;
+    right:-5vw;}
 
 
 .Ultrasound { grid-area: Ultrasound; }
