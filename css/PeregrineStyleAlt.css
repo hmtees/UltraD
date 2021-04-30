@@ -87,7 +87,7 @@ Color on viewed
     font-family:consolas;
 }
 
-.Actions { grid-area: Actions;
+#Actions { grid-area: Actions;
     font-size:1.5vw;
     text-align:center;
 }
@@ -97,6 +97,7 @@ Color on viewed
     margin-bottom:0;
     color:#FCFDC2;
     font-family:consolas;
+    text-align: center;
 }
 
 .actionButton {
@@ -104,6 +105,7 @@ Color on viewed
     text-align:center;
     display: inline-block;    
     border-radius:3vw;
+    align-content: center;
 }
 
 #obsButton,#ctButton,#surgeryButton,#interveneButton {
@@ -138,6 +140,7 @@ Color on viewed
     padding-left:3vw;
     background-color: rgba(156, 229, 165, 0.15);
     color:#ffffff;
+    font-size:2vw;
 }
 .Vital-Signs { grid-area: Vital-Signs;
 }
@@ -194,3 +197,10 @@ Color on viewed
 .active{
     background-color:#FF3500;
   }
+
+
+@media (max-width: 700px) {
+ .actionButton {
+     display: inline-block;
+ }   
+}
