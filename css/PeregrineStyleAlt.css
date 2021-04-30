@@ -19,9 +19,13 @@ Color on viewed
 
 .Body { grid-area: Body;}
 
+#Body {
+    margin-top: 7vw;
+}
 
 #bodyImage{
     max-height:31vw;
+    position:relative;
 }
 
 #rLungicon,#lLungicon,#subxicon,#ruqicon,#luqicon,#bladdericon {
@@ -32,9 +36,9 @@ Color on viewed
 
 
 #rLungicon {
-    position:relative;
-    bottom:24vw;
-    right:0vw;    
+    position:absolute;
+    bottom:40vw;
+    right:88vw;    
 }
 
 
