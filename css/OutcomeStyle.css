@@ -3,8 +3,6 @@ html {background-color: #282b2b;}
 /* 
 To-Do:
     Align Content titles
-    Fit US Image in grid
-    Nav Bar spacing
     Point Border - Change color & round borders
 */
 
@@ -31,10 +29,6 @@ To-Do:
     margin-top:3vw;
     font-size:2vw;
     text-align: center;
-}
-
-.Action { grid-area: Action;
-    text-align:center;
 }
 
 #explanation {
@@ -88,9 +82,13 @@ To-Do:
 .totalPoints { grid-area: totalPoints; }
 
 
+
 #result {
     color:red;
+}
 
+#action {
+    text-align:center;
 }
 
 #actionicon {
@@ -105,12 +103,17 @@ h3 {
     font-size:2vw;
 }
 
+#casePoints {
+    text-align: right;
+}
 
 .remember{
     height:8vw;
 }
 
-
+#dxImg {
+    margin-bottom: 10vw;
+}
 
 
 #keyImage {
