@@ -28,32 +28,26 @@ document.getElementById("action").innerHTML = localStorage.case5Action;
 //console.log("You Chose: " + localStorage.case5Action);
 //console.log("Key Action: " + localStorage.case5KeyAction);
     //display image matching action
-if (localStorage.case5Action === "Observation"){
-        $('#actionicon').src= './ProgramFiles/Icons/obs.png'}
-
+if (localStorage.case5Action === "Observation")
+    {document.getElementById("actionicon").src= '../ProgramFiles/Icons/obs.png'}
 if (localStorage.case5Action === "CT Scan")
-    {document.getElementById("actionicon").src= './ProgramFiles/Icons/ctScan.png'}
-
+    {document.getElementById("actionicon").src= '../ProgramFiles/Icons/ctScan.png'}
 if (localStorage.case5Action === "Surgery")
-    {document.getElementById("actionicon").src= './ProgramFiles/Icons/surg.png'}
-
+    {document.getElementById("actionicon").src= '../ProgramFiles/Icons/surg.png'}
 if (localStorage.case5Action === "Intervention")
-    {document.getElementById("actionicon").src= './ProgramFiles/Icons/intervention.png'}
+    {document.getElementById("actionicon").src= '../ProgramFiles/Icons/intervention.png'}
 //display Explanation
 document.getElementById("explanation").innerText = (localStorage.case5Outcome);
 
 //Show correct Remember Box
 if (localStorage.case5KeyAction === "Observation")
-    {document.getElementById("rememberBox").src= './ProgramFiles/RememberBoxes/Light/RememberObs.svg'};
-
+    {document.getElementById("rememberBox").src= '../ProgramFiles/RememberBoxes/Light/RememberObs.svg'};
 if (localStorage.case5KeyAction === "CT Scan")
-    {document.getElementById("rememberBox").src= './ProgramFiles/RememberBoxes/Light/RememberCT.svg'};
-
+    {document.getElementById("rememberBox").src= '../ProgramFiles/RememberBoxes/Light/RememberCT.svg'};
 if (localStorage.case5KeyAction === "Surgery")
-    {document.getElementById("rememberBox").src= './ProgramFiles/RememberBoxes/Light/RememberSurg.svg'};
-
+    {document.getElementById("rememberBox").src= '../ProgramFiles/RememberBoxes/Light/RememberSurg.svg'};
 if (localStorage.case5KeyAction === "Intervention")
-    {document.getElementById("rememberBox").src= './ProgramFiles/RememberBoxes/Light/RememberInt.svg'};
+    {document.getElementById("rememberBox").src= '../ProgramFiles/RememberBoxes/Light/RememberInt.svg'};
 //Score Calculator
 
 $('#decPoints5').text(decision_score);
