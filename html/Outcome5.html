@@ -40,61 +40,62 @@
     </div>
   </header><!-- End Header -->
 
-<div class="grid-container">
-    <div class="Outcome">
-        <h1 id="result"></h1>
+  <div class="container-fluid row">
+    <div class="col">
+        <h1 id="result">Result</h1>
     </div>
 
-    <div class="Points">
-        <h1 id="c5points"></h1>
+    <div class="col" id="casePoints">
+        <h1 id="c5points">Points</h1>
     </div>
-    <div class="Action">
-        <h2 id="action"></h2>
-             <img class="actionButton" id="actionicon" >
-        <p id="explanation"></p>
+</div>
+<div class="container-fluid row">
+    <div class="col-md-5">
+        <div class="row">
+            <h2 id="action">Action</h2>
+            <img class="img-fluid mx-auto" id="actionicon" src="../ProgramFiles/Icons/unstableicon.png"/>
+            <p id="explanation">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita maiores doloribus voluptates quidem nobis, porro dolorem! Ullam molestiae esse nisi blanditiis quaerat distinctio maiores tenetur, eius deleniti itaque nemo modi.</p>
+            <img id="rememberBox" src="../ProgramFiles/RememberBoxes/Light/RememberCT.svg">
+        </div>
+        <div class="fluid-container row" id="Point-Breakdown">
+            <h4 id="breakdown">Point Breakdown</h4>
+            <div class="col-md-9">
+                <div class="Decision-Making">
+                    Decision-Making:
+                </div>
+                <div class="Imaging">
+                    Imaging:
+                </div>
+                <div class="Time">
+                    Time:
+                </div>
+                <div class="Total">
+                    Total:
+                </div>
+            </div>
+            <div class="col">
+                <div class="decPoints" id="decPoints5"></div>
+                <div class="imagePoints" id="imgPoints5"></div>
+                <div class="timePoints" id="timePoints5"></div>
+                <div class="totalPoints" id="totalPoints5"></div>
+            </div>
+        </div>
     </div>
-    <div class="Remember">
-        <img id="rememberBox">
-    </div>
-
-
-
-    <div class="Point-Breakdown">
-        <div class="points">
-            Point Breakdown
+    <div class="col-md-7">
+        <div class="row order-first" id="dxImg">
+            <h3 id="diagnosis">DianosisPlacehold</h3>
+            <img id="keyImage" src="../USLibrary/gifs/bladder-pos.gif">
         </div>
-        <div class="Decision-Making">
-            Decision-Making:
-        </div>
-        <div class="decPoints" id="decPoints5"></div>
-        <div class="Imaging">
-            Imaging:
-        </div>
-        <div class="imagePoints" id="imgPoints5"></div>
-        <div class="Time">
-            Time:
-        </div>
-        <div class="Total">
-            Total:
-        </div>
-        <div class="timePoints" id="timePoints5"></div>
-        <div class="totalPoints" id="totalPoints5"></div>
-    </div>
-
-
-    <div class="Key">
-        <h3 id="diagnosis"></h3>
-        <img id="keyImage">
-    </div>
-    <div class="Navigation">
-        <div class="Retry">
-            <a href="Main5UI.html" class="NavButton" onclick="samecase()" >Retry<img src="../ProgramFiles/Icons/capicon/capicon/png/white/012.png" class="NavIcon"></a>
-        </div>
-        <div class="Review-Set">
-            <a href=ShiftReview.html class="NavButton">Review Shift<img src="../ProgramFiles/Icons/capicon/capicon/png/white/056.png" class="NavIcon"></a>
-        </div>
-        <div class="Progress-Report">
-            <a href=ProgressReport.html class="NavButton">Progress Report<img src="../ProgramFiles/Icons/capicon/capicon/png/white/135.png" class="NavIcon"></a>
+        <div class="container-fluid row justify-content-md-around">
+            <div class="col g-1">
+                <a href="Main5UI.html" class="NavButton" onclick="samecase()" >Retry Case<img src="../ProgramFiles/Icons/capicon/capicon/png/white/012.png" class="NavIcon"></a>
+            </div>
+            <div class="col g-1">
+                <a href=ShiftReview.html class="NavButton">Review Shift<img src="../ProgramFiles/Icons/capicon/capicon/png/white/056.png" class="NavIcon"></a>
+            </div>
+            <div class="col g-1">
+                <a href=ProgressReport.html class="NavButton">Progress Report<img src="../ProgramFiles/Icons/capicon/capicon/png/white/135.png" class="NavIcon"></a>
+            </div>
         </div>
     </div>
 </div>
