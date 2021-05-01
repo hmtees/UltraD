@@ -54,18 +54,18 @@ figure figcaption {
 }
 
 section {
-  overflow: hidden;
+  overflow: visible;
 }
 
 .section {
   padding: 7rem 0;
+  padding-top: 0;
 }
 
 .section-heading {
   font-size: 3rem;
   font-weight: 700;
   background: linear-gradient(-45deg, #f76262, #852727);
-  -webkit-text-fill-color: transparent;
 }
 
 /*--------------------------------------------------------------
