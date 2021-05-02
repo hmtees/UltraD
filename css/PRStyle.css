@@ -37,14 +37,10 @@ align-content: center;
  width: 7vw;
 }
 
-.Title {
+#Title {
  grid-area: Title;
  text-align: center;
  font-size: 3.5vw;
- color: #FCFDC2;
- background-color: #0096DF;
- border: 4px solid #FF3500;
- border-radius: 8px;
 }
 .Title h1 {
   margin:0 0 0 0;
@@ -55,8 +51,7 @@ align-content: center;
   font-size: 2vw;
 }
 
-.ScoreData {
- grid-area: ScoreData;
+#ScoreData {
  background-color: #0096DF;
  color: #FFFFFF;
  border-color: rgba(35,45,75,1);
@@ -66,8 +61,7 @@ align-content: center;
  font-size: 1.5vw;
 }
 
-.MostMissed {
- grid-area: MostMissed;
+#MostMissed {
  background-color: #0096DF;
  color: #FFFFFF;
  border-color: rgba(35,45,75,1);
@@ -78,7 +72,6 @@ align-content: center;
 }
 
 .Category {
- grid-area: Category;
  font-size: 2vw;
  text-align: center;
  grid-template-rows: 25% 25% 25% 25%;

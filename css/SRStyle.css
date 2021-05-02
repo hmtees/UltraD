@@ -1,19 +1,10 @@
-html {background-color: #282b2b;}
-
-.topbar {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-template-rows: repeat(1, 1fr);
-    grid-gap: 1rem;
-    grid-auto-flow: row;
-    border: 4px solid #FF3500;
+#SRTitle {
     border-radius: 8px;
-    background-color: #0096DF;
-    font-family: consolas;
+    text-align: center;
+    align-content: center;
   }
   
   .heading {
-    font-family: Consolas;
     font-weight: bold;
     font-size: 3vw;
     padding: 5px;
@@ -50,22 +41,18 @@ html {background-color: #282b2b;}
   }
   
  #progressChart {
-  grid-area: chart;
   border-radius: 2vw;
   border: 4px solid #FF3500;
+  height: 95%;
 }
 .chartjs-render-monitor{
-  display: block;
   height: 20vw;
-  width: 30vw;
 }
 
-  .results-ovrvw {
+#results-ovrvw {
     grid-column: 1;
     list-style-type: none;
     text-align: left;
-    font-family: Consolas;
-    color: #FCFDC2;
     background-color: #0096DF;
     border: 4px solid #FF3500;
     border-radius: 8px;
@@ -74,6 +61,11 @@ html {background-color: #282b2b;}
     font-size: 2vw;
   }
   
+#progresstable {
+  width:100%;
+  border-color: #FF3500;
+}
+
   .results-buttons {
     grid-column: 2;
     border: none;
@@ -81,20 +73,13 @@ html {background-color: #282b2b;}
     text-align: center;
     cursor: pointer;
     box-sizing: border-box;
-    font-family: Consolas;
   }
-  
-  /* grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    grid-column-gap: 5px;
-    grid-row-gap: 0px; */
   
   
   table {
-    background-color: #0096DF;
+    background-color: #FCFDC2;
     border: 4px solid #FF3500;
     border-radius: 8px;
-    font-family: Consolas;
   }
   
 #toggle-chart {
@@ -132,5 +117,5 @@ html {background-color: #282b2b;}
   }
 
 #rLocLink>a{
-  color:#FCFDC2;
+  color:#FFFFFF;
 }

@@ -1,14 +1,6 @@
 var JSONFEED = 'https://spreadsheets.google.com/feeds/list/1dpcguZ2Ak0zc0Sh1WoPV0c0tXVxre3yGWC1Wo5ElWtc/1/public/basic?alt=json';
 
-$(document).ready(function() {
-  $.ajax({
-    url: JSONFEED,
-    success: function(data) {
-      readData(data);
-    }
-  });
-});
-
+//GA Setup
 function doga(category, action, label) {
   console.log('did GA');
   console.log(category, action, label);
@@ -19,50 +11,66 @@ function doga(category, action, label) {
   });
 }
 
+$(document).ready(function() {
+  $.ajax({
+    url: JSONFEED,
+    success: function(data) {
+      readData(data);
+    }
+  });
+});
+var user
+
 function readData(data) {
-  var partfeed = data.feed.entry;
-  var divData = [];
-  var length2 = Object.keys(partfeed).length;
-  var caseList = JSON.parse(localStorage.caseList)
-  // if the retry button was clicked, this will be true and then it will skip
-  //the new case assignment
-  if (localStorage.retry == 'true'){
-    i = localStorage.caseNum
-    localStorage.retry = false
-  } 
-  //otherwise assign new case number
-  else {
-  //console.log(length2);
-  // random number for the row where the case will be pulled from
- 
-  var i = 0 + Math.floor(Math.random() * length2);
-  // recursively assigns i if i already in the list (it's been done today)
-  //During one web session, you'll do all of them before one repeats. 
-  //Maybe there's a better design choice. 
-  while (caseList.indexOf(i)!=-1){
-      i = 0 + Math.floor(Math.random() * length2)
-      if (caseList.length >= length2){
-        //alert("you've done all of the cases");
-        caseList = []
-        i = 0 + Math.floor(Math.random() * length2)
-        break}
+  var casesFeedSheets = data.feed.entry;
+  var n_Columns = Object.keys(casesFeedSheets).length;
+  var choosenCaseIndex = 0;
+  var casesDoneList = []; 
+
+  console.log("CASES JSON KEYS");
+  console.log(Object.keys(casesFeedSheets))
+  console.log(casesFeedSheets);
+  console.log("Length of Keys in part feed : " + n_Columns);
+
+  if (localStorage.casesDoneList){
+      console.log("TEST - Case list is populated in local storage");
+      casesDoneList = JSON.parse(localStorage.casesDoneList); // Reading from local storage
+      console.log(`Cases Done  \n : ${casesDoneList}`);
+  }else{
+      console.log("TEST - Case list is not populated. No cases are recorded for this session.");
+  }
+  if (localStorage.retry && localStorage.retry == 'true'){
+    choosenCaseIndex = localStorage.caseNum;
+  } else {
+    choosenCaseIndex = Math.floor(Math.random() * n_Columns);
+    localStorage.retry = "false";
+    // Keep checking for a case that is not in the casesDoneList
+    while (casesDoneList.indexOf( choosenCaseIndex )!== -1 )
+    {
+      if (casesDoneList.length >= casesFeedSheets.length){ // FEED
+        alert("you've done all of the cases");
+        casesDoneList = []
+        choosenCaseIndex = 0 + Math.floor(Math.random() * n_Columns);
+        break
+      }else{
+        choosenCaseIndex = 0 + Math.floor(Math.random() * n_Columns);
+      }
     }
-  caseList.push(i)
-  localStorage.caseList = JSON.stringify(caseList)
+    casesDoneList.push(choosenCaseIndex) // Mark this cases as done
+    // TODO - Maybe push this logic to when a user has actual submitted an action 
+    // TODO - Track if user completes the case
+    localStorage.casesDoneList = JSON.stringify(casesDoneList); // Writing to local storage
 }
-  localStorage.caseNum = i;
-  console.log("Case No: "+i);
-  //console.log(i, ':i');
-    var JSONrow = partfeed[i].content.$t.split(',');
-    var row = [];
-   // console.log('the Current Case Data is: ' + JSONrow);
-    for (var j = 0; j < JSONrow.length; j++) {
-      val = JSONrow[j].split(':')[1];
-      row[j] = val;
-    	title = row[0];
-    }
-      drawDiv(row, title, "#caseDetails");
-    
+  localStorage.caseNum = choosenCaseIndex;
+  console.log("Case No: " + choosenCaseIndex);
+  var JSONrow = casesFeedSheets[choosenCaseIndex].content.$t.split(',');
+  var row = [];
+  for (var j = 0; j < JSONrow.length; j++) {
+    val = JSONrow[j].split(':')[1];
+    row[j] = val;
+    title = row[0];
+  }
+  drawDiv(row, title, "#caseDetails"); // Display the data on the MAINUI Page
   }
 
 

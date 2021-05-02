@@ -12,11 +12,17 @@
   <link rel="stylesheet" href="../css/SRStyle.css">
   <link rel="stylesheet" href="../css/NavBar.css">
   <link href="../css/home2style.css" rel="stylesheet">
- 
 
 <title>Shift Review - Ultra EM</title>
 
 </head>
+<!-- 
+  TO-DO
+  Make SRTitle Narrower
+  Center Session data
+  Fix Chart Boundaries
+ -->
+
 <header id="header" class="fixed-top d-flex align-items-center">
   <div class="container d-flex justify-content-between align-items-center">
 
@@ -31,7 +37,7 @@
         <li class="nav-item"><a href="Contact.html" onclick='doga("signup", "enter_contact", "from_SR")'>Contact Us</a></li>
         <li class="nav-item"><a href="Signup.html" onclick='doga("signup","enter_signup", "from_SR")'>Sign Up</a></li>
         <li class="nav-item"><a href="ShiftReview.html">Shift Review</a></li>
-        <li class="nav-item"><a href="Progress Report.html" onclick='doga("case","check_progress", "from_SR")'>Progress Report</a></li>
+        <li class="nav-item"><a href="ProgressReport.html" onclick='doga("case","check_progress", "from_SR")'>Progress Report</a></li>
         <li class="nav-item"><a href="MainUI.html">Begin Shift</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
@@ -40,36 +46,30 @@
   </div>
 </header><!-- End Header -->
 <body onload="ShowReviews()">
-<div class="topbar">
-    <div class="heading text-center">
+<div class="container-fluid">
+  <div class="row col-md-6" id="SRTitle">
       <h1>Shift Review</h1>
-    </div>
   </div>
   
-  <div class="results">
-    <br>
-    <ul class="results-ovrvw">
-      <li ><strong>Total Points:</strong> <span id = 'shift-score'></span></li>
-      <li><strong>Total Cases:</strong> <span id ='case-count'></span></li>
-      <li><strong>Average:</strong> <span id='Accuracy'></span></li>
-      <li><strong>Review Locations:</strong> <span><a id="rLocLink"><em id="ReviewLocation"></em></a></span></li>
-      <li><strong>Review Actions:</strong> <span ><a id="rAxnLink"><em id="ReviewAction"></em></a></span></li>
-      <div class="toggle-chart">
-        <button id="toggle-chart">Show/Hide Chart</button>
-      </div>
-    </ul>
-   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
-  <!-- This script is related to building a chart from a table using Canvas, see chart div further below after table code -->
+  <div class="row justify-content-between">
+    <div class="col-6">
+      <ul id="results-ovrvw">
+        <li ><strong>Total Points:</strong> <span id = 'shift-score'></span></li>
+        <li><strong>Total Cases:</strong> <span id ='case-count'></span></li>
+        <li><strong>Average:</strong> <span id='Accuracy'></span></li>
+        <li><strong>Review Locations:</strong> <span><a id="rLocLink"><em id="ReviewLocation"></em></a></span></li>
+        <li><strong>Review Actions:</strong> <span ><a id="rAxnLink"><em id="ReviewAction"></em></a></span></li>
+          <button id="toggle-chart">Show/Hide Chart</button>
+      </ul>
+    </div>
 
-  <div class="chart">
-    <canvas id=progressChart> </canvas>
+  <div class="col-5">
+    <canvas id="progressChart"> </canvas>
   </div>
-  <!-- This div is related to the chart that will build from the data table -->
 </div>
   
-<div>
-  <table style="width:100%" class="results-table" id=progressTable>
+<div class="col" id="results-table">
+  <table class="table" id="progressTable">
     <thead>
       <th>Case</th>
       <th>Score</th>
@@ -125,12 +125,13 @@
       <button onclick="RandomAxn()" class="NavButton">Actions <img src="../ProgramFiles/Icons/capicon/capicon/png/white/089.png" class="NavIcon"></button>
     </div>
     <div class="Progress-Report">
-      <a class="NavButton" href="Progress%20Report.html" onclick='doga("case","check_progress", "from_SR")'>Progress Report <img src="../ProgramFiles/Icons/capicon/capicon/png/white/135.png" class="NavIcon"></a>
+      <a class="NavButton" href="ProgressReport.html" onclick='doga("case","check_progress", "from_SR")'>Progress Report <img src="../ProgramFiles/Icons/capicon/capicon/png/white/135.png" class="NavIcon"></a>
     </div>
     <div class="New-Shift">
-      <a class="NavButton" href="Main%20UI.html">New Shift <img src="../ProgramFiles/Icons/capicon/capicon/png/white/076.png" class="NavIcon"></a>
+      <a class="NavButton" href="MainUI.html">New Shift <img src="../ProgramFiles/Icons/capicon/capicon/png/white/076.png" class="NavIcon"></a>
     </div>
   </div>
+</div>
 </body>
   <!-- Vendor JS Files -->
   <script src="../aos/aos.js"></script>
@@ -140,5 +141,8 @@
   <!-- Template Main JS File -->
   <script src="../js/home2js.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+  <!-- This script is related to building a chart from a table using Canvas, see chart div further below after table code -->
+
+  <script src="../js/jquery.min.js"></script>
   <script src="../js/SRjs.js"></script>
