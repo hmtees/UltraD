@@ -17,15 +17,21 @@ Color on viewed
 
 #help { height: 3vw;}
 
-.Body { grid-area: Body;}
+.Body { 
+    position: absolute;
+    z-index: 0;
+}
 
 #Body {
     margin-top: 7vw;
+    height: 20vw;
+    padding: 1vw;
+    position: absolute;
 }
 
 #bodyImage{
     max-height:31vw;
-    position:relative;
+    position:absolute;
 }
 
 #rLungicon,#lLungicon,#subxicon,#ruqicon,#luqicon,#bladdericon {
@@ -36,38 +42,36 @@ Color on viewed
 
 
 #rLungicon {
-    position:relative;
+    position:absolute;
     bottom:24vw;
     right:-4vw;    
 }
 
 
 #lLungicon {
-    position:relative;
+    position:absolute;
     bottom:24vw;
     right:-4vw;
 }
 
 #subxicon {
-    position:relative;
+    position:absolute;
     bottom:19vw;
     right:1vw;}
 
 #ruqicon {
-    position:relative;
-    bottom: 17vw;
-    right:-4vw;
-    font-size: .75vw;
-    text-align: center;
+    position:absolute;
+    bottom: 47vw;
+    right:90vw;
 }
 
 #luqicon {
-    position:relative;
+    position:absolute;
     bottom:17vw;
     right:-4vw;}
 
 #bladdericon {
-    position:relative;
+    position:absolute;
     bottom:15vw;
     right:4vw;}
 

@@ -42,11 +42,8 @@
 
 <!-- 
   TO-DO
-  Space b/w columns
   Show popup modal if not logged in
-  Match Score & button heights
-  Center nav buttons on bottom
-  Fix hovering images
+  Surg button text color
 -->
 
 
@@ -77,31 +74,46 @@
   </div>
 
   <div class="row">
-    <div class="col">
-      <h2>Actions</h2>
-      <h3><a href="ActionInfo-Obs.html" class="NavButton" id="obsButton">Observation
-        <img class="ActionIcon" src="../ProgramFiles/Icons/nounicons/Black/noun_hospitalroom_1183280.png">
-      </a></h3>
-      <h3><a href="ActionInfo-CT.html" class="NavButton" id="ctButton">CT Scan
-        <img class="ActionIcon" src="../ProgramFiles/Icons/nounicons/Black/noun_CTscan_3628273.png">
-      </a></h3>
-      <h3><a href="ActionInfo-Surgery.html" class="NavButton" id="surgeryButton">Surgery
-        <img class="ActionIcon" src="../ProgramFiles/Icons/nounicons/Black/noun_roboticsurgery_1464841.png">
-      </a></h3>
-      <h3><a href="ActionInfo-Intervene.html" class="NavButton" id="interveneButton">Intervention
-        <img class="ActionIcon" src="../ProgramFiles/Icons/nounicons/Black/noun_Syringe_1547628.png">
-      </a></h3>
-    </div>
+    <div class="col-5">
+      <table class="table" id="scoreTable">
+        <thead>
+          <th><h2>Actions</h2></th>
+          <th><h2>Score</h2></th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a href="ActionInfo-Obs.html" class="NavButton" id="obsButton">Observation
+                <img class="ActionIcon" src="../ProgramFiles/Icons/nounicons/Black/noun_hospitalroom_1183280.png">
+              </a></td>
+            <td><h3 id="ObsScore" name = 'Observation'>0</h3></td>
+          </tr>
+          <tr>
+            <td>
+              <a href="ActionInfo-CT.html" class="NavButton" id="ctButton">CT Scan
+                <img class="ActionIcon" src="../ProgramFiles/Icons/nounicons/Black/noun_CTscan_3628273.png">
+              </a></td>
+            <td><h3 id="CTScore" name ='CTScan'>0</h3></td>
+          </tr>
+          <tr>
+            <td>
+              <a href="ActionInfo-Surgery.html" class="NavButton" id="surgeryButton">Surgery
+                <img class="ActionIcon" src="../ProgramFiles/Icons/nounicons/Black/noun_roboticsurgery_1464841.png">
+              </a></td>
+            <td><h3 id="SurgScore" name = 'Surgery'>0</h3></td>
+          </tr>
+          <tr>
+            <td>
+              <a href="ActionInfo-Intervene.html" class="NavButton" id="interveneButton">Intervention
+                <img class="ActionIcon" src="../ProgramFiles/Icons/nounicons/Black/noun_Syringe_1547628.png">
+              </a></td>
+            <td><h3 id="IntScore" name = 'Intervention'>0</h3></td>
+          </tr>
+        </tbody>
+      </table>
+    </div> 
 
-    <div class="col">
-      <h2>Scores</h2>
-      <h3 id="ObsScore" name = 'Observation'>0</h3>
-      <h3 id="CTScore" name ='CTScan'>0</h3>
-      <h3 id="SurgScore" name = 'Surgery'>0</h3>
-      <h3 id="IntScore" name = 'Intervention'>0</h3>
-    </div>
-
-    <div class="col">
+    <div class="col-2">
       <div class="body">
         <img src="../ProgramFiles/ReviewBody.png" id="body">
         <div class="locations">
@@ -115,26 +127,26 @@
       </div>
     </div>
 
-    <div class="col">
+    <div class="col-5">
       <h2>Exam Image</h2>
       <div class="USImages">
-        <img class="Ultrasound" id="RightLungImage" src="../USLibrary/gifs/normal-lung-slide.gif">
-        <img class="Ultrasound" id="LeftLungImage" src="../USLibrary/gifs/ptx2.gif">
-        <img class="Ultrasound" id="SubXImage" src="../USLibrary/gifs/subxi-nl-1.gif">
-        <img class="Ultrasound" id="RUQImage" src="../USLibrary/gifs/ruq-nl-6.gif">
-        <img class="Ultrasound" id="LUQImage" src="../USLibrary/gifs/luq-nl-c4.gif">
-        <img class="Ultrasound" id="BladderImage" src="../USLibrary/gifs/bladder-nl-c7.gif">
+        <img class="img-fluid" id="RightLungImage" src="../USLibrary/gifs/normal-lung-slide.gif">
+        <img class="img-fluid" id="LeftLungImage" src="../USLibrary/gifs/ptx2.gif">
+        <img class="img-fluid" id="SubXImage" src="../USLibrary/gifs/subxi-nl-1.gif">
+        <img class="img-fluid" id="RUQImage" src="../USLibrary/gifs/ruq-nl-6.gif">
+        <img class="img-fluid" id="LUQImage" src="../USLibrary/gifs/luq-nl-c4.gif">
+        <img class="img-fluid" id="BladderImage" src="../USLibrary/gifs/bladder-nl-c7.gif">
       </div>
     </div>
   </div>
 
-  <div class="Navigation">
-    <div class="New-Shift">
+  <div class="row justify-content-around">
+    <div class="col-3" id="New-Shift">
         <a href="MainUI.html" class="NavButton">New Shift
           <img src="../ProgramFiles/Icons/capicon/capicon/png/white/076.png" class="NavIcon">
         </a>
     </div>
-    <div class="Review-Set">
+    <div class="col-3" id="Review-Set">
         <a href="ShiftReview.html" class="NavButton">Review Shift
           <img src="../ProgramFiles/Icons/capicon/capicon/png/white/056.png" class="NavIcon">
         </a>

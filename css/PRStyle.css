@@ -100,27 +100,8 @@ align-content: center;
   display:grid;
 }
 
-.ObsScore>h3,.CTScore>h3,.SurgScore>h3,.IntScore>h3 {
-  padding: 0 0 0 0;
-  margin: 0 0 0 0;
-}
-
-.ObsScore {
-  grid-area: ObsScore;
-}
-
-.CTScore {
-  grid-area: CTScore;
-}
-.SurgScore {
-  grid-area: SurgScore;
-}
-.IntScore {
-  grid-area: IntScore;
-}
 
 .LocationBreakdown {
- grid-area: LocationBreakdown;
  text-align: center;
  font-size: 2vw;
 }
@@ -156,7 +137,6 @@ align-content: center;
 
 
 #body {
- height: 20vw;
  padding: 1vw;
  position: absolute;
 }
