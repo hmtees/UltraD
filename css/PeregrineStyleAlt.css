@@ -1,4 +1,6 @@
-html {background-color:#282b2b}
+html {
+    background-color:#282b2b;
+}
 
 /* 
 To-Do:
@@ -30,57 +32,52 @@ Color on viewed
 }
 
 #bodyImage{
-    max-height:31vw;
-    position:absolute;
+    height:31vw;
+    margin-top: 7vw;
 }
 
 #rLungicon,#lLungicon,#subxicon,#ruqicon,#luqicon,#bladdericon {
-   z-index:1;
-   height:1vw;
-   width:2vw;
+    position:absolute;
+    z-index:1;
+    height:2vw;
 }
 
 
 #rLungicon {
-    position:absolute;
-    bottom:24vw;
-    right:-4vw;    
+    bottom:21vw;
+    right:8vw;    
 }
 
 
 #lLungicon {
-    position:absolute;
-    bottom:24vw;
-    right:-4vw;
+    bottom:21vw;
+    right:4vw;
 }
 
 #subxicon {
-    position:absolute;
     bottom:19vw;
-    right:1vw;}
+    right:6vw;}
 
 #ruqicon {
-    position:absolute;
-    bottom: 47vw;
-    right:90vw;
+    bottom:17vw;
+    right:8vw;
 }
 
 #luqicon {
-    position:absolute;
     bottom:17vw;
-    right:-4vw;}
+    right:4vw;
+}
 
 #bladdericon {
-    position:absolute;
-    bottom:15vw;
-    right:4vw;}
+    bottom:14vw;
+    right:6vw;}
 
 
 .Ultrasound { grid-area: Ultrasound; }
 
-.USimage {
+#activeWindow {
     height:31vw;
-    width: 67vw;
+    /* width: 67vw; */
 }
 
 .Location { grid-area: Location;

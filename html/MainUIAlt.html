@@ -24,50 +24,51 @@
             <span id="minutes">00</span>:<span id="seconds">00</span>
 		</div>
 	</div>
-	<div class="container-fluid row">
-		<div class="col-2">
-                <img id="bodyImage" src="../ProgramFiles/BodyBlank.svg" alt="Body">
-                <img
-                    type="button"
-                    src="../ProgramFiles/Icons/positive.png"
-                    id="ruqicon"
-                    onclick="switchRUQ()">
-                <button
-                    type="button"
-                    class = ""
-                    id="luqicon"
-                    onclick="switchLUQ()">
-                </button>
-                <button
-                    type="button"
-                    class = ""
-                    id="subxicon"
-                    onclick="switchSubxi()">
-                </button>
-                <button
-                    type="button"
-                    class = ""
-                    id="bladdericon"
-                    onclick="switchBladder()">
-                </button>
-                <button
-                    type="button"
-                    class = ""
-                    id="rLungicon"
-                    onclick="switchLungr()">
-                </button>
-                <button
-                    type="button"
-                    class = ""
-                    id="lLungicon"
-                    onclick="switchLungl()">
-                </button>
+	<div class="container-fluid row justify-content-center">
+		<div class="col-2 position-relative">
+            <img class="img-fluid" id="bodyImage" src="../ProgramFiles/BodyBlank.svg" alt="Body">
+            <img
+                type="button"
+                src="../ProgramFiles/Icons/unchecked.png"
+                class="img-fluid"
+                id="ruqicon"
+                onclick="switchRUQ()">
+            <img
+                type="button"
+                src="../ProgramFiles/Icons/unchecked.png"
+                class="img-fluid"
+                id="luqicon"
+                onclick="switchLUQ()">
+            <img
+                type="button"
+                src="../ProgramFiles/Icons/unchecked.png"
+                class="img-fluid"
+                id="subxicon"
+                onclick="switchSubxi()">
+            <img
+                type="button"
+                src="../ProgramFiles/Icons/unchecked.png"
+                class="img-fluid"
+                id="bladdericon"
+                onclick="switchBladder()">
+            <img
+                type="button"
+                src="../ProgramFiles/Icons/unchecked.png"
+                class="img-fluid"
+                id="rLungicon"
+                onclick="switchLungr()">
+            <img
+                type="button"
+                src="../ProgramFiles/Icons/unchecked.png"
+                class="img-fluid"
+                id="lLungicon"
+                onclick="switchLungl()">
         </div>
 		<div class="col-8" id="ultrasound">
             <h1 id="currentLocation">Perform FAST</h1>
-            <img class="img-fluid mx-auto" id="activeWindow" src="../ProgramFiles/MUI-Start.svg">
+            <img class="img-fluid " id="activeWindow" src="../ProgramFiles/MUI-Start.svg">
 		</div>
-		<div class="col-md-2 justify-content-md-between" id="actions">
+		<div class="col-lg-2 col-12 justify-content-md-between" id="actions">
             <h3>Action</h3>
         <button onclick = "actionObs()" id="obsButton">
             <img alt="obsButton" class="actionButton" src="../ProgramFiles/Icons/nounicons/White/noun_hospitalroom_1183280.png"><br><b>Observation</b></button>
@@ -84,11 +85,11 @@
 	</div>
 </div>
 <div class="container-fluid row justify-content-md-around" id="CaseData">
-		<div class="col-md-5" id="CaseInfo">
+		<div class="col-lg-5 col-7" id="CaseInfo">
             <h3>Case Details</h3>
             <p id="caseDetails"></p>    
 		</div>
-		<div class="col-md-4" id="Vitals">
+		<div class="col-lg-4 col-6" id="Vitals">
             <div id="Vital-Signs">
                 <h3>Vital Signs</h3></div>
             <div id="BP"></div>

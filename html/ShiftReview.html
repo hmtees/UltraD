@@ -18,8 +18,6 @@
 </head>
 <!-- 
   TO-DO
-  Center Session data
-  Fix Chart Boundaries
  -->
 
 <header id="header" class="fixed-top d-flex align-items-center">
@@ -50,7 +48,7 @@
       <h1>Shift Review</h1>
   </div>
   
-  <div class="row justify-content-between">
+  <div class="row justify-content-evenly">
     <div class="col-6">
       <ul id="results-ovrvw">
         <li ><strong>Total Points:</strong> <span id = 'shift-score'></span></li>
@@ -62,7 +60,7 @@
       </ul>
     </div>
 
-  <div class="col-5">
+  <div class="col-5 align-self-center">
     <canvas id="progressChart"> </canvas>
   </div>
 </div>
