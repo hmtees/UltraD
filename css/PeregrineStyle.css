@@ -1,151 +1,83 @@
-html {background-color:#282b2b}
+html {
+    background-color:#282b2b;
+}
 
 /* 
 To-Do:
 Body Buttons
-    Color on viewed
+Color on viewed
 */
 
-
-.home {
-        display: grid;
-        grid-template-columns: 20% 20% 20% 20% 20%;
-        grid-template-rows: 10% 40% 40%;
-        gap: 15px 0px;
-        grid-template-areas:
-          ". UltraEM UltraEM . ."
-          ". UltraEM UltraEM Logo ."
-          "Start Start Start Start Start";
-    
-    border-style: dotted;
-    font-family: Consolas;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 4vw;
-    text-align: center;
-    color: #FF3500;
-    background-color:#282b2b;
-}
-
-.UltraEM { grid-area: UltraEM; 
-    margin:auto;
-}
-.Logo { grid-area: Logo; 
-    }
-
-.Start { grid-area: Start; }
-
-
-#logo {
-    width: 15vw;
-}
-
-
-.myButton {
-    box-shadow: inset 0px -3px 10px 10px #29bbff;
-    background-color: #2dabf9;
-    border-radius: 15px;
-    border: 5px solid #0b0e07;
-    display: inline-block;
-    color: #ffffff;
-    font-family: Consolas;
-    font-size: 8vw;
-    padding: 2vw 8vw;
-    text-decoration: none;
-    text-shadow: 0px 1px 0px #263666;
-}
-
-.myButton:hover {
-    background-color: #0688fa;
-}
-
-.myButton:active {
-    position: relative;
-    top: 1px;
-}
-
-.UI-container {
-    display: grid;
-    grid-template-columns: 8vw 10vw 14vw 14vw 14vw 27vw 10vw;
-    grid-template-rows: 5vh 20vh 20vh 20vh 1vh 10vh 10vh 10vh;
-    gap: 1px 1px;
-    grid-template-areas:
-    "Help . Location Location Location Location time"
-    "Body Body Ultrasound Ultrasound Ultrasound Ultrasound Actions"
-    "Body Body Ultrasound Ultrasound Ultrasound Ultrasound Actions"
-    "Body Body Ultrasound Ultrasound Ultrasound Ultrasound Actions"
-    ". . . . . . ."
-    ". Case-Details Case-Details Case-Details . Vitals ."
-    ". Case-Details Case-Details Case-Details . Vitals ."
-    ". Case-Details Case-Details Case-Details . Vitals .";
+.container-fluid {
     font-family:consolas;
+    color:#FCFDC2;
 }
+
+
 
 .Help { grid-area: Help;}
 
 #help { height: 3vw;}
 
-.Body { grid-area: Body;}
+.Body { 
+    position: absolute;
+    z-index: 0;
+}
 
-
-.parent{
-    position:absolute;
-    z-index:0;
+#Body {
+    margin-top: 7vw;
+    height: 20vw;
+    padding: 1vw;
+    position: absolute;
 }
 
 #bodyImage{
     height:31vw;
+    margin-top: 7vw;
 }
 
 #rLungicon,#lLungicon,#subxicon,#ruqicon,#luqicon,#bladdericon {
-   z-index:1;
-   height:2vw;;
+    position:absolute;
+    z-index:1;
+    height:2vw;
 }
 
 
 #rLungicon {
-    position:absolute;
-    bottom:24vw;
-    right:8.75vw;}
+    bottom:21vw;
+    right:8vw;    
+}
 
 
 #lLungicon {
-    position:absolute;
-    z-index:1;
-    bottom:24vw;
-    right:4.75vw;}
+    bottom:21vw;
+    right:4vw;
+}
 
 #subxicon {
-    position:absolute;
-    z-index:1;
-    bottom:21vw;
-    right:6.5vw;}
+    bottom:19vw;
+    right:6vw;}
 
 #ruqicon {
-    position:absolute;
-    z-index:1;
-    bottom: 19vw;
-    right:8.75vw;;
+    bottom:17vw;
+    right:8vw;
 }
 
 #luqicon {
-    position:absolute;
-    z-index:1;
-    bottom:19vw;
-    right:4.75vw;}
+    bottom:17vw;
+    right:4vw;
+}
 
 #bladdericon {
-    position:absolute;
-    z-index:1;
-    bottom:15vw;
-    right:6.5vw;}
+    bottom:14vw;
+    right:6vw;}
 
 
 .Ultrasound { grid-area: Ultrasound; }
 
-.USimage {
+#activeWindow {
     height:31vw;
-    width: 67vw;
+    /* width: 67vw; */
 }
 
 .Location { grid-area: Location;
@@ -156,18 +88,21 @@ Body Buttons
     padding-top:0;
     text-align:center;
     font-size: 2.5vw;
-    color:#FCFDC2
+    color:#FCFDC2;
+    font-family:consolas;
 }
 
-.Actions { grid-area: Actions;
+#Actions { grid-area: Actions;
     font-size:1.5vw;
     text-align:center;
 }
 
-.Actions>h3 {
+#Actions>h3 {
     font-size:1.7vw;
     margin-bottom:0;
     color:#FCFDC2;
+    font-family:consolas;
+    text-align: center;
 }
 
 .actionButton {
@@ -175,13 +110,13 @@ Body Buttons
     text-align:center;
     display: inline-block;    
     border-radius:3vw;
+    align-content: center;
 }
 
 #obsButton,#ctButton,#surgeryButton,#interveneButton {
     width:9vw;
     font-size: 1vw;
     border-radius:2vw;
-    /* color:#eff0e2; */
 }
 
 #obsButton {
@@ -200,17 +135,17 @@ Body Buttons
     background-color:#F6B331;
 }
 
-.Vitals {
-    grid-area: Vitals;
+#Vitals {
     border:solid;
     border-radius:1vw;
     border-color:#eff0e2;
     margin-top:0px;
     padding-top:5px;
-    align-content:center;
+    text-align:right;
     padding-left:3vw;
     background-color: rgba(156, 229, 165, 0.15);
     color:#ffffff;
+    font-size:2vw;
 }
 .Vital-Signs { grid-area: Vital-Signs;
 }
@@ -226,7 +161,11 @@ Body Buttons
     color:#eff0e2;
 }
 
-.Case-Details>h3 {
+#CaseData {
+    text-align:justify;
+}
+
+#CaseData h3 {
     color:#FCFDC2;
     text-align: center;
     margin: 0 auto 0 auto;
@@ -238,23 +177,22 @@ Body Buttons
 .HR { grid-area: HR;}
 .T { grid-area: T;}
 .O2 { grid-area: O2;}
-.Case-Details { 
-    grid-area: Case-Details;
+#CaseInfo { 
     border:solid;
     border-radius:1vw;
     border-color:#eff0e2;
     background-color: rgba(156, 229, 165, 0.15);
 }
 
-.Case-Details>p {
+#CaseInfo>p {
     font-size: 1.5vw;
     padding: 0 1vw 0 1vw;
     color:#eff0e2;
 }
-.time {
-    grid-area: time; 
+#time {
     color:#eff0e2;
-    text-align: center;
+    text-align: right;
+    font-family:consolas;
     }
 
 .btn:hover {
@@ -265,37 +203,9 @@ Body Buttons
     background-color:#FF3500;
   }
 
-@media (max-width: 700px) {
-    /*  UI-container {
-        display:grid;
-        grid-template-areas:
-            "Help"
-            "time"
-            "Body"
-            "Actions"
-            "Location"
-            "Ultrasound"
-            "Case-Details"
-            "Vitals";
-        grid-template-rows:
-            5vh 5vh 50vh 20vh 1vh 10vh 10vh 10vh;
-    }*/
-    html {
-        transform: rotate(-90deg);
-        transform-origin: left top;
-        width: 100vh;
-        height: 100vw;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        }
-}
 
-/* "Help . Location Location Location Location time"
-    "Body Body Ultrasound Ultrasound Ultrasound Ultrasound Actions"
-    "Body Body Ultrasound Ultrasound Ultrasound Ultrasound Actions"
-    "Body Body Ultrasound Ultrasound Ultrasound Ultrasound Actions"
-    ". . . . . . ."
-    ". Case-Details Case-Details Case-Details . Vitals ."
-    ". Case-Details Case-Details Case-Details . Vitals ."
-    ". Case-Details Case-Details Case-Details . Vitals ." */
+@media (max-width: 700px) {
+ .actionButton {
+     display: inline-block;
+ }   
+}

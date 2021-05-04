@@ -193,13 +193,6 @@ function switchLungl() {
     viewedLungL = true;
 }
 
-//location button control
-$(document).ready(function () {
-	$('button').on('click', function() {
-    $(this).addClass('active');
-  });
-});
-
 
 
 function record_time(){
