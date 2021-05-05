@@ -31,7 +31,21 @@
         <li class="nav-item"><a href="Contact.html" onclick='doga("signup", "enter_contact", "from_PR")'>Contact Us</a></li>
         <li class="nav-item"><a href="Signup.html" onclick='doga("signup","enter_signup", "from_PR")'>Sign Up</a></li>
         <li class="nav-item"><a href="ShiftReview.html" onclick='doga("case","review_shift", "from_PR")'>Shift Review</a></li>
-        <li class="nav-item"><a href="ProgressReport.html">Progress Report</a></li>
+        <li class="dropdown"><a href="#"><span>Review Locations</span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a href="Location-RUQ.html">Right Upper Quadrant</a></li>
+            <li><a href="Location-LUQ.html">Left Upper Quadrant</a></li>
+            <li><a href="Location-Subxi.html">Subxiphoid</a></li>
+            <li><a href="Location-Bladder.html">Bladder</a></li>
+            <li><a href="Location-Lung.html">Lungs</a></li>
+          </ul>
+        <li class="dropdown"><a href="#"><span>Review Actions</span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a href="ActionInfo-Obs.html">Observation</a></li>
+            <li><a href="ActionInfo-CT.html">CT Scan</a></li>
+            <li><a href="ActionInfo-Surgery.html">Surgery</a></li>
+            <li><a href="ActionInfo-Intervene.html">Intervention</a></li>
+          </ul>
         <li class="nav-item"><a href="MainUI.html">Begin Shift</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
@@ -44,6 +58,7 @@
   TO-DO
   Show popup modal if not logged in
   Surg button text color
+  Dropdown on click, not hover
 -->
 
 
@@ -54,15 +69,15 @@
     <h1>Progress Report</h1>
   </div>
 
-  <div class="row">
-    <div class="col-6" id="ScoreData">
-      <h3>Overall Accuracy: <b id='accuracy'></b></h3>
-      <h3>Total Score: <b id ='total-score'></b></h3>
-      <h3>Cases Completed: <b id='case-count'></b></h3>
-      <h3>Case Average: <b id='score-average'></b></h3>
+  <div class="row justify-content-evenly">
+    <div class="col-5" id="ScoreData">
+      <h4>Overall Accuracy: <b id='accuracy'></b></h4>
+      <h4>Total Score: <b id ='total-score'></b></h4>
+      <h4>Cases Completed: <b id='case-count'></b></h4>
+      <h4>Case Average: <b id='score-average'></b></h4>
     </div>
 
-    <div class="col-6" id="MostMissed">
+    <div class="col-5" id="MostMissed">
       <h4 id="MostMissedAction">
         Review Action: <a id='missedActionLink' href=""><b id='missedActionText'></b></a></h4>
       <div class="WorstLocation">
@@ -140,7 +155,7 @@
     </div>
   </div>
 
-  <div class="row justify-content-around">
+  <div class="row justify-content-evenly">
     <div class="col-3" id="New-Shift">
         <a href="MainUI.html" class="NavButton">New Shift
           <img src="../ProgramFiles/Icons/capicon/capicon/png/white/076.png" class="NavIcon">

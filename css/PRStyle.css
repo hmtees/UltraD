@@ -139,10 +139,10 @@ align-content: center;
 #body {
  padding: 1vw;
  position: absolute;
+ width: 17vw;
 }
 
 .body {
- width: 1px;
  height: 1px;
  position: absolute;
  z-index: 0;

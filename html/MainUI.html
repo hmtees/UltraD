@@ -4,9 +4,8 @@
   <link href="../ProgramFiles/Icons/Logo.png" rel="apple-touch-icon">
 <!-- 
     TO-DO
-    Align Buttons
-    Center US Image
-    Fix Sizing on mobile view
+    Make help page a popup on click
+    Center action buttons
  -->
 
 <title>FAST Case - Ultra EM</title>
@@ -16,15 +15,28 @@
 <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <div class="container-fluid">
     <div class="row">
-		<div class="col" id="helpButton">
-            <a href="https://share.balsamiq.com/g/gvpu8v8guWpTm9P17CPZzt.png">
-                <img alt="help" id="help" src="../ProgramFiles/Icons/qmark.png"></a>    
-		</div>
-		<div class="col" id="time">
+		<div class="col-2" id="helpButton">
+            <!-- Button trigger modal -->
+            <button id="helpbutton" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <img alt="help" id="help" src="../ProgramFiles/Icons/qmark.png">    
+            </button>
+        </div>
+        <div class="col">
+            <h1 id="currentLocation">Perform FAST</h1>
+        </div>
+        <div class="col-2" id="time">
             <span id="minutes">00</span>:<span id="seconds">00</span>
 		</div>
 	</div>
-	<div class="container-fluid row justify-content-center">
+     <!-- Modal -->
+     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <img id="helpimg" src="../ProgramFiles/helpscreen.png">
+            </div>
+            </div>
+            </div>
+	<div class="container-fluid row justify-content-evenly">
 		<div class="col-2 position-relative">
             <img class="img-fluid" id="bodyImage" src="../ProgramFiles/BodyBlank.svg" alt="Body">
             <img
@@ -65,7 +77,6 @@
                 onclick="switchLungl()">
         </div>
 		<div class="col-8" id="ultrasound">
-            <h1 id="currentLocation">Perform FAST</h1>
             <img class="img-fluid " id="activeWindow" src="../ProgramFiles/MUI-Start.svg">
 		</div>
 		<div class="col-lg-2 col-12 justify-content-md-between" id="actions">
@@ -84,14 +95,13 @@
 		</div>
 	</div>
 </div>
-<div class="container-fluid row justify-content-md-around" id="CaseData">
-		<div class="col-lg-5 col-7" id="CaseInfo">
+<div class="container-fluid row justify-content-around" id="CaseData">
+		<div class="col-lg-5 col-8" id="CaseInfo">
             <h3>Case Details</h3>
             <p id="caseDetails"></p>    
 		</div>
-		<div class="col-lg-4 col-6" id="Vitals">
-            <div id="Vital-Signs">
-                <h3>Vital Signs</h3></div>
+		<div class="col-lg-4 col-5" id="Vitals">
+            <h3>Vital Signs</h3>
             <div id="BP"></div>
             <div id="HR"></div>
             <div id="T"></div>

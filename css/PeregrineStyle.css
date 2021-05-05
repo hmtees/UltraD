@@ -4,8 +4,6 @@ html {
 
 /* 
 To-Do:
-Body Buttons
-Color on viewed
 */
 
 .container-fluid {
@@ -13,11 +11,17 @@ Color on viewed
     color:#FCFDC2;
 }
 
+#helpbutton {
+    border-radius: 20px;
+}
 
+#helpimg {
+    height:40vw;
+    width: 60vw;
+}
 
-.Help { grid-area: Help;}
-
-#help { height: 3vw;}
+#help { height: 2vw;
+}
 
 .Body { 
     position: absolute;
@@ -33,7 +37,7 @@ Color on viewed
 
 #bodyImage{
     height:31vw;
-    margin-top: 7vw;
+    margin-top: 2vw;
 }
 
 #rLungicon,#lLungicon,#subxicon,#ruqicon,#luqicon,#bladdericon {
@@ -44,32 +48,32 @@ Color on viewed
 
 
 #rLungicon {
-    bottom:21vw;
+    bottom:23vw;
     right:8vw;    
 }
 
 
 #lLungicon {
-    bottom:21vw;
+    bottom:23vw;
     right:4vw;
 }
 
 #subxicon {
-    bottom:19vw;
+    bottom:21vw;
     right:6vw;}
 
 #ruqicon {
-    bottom:17vw;
+    bottom:19vw;
     right:8vw;
 }
 
 #luqicon {
-    bottom:17vw;
+    bottom:19vw;
     right:4vw;
 }
 
 #bladdericon {
-    bottom:14vw;
+    bottom:16vw;
     right:6vw;}
 
 
@@ -141,7 +145,6 @@ Color on viewed
     border-color:#eff0e2;
     margin-top:0px;
     padding-top:5px;
-    text-align:right;
     padding-left:3vw;
     background-color: rgba(156, 229, 165, 0.15);
     color:#ffffff;
@@ -173,10 +176,6 @@ Color on viewed
     padding-top:0;
 }
 
-.BP { grid-area: BP;}
-.HR { grid-area: HR;}
-.T { grid-area: T;}
-.O2 { grid-area: O2;}
 #CaseInfo { 
     border:solid;
     border-radius:1vw;
@@ -204,8 +203,38 @@ Color on viewed
   }
 
 
-@media (max-width: 700px) {
+@media (max-width: 992px) and (orientation: portrait){
+#currentLocation {
+    font-size: 5.5vw;
+}
+#time {
+    font-size: 200%;
+}
+#actions {
+    margin: 10vw 0 20vw 0;
+ }
+ #actions>button {
+    width:20vw;
+ }
+ #obsButton,#ctButton,#surgeryButton,#interveneButton {
+    font-size: 2.5vw;
+}
  .actionButton {
-     display: inline-block;
- }   
+    height: 20vw;
+    width:auto;
+ }
+ 
+#caseinfo {
+     margin-bottom: 20vw;
+ }
+#Vitals>h3,#CaseInfo>h3,#actions>h3 {
+    font-size: 5vw;
+}
+#CaseInfo>p {
+    font-size: 3vw;
+}
+ #Vitals {
+    font-size: 4vw;
+ }
+ 
 }
