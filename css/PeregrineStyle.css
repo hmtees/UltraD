@@ -203,7 +203,8 @@ To-Do:
   }
 
 
-@media (max-width: 1200px) and (orientation: portrait){
+@media (orientation:portrait)
+{
 #currentLocation {
     font-size: 5.5vw;
 }
