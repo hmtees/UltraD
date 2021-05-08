@@ -58,7 +58,6 @@
   TO-DO
   Show popup modal if not logged in
   Surg button text color
-  Dropdown on click, not hover
 -->
 
 
@@ -70,14 +69,14 @@
   </div>
 
   <div class="row justify-content-evenly">
-    <div class="col-5" id="ScoreData">
+    <div class="col-7 col-lg-5" id="ScoreData">
       <h4>Overall Accuracy: <b id='accuracy'></b></h4>
       <h4>Total Score: <b id ='total-score'></b></h4>
       <h4>Cases Completed: <b id='case-count'></b></h4>
       <h4>Case Average: <b id='score-average'></b></h4>
     </div>
 
-    <div class="col-5" id="MostMissed">
+    <div class="col-7 col-lg-5" id="MostMissed">
       <h4 id="MostMissedAction">
         Review Action: <a id='missedActionLink' href=""><b id='missedActionText'></b></a></h4>
       <div class="WorstLocation">
@@ -88,8 +87,8 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-5">
+  <div class="row justify-content-evenly" id="bottomrow">
+    <div class="col-lg-5 col-11">
       <table class="table" id="scoreTable">
         <thead>
           <th><h2>Actions</h2></th>
@@ -128,7 +127,7 @@
       </table>
     </div> 
 
-    <div class="col-2">
+    <div class="col-lg-2 col-5">
       <div class="body">
         <img src="../ProgramFiles/ReviewBody.png" id="body">
         <div class="locations">
@@ -142,7 +141,7 @@
       </div>
     </div>
 
-    <div class="col-5">
+    <div class="col-lg-5 col-7">
       <h2>Exam Image</h2>
       <div class="USImages">
         <img class="img-fluid" id="RightLungImage" src="../USLibrary/gifs/normal-lung-slide.gif">
@@ -156,12 +155,12 @@
   </div>
 
   <div class="row justify-content-evenly">
-    <div class="col-3" id="New-Shift">
+    <div class="col-6 col-lg-3" id="New-Shift">
         <a href="MainUI.html" class="NavButton">New Shift
           <img src="../ProgramFiles/Icons/capicon/capicon/png/white/076.png" class="NavIcon">
         </a>
     </div>
-    <div class="col-3" id="Review-Set">
+    <div class="col-6 col-lg-3" id="Review-Set">
         <a href="ShiftReview.html" class="NavButton">Review Shift
           <img src="../ProgramFiles/Icons/capicon/capicon/png/white/056.png" class="NavIcon">
         </a>

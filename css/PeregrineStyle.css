@@ -40,41 +40,37 @@ To-Do:
     margin-top: 2vw;
 }
 
-#rLungicon,#lLungicon,#subxicon,#ruqicon,#luqicon,#bladdericon {
+#rLungicon,#lLungicon,#subxicon,#ruqicon,#luqicon,#bladdericon
+ {
     position:absolute;
     z-index:1;
     height:2vw;
 }
 
-
 #rLungicon {
     bottom:23vw;
     right:8vw;    
 }
-
-
 #lLungicon {
     bottom:23vw;
     right:4vw;
 }
-
 #subxicon {
     bottom:21vw;
-    right:6vw;}
-
+    right:6vw;
+}
 #ruqicon {
     bottom:19vw;
     right:8vw;
 }
-
 #luqicon {
     bottom:19vw;
     right:4vw;
 }
-
 #bladdericon {
     bottom:16vw;
-    right:6vw;}
+    right:6vw;
+}
 
 
 .Ultrasound { grid-area: Ultrasound; }
@@ -150,8 +146,7 @@ To-Do:
     color:#ffffff;
     font-size:2vw;
 }
-.Vital-Signs { grid-area: Vital-Signs;
-}
+
 .Vital-Signs>h3 {
     text-align:center;
     margin:0 auto 1vw auto;
@@ -205,14 +200,50 @@ To-Do:
 
 @media (orientation:portrait)
 {
+#bodyImage,#activeWindow {
+    height:40vw;
+
+}
+#rLungicon,#lLungicon,#subxicon,#ruqicon,#luqicon,#bladdericon
+{
+    height:4vw;
+}
+#rLungicon {
+    bottom:28vw;
+    right:5vw;    
+}
+#lLungicon {
+    bottom:28vw;
+    right:-1vw;
+}
+#subxicon {
+    bottom:24vw;
+    right:2vw;
+}
+#ruqicon {
+    bottom:20vw;
+    right:5vw;
+}
+#luqicon {
+    bottom:20vw;
+    right:-1vw;
+}
+#bladdericon {
+    bottom:16vw;
+    right:2vw;
+}
+
 #currentLocation {
     font-size: 5.5vw;
 }
 #time {
     font-size: 200%;
 }
+.locbutton {
+    height:4vw;
+}
 #actions {
-    margin: 10vw 0 20vw 0;
+    margin: 0 0 15vw 0;
  }
  #actions>button {
     width:20vw;
@@ -226,7 +257,7 @@ To-Do:
  }
  
 #caseinfo {
-     margin-bottom: 20vw;
+     margin-bottom: 10vw;
  }
 #Vitals>h3,#CaseInfo>h3,#actions>h3 {
     font-size: 5vw;
