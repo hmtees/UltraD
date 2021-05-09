@@ -40,13 +40,6 @@ To-Do:
     margin-top: 2vw;
 }
 
-#rLungicon,#lLungicon,#subxicon,#ruqicon,#luqicon,#bladdericon
- {
-    position:absolute;
-    z-index:1;
-    height:2vw;
-}
-
 #rLungicon {
     bottom:23vw;
     right:8vw;    

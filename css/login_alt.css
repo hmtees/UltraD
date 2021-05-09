@@ -1,0 +1,30 @@
+ /* X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+    img#logo-img {
+        display: none;
+      }
+ }
+ /* X-Small devices (portrait phones, less than 576px) */
+@media (min-width: 575.98px) { 
+    img#login-form-img {
+        display: none;
+      }
+ }
+
+ body, html {
+    font-family: Montserrat-Regular, sans-serif;
+    background-color: #274f75;
+}
+
+#login-body{
+    background-color: #274f75;
+}
+
+#logo-img{
+    width  : 100%;
+    height : 100%;
+}
+
+.login-body {
+
+}
