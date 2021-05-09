@@ -43,10 +43,9 @@
  #progressChart {
   border-radius: 2vw;
   border: 4px solid #FF3500;
-  height: 95%;
+  max-width: 40vw;
 }
 .chartjs-render-monitor{
-  height: 20vw;
 }
 
 #results-ovrvw {

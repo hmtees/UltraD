@@ -18,8 +18,6 @@
 </head>
 <!-- 
   TO-DO
-  Center Session data
-  Fix Chart Boundaries
  -->
 
 <header id="header" class="fixed-top d-flex align-items-center">
@@ -35,8 +33,21 @@
       <ul>
         <li class="nav-item"><a href="Contact.html" onclick='doga("signup", "enter_contact", "from_SR")'>Contact Us</a></li>
         <li class="nav-item"><a href="Signup.html" onclick='doga("signup","enter_signup", "from_SR")'>Sign Up</a></li>
-        <li class="nav-item"><a href="ShiftReview.html">Shift Review</a></li>
-        <li class="nav-item"><a href="ProgressReport.html" onclick='doga("case","check_progress", "from_SR")'>Progress Report</a></li>
+        <li class="dropdown"><a href="#"><span>Review Locations</span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a href="Location-RUQ.html">Right Upper Quadrant</a></li>
+            <li><a href="Location-LUQ.html">Left Upper Quadrant</a></li>
+            <li><a href="Location-Subxi.html">Subxiphoid</a></li>
+            <li><a href="Location-Bladder.html">Bladder</a></li>
+            <li><a href="Location-Lung.html">Lungs</a></li>
+          </ul>
+        <li class="dropdown"><a href="#"><span>Review Actions</span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a href="ActionInfo-Obs.html">Observation</a></li>
+            <li><a href="ActionInfo-CT.html">CT Scan</a></li>
+            <li><a href="ActionInfo-Surgery.html">Surgery</a></li>
+            <li><a href="ActionInfo-Intervene.html">Intervention</a></li>
+          </ul><li class="nav-item"><a href="ProgressReport.html" onclick='doga("case","check_progress", "from_SR")'>Progress Report</a></li>
         <li class="nav-item"><a href="MainUI.html">Begin Shift</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
@@ -50,8 +61,8 @@
       <h1>Shift Review</h1>
   </div>
   
-  <div class="row justify-content-between">
-    <div class="col-6">
+  <div class="row justify-content-evenly">
+    <div class="col-lg-6 col-7">
       <ul id="results-ovrvw">
         <li ><strong>Total Points:</strong> <span id = 'shift-score'></span></li>
         <li><strong>Total Cases:</strong> <span id ='case-count'></span></li>
@@ -62,12 +73,12 @@
       </ul>
     </div>
 
-  <div class="col-5">
+  <div class="col-lg-5 col-6 align-self-center">
     <canvas id="progressChart"> </canvas>
   </div>
 </div>
   
-<div class="col" id="results-table">
+<div class="col-9 justify-content-center mx-auto" id="results-table">
   <table class="table" id="progressTable">
     <thead>
       <th>Case</th>

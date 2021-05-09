@@ -139,61 +139,49 @@ align-content: center;
 #body {
  padding: 1vw;
  position: absolute;
+ width: 17vw;
 }
 
 .body {
- width: 1px;
  height: 1px;
  position: absolute;
  z-index: 0;
 }
 
+#ruqicon,#luqicon,#subxicon,#bladdericon,#rLungicon,#lLungicon {
+  position: absolute;
+  z-index: 1;
+  height: 2vw;
+}
+
 #ruqicon {
- position: absolute;
- z-index: 1;
  bottom: -14vw;
  right: -7vw;
- height: 2vw;
 }
 
 #luqicon {
- position: absolute;
- z-index: 1;
  bottom: -14vw;
  right: -11vw;
- height: 2vw;
 }
 
 #subxicon {
- position: absolute;
- z-index: 1;
  bottom: -12vw;
  right: -9vw;
- height: 2vw;
 }
 
 #bladdericon {
- position: absolute;
- z-index: 1;
  bottom: -17vw;
  right: -9vw;
- height: 2vw;
 }
 
 #rLungicon {
- position: absolute;
- z-index: 1;
  bottom: -10vw;
  right: -7vw;
- height: 2vw;
 }
 
 #lLungicon {
- position: absolute;
- z-index: 1;
  bottom: -10vw;
  right: -11vw;
- height: 2vw;
 }
 
 .LocationReveal img {
@@ -201,4 +189,56 @@ align-content: center;
  Width: 25vw;
  Height: Auto;
  position: static;
+}
+
+@media (orientation:portrait)
+{
+  .row {
+    margin-bottom: 20vw;
+  }
+  #Title {
+    margin-bottom: 5vw;
+  }
+  #ScoreData {
+    margin-bottom: 15vw;
+  }
+  #body {
+    width: 30vw;
+  }
+  #bottomrow {
+    margin-bottom:35vw;
+  }
+  #ruqicon,#luqicon,#subxicon,#bladdericon,#rLungicon,#lLungicon {
+    height:4vw;
+  }
+  #ruqicon {
+    bottom: -27vw;
+    right: -12vw;
+  }
+   
+  #luqicon {
+    bottom: -27vw;
+    right: -20vw;
+  }
+   
+  #subxicon {
+    bottom: -25vw;
+    right: -16vw;
+  }
+   
+  #bladdericon {
+    bottom: -33vw;
+    right: -16vw;
+  }
+   
+  #rLungicon {
+    bottom: -20vw;
+    right: -12vw;
+  }
+   
+  #lLungicon {
+    bottom: -20vw;
+    right: -20vw;
+  }
+   
 }

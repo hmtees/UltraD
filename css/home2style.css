@@ -846,9 +846,17 @@ section {
 }
 
 .hero-section, .hero-section > .container > .row {
-  height: 100vh;
-  min-height: 80vh;
+  height: 70vh;
+  /* min-height: 80vh; */
 }
+/* @media (orientation:portrait)
+{
+  .hero-section {
+    height: 80vh;
+    min-height: 20vh;
+  }
+} */
+
 
 .hero-section.inner-page {
   height: 60vh;
@@ -890,6 +898,13 @@ section {
 .hero-section p {
   font-size: 18px;
   color: #fff;
+}
+
+@media (orientation:portrait) {
+  #homeScreenshot {
+    height:40vw;
+    margin-top: 5vw;
+  }
 }
 
 .hero-section .iphone-wrap {
