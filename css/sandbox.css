@@ -1,0 +1,98 @@
+* {box-sizing: border-box}
+
+#body-image {
+ width:80%;
+}
+
+.body-img-container {
+    position: relative;
+    width: 70%;
+    max-width: 300px;
+}
+
+#bodyImage {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.info-title {
+    text-align: center;
+}
+
+/* The overlay effect - lays on top of the container and over the image */
+.overlay {
+    position: absolute;
+    top:0;bottom: 0; left: 0; right: 0;
+    color: #f1f1f1;
+    transition: .5s ease;
+    opacity:0;
+  }
+
+  /* When you mouse over the container, fade in the overlay title */
+  .body-img-container:hover .overlay {
+    opacity: 1;
+  }
+  .body-icon{
+    position: absolute;
+    width:10%;
+  }
+  #rLungicon{top:20%;left:35%;}
+  #lLungicon{top:20%;left:57%;}
+  #ruqicon{top:40%;left:37%;}
+  #luqicon{top:40%;left:57%;}
+  #subxicon{top:30%;left:46%}
+  #bladdericon{top:50%;left:46%}
+.actionButton {
+    width:40%;
+    align-content: center;
+}
+.div-action {
+    
+}
+
+/* ACTIONS */
+#Actions { grid-area: Actions;
+    font-size:1.5vw;
+    text-align:center;
+}
+
+#Actions>h3 {
+    font-size:1.7vw;
+    margin-bottom:0;
+    color:#FCFDC2;
+    font-family:consolas;
+    text-align: center;
+}
+
+.actionButton {
+    height:6vw;
+    text-align:center;
+    display: inline-block;    
+    border-radius:3vw;
+    align-content: center;
+}
+
+#obsButton,#ctButton,#surgeryButton,#interveneButton {
+    font-size: 1vw;
+    border-radius:2vw;
+}
+
+#obsButton {
+    background-color:#5fe66c;
+}
+
+#ctButton {
+    background-color:#31BBF6;
+}
+
+#surgeryButton {
+    background-color:#fc4f4f;
+}
+
+#interveneButton {
+    background-color:#F6B331;
+}
+  
+
+ 
