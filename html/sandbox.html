@@ -34,11 +34,12 @@
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
     </script>
+    <title>Analysis</title>
   </head>
-  <body class="container-fluid" id="login-body">
-    <div class="row  login-main-content-div">
-        <!-- Main Container -->
-        <div class="container-fluid">
+  <body class="container-fluid" id="main-body">
+    <div class="container  login-main-content-div">
+        <!-- Navigation  -->
+        <div class="container">
           <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
               <div class="container">
                 <a class="navbar-brand" href="#">
@@ -46,7 +47,6 @@
                   <span class="text-light"> Ultra EM </span>
                 </a>
               </div>
-  
               <div class="container">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler-login" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -65,16 +65,17 @@
                     </li>
   
                     <li class="nav-item">
-                      <a class="nav-link active text" aria-current="page" href="../html/login_alt.html">Login</a>
+                      <a class="nav-link"  href="../html/login_alt.html">Login</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="../html/MainUI.html">Try for Free</a>
+                      <a class="nav-link active text" aria-current="page" href="../html/MainUI.html">Try for Free</a>
                     </li>
                   </ul>
                 </div>
               </div>
           </nav>
       </div>
+       <!-- Main Container -->
       <div class="row pt-3 justify-content-evenly image-row">
           <!-- The body Image and the buttons -->
           <div class="col-md-4 col-sm-12 pl-sm-1 body-img-container" id="body-image">
@@ -118,7 +119,6 @@
                 onclick="switchBladder()">
                 
             </div>
-            
           </div>
           <!-- The ultra sound FAST Scan Image  -->
           <div class="col-md-6 pt-sm-5 col-sm-12" id="ultrasound">
@@ -151,9 +151,38 @@
                 class="actionButton" 
                 src="../ProgramFiles/Icons/nounicons/White/noun_Syringe_1547628.png">
                 <br><b>Intervention</b></button>
-
           </div>
       </div>
+       <!-- Case && Vital Signs  -->
+      <div class="row pt-3 justify-content-evenly info-row">
+            <!-- Case  -->
+            <div class="card col-md-5 col-sm-12">
+                <div class="card-body">
+                  <h5 class="card-title">Case Details</h5>
+                  <p class="card-text">A 26-year-old male presents after involvement in a high-speed motor vehicle collision. 
+                      He is screaming of pain in his abdomen and unable to participate in the interview. He has abrasions on his face and upper extremities.</p>
+                </div>
+            </div>
+            
+            <!-- Vital Signs  -->
+            <div class="card col-md-5 col-sm-12">
+                <div class="card-body">
+                  <h5 class="card-title">Vital Signs</h5>
+                  <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">BP <span class="text-dark">117/83</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">HR <span class="text-dark">105</span> </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">T <span class="text-dark">37°C/98.6°F</span> </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">O2 <span class="text-dark">99 %</span> </li>
+                  </ul>
+                </div>
+            </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <div class="container-fluid">
+        <div class="row footer">
+
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
   </body>
