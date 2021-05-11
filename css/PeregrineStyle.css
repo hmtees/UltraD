@@ -36,13 +36,29 @@ To-Do:
 }
 
 #bodyImage{
+    position:relative;
     height:31vw;
     margin-top: 2vw;
 }
 
+/* .overlay {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #f1f1f1;
+    opacity: 100;
+} */
+
+#rLungicon,#lLungicon,#subxicon,#ruqicon,#luqicon,#bladdericon {
+    width:2vw;
+    z-index: 1;
+}
+
 #rLungicon {
-    bottom:23vw;
-    right:8vw;    
+    top:20%;
+    left:35%;    
 }
 #lLungicon {
     bottom:23vw;

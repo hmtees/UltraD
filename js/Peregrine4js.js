@@ -110,10 +110,10 @@ function drawDiv(divData, thehistory, parent) {
   var casedetails = $("<p></p>").html("A " + age + "-year-old " + gender + " " + scenario); 
   $caseDiv.prepend(casedetails);
   $('#caseDetails').append($caseDiv);
-  $('#BP').text('BP:' + bpsys  + '/' + bpdia);
-  $('#HR').text('HR:' + hr);
-  $('#T').text('T: '  + tempc +'\u00B0C' + '/' + tempf + '\u00b0F');
-  $('#O2').text('O2: ' + oxy);  
+  $('#BP').text(bpsys  + '/' + bpdia);
+  $('#HR').text(hr);
+  $('#T').text(tempc +'\u00B0C' + '/' + tempf + '\u00b0F');
+  $('#O2').text(oxy);  
 }
 
 viewedRUQ = false;
