@@ -26,6 +26,12 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   color: #fcfdc2;
 }
 
+#HomeTitle {
+  color: #f1f1f1;
+  font-weight:bold;
+  text-align: center;
+}
+
 .container {
   z-index: 2;
   position: relative;
@@ -902,7 +908,7 @@ section {
 
 @media (orientation:portrait) {
   #homeScreenshot {
-    height:40vw;
+    /* height:40vw; */
     margin-top: 5vw;
   }
 }
