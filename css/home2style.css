@@ -871,7 +871,7 @@ section {
 
 .hero-section.inner-page .hero-text {
   transform: translateY(-150px);
-  margin-top: -120px;
+  margin-top: 120px;
 }
 
 @media screen and (max-width: 992px) {
@@ -891,7 +891,7 @@ section {
   .hero-section h1 {
     font-size: 2.5rem;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 40vh;
   }
 }
 
@@ -1037,3 +1037,7 @@ header#header {
 
   h1.heading {
     color: #fff;}
+
+#DemoVid {
+  height: 30vw;
+}
