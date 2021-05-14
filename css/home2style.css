@@ -26,6 +26,12 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   color: #fcfdc2;
 }
 
+#HomeTitle {
+  color: #f1f1f1;
+  font-weight:bold;
+  text-align: center;
+}
+
 .container {
   z-index: 2;
   position: relative;
@@ -865,7 +871,7 @@ section {
 
 .hero-section.inner-page .hero-text {
   transform: translateY(-150px);
-  margin-top: -120px;
+  margin-top: 120px;
 }
 
 @media screen and (max-width: 992px) {
@@ -885,7 +891,7 @@ section {
   .hero-section h1 {
     font-size: 2.5rem;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 40vh;
   }
 }
 
@@ -902,7 +908,7 @@ section {
 
 @media (orientation:portrait) {
   #homeScreenshot {
-    height:40vw;
+    /* height:40vw; */
     margin-top: 5vw;
   }
 }
@@ -1031,3 +1037,7 @@ header#header {
 
   h1.heading {
     color: #fff;}
+
+#DemoVid {
+  height: 30vw;
+}

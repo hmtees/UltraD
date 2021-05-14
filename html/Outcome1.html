@@ -8,13 +8,20 @@
 <title>Outcome 1 - Ultra EM</title>
 
 </head>
-<link rel=stylesheet href=../css/OutcomeStyle.css>
 <link rel=stylesheet href=../css/NavBar.css>
 <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="../bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 <link href="../boxicons/css/boxicons.min.css" rel="stylesheet">
 <link href="../swiper/swiper-bundle.min.css" rel="stylesheet">
 <link href="../css/home2style.css" rel="stylesheet">
+<link rel=stylesheet href=../css/OutcomeStyle.css>
+
+
+<!-- 
+    TO-DO
+    Bottom nav button consistency & style
+    Change heading colors to white
+ -->
 
 
 <header id="header" class="fixed-top d-flex align-items-center">
@@ -57,28 +64,33 @@
             <p id="explanation">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita maiores doloribus voluptates quidem nobis, porro dolorem! Ullam molestiae esse nisi blanditiis quaerat distinctio maiores tenetur, eius deleniti itaque nemo modi.</p>
             <img id="rememberBox" src="../ProgramFiles/RememberBoxes/Light/RememberCT.svg">
         </div>
-        <div class="fluid-container row" id="Point-Breakdown">
-            <h4 id="breakdown">Point Breakdown</h4>
-            <div class="col-lg-9">
-                <div class="Decision-Making">
-                    Decision-Making:
-                </div>
-                <div class="Imaging">
-                    Imaging:
-                </div>
-                <div class="Time">
-                    Time:
-                </div>
-                <div class="Total">
-                    Total:
-                </div>
-            </div>
-            <div class="col">
-                <div class="decPoints" id="decPoints1"></div>
-                <div class="imagePoints" id="imgPoints1"></div>
-                <div class="timePoints" id="timePoints1"></div>
-                <div class="totalPoints" id="totalPoints1"></div>
-            </div>
+        <div class="row" id="Point-Breakdown">
+            <table class="table" id="scoreTable">
+                <thead>
+                    <h2 class="text-center">Point Breakdown</h2>
+                  <th><h3>Category</h3></th>
+                  <th><h3>Score</h3></th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><h4>Decision-Making</h4></td>
+                    <td><h4 id="decPoints1" name = 'decPoints'>00</h4></td>
+                  </tr>
+                  <tr>
+                    <td><h4>Imaging</h4>
+                      </td>
+                    <td><h4 id="imgPoints1" name ='imgPoints'>00</h4></td>
+                  </tr>
+                  <tr>
+                    <td><h4>Time</h4></td>
+                    <td><h4 id="timePoints1" name = 'timePoints'>00</h4></td>
+                  </tr>
+                  <tr>
+                    <td><h4>Total</h4></td>
+                    <td><h4 id="totalPoints1" name = 'totalPoints'>00</h4></td>
+                  </tr>
+                </tbody>
+              </table>
         </div>
     </div>
     <div class="col-lg-7">
