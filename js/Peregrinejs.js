@@ -1,4 +1,6 @@
 var JSONFEED = 'https://spreadsheets.google.com/feeds/list/1dpcguZ2Ak0zc0Sh1WoPV0c0tXVxre3yGWC1Wo5ElWtc/1/public/basic?alt=json';
+let choosenCaseIndex = 0;
+let casesDoneList = []; 
 
 //GA Setup
 function doga(category, action, label) {
@@ -24,8 +26,7 @@ var user
 function readData(data) {
   var casesFeedSheets = data.feed.entry;
   var n_Columns = Object.keys(casesFeedSheets).length;
-  var choosenCaseIndex = 0;
-  var casesDoneList = []; 
+  
 
   console.log("CASES JSON KEYS");
   console.log(Object.keys(casesFeedSheets))
@@ -56,10 +57,7 @@ function readData(data) {
         choosenCaseIndex = 0 + Math.floor(Math.random() * n_Columns);
       }
     }
-    casesDoneList.push(choosenCaseIndex) // Mark this cases as done
-    // TODO - Maybe push this logic to when a user has actual submitted an action 
-    // TODO - Track if user completes the case
-    localStorage.casesDoneList = JSON.stringify(casesDoneList); // Writing to local storage
+    
 }
   localStorage.caseNum = choosenCaseIndex;
   console.log("Case No: " + choosenCaseIndex);
@@ -71,7 +69,26 @@ function readData(data) {
     title = row[0];
   }
   drawDiv(row, title, "#caseDetails"); // Display the data on the MAINUI Page
+}
+
+function markCaseDone(){
+  if (localStorage.casesDoneList){
+    // use the existing one
+    console.log("DEBUG : Case list exists");
+    casesDoneList = JSON.parse(localStorage.casesDoneList);
+  }else{
+    // create a new one 
+    console.log("DEBUG : Case list does not exist");
+    casesDoneList = [];
   }
+  // Add this case to the list
+  casesDoneList.push(parseInt(choosenCaseIndex))
+  // Add the list to local Storage
+  console.log("Writting cases done list to local storage");
+  localStorage.casesDoneList = JSON.stringify(casesDoneList); // Writing to local storage
+}
+
+
 
 
 function drawDiv(divData, parent, loc) {
@@ -217,44 +234,48 @@ function record_views() {
 
 //Action Buttons Here
 function actionObs() {
+    markCaseDone()
     localStorage.case1Action = "Observation";
     localStorage.case1Outcome = outcomeObs;
  //   console.log("Action: " + localStorage.case1Action);
     record_time();
     record_views();
     doga("case","finish_case","Obs");
-    window.location.href = "Outcome1.html";
+    window.location.href = "Outcome.html";
 }
 
 
 function actionCT() {
+    markCaseDone()
     localStorage.case1Action = "CT Scan";
     localStorage.case1Outcome = outcomeCT;
  //   console.log("Action: " + localStorage.case1Action);
     record_time();
     record_views();
     doga("case","finish_case","CT");
-    window.location.href = "Outcome1.html";
+    window.location.href = "Outcome.html";
 }
 
 function actionSurg() {
+    markCaseDone()
     localStorage.case1Action = "Surgery";
     localStorage.case1Outcome = outcomeSurg;
  //   console.log("Action: " + localStorage.case1Action);
     record_time();
     record_views();
     doga("case","finish_case","Surg");
-    window.location.href = "Outcome1.html";
+    window.location.href = "Outcome.html";
 }
 
 function actionIntervene() {
+    markCaseDone()
     localStorage.case1Action = "Intervention";
     localStorage.case1Outcome = outcomeInt;
  //   console.log("Action: " + localStorage.case1Action);
     record_time();
     record_views();
     doga("case","finish_case","Int");
-    window.location.href = "Outcome1.html";
+    window.location.href = "Outcome.html";
 }
 
 //more secure way of updating this data with the user directly from firebase. 

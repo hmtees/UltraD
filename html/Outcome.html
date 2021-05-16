@@ -4,17 +4,24 @@
   <!-- Favicons -->
   <link href="../ProgramFiles/Icons/Logo.png" rel="icon">
   <link href="../ProgramFiles/Icons/Logo.png" rel="apple-touch-icon">
-
-<title>Outcome 5 - Ultra EM</title>
+<title>Outcome 1 - Ultra EM</title>
 
 </head>
-<link rel="stylesheet" href="../css/NavBar.css">
+<link rel=stylesheet href=../css/NavBar.css>
 <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="../bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 <link href="../boxicons/css/boxicons.min.css" rel="stylesheet">
 <link href="../swiper/swiper-bundle.min.css" rel="stylesheet">
 <link href="../css/home2style.css" rel="stylesheet">
 <link rel=stylesheet href=../css/OutcomeStyle.css>
+
+
+
+<!-- 
+    TO-DO
+    Bottom nav button consistency & style
+    Change heading colors to white
+ -->
 
 
 <header id="header" class="fixed-top d-flex align-items-center">
@@ -32,7 +39,7 @@
           <li class="nav-item"><a href="Signup.html" onclick='doga("signup","enter_signup", "from_Outcome")'>Sign Up</a></li>
           <li class="nav-item"><a href="ShiftReview.html" onclick='doga("case","review_shift", "from_Outcome")'>Shift Review</a></li>
           <li class="nav-item"><a href="ProgressReport.html" onclick='doga("case","check_progress", "from_Outcome")'>Progress Report</a></li>
-          <li class="nav-item"><a href="MainUI.html">New Shift</a></li>
+          <li class="nav-item"><a href="MainUI.html">Begin Shift</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -40,13 +47,13 @@
     </div>
   </header><!-- End Header -->
 
-  <div class="container-fluid row">
+<div class="container-fluid row">
     <div class="col">
         <h1 id="result">Result</h1>
     </div>
 
     <div class="col" id="casePoints">
-        <h1 id="c5points">Points</h1>
+        <h1 id="c1points">Points</h1>
     </div>
 </div>
 <div class="container-fluid row">
@@ -67,20 +74,20 @@
                 <tbody>
                   <tr>
                     <td><h4>Decision-Making</h4></td>
-                    <td><h4 id="decPoints5" name = 'decPoints'>00</h4></td>
+                    <td><h4 id="decPoints1" name = 'decPoints'>00</h4></td>
                   </tr>
                   <tr>
                     <td><h4>Imaging</h4>
                       </td>
-                    <td><h4 id="imgPoints5" name ='imgPoints'>00</h4></td>
+                    <td><h4 id="imgPoints1" name ='imgPoints'>00</h4></td>
                   </tr>
                   <tr>
                     <td><h4>Time</h4></td>
-                    <td><h4 id="timePoints5" name = 'timePoints'>00</h4></td>
+                    <td><h4 id="timePoints1" name = 'timePoints'>00</h4></td>
                   </tr>
                   <tr>
                     <td><h4>Total</h4></td>
-                    <td><h4 id="totalPoints5" name = 'totalPoints'>00</h4></td>
+                    <td><h4 id="totalPoints1" name = 'totalPoints'>00</h4></td>
                   </tr>
                 </tbody>
               </table>
@@ -93,18 +100,21 @@
         </div>
         <div class="container-fluid row justify-content-md-around">
             <div class="col g-1">
-                <a href="Main5UI.html" class="NavButton" onclick="samecase()" >Retry Case<img src="../ProgramFiles/Icons/capicon/capicon/png/white/012.png" class="NavIcon"></a>
+                <a href="MainUI.html" class="NavButton" onclick="samecase()" >Retry Case<img src="../ProgramFiles/Icons/capicon/capicon/png/white/012.png" class="NavIcon"></a>
             </div>
             <div class="col g-1">
-                <a href=ShiftReview.html class="NavButton">Review Shift<img src="../ProgramFiles/Icons/capicon/capicon/png/white/056.png" class="NavIcon"></a>
+                <a href="#" class="NavButton" onclick="progressNextCase()">Next Case<img src="../ProgramFiles/Icons/capicon/capicon/png/white/283.png" class="NavIcon"></a>
             </div>
             <div class="col g-1">
-                <a href=ProgressReport.html class="NavButton">Progress Report<img src="../ProgramFiles/Icons/capicon/capicon/png/white/135.png" class="NavIcon"></a>
+                <a href="ShiftReview.html" class="NavButton">Review Shift<img src="../ProgramFiles/Icons/capicon/capicon/png/white/056.png" class="NavIcon"></a>
+            </div>
+            <div class="col g-1">
+                <a href="ProgressReport.html" class="NavButton">Progress Report<img src="../ProgramFiles/Icons/capicon/capicon/png/white/135.png" class="NavIcon"></a>
             </div>
         </div>
     </div>
 </div>
-
+ 
 <script src="../js/jquery.min.js"></script>
-<script src="../js/Outcome5js.js"></script>
+<script src="../js/Outcome1js.js"></script>
 <script src="../js/home2js.js"></script>
