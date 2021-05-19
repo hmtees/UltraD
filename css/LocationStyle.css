@@ -2,12 +2,8 @@ html { background-color: #282b2b;}
 
 /* 
 To-Do
-Align Buttons on body
 NavButton Alignment/Icon Sizing
 Sizing / Layout - fit on 1 page
-Center Title
-Copy Bladder to All
-Navbar sizing
 */
 
 .LNavigation {
@@ -38,30 +34,17 @@ Navbar sizing
   background-color: #4CAF50;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: 45vw 45vw;
-  grid-template-rows: 1vw 10vw 30vw 40vw 10vw;
-  gap: 1px 1px;
-  grid-template-areas:
-  "Header Header"
-  "Current-Location Current-Location"
-  "Body Probe-Location"
-  "Normal-Anatomy Positive-Fast"
-  "Navigation Navigation";
-  font-family:consolas;
-  color: #FCFDC2;
-  padding: 5vw 5vw 0 5vw;
-}
 
 .Header { grid-area: Header;
   text-align:center;
   font-size: 3vw;
 }
 
-.Current-Location>h1 {
-  margin: 0 0 0 3vw;
+#LocTitle {
+  margin-top:3vw;
   text-align: center;
+  color:#FCFDC2;
+  font-family:consolas;
 }
 
 .navbar { grid-area: Navigation;
@@ -69,23 +52,35 @@ Navbar sizing
   text-align:center;
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
+  font-family:consolas;
   }
 
-.Normal-Anatomy { grid-area: Normal-Anatomy;
+#Normal-Anatomy { 
   text-align:center;
-  font-size:2vw;}
-
-.Positive-Fast { grid-area: Positive-Fast;
-  text-align:center;
-  font-size:2vw;}
-.Body { grid-area: Body; }
-.Probe-Location { grid-area: Probe-Location; 
-}
-.Probe-Location>h2 {
-  font-size:3vw;
-}
-.Probe-Location>p {
   font-size:2vw;
+  color:#FCFDC2;
+  font-family:consolas;
+}
+
+#Positive-Fast {
+  text-align:center;
+  font-size:2vw;
+  color:#FCFDC2;
+  font-family:consolas;
+}
+
+.Body { grid-area: Body; }
+
+#Probe-Location>h2 {
+  font-size:3vw;
+  color:#FCFDC2;
+  text-align:right;
+  font-family:consolas;
+}
+#Probe-Location>p {
+  font-size:2vw;
+  color:#f1f1f1;
+  font-family:consolas;
 }
 .Current-Location { grid-area: Current-Location; }
 
@@ -100,52 +95,42 @@ Navbar sizing
 }
 
 .parent{
-    width:2vw;
+/*     width:2vw;
     height:2vw;
-    position:absolute;
+ */    position:relative;
     z-index:0;
 }
 
 #ruqicon,#luqicon,#subxicon,#bladdericon,#rLungicon,#lLungicon {
   height:3vw;
+  position: relative;
+  z-index: 1;
 }
 
 #ruqicon {
-  position:absolute;
-  z-index:1;
-  bottom:-20vw;
+  bottom:10vw;
   right:-22vw;}
 
 #luqicon {
-  position:absolute;
-  z-index:1;
-  bottom:-20vw;
-  right:-16vw;}
+  bottom:10vw;
+  right:-11vw;}
 
 #subxicon {
-  position:absolute;
-  z-index:1;
-  bottom:-17vw;
-  right:-19vw;}
+  bottom:13vw;
+  right:-11vw;}
 
 #bladdericon {
-  position:absolute;
-  z-index:1;
-  bottom:-25vw;
-  right:-19vw;}
+  bottom:6vw;
+  right:-8vw;}
 
 #rLungicon {
-  position:absolute;
-  z-index:1;
-  bottom:-13vw;
-  right:-22vw;}
+  bottom:18vw;
+  right:-1vw;}
 
 
 #lLungicon {
-  position:absolute;
-  z-index:1;
-  bottom:-13vw;
-  right:-16vw;}
+  bottom:18vw;
+  right:-4vw;}
 
   
   .responsive {
