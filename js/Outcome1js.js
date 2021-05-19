@@ -162,6 +162,18 @@ function addScore(docRef, status) {
     });
 }
 
+function progressNextCase(){
+    window.location.replace('MainUI.html');
+}
+
 function samecase(){
     localStorage.retry = true
+    // since user if retrying, remove this case from cases done 
+    if (localStorage.casesDoneList){
+        let casesDone = JSON.parse(localStorage.casesDoneList);
+        casesDone.pop(); // remove the most recent case added. 
+        localStorage.casesDoneList = JSON.stringify(casesDone);
+    }else{
+        throw new Error('Cases Done list should have populated');
+    }
 }
