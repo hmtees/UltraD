@@ -4,13 +4,18 @@ Check for sign-in on Review Shift, Progress Report, Next Case links
     Send to signup if not signed in
 */
 
-
 //Connect to the firestore
 var db = firebase.firestore();
+// Starting point
+$(document).ready(function() {
+    //display Explanation
+    document.getElementById("explanation").innerText = (localStorage.case1Outcome);
+});
+
 
 //display case title & Key Image
 document.getElementById("diagnosis").innerText = ("Case 1: " + localStorage.case1Title);
-document.getElementById("keyImage").src = ("https://drive.google.com/uc?export=view&id=" + localStorage.case1KeyImg);
+document.getElementById("keyImage").src = ("https://drive.google.com/uc?export=view&id=" + localStorage.case1KeyImg.trim());
 
 var time_score = -1*( parseInt(localStorage.minutes)*60 + parseInt(localStorage.seconds));
 var view_score = 20*( (localStorage.Case1ViewScore));
@@ -176,4 +181,5 @@ function samecase(){
     }else{
         throw new Error('Cases Done list should have populated');
     }
+    window.location.replace('MainUI.html');
 }

@@ -1,6 +1,9 @@
-var JSONFEED = 'https://spreadsheets.google.com/feeds/list/1dpcguZ2Ak0zc0Sh1WoPV0c0tXVxre3yGWC1Wo5ElWtc/1/public/basic?alt=json';
 let choosenCaseIndex = 0;
 let casesDoneList = []; 
+let caseIdChosen = null;
+var user
+//more secure way of updating this data with the user directly from firebase. 
+var db = firebase.firestore();
 
 //GA Setup
 function doga(category, action, label) {
@@ -8,68 +11,96 @@ function doga(category, action, label) {
   console.log(category, action, label);
   gtag('event', 'click', {
     'event_category': category,
-    'event_action': action, 
+    'event_action': action,
     'event_label': label,
   });
 }
 
-$(document).ready(function() {
-  $.ajax({
-    url: JSONFEED,
-    success: function(data) {
-      readData(data);
+$(document).ready(async function() {
+    // Script entry point
+  await main();
+});
+
+const random = async (min, max) => Math.floor(Math.random() * (max - min)) + min;
+
+async function getRandomCases()
+{
+  let random_n = 0;
+  let arr = []
+  random_n = await random(0,  parseInt(localStorage.nTotalCases));
+  
+  if (localStorage.casesDoneList){
+    arr = JSON.parse(localStorage.casesDoneList);
+    if (arr.length < parseInt(localStorage.nTotalCases)){
+      let arrSet = new Set(arr);
+      while(arrSet.has(random_n)){
+        random_n = await random(0, parseInt(localStorage.nTotalCases));
+      }
+    }else{
+      alert("All cases are done all the cases. Resetting tracking");
+    }
+  }
+  return random_n;
+}
+
+async function getCasesFromDB()
+{
+    let db = firebase.firestore();
+    const casesRef = db.collection('Cases');
+    const allCases = await casesRef.get();
+    let allCasesArr = []; 
+    allCases.forEach(function (doc) {
+        // doc.data() -> for the data
+            allCasesArr.push(doc.id);
+    });
+    return new Promise((resolve) => {
+        resolve(allCasesArr);
+    });
+}
+
+async function getIndex(){
+  if (localStorage.getItem("retry") === null)
+  {
+    localStorage.retry = false;
+    return await random(0, parseInt( localStorage.getItem("nTotalCases")) );
+  }else if(JSON.parse(localStorage.getItem("retry")) === false)
+  {
+    return await getRandomCases();
+  }else{
+    localStorage.retry = false;
+    return parseInt(localStorage.getItem("caseNum"));
+  }
+}
+
+async function populateCase(){
+  await getCasesFromDB().
+  then(
+      async function(casesArr) {
+
+    localStorage.nTotalCases =  String(casesArr.length);
+    localStorage.caseIdList = JSON.stringify(casesArr);
+
+    console.log('Number of cases ' + casesArr.length );    
+    choosenCaseIndex = await getIndex();
+    caseIdChosen = casesArr[choosenCaseIndex];
+    localStorage.setItem('caseNum', String(choosenCaseIndex));
+    console.log(`Case_index=${choosenCaseIndex} , case_id=${casesArr[choosenCaseIndex]}`);
+
+    const casesRef = firebase.firestore().collection('Cases').doc(caseIdChosen);
+    const doc = await casesRef.get();
+
+    if (!doc.exists) {   console.log('No such document!'); } 
+    else {
+      var data = doc.data()
+      await drawDivWithObj(data);
     }
   });
-});
-var user
+}
 
-function readData(data) {
-  var casesFeedSheets = data.feed.entry;
-  var n_Columns = Object.keys(casesFeedSheets).length;
+async function main(){  
+  await populateCase();
+}
   
-
-  console.log("CASES JSON KEYS");
-  console.log(Object.keys(casesFeedSheets))
-  console.log(casesFeedSheets);
-  console.log("Length of Keys in part feed : " + n_Columns);
-
-  if (localStorage.casesDoneList){
-      console.log("TEST - Case list is populated in local storage");
-      casesDoneList = JSON.parse(localStorage.casesDoneList); // Reading from local storage
-      console.log(`Cases Done  \n : ${casesDoneList}`);
-  }else{
-      console.log("TEST - Case list is not populated. No cases are recorded for this session.");
-  }
-  if (localStorage.retry && localStorage.retry == 'true'){
-    choosenCaseIndex = localStorage.caseNum;
-  } else {
-    choosenCaseIndex = Math.floor(Math.random() * n_Columns);
-    localStorage.retry = "false";
-    // Keep checking for a case that is not in the casesDoneList
-    while (casesDoneList.indexOf( choosenCaseIndex )!== -1 )
-    {
-      if (casesDoneList.length >= casesFeedSheets.length){ // FEED
-        alert("you've done all of the cases");
-        casesDoneList = []
-        choosenCaseIndex = 0 + Math.floor(Math.random() * n_Columns);
-        break
-      }else{
-        choosenCaseIndex = 0 + Math.floor(Math.random() * n_Columns);
-      }
-    }
-    
-}
-  localStorage.caseNum = choosenCaseIndex;
-  console.log("Case No: " + choosenCaseIndex);
-  var JSONrow = casesFeedSheets[choosenCaseIndex].content.$t.split(',');
-  var row = [];
-  for (var j = 0; j < JSONrow.length; j++) {
-    val = JSONrow[j].split(':')[1];
-    row[j] = val;
-    title = row[0];
-  }
-  drawDiv(row, title, "#caseDetails"); // Display the data on the MAINUI Page
-}
 
 function markCaseDone(){
   if (localStorage.casesDoneList){
@@ -84,53 +115,47 @@ function markCaseDone(){
   // Add this case to the list
   casesDoneList.push(parseInt(choosenCaseIndex))
   // Add the list to local Storage
-  console.log("Writting cases done list to local storage");
+  console.log("Writing cases done list to local storage");
   localStorage.casesDoneList = JSON.stringify(casesDoneList); // Writing to local storage
 }
-
-
-
-
-function drawDiv(divData, parent, loc) {
-  if (divData == null) return null;
-  console.log("Case: " + title);
-  localStorage.case1Title = title;
-  scenario = $.trim(divData[1]);
-  age = $.trim(divData[2]);
-  gender = $.trim(divData[3]);
-  tempc = $.trim(divData[4]);
-  tempf = $.trim(divData[5]);
-  bpsys = $.trim(divData[6]);
-  bpdia = $.trim(divData[7]);
-  hr = $.trim(divData[8]);
-  oxy = $.trim(divData[9]);
-  outcomeObs = $.trim(divData[10]);
-  outcomeCT = $.trim(divData[11]);
-  outcomeSurg = $.trim(divData[12]);
-  outcomeInt = $.trim(divData[13]);
-  ruqimg = $.trim(divData[14]);
-  luqimg = $.trim(divData[15]);
-  subximg = $.trim(divData[16]);
-  bladderimg = $.trim(divData[17]);
-  lungrimg = $.trim(divData[18]);
-  lunglimg = $.trim(divData[19]);
-  keyImg = $.trim(divData[20]);
-  localStorage.case1KeyImg = keyImg;
-  keyLocation = $.trim(divData[21]);
-  localStorage.case1KeyLoc = keyLocation;
-  console.log("Key Location: "+localStorage.case1KeyLoc);
-  keyAction = $.trim(divData[22]);
-  localStorage.case1KeyAction = keyAction;
-  console.log("Key Action: " + localStorage.case1KeyAction);
-
-  var $caseDiv = $("<div/>");
-  var casedetails = $("<p></p>").html("A " + age + "-year-old " + gender + " " + scenario); 
-  $caseDiv.prepend(casedetails);
-  $('#caseDetails').append($caseDiv);
-  $('#BP').text(bpsys  + '/' + bpdia);
-  $('#HR').text(hr);
-  $('#T').text(tempc +'\u00B0C' + '/' + tempf + '\u00b0F');
-  $('#O2').text(oxy);  
+// divData is an object with the case 
+async function drawDivWithObj(caseObj, parent, loc) {
+    if (caseObj == null) return null;
+    console.log("Case: " + caseObj["title"]); localStorage.case1Title = caseObj["title"];
+    //console.log(`TEST : CASE OBJECT ${JSON.stringify(caseObj)}` );
+    scenario = caseObj["history"];
+    age = caseObj["age"];
+    gender = caseObj["sex"];
+    tempc = caseObj["t"];
+    tempf = caseObj["tf"];
+    bpsys = caseObj["bps"];
+    bpdia = caseObj["bpd"];
+    hr = caseObj["hr"];
+    oxy = caseObj["spo2"];
+    outcomeObs = caseObj["observationoutcome"];
+    outcomeCT = caseObj["ctoutcome"];
+    outcomeSurg = caseObj["surgeryoutcome"];
+    outcomeInt = caseObj["interventionoutcome"];
+    ruqimg = caseObj["ruq"].trim(); // Need to trim to ensure that no spaces, are translated to %20 and the url is broken. 
+    luqimg = caseObj["luq"].trim();
+    subximg = caseObj["subxi"].trim();
+    bladderimg = caseObj["bladder"].trim();
+    lungrimg = caseObj["lungr"].trim();
+    lunglimg = caseObj["lungl"].trim();
+    keyImg = caseObj["keyimage"].trim();           localStorage.case1KeyImg    = caseObj["keyimage"].trim();
+    keyLocation = caseObj["keylocation"];   localStorage.case1KeyLoc    = caseObj["keylocation"];
+    console.log("Key Location: "+ localStorage.case1KeyLoc);
+    keyAction = caseObj["answer"];          localStorage.case1KeyAction = caseObj["answer"];
+    console.log("Key Action: " + localStorage.case1KeyAction);
+  
+    var $caseDiv = $("<div/>");
+    var casedetails = $("<p></p>").html("A " + age + "-year-old " + gender + " " + scenario); 
+    $caseDiv.prepend(casedetails);
+    $('#caseDetails').append($caseDiv);
+    $('#BP').text(bpsys  + '/' + bpdia);
+    $('#HR').text(hr);
+    $('#T').text(tempc +'\u00B0C' + '/' + tempf + '\u00b0F');
+    $('#O2').text(oxy);  
 }
 
 viewedRUQ = false;
@@ -160,7 +185,8 @@ let timer = setInterval(function () {
 
 
 setTimeout(function () {
-    clearInterval(timer);}, 999999);
+    clearInterval(timer);
+}, 999999);
 
 function switchLUQ() {
     newLocation = "Left Upper Quadrant";
@@ -278,18 +304,13 @@ function actionIntervene() {
     window.location.href = "Outcome.html";
 }
 
-//more secure way of updating this data with the user directly from firebase. 
-
-var db = firebase.firestore();
-
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
     var file_path = '/users/' + user.uid+ '/sessions';
     var docref = db.collection(file_path).doc()
-docref.set({
-    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-})
-
+    docref.set({
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
     console.log('hello user', user.uid)
   }
   else {
