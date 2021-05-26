@@ -47,7 +47,26 @@ $(document).ready(function() {
 
 var file_path = '/users/'
 var db = firebase.firestore();
+var user;
 
+var myModal = new bootstrap.Modal(document.getElementById('SignupPrompt'), {
+  keyboard: false
+})
+
+//show popup if no user
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+//hide modal
+    console.log('hello user', user.uid);
+    myModal.hide();
+    document.getElementById('SignupLink').style.display = "none";
+  }
+  else {
+    // User is signed out.
+    console.log('no user apparently');
+    myModal.show();
+  }
+})
 
 //showing User Stats
 userRef = db.collection(file_path).doc(localStorage.userId)
