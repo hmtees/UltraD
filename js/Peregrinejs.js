@@ -1,127 +1,127 @@
 let choosenCaseIndex = 0;
-let casesDoneList = []; 
+let casesDoneList = [];
 let caseIdChosen = null;
 var user
+// Tracking # of views the user clicked on in a case sessions .
+var viewcount = 0;
 //more secure way of updating this data with the user directly from firebase. 
 var db = firebase.firestore();
 
 //GA Setup
 function doga(category, action, label) {
-  console.log('did GA');
-  console.log(category, action, label);
-  gtag('event', 'click', {
-    'event_category': category,
-    'event_action': action,
-    'event_label': label,
-  });
+    console.log('did GA');
+    console.log(category, action, label);
+    gtag('event', 'click', {
+        'event_category': category,
+        'event_action': action,
+        'event_label': label,
+    });
 }
 
-$(document).ready(async function() {
+$(document).ready(async function () {
     // Script entry point
-  await main();
+    await main();
 });
 
 const random = async (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
-async function getRandomCases()
-{
-  let random_n = 0;
-  let arr = []
-  random_n = await random(0,  parseInt(localStorage.nTotalCases));
-  
-  if (localStorage.casesDoneList){
-    arr = JSON.parse(localStorage.casesDoneList);
-    if (arr.length < parseInt(localStorage.nTotalCases)){
-      let arrSet = new Set(arr);
-      while(arrSet.has(random_n)){
-        random_n = await random(0, parseInt(localStorage.nTotalCases));
-      }
-    }else{
-      alert("All cases are done all the cases. Resetting tracking");
+async function getRandomCases() {
+    let random_n = 0;
+    let arr = []
+    random_n = await random(0, parseInt(localStorage.nTotalCases));
+
+    if (localStorage.casesDoneList) {
+        arr = JSON.parse(localStorage.casesDoneList);
+        if (arr.length < parseInt(localStorage.nTotalCases)) {
+            let arrSet = new Set(arr);
+            while (arrSet.has(random_n)) {
+                random_n = await random(0, parseInt(localStorage.nTotalCases));
+            }
+        } else {
+            alert("All cases are done all the cases. Resetting tracking");
+        }
     }
-  }
-  return random_n;
+    return random_n;
 }
 
-async function getCasesFromDB()
-{
+async function getCasesFromDB() {
     let db = firebase.firestore();
     const casesRef = db.collection('Cases');
     const allCases = await casesRef.get();
-    let allCasesArr = []; 
+    let allCasesArr = [];
     allCases.forEach(function (doc) {
         // doc.data() -> for the data
-            allCasesArr.push(doc.id);
+        allCasesArr.push(doc.id);
     });
     return new Promise((resolve) => {
         resolve(allCasesArr);
     });
 }
 
-async function getIndex(){
-  if (localStorage.getItem("retry") === null)
-  {
-    localStorage.retry = false;
-    return await random(0, parseInt( localStorage.getItem("nTotalCases")) );
-  }else if(JSON.parse(localStorage.getItem("retry")) === false)
-  {
-    return await getRandomCases();
-  }else{
-    localStorage.retry = false;
-    return parseInt(localStorage.getItem("caseNum"));
-  }
-}
-
-async function populateCase(){
-  await getCasesFromDB().
-  then(
-      async function(casesArr) {
-
-    localStorage.nTotalCases =  String(casesArr.length);
-    localStorage.caseIdList = JSON.stringify(casesArr);
-
-    console.log('Number of cases ' + casesArr.length );    
-    choosenCaseIndex = await getIndex();
-    caseIdChosen = casesArr[choosenCaseIndex];
-    localStorage.setItem('caseNum', String(choosenCaseIndex));
-    console.log(`Case_index=${choosenCaseIndex} , case_id=${casesArr[choosenCaseIndex]}`);
-
-    const casesRef = firebase.firestore().collection('Cases').doc(caseIdChosen);
-    const doc = await casesRef.get();
-
-    if (!doc.exists) {   console.log('No such document!'); } 
-    else {
-      var data = doc.data()
-      await drawDivWithObj(data);
+async function getIndex() {
+    if (localStorage.getItem("retry") === null) {
+        localStorage.retry = false;
+        return await random(0, parseInt(localStorage.getItem("nTotalCases")));
+    } else if (JSON.parse(localStorage.getItem("retry")) === false) {
+        return await getRandomCases();
+    } else {
+        localStorage.retry = false;
+        return parseInt(localStorage.getItem("caseNum"));
     }
-  });
 }
 
-async function main(){  
-  await populateCase();
-}
-  
+async function populateCase() {
+    await getCasesFromDB().then(
+        async function (casesArr) {
 
-function markCaseDone(){
-  if (localStorage.casesDoneList){
-    // use the existing one
-    console.log("DEBUG : Case list exists");
-    casesDoneList = JSON.parse(localStorage.casesDoneList);
-  }else{
-    // create a new one 
-    console.log("DEBUG : Case list does not exist");
-    casesDoneList = [];
-  }
-  // Add this case to the list
-  casesDoneList.push(parseInt(choosenCaseIndex))
-  // Add the list to local Storage
-  console.log("Writing cases done list to local storage");
-  localStorage.casesDoneList = JSON.stringify(casesDoneList); // Writing to local storage
+            localStorage.nTotalCases = String(casesArr.length);
+            localStorage.caseIdList = JSON.stringify(casesArr);
+
+            console.log('Number of cases ' + casesArr.length);
+            choosenCaseIndex = await getIndex();
+            caseIdChosen = casesArr[choosenCaseIndex];
+            localStorage.setItem('caseNum', String(choosenCaseIndex));
+            console.log(`Case_index=${choosenCaseIndex} , case_id=${casesArr[choosenCaseIndex]}`);
+
+            const casesRef = firebase.firestore().collection('Cases').doc(caseIdChosen);
+            const doc = await casesRef.get();
+
+            if (!doc.exists) {
+                console.log('No such document!');
+            } else {
+                var data = doc.data()
+                await drawDivWithObj(data);
+            }
+        });
 }
-// divData is an object with the case 
+
+async function main() {
+    await populateCase();
+}
+
+
+function markCaseDone() {
+    if (localStorage.casesDoneList) {
+        // use the existing one
+        console.log("DEBUG : Case list exists");
+        casesDoneList = JSON.parse(localStorage.casesDoneList);
+    } else {
+        // create a new one
+        console.log("DEBUG : Case list does not exist");
+        casesDoneList = [];
+    }
+    // Add this case to the list
+    casesDoneList.push(parseInt(choosenCaseIndex))
+    // Add the list to local Storage
+    console.log("Writing cases done list to local storage");
+    localStorage.casesDoneList = JSON.stringify(casesDoneList); // Writing to local storage
+}
+
+// divData is an object with the case
 async function drawDivWithObj(caseObj, parent, loc) {
     if (caseObj == null) return null;
-    console.log("Case: " + caseObj["title"]); localStorage.case1Title = caseObj["title"];
+    console.log("Case: " + caseObj["title"]);
+    localStorage.case1Title = caseObj["title"];
     //console.log(`TEST : CASE OBJECT ${JSON.stringify(caseObj)}` );
     scenario = caseObj["history"];
     age = caseObj["age"];
@@ -142,20 +142,23 @@ async function drawDivWithObj(caseObj, parent, loc) {
     bladderimg = caseObj["bladder"].trim();
     lungrimg = caseObj["lungr"].trim();
     lunglimg = caseObj["lungl"].trim();
-    keyImg = caseObj["keyimage"].trim();           localStorage.case1KeyImg    = caseObj["keyimage"].trim();
-    keyLocation = caseObj["keylocation"];   localStorage.case1KeyLoc    = caseObj["keylocation"];
-    console.log("Key Location: "+ localStorage.case1KeyLoc);
-    keyAction = caseObj["answer"];          localStorage.case1KeyAction = caseObj["answer"];
+    keyImg = caseObj["keyimage"].trim();
+    localStorage.case1KeyImg = caseObj["keyimage"].trim();
+    keyLocation = caseObj["keylocation"];
+    localStorage.case1KeyLoc = caseObj["keylocation"];
+    console.log("Key Location: " + localStorage.case1KeyLoc);
+    keyAction = caseObj["answer"];
+    localStorage.case1KeyAction = caseObj["answer"];
     console.log("Key Action: " + localStorage.case1KeyAction);
-  
+
     var $caseDiv = $("<div/>");
-    var casedetails = $("<p></p>").html("A " + age + "-year-old " + gender + " " + scenario); 
+    var casedetails = $("<p></p>").html("A " + age + "-year-old " + gender + " " + scenario);
     $caseDiv.prepend(casedetails);
     $('#caseDetails').append($caseDiv);
-    $('#BP').text(bpsys  + '/' + bpdia);
+    $('#BP').text(bpsys + '/' + bpdia);
     $('#HR').text(hr);
-    $('#T').text(tempc +'\u00B0C' + '/' + tempf + '\u00b0F');
-    $('#O2').text(oxy);  
+    $('#T').text(tempc + '\u00B0C' + '/' + tempf + '\u00b0F');
+    $('#O2').text(oxy);
 }
 
 viewedRUQ = false;
@@ -164,7 +167,7 @@ viewedSubxi = false;
 viewedBladder = false;
 viewedLungL = false;
 viewedLungR = false;
-viewcount = 0;
+
 
 /*
 function showActions() {
@@ -177,10 +180,14 @@ function showActions() {
 */
 
 let sec = 0;
-function pad(val) {return val > 9 ? val : "0" + val;}
+
+function pad(val) {
+    return val > 9 ? val : "0" + val;
+}
+
 let timer = setInterval(function () {
     document.getElementById("seconds").innerHTML = pad(++sec % 60);
-    document.getElementById("minutes").innerHTML = pad(parseInt(sec/60, 10));
+    document.getElementById("minutes").innerHTML = pad(parseInt(sec / 60, 10));
 }, 1000);
 
 
@@ -191,71 +198,64 @@ setTimeout(function () {
 function switchLUQ() {
     newLocation = "Left Upper Quadrant";
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
-    document.getElementById("activeWindow").src= ("https://drive.google.com/uc?export=view&id=" + luqimg);
-    document.getElementById("luqicon").src=("../ProgramFiles/Icons/checked.png")
+    document.getElementById("activeWindow").src = ("https://drive.google.com/uc?export=view&id=" + luqimg);
+    document.getElementById("luqicon").src = ("../ProgramFiles/Icons/checked.png")
     viewedLUQ = true;
 }
 
 function switchRUQ() {
     newLocation = "Right Upper Quadrant";
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
-    document.getElementById("activeWindow").src= ("https://drive.google.com/uc?export=view&id=" + ruqimg);
-    document.getElementById("ruqicon").src=("../ProgramFiles/Icons/checked.png")
+    document.getElementById("activeWindow").src = ("https://drive.google.com/uc?export=view&id=" + ruqimg);
+    document.getElementById("ruqicon").src = ("../ProgramFiles/Icons/checked.png")
     viewedRUQ = true;
+    viewcount++;
 }
 
 function switchSubxi() {
     newLocation = "Subxiphoid";
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
-    document.getElementById("activeWindow").src= ("https://drive.google.com/uc?export=view&id=" + subximg);
-    document.getElementById("subxicon").src=("../ProgramFiles/Icons/checked.png")
+    document.getElementById("activeWindow").src = ("https://drive.google.com/uc?export=view&id=" + subximg);
+    document.getElementById("subxicon").src = ("../ProgramFiles/Icons/checked.png")
     viewedSubxi = true;
+    viewcount++;
 }
 
 function switchBladder() {
     newLocation = "Pelvic";
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
-    document.getElementById("activeWindow").src= ("https://drive.google.com/uc?export=view&id=" + bladderimg);
-    document.getElementById("bladdericon").src=("../ProgramFiles/Icons/checked.png")
+    document.getElementById("activeWindow").src = ("https://drive.google.com/uc?export=view&id=" + bladderimg);
+    document.getElementById("bladdericon").src = ("../ProgramFiles/Icons/checked.png")
     viewedBladder = true;
+    viewcount++;
 }
 
 function switchLungr() {
     newLocation = "Lung (R)";
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
-    document.getElementById("activeWindow").src= ("https://drive.google.com/uc?export=view&id=" + lungrimg);
-    document.getElementById("rLungicon").src=("../ProgramFiles/Icons/checked.png")
+    document.getElementById("activeWindow").src = ("https://drive.google.com/uc?export=view&id=" + lungrimg);
+    document.getElementById("rLungicon").src = ("../ProgramFiles/Icons/checked.png")
     viewedLungR = true;
+    viewcount++;
 }
 
 function switchLungl() {
     newLocation = "Lung (L)";
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
-    document.getElementById("activeWindow").src= ("https://drive.google.com/uc?export=view&id=" + lunglimg);
-    document.getElementById("lLungicon").src=("../ProgramFiles/Icons/checked.png")
+    document.getElementById("activeWindow").src = ("https://drive.google.com/uc?export=view&id=" + lunglimg);
+    document.getElementById("lLungicon").src = ("../ProgramFiles/Icons/checked.png")
     viewedLungL = true;
+    viewcount++;
 }
 
 
-
-function record_time(){
-  localStorage.minutes = document.getElementById("minutes").innerHTML;
-  localStorage.seconds = $('#seconds').html()}
+function record_time() {
+    localStorage.minutes = parseInt(document.getElementById("minutes").innerHTML);
+    localStorage.seconds = parseInt(document.getElementById('seconds').innerHTML);
+}
 
 function record_views() {
-  if (viewedRUQ) {viewcount ++;}
-  if (viewedLUQ) {
-    viewcount ++;}
-  if (viewedSubxi) {
-    viewcount ++;}
-  if (viewedBladder) {
-    viewcount ++;}
-  if (viewedLungL) {
-    viewcount ++;}
-  if (viewedLungR) {
-    viewcount ++;}
-  localStorage.Case1ViewScore = viewcount;
-//  console.log("View Count: "+viewcount);
+    localStorage.vScore = viewcount;
 }
 
 //Action Buttons Here
@@ -263,10 +263,10 @@ function actionObs() {
     markCaseDone()
     localStorage.case1Action = "Observation";
     localStorage.case1Outcome = outcomeObs;
- //   console.log("Action: " + localStorage.case1Action);
+    //   console.log("Action: " + localStorage.case1Action);
     record_time();
     record_views();
-    doga("case","finish_case","Obs");
+    doga("case", "finish_case", "Obs");
     window.location.href = "Outcome.html";
 }
 
@@ -275,10 +275,10 @@ function actionCT() {
     markCaseDone()
     localStorage.case1Action = "CT Scan";
     localStorage.case1Outcome = outcomeCT;
- //   console.log("Action: " + localStorage.case1Action);
+    //   console.log("Action: " + localStorage.case1Action);
     record_time();
     record_views();
-    doga("case","finish_case","CT");
+    doga("case", "finish_case", "CT");
     window.location.href = "Outcome.html";
 }
 
@@ -286,10 +286,10 @@ function actionSurg() {
     markCaseDone()
     localStorage.case1Action = "Surgery";
     localStorage.case1Outcome = outcomeSurg;
- //   console.log("Action: " + localStorage.case1Action);
+    //   console.log("Action: " + localStorage.case1Action);
     record_time();
     record_views();
-    doga("case","finish_case","Surg");
+    doga("case", "finish_case", "Surg");
     window.location.href = "Outcome.html";
 }
 
@@ -297,24 +297,23 @@ function actionIntervene() {
     markCaseDone()
     localStorage.case1Action = "Intervention";
     localStorage.case1Outcome = outcomeInt;
- //   console.log("Action: " + localStorage.case1Action);
+    //   console.log("Action: " + localStorage.case1Action);
     record_time();
     record_views();
-    doga("case","finish_case","Int");
+    doga("case", "finish_case", "Int");
     window.location.href = "Outcome.html";
 }
 
 firebase.auth().onAuthStateChanged(user => {
-  if (user) {
-    var file_path = '/users/' + user.uid+ '/sessions';
-    var docref = db.collection(file_path).doc()
-    docref.set({
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
-    console.log('hello user', user.uid)
-  }
-  else {
-    // User is signed out.
-    console.log('no user apparently')
-  }
+    if (user) {
+        var file_path = '/users/' + user.uid + '/sessions';
+        var docref = db.collection(file_path).doc()
+        docref.set({
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        });
+        console.log('hello user', user.uid)
+    } else {
+        // User is signed out.
+        console.log('no user apparently')
+    }
 })
