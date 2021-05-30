@@ -14,6 +14,28 @@ var isUserCorrectOnCase = false;
 var cPoints_correctAction = 400; // Int - Points awarded for the correct action
 var cPoint_incorrectAction = 100; // Int - Points awarded for the incorrect action
 
+function recordUserSessionData(){
+    console.log("Recording session data ");
+    let tmpData = {
+        totalScore : (time_score + decision_score + view_score),
+        cTitle : localStorage.case1Title,
+        keyLoc : localStorage.case1KeyLoc,
+        userAction : localStorage.case1Action,
+    }
+    if (localStorage.cSData){
+        console.log("user session data is already being tracked");
+        // TODO list = JSON.parse(localStorage.cSData)
+        // TODO list.push(newData)
+        let data = JSON.parse(localStorage.cSData);
+        data.push(tmpData);
+        localStorage.cSData = JSON.stringify(data);
+    }else{
+        console.log("no user data has been tracked so far, start tracking");
+        // TODO : create new object - record data - create and add to list
+        localStorage.cSData = JSON.stringify([tmpData]);
+    }
+}
+
 function displayActionTaken(){
     //Show Action Taken
     document.getElementById("action").innerHTML = localStorage.case1Action;
@@ -102,11 +124,13 @@ function displayActionTaken(){
                     })
                 }
             });
-
-        })
+        });
+        recordUserSessionData();
     }else{
         console.log("No user id - could not save user session data");
+        recordUserSessionData();
     }
+
 }
 function calculateDecisionScoreAndDisplay() {
     if (localStorage.case1Action === localStorage.case1KeyAction) {
@@ -139,6 +163,11 @@ function getTimeAndVScore(){
     time_score = -1 * (min * 60) + sec;
     view_score = 20 * (vScore);
 }
+
+/**
+ * Shows the case diagnosis, displays the FAST scan for the area the user is supposed to focus on
+ * Shows the explanation for the case, caseOutcome.
+ */
 function displayExplanation() {
     document.getElementById("explanation").innerText = (localStorage.case1Outcome);
     //display case title & Key Image
