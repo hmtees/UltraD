@@ -4,6 +4,12 @@ let caseIdChosen = null;
 var user
 // Tracking # of views the user clicked on in a case sessions .
 var viewcount = 0;
+var viewedRUQ = false;
+var viewedLUQ = false;
+var viewedSubxi = false;
+var viewedBladder = false;
+var viewedLungL = false;
+var viewedLungR = false;
 //more secure way of updating this data with the user directly from firebase. 
 var db = firebase.firestore();
 
@@ -160,36 +166,14 @@ async function drawDivWithObj(caseObj, parent, loc) {
     $('#T').text(tempc + '\u00B0C' + '/' + tempf + '\u00b0F');
     $('#O2').text(oxy);
 }
-
-viewedRUQ = false;
-viewedLUQ = false;
-viewedSubxi = false;
-viewedBladder = false;
-viewedLungL = false;
-viewedLungR = false;
-
-
-/*
-function showActions() {
-    let x = document.getElementById("actionBox");
-    if (viewedRUQ,viewedLUQ,viewedSubxi,viewedBladder,viewedLungR,viewedLungL === true) {
-        x.style.display = "block";}
-    else {x.style.display = "none";}
-}
-//showActions();
-*/
-
 let sec = 0;
-
 function pad(val) {
     return val > 9 ? val : "0" + val;
 }
-
 let timer = setInterval(function () {
     document.getElementById("seconds").innerHTML = pad(++sec % 60);
     document.getElementById("minutes").innerHTML = pad(parseInt(sec / 60, 10));
 }, 1000);
-
 
 setTimeout(function () {
     clearInterval(timer);
@@ -248,7 +232,6 @@ function switchLungl() {
     viewcount++;
 }
 
-
 function record_time() {
     localStorage.minutes = parseInt(document.getElementById("minutes").innerHTML);
     localStorage.seconds = parseInt(document.getElementById('seconds').innerHTML);
@@ -269,7 +252,6 @@ function actionObs() {
     doga("case", "finish_case", "Obs");
     window.location.href = "Outcome.html";
 }
-
 
 function actionCT() {
     markCaseDone()
