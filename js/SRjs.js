@@ -206,6 +206,15 @@ function buildProgressTable(){
 
   var chart = BuildChart(labels, values, "Shift Score Progress");
 }
+
+function populateOverViewList(detailsList) {
+    let tScore = 0;
+    detailsList.forEach(function(detail){
+        tScore += parseInt(detail.totalScore);
+    });
+    console.log(`Total score for all the cases is ${tScore}`);
+}
+
 /**
  * Given the list of user actions on cases and display a
  * list of a summary of actions for cases taken by the user
@@ -217,10 +226,11 @@ function buildProgressTable(){
         userAction : String -> Action the user made on case,
  * }
  */
-function shiftReviewMain(detailsList) {
+function shiftReviewMain(detailsList, ) {
   // Get fixed element from html
   let tableBody = document.getElementById("table_body");
   // Iterate list and display summary for each user
+  let totalPoints = 0;
   detailsList.forEach(function(detail){
     // create row element
     let tableRowElement = document.createElement("tr");
@@ -235,6 +245,7 @@ function shiftReviewMain(detailsList) {
     td2.innerText = detail.totalScore; // col 2  Score
     td3.innerText = detail.cTitle ; // col 3 Case title
     td4.innerText = detail.keyLoc // col 4 case key location
+      totalPoints += parseInt(detail.totalScore);
     // add hyperlink to outcome to user action column. linking back to outcome page
     let td5a = document.createElement("a")
     td5a.setAttribute("href", outComeDetailPage);
@@ -249,7 +260,14 @@ function shiftReviewMain(detailsList) {
     // add row to table
     tableBody.appendChild(tableRowElement);
     // each row represents a case performed by the user.
-  })
+  });
+  let sfScoreListElement = document.getElementById('shift-score');
+  let caseCount = document.getElementById('case-count');
+  let avg = document.getElementById('Accuracy');
+  let avgPoints = totalPoints / detailsList.length ;
+  sfScoreListElement.innerText = `${String(totalPoints)} points` ;
+  caseCount.innerText = `${String(detailsList.length)}`;
+  avg.innerText = `${parseInt(avgPoints)} points.`
 }
 
 $(document).ready(function () {
