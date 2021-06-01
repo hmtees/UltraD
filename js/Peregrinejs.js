@@ -165,15 +165,16 @@ setTimeout(function () {
 function switchLUQ() {
     newLocation = "Left Upper Quadrant";
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
-    document.getElementById("activeWindow").src= ("https://drive.google.com/uc?export=view&id=" + luqimg);
+    document.getElementById("activeWindow").src= ("../CaseData/" + luqimg + ".gif");
     document.getElementById("luqicon").src=("../ProgramFiles/Icons/checked.png")
     viewedLUQ = true;
 }
 
+
 function switchRUQ() {
     newLocation = "Right Upper Quadrant";
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
-    document.getElementById("activeWindow").src= ("https://drive.google.com/uc?export=view&id=" + ruqimg);
+    document.getElementById("activeWindow").src= ("../CaseData/" + ruqimg + ".gif");
     document.getElementById("ruqicon").src=("../ProgramFiles/Icons/checked.png")
     viewedRUQ = true;
 }
@@ -181,7 +182,7 @@ function switchRUQ() {
 function switchSubxi() {
     newLocation = "Subxiphoid";
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
-    document.getElementById("activeWindow").src= ("https://drive.google.com/uc?export=view&id=" + subximg);
+    document.getElementById("activeWindow").src= ("../CaseData/" + subximg + ".gif");
     document.getElementById("subxicon").src=("../ProgramFiles/Icons/checked.png")
     viewedSubxi = true;
 }
@@ -189,7 +190,7 @@ function switchSubxi() {
 function switchBladder() {
     newLocation = "Pelvic";
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
-    document.getElementById("activeWindow").src= ("https://drive.google.com/uc?export=view&id=" + bladderimg);
+    document.getElementById("activeWindow").src= ("../CaseData/" + bladderimg + ".gif");
     document.getElementById("bladdericon").src=("../ProgramFiles/Icons/checked.png")
     viewedBladder = true;
 }
@@ -197,7 +198,7 @@ function switchBladder() {
 function switchLungr() {
     newLocation = "Lung (R)";
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
-    document.getElementById("activeWindow").src= ("https://drive.google.com/uc?export=view&id=" + lungrimg);
+    document.getElementById("activeWindow").src= ("../CaseData/" + lungrimg + ".gif");
     document.getElementById("rLungicon").src=("../ProgramFiles/Icons/checked.png")
     viewedLungR = true;
 }
@@ -205,7 +206,7 @@ function switchLungr() {
 function switchLungl() {
     newLocation = "Lung (L)";
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
-    document.getElementById("activeWindow").src= ("https://drive.google.com/uc?export=view&id=" + lunglimg);
+    document.getElementById("activeWindow").src= ("../CaseData/" + lunglimg + ".gif");
     document.getElementById("lLungicon").src=("../ProgramFiles/Icons/checked.png")
     viewedLungL = true;
 }
