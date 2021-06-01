@@ -28,14 +28,6 @@ a:visited {
  color:#FCFDC2;
 }
 
-.modal-dialog,.modal-title {
-  color: #000000;
-}
-
-#PopupLogo {
-  max-width:5vw;
-}
-
 .Logo {
    grid-area: Logo;
 align-content: center;
