@@ -4,9 +4,11 @@
 </head>
 <link rel="stylesheet" href="../css/LocationStyle.css">
 <link rel="stylesheet" href="../css/NavBar.css">
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 <div class="LNavigation">
   <div id="RUQInfo">
-    <a href="Location-RUQ.html">RUQ</a>
+    <a class="active" href="Location-RUQ.html">RUQ</a>
   </div>
   <div id="LUQInfo">
     <a href="Location-LUQ.html">LUQ</a>
@@ -15,7 +17,7 @@
     <a href="Location-Subxi.html">Subxiphoid</a>
   </div>
   <div id="BladderInfo">
-    <a class="active" href="Location-Bladder.html">Bladder</a>
+    <a href="Location-Bladder.html">Bladder</a>
   </div>
   <div id="LungInfo">
     <a href="Location-Lung.html">Lungs</a>
@@ -25,10 +27,11 @@
 <div class="grid-container">
   
   <div class="Current-Location">  
-    <h1> Right Upper Quadrant</h1>
+    <h1 id="LocTitle"> Right Upper Quadrant</h1>
   </div>
 
-  <div class="body">
+<div class="row justify-content-evenly">
+  <div class="col-lg-5">
     <div class="parent">
       <img src="../ProgramFiles/ReviewBody.png" id="body">
       <div class="locations">
@@ -39,23 +42,9 @@
           <a href="Location-Lung.html"> <img id="rLungicon" src="../ProgramFiles/Icons/positive.png"></a>
           <a href="Location-Lung.html">  <img id="lLungicon" src="../ProgramFiles/Icons/positive.png"></a>
       </div>
+    </div>
   </div>
-  </div>
-
-  <div class="Normal-Anatomy">
-    <h2>
-      Normal Anatomy
-    </h2>
-    <img src="../USLibrary/gifs/ruq-nl.gif" id="normalUS" class="ultrasound">
-  </div>
-  <div class="Positive-Fast">
-    <h2>
-      Positive FAST
-    </h2>
-    <img src="../USLibrary/gifs/ruq-pos-c10.gif" id="posUS" class="ultrasound">
-  </div>
-  
-  <div class="Probe-Location">
+  <div class="col-lg-5" id="Probe-Location">
     <h2>
       Probe Control
     </h2>
@@ -63,6 +52,22 @@
       With the probe in the patient's right upper quadrant, fan the probe back and forth, viewing the hepatorenal interface
     </p>
   </div>
+</div>
+
+<div class="row justify-content-evenly">
+  <div class="col-lg-5" id="Normal-Anatomy">
+    <h2>
+      Normal Anatomy
+    </h2>
+    <img src="../USLibrary/gifs/ruq-nl.gif" id="normalUS" class="ultrasound">
+  </div>
+  <div class="col-lg-5" id="Positive-Fast">
+    <h2>
+      Positive FAST
+    </h2>
+    <img src="../USLibrary/gifs/ruq-pos-c10.gif" id="posUS" class="ultrasound">
+  </div>
+</div>
   
 <div class="Navbar">
   <div class="Locations">
@@ -78,4 +83,6 @@
     <a class="NavButton" href="MainUI.html">New Shift <img src="../ProgramFiles/Icons/capicon/capicon/png/white/076.png" class="NavIcon"></a>
   </div>
 </div>
+
+<script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="../js/Albojs.js"></script>

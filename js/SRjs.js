@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Script Variables
 const outComeDetailPage = "Outcome.html";
 let caseCounter = 1;
@@ -244,3 +245,5 @@ $(document).ready(function () {
     }
 });
 
+=======
+>>>>>>> a3bb6bc6b4e4a4245ba58d8c8d03b64089085707
