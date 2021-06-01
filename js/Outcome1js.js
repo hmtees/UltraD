@@ -10,7 +10,7 @@ var db = firebase.firestore();
 
 //display case title & Key Image
 document.getElementById("diagnosis").innerText = ("Case 1: " + localStorage.case1Title);
-document.getElementById("keyImage").src = ("https://drive.google.com/uc?export=view&id=" + localStorage.case1KeyImg);
+document.getElementById("keyImage").src = ("../CaseData/" + localStorage.case1KeyImg + ".gif" );
 
 var time_score = -1*( parseInt(localStorage.minutes)*60 + parseInt(localStorage.seconds));
 var view_score = 20*( (localStorage.Case1ViewScore));
