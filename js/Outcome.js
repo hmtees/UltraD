@@ -171,7 +171,7 @@ function getTimeAndVScore(){
 function displayExplanation() {
     document.getElementById("explanation").innerText = (localStorage.case1Outcome);
     //display case title & Key Image
-    document.getElementById("diagnosis").innerText = ("Case 1: " + localStorage.case1Title);
+    document.getElementById("diagnosis").innerText = ("Case : " + localStorage.case1Title);
     document.getElementById("keyImage").src = ("https://drive.google.com/uc?export=view&id=" + localStorage.case1KeyImg.trim());
     getTimeAndVScore();
     calculateDecisionScoreAndDisplay();
