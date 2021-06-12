@@ -183,6 +183,7 @@ setTimeout(function () {
 
 function goToOutcome(){
     console.log("Navigating to outcome");
+    localStorage.review = false;
     window.location.replace('Outcome.html');
 }
 

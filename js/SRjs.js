@@ -95,6 +95,7 @@ function shiftReviewMain(detailsList,) {
     // Iterate list and display summary for each user
     let totalPoints = 0; let counter = 1;
     let progressLabels = []; let progressValues=[] ; // labels => represents case #, values => the score per case
+    // Handle each case in the csData list of session data information
     detailsList.forEach(function (detail) {
         // create row element
         let tableRowElement = document.createElement("tr");
@@ -113,7 +114,12 @@ function shiftReviewMain(detailsList,) {
         totalPoints += parseInt(detail.totalScore);
         // add hyperlink to outcome to user action column. linking back to outcome page
         let td5a = document.createElement("a")
-        td5a.setAttribute("href", outComeDetailPage);
+        td5a.onclick = function(){ // TODO : testing how to relocate to outcome
+            localStorage.review = true;
+            localStorage.reviewData = JSON.stringify(detail) ;
+            window.location.replace(outComeDetailPage);
+        }
+        td5a.setAttribute("href", '#'); // Enable to UI element to look selectable. Handling re-direct on click event handler
         td5a.innerText = detail.userAction; // col 5 case key action
         td5.appendChild(td5a);
         // add data to rows

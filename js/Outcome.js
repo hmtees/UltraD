@@ -14,6 +14,9 @@ var isUserCorrectOnCase = false;
 var cPoints_correctAction = 400; // Int - Points awarded for the correct action
 var cPoint_incorrectAction = 100; // Int - Points awarded for the incorrect action
 
+var rememberBoxLink = "#";
+var actionTakenIconLink = "#";
+
 function recordUserSessionData(){
     console.log("Recording session data ");
     let tmpData = {
@@ -21,11 +24,14 @@ function recordUserSessionData(){
         cTitle : localStorage.case1Title,
         keyLoc : localStorage.case1KeyLoc,
         userAction : localStorage.case1Action,
+        case1KeyImg : "https://drive.google.com/uc?export=view&id=" + localStorage.case1KeyImg.trim(),
+        case1Outcome : localStorage.case1Outcome,
+        rememberBox : rememberBoxLink,
+        actionIcon : actionTakenIconLink,
     }
+    // Check if the csData list data structure exists.
     if (localStorage.cSData){
         console.log("user session data is already being tracked");
-        // TODO list = JSON.parse(localStorage.cSData)
-        // TODO list.push(newData)
         let data = JSON.parse(localStorage.cSData);
         data.push(tmpData);
         localStorage.cSData = JSON.stringify(data);
@@ -39,40 +45,44 @@ function recordUserSessionData(){
 function displayActionTaken(){
     //Show Action Taken
     document.getElementById("action").innerHTML = localStorage.case1Action;
-    //console.log("You Chose: " + localStorage.case1Action);
-    //console.log("Key Action: " + localStorage.case1KeyAction);
-    //display image matching action
-    //document.getElementById("actionIcon").src = ();
-    if (localStorage.case1Action === "Observation") {
-        document.getElementById("actionicon").src = '../ProgramFiles/Icons/obs.png'
-    }
-    if (localStorage.case1Action === "CT Scan") {
-        document.getElementById("actionicon").src = '../ProgramFiles/Icons/ctScan.png'
-    }
-    if (localStorage.case1Action === "Surgery") {
-        document.getElementById("actionicon").src = '../ProgramFiles/Icons/surg.png'
-    }
-    if (localStorage.case1Action === "Intervention") {
-        document.getElementById("actionicon").src = '../ProgramFiles/Icons/intervention.png'
-    }
-//display Explanation
+    //display Explanation
     document.getElementById("explanation").innerText = (localStorage.case1Outcome);
+    // Figure out the action icon to display
+    let actionTmp = ""; let actionTakenIcon = localStorage.case1Action.trim();
+    if (actionTakenIcon === "Observation") {
+        actionTmp = '../ProgramFiles/Icons/obs.png';
+    }else
+    if (actionTakenIcon === "CT Scan") {
+        actionTmp = '../ProgramFiles/Icons/ctScan.png';
+    } else
+    if (actionTakenIcon === "Surgery") {
+        actionTmp = '../ProgramFiles/Icons/surg.png';
+    } else
+    if (actionTakenIcon === "Intervention") {
+        actionTmp = '../ProgramFiles/Icons/intervention.png';
+    }
+    document.getElementById("actionicon").src = actionTmp;
+    actionTakenIconLink = actionTmp; // will be saved to session data later =
+    let remLinkTmp = "";
+    //Show correct Remember Box
+    let correctAction = localStorage.case1KeyAction.trim();
+    if (correctAction === "Observation") {
+        remLinkTmp = '../ProgramFiles/RememberBoxes/Light/RememberObs.svg';
+    }else
+    if (correctAction === "CT Scan") {
+        remLinkTmp = '../ProgramFiles/RememberBoxes/Light/RememberCT.svg';
+    }else
+    if (correctAction === "Surgery") {
+        remLinkTmp = '../ProgramFiles/RememberBoxes/Light/RememberSurg.svg';
+    }else
+    if (correctAction === "Intervention") {
+        remLinkTmp = '../ProgramFiles/RememberBoxes/Light/RememberInt.svg';
+    }
+    document.getElementById("rememberBox").src = remLinkTmp;
+    rememberBoxLink = remLinkTmp;
 
-//Show correct Remember Box
-    if (localStorage.case1KeyAction === "Observation") {
-        document.getElementById("rememberBox").src = '../ProgramFiles/RememberBoxes/Light/RememberObs.svg'
-    }
-    if (localStorage.case1KeyAction === "CT Scan") {
-        document.getElementById("rememberBox").src = '../ProgramFiles/RememberBoxes/Light/RememberCT.svg'
-    }
-    if (localStorage.case1KeyAction === "Surgery") {
-        document.getElementById("rememberBox").src = '../ProgramFiles/RememberBoxes/Light/RememberSurg.svg'
-    }
-    if (localStorage.case1KeyAction === "Intervention") {
-        document.getElementById("rememberBox").src = '../ProgramFiles/RememberBoxes/Light/RememberInt.svg'
-    }
-//Score Calculator
-//console.log(decision_score);
+    //Score Calculator
+    //console.log(decision_score);
     $('#decPoints1').text(decision_score);
     $('#imgPoints1').text(view_score);
     $('#timePoints1').text(time_score);
@@ -126,7 +136,8 @@ function displayActionTaken(){
             });
         });
         recordUserSessionData();
-    }else{
+    }
+    else{
         console.log("No user id - could not save user session data");
         recordUserSessionData();
     }
@@ -257,6 +268,36 @@ function sameCase() {
     }
     window.location.replace('MainUI.html');
 }
-$(document).ready(function () {
-    checkIfUidPresent();
+
+async function checkPreviousNavigationPoint() {
+    /**
+     * Check localstorage.review. Usually set from mainUi script before navigation to page. goToOutcome()
+     */
+    if (localStorage.review === null){
+        console.log('LocalStorage.review is not set up yet');
+    }else if(localStorage.review ){
+        console.log('localStorage.review is true. Reviewing case from shift review');
+        // TODO : Check the localStorage.reviewData as well before displaying the data.
+        // TODO : If this flag is true and the data is not there then throw an error, alert the user, navigate to the shift review page. - Might have to this about this.
+        localStorage.review = false; // reset flag
+        checkIfUidPresent(); //TODO : Change such that outcome page shows the information from the shift review page.
+        // TODO : Gather data needed and supply it from the localstorage.reviewData
+        // TODO : Under shift review provide this data from localStorage.reviewData = localStorage.csData[index]
+        // TODO before navigation from the shift review page when clicked
+        // TODO : Change event listener for the on click for the list to a function - this function will set localstorage.review and localStorage.reviewData
+        // TODO : Outcome page should show this and reset the data objects (2)
+
+    }else{
+        // set up and reviewing
+        console.log('localStorage.review is false. Continue as usual');
+        checkIfUidPresent();
+    }
+}
+
+/**
+ * Main Entry point to the script. First check the previous navigation point to
+ * know what data to show on the screen.
+ */
+$(document).ready(async function () {
+    await checkPreviousNavigationPoint();
 });
