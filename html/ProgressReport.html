@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-  <!-- Favicons -->
-  <link href="../ProgramFiles/Icons/Logo.png" rel="icon">
-  <link href="../ProgramFiles/Icons/Logo.png" rel="apple-touch-icon">
-  <link rel="stylesheet" href="../css/PRStyle.css">
-  <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="../swiper/swiper-bundle.min.css" rel="stylesheet">
-  <script src="../js/fStory.js"></script>
+<head>
+    <!-- Favicons -->
+    <link href="../ProgramFiles/Icons/Logo.png" rel="icon">
+    <link href="../ProgramFiles/Icons/Logo.png" rel="apple-touch-icon">
+    <link rel="stylesheet" href="../css/PRStyle.css">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="../swiper/swiper-bundle.min.css" rel="stylesheet">
+    <script src="../js/fStory.js"></script>
 
-  <!-- Template Main CSS File -->
-  <link href="../css/home2style.css" rel="stylesheet">
-  <title>Progress Report - Ultra EM</title>
+    <!-- Template Main CSS File -->
+    <link href="../css/home2style.css" rel="stylesheet">
+    <title>Progress Report - Ultra EM</title>
 
 </head>
-  <link rel="stylesheet" href="../css/NavBar.css">
+<link rel="stylesheet" href="../css/NavBar.css">
 
 <header id="header" class="fixed-top d-flex align-items-center">
-  <div class="container d-flex justify-content-between align-items-center">
+    <div class="container d-flex justify-content-between align-items-center">
 
-    <div class="logo">
-      <h1><a href="../index.html">Ultra EM</a></h1></div>
-    <div class="logo">
-      <a href="../index.html"><img src="../ProgramFiles/Icons/Logo.png" alt="" class="img-fluid"></a>
+        <div class="logo">
+            <h1><a href="../index.html">Ultra EM</a></h1></div>
+        <div class="logo">
+            <a href="../index.html"><img src="../ProgramFiles/Icons/Logo.png" alt="" class="img-fluid"></a>
+        </div>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li class="nav-item"><a href="Contact.html" onclick='doga("signup", "enter_contact", "from_PR")'>Contact
+                    Us</a></li>
+                <li class="nav-item"><a href="Signup.html" onclick='doga("signup","enter_signup", "from_PR")'>Sign
+                    Up</a></li>
+                <li class="nav-item"><a href="ShiftReview.html" onclick='doga("case","review_shift", "from_PR")'>Shift
+                    Review</a></li>
+                <li class="dropdown"><a href="#"><span>Review Locations</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="Location-RUQ.html">Right Upper Quadrant</a></li>
+                        <li><a href="Location-LUQ.html">Left Upper Quadrant</a></li>
+                        <li><a href="Location-Subxi.html">Subxiphoid</a></li>
+                        <li><a href="Location-Bladder.html">Bladder</a></li>
+                        <li><a href="Location-Lung.html">Lungs</a></li>
+                    </ul>
+                <li class="dropdown"><a href="#"><span>Review Actions</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="ActionInfo-Obs.html">Observation</a></li>
+                        <li><a href="ActionInfo-CT.html">CT Scan</a></li>
+                        <li><a href="ActionInfo-Surgery.html">Surgery</a></li>
+                        <li><a href="ActionInfo-Intervene.html">Intervention</a></li>
+                    </ul>
+                <li class="nav-item"><a href="MainUI.html">Begin Shift</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
     </div>
-
-    <nav id="navbar" class="navbar">
-      <ul>
-        <li class="nav-item"><a href="Contact.html" onclick='doga("signup", "enter_contact", "from_PR")'>Contact Us</a></li>
-        <li class="nav-item"><a href="Signup.html" onclick='doga("signup","enter_signup", "from_PR")'>Sign Up</a></li>
-        <li class="nav-item"><a href="ShiftReview.html" onclick='doga("case","review_shift", "from_PR")'>Shift Review</a></li>
-        <li class="dropdown"><a href="#"><span>Review Locations</span> <i class="bi bi-chevron-down"></i></a>
-          <ul>
-            <li><a href="Location-RUQ.html">Right Upper Quadrant</a></li>
-            <li><a href="Location-LUQ.html">Left Upper Quadrant</a></li>
-            <li><a href="Location-Subxi.html">Subxiphoid</a></li>
-            <li><a href="Location-Bladder.html">Bladder</a></li>
-            <li><a href="Location-Lung.html">Lungs</a></li>
-          </ul>
-        <li class="dropdown"><a href="#"><span>Review Actions</span> <i class="bi bi-chevron-down"></i></a>
-          <ul>
-            <li><a href="ActionInfo-Obs.html">Observation</a></li>
-            <li><a href="ActionInfo-CT.html">CT Scan</a></li>
-            <li><a href="ActionInfo-Surgery.html">Surgery</a></li>
-            <li><a href="ActionInfo-Intervene.html">Intervention</a></li>
-          </ul>
-        <li class="nav-item"><a href="MainUI.html">Begin Shift</a></li>
-      </ul>
-      <i class="bi bi-list mobile-nav-toggle"></i>
-    </nav><!-- .navbar -->
-
-  </div>
 </header><!-- End Header -->
 
 <!-- 
@@ -65,134 +68,121 @@
 <body onload="ShowRandomLoc()">
 <div class="container-fluid">
 
-  <div class="row" id="Title">
-    <h1>Progress Report</h1>
-  </div>
-
-  <div class="row justify-content-evenly">
-    <div class="col-7 col-lg-5" id="ScoreData">
-      <h4>Overall Accuracy: <b id='accuracy'></b></h4>
-      <h4>Total Score: <b id ='total-score'></b></h4>
-      <h4>Cases Completed: <b id='case-count'></b></h4>
-      <h4>Case Average: <b id='score-average'></b></h4>
+    <div class="row" id="Title">
+        <h1>Progress Report</h1>
     </div>
 
-    <div class="col-7 col-lg-5" id="MostMissed">
-      <h4 id="MostMissedAction">
-        Review Action: <a id='missedActionLink' href=""><b id='missedActionText'></b></a></h4>
-      <div class="WorstLocation">
-        <h4 id="WorstLocation">
-          Review Location: <a id ="rLocLink"><b id="ReviewLocation"></b></a>
-        </h4>
-      </div>
-    </div>
-  </div>
-
-  <div class="row justify-content-evenly" id="bottomrow">
-    <div class="col-lg-5 col-11">
-      <table class="table" id="scoreTable">
-        <thead>
-          <th><h2>Actions</h2></th>
-          <th><h2>Score</h2></th>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <a href="ActionInfo-Obs.html" class="NavButton" id="obsButton">Observation
-                <img class="ActionIcon" src="../ProgramFiles/Icons/nounicons/Black/noun_hospitalroom_1183280.png">
-              </a></td>
-            <td><h3 id="ObsScore" name = 'Observation'>0</h3></td>
-          </tr>
-          <tr>
-            <td>
-              <a href="ActionInfo-CT.html" class="NavButton" id="ctButton">CT Scan
-                <img class="ActionIcon" src="../ProgramFiles/Icons/nounicons/Black/noun_CTscan_3628273.png">
-              </a></td>
-            <td><h3 id="CTScore" name ='CTScan'>0</h3></td>
-          </tr>
-          <tr>
-            <td>
-              <a href="ActionInfo-Surgery.html" class="NavButton" id="surgeryButton">Surgery
-                <img class="ActionIcon" src="../ProgramFiles/Icons/nounicons/Black/noun_roboticsurgery_1464841.png">
-              </a></td>
-            <td><h3 id="SurgScore" name = 'Surgery'>0</h3></td>
-          </tr>
-          <tr>
-            <td>
-              <a href="ActionInfo-Intervene.html" class="NavButton" id="interveneButton">Intervention
-                <img class="ActionIcon" src="../ProgramFiles/Icons/nounicons/Black/noun_Syringe_1547628.png">
-              </a></td>
-            <td><h3 id="IntScore" name = 'Intervention'>0</h3></td>
-          </tr>
-        </tbody>
-      </table>
-    </div> 
-
-    <div class="col-lg-2 col-5">
-      <div class="body">
-        <img src="../ProgramFiles/ReviewBody.png" id="body">
-        <div class="locations">
-          <a href="Location-RUQ.html"> <img id="ruqicon" src="../ProgramFiles/Icons/positive.png"></a>
-          <a href="Location-LUQ.html"> <img id="luqicon" src="../ProgramFiles/Icons/positive.png"></a>
-          <a href="Location-Subxi.html"> <img id="subxicon" src="../ProgramFiles/Icons/positive.png"></a>
-          <a href="Location-Bladder.html"> <img id="bladdericon" src="../ProgramFiles/Icons/positive.png"></a>
-          <a href="Location-Lung.html"> <img id="rLungicon" src="../ProgramFiles/Icons/positive.png"></a>
-          <a href="Location-Lung.html"> <img id="lLungicon" src="../ProgramFiles/Icons/positive.png"></a>
+    <div class="row justify-content-evenly">
+        <div class="col-7 col-lg-5" id="ScoreData">
+            <h4>Overall Accuracy: <b id='accuracy'></b></h4>
+            <h4>Total Score: <b id='total-score'></b></h4>
+            <h4>Cases Completed: <b id='case-count'></b></h4>
+            <h4>Case Average: <b id='score-average'></b></h4>
         </div>
-      </div>
+
+        <div class="col-7 col-lg-5" id="MostMissed">
+            <h4 id="MostMissedAction">
+                Review Action: <a id='missedActionLink' href=""><b id='missedActionText'></b></a></h4>
+            <div class="WorstLocation">
+                <h4 id="WorstLocation">
+                    Review Location: <a id="rLocLink"><b id="ReviewLocation"></b></a>
+                </h4>
+            </div>
+        </div>
     </div>
 
-    <div class="col-lg-5 col-7">
-      <h2>Exam Image</h2>
-      <div class="USImages">
-        <img class="img-fluid" id="RightLungImage" src="../USLibrary/gifs/normal-lung-slide.gif">
-        <img class="img-fluid" id="LeftLungImage" src="../USLibrary/gifs/ptx2.gif">
-        <img class="img-fluid" id="SubXImage" src="../USLibrary/gifs/subxi-nl-1.gif">
-        <img class="img-fluid" id="RUQImage" src="../USLibrary/gifs/ruq-nl-6.gif">
-        <img class="img-fluid" id="LUQImage" src="../USLibrary/gifs/luq-nl-c4.gif">
-        <img class="img-fluid" id="BladderImage" src="../USLibrary/gifs/bladder-nl-c7.gif">
-      </div>
-    </div>
-  </div>
+    <div class="row justify-content-evenly" id="bottomrow">
+        <div class="col-lg-5 col-11">
+            <table class="table" id="scoreTable">
+                <thead>
+                <th><h2>Actions</h2></th>
+                <th><h2>Score</h2></th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <a href="ActionInfo-Obs.html" class="NavButton" id="obsButton">Observation
+                            <img class="ActionIcon"
+                                 src="../ProgramFiles/Icons/nounicons/Black/noun_hospitalroom_1183280.png">
+                        </a></td>
+                    <td><h3 id="ObsScore" name='Observation'>0</h3></td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="ActionInfo-CT.html" class="NavButton" id="ctButton">CT Scan
+                            <img class="ActionIcon" src="../ProgramFiles/Icons/nounicons/Black/noun_CTscan_3628273.png">
+                        </a></td>
+                    <td><h3 id="CTScore" name='CTScan'>0</h3></td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="ActionInfo-Surgery.html" class="NavButton" id="surgeryButton">Surgery
+                            <img class="ActionIcon"
+                                 src="../ProgramFiles/Icons/nounicons/Black/noun_roboticsurgery_1464841.png">
+                        </a></td>
+                    <td><h3 id="SurgScore" name='Surgery'>0</h3></td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="ActionInfo-Intervene.html" class="NavButton" id="interveneButton">Intervention
+                            <img class="ActionIcon"
+                                 src="../ProgramFiles/Icons/nounicons/Black/noun_Syringe_1547628.png">
+                        </a></td>
+                    <td><h3 id="IntScore" name='Intervention'>0</h3></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
-  <div class="row justify-content-evenly">
-    <div class="col-6 col-lg-3" id="New-Shift">
-        <a href="MainUI.html" class="NavButton">New Shift
-          <img src="../ProgramFiles/Icons/capicon/capicon/png/white/076.png" class="NavIcon">
-        </a>
+        <div class="col-lg-2 col-5">
+            <div class="body">
+                <img src="../ProgramFiles/ReviewBody.png" id="body">
+                <div class="locations">
+                    <a href="Location-RUQ.html"> <img id="ruqicon" src="../ProgramFiles/Icons/positive.png"></a>
+                    <a href="Location-LUQ.html"> <img id="luqicon" src="../ProgramFiles/Icons/positive.png"></a>
+                    <a href="Location-Subxi.html"> <img id="subxicon" src="../ProgramFiles/Icons/positive.png"></a>
+                    <a href="Location-Bladder.html"> <img id="bladdericon" src="../ProgramFiles/Icons/positive.png"></a>
+                    <a href="Location-Lung.html"> <img id="rLungicon" src="../ProgramFiles/Icons/positive.png"></a>
+                    <a href="Location-Lung.html"> <img id="lLungicon" src="../ProgramFiles/Icons/positive.png"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5 col-7">
+            <h2>Exam Image</h2>
+            <div class="USImages">
+                <img class="img-fluid" id="RightLungImage" src="../USLibrary/gifs/normal-lung-slide.gif">
+                <img class="img-fluid" id="LeftLungImage" src="../USLibrary/gifs/ptx2.gif">
+                <img class="img-fluid" id="SubXImage" src="../USLibrary/gifs/subxi-nl-1.gif">
+                <img class="img-fluid" id="RUQImage" src="../USLibrary/gifs/ruq-nl-6.gif">
+                <img class="img-fluid" id="LUQImage" src="../USLibrary/gifs/luq-nl-c4.gif">
+                <img class="img-fluid" id="BladderImage" src="../USLibrary/gifs/bladder-nl-c7.gif">
+            </div>
+        </div>
     </div>
-    <div class="col-6 col-lg-3" id="Review-Set">
-        <a href="ShiftReview.html" class="NavButton">Review Shift
-          <img src="../ProgramFiles/Icons/capicon/capicon/png/white/056.png" class="NavIcon">
-        </a>
+
+    <div class="row justify-content-evenly">
+        <div class="col-6 col-lg-3" id="New-Shift">
+            <a href="MainUI.html" class="NavButton">New Shift
+                <img src="../ProgramFiles/Icons/capicon/capicon/png/white/076.png" class="NavIcon">
+            </a>
+        </div>
+        <div class="col-6 col-lg-3" id="Review-Set">
+            <a href="ShiftReview.html" class="NavButton">Review Shift
+                <img src="../ProgramFiles/Icons/capicon/capicon/png/white/056.png" class="NavIcon">
+            </a>
+        </div>
     </div>
-  </div>
 </div>
-<!-- <div class="modal fade" id="SignupSuggestion" tabindex="-1" role="dialog" aria-labelledby="PromptSignup" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="PromptSignup">Signup for Full Access!</h5>
-      </div>
-      <div class="modal-body">
-        Receive access to our complete library of FAST cases and track your progress as you learn and improve!
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" onclick="GoSignup">Sign Up</button>
-      </div>
-    </div>
-  </div>
-</div>
--->
-</body>
-  <!-- Vendor JS Files -->
-  <script src="../aos/aos.js"></script>
-  <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../swiper/swiper-bundle.min.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="../js/home2js.js"></script>
-
+<!-- Vendor JS Files -->
+<script src="../aos/aos.js"></script>
+<script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../swiper/swiper-bundle.min.js"></script>
+<!-- Template Main JS File -->
+<script src="../js/home2js.js"></script>
 <script src="../js/jquery.min.js"></script>
 <script src="../js/Progress.js"></script>
+<!--  HubSpot-->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/20200523.js"></script>
+</body>
 </html>
