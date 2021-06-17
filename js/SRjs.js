@@ -41,104 +41,6 @@ function preSet() {
         })
     });
 }
-
-function RandomLoc() {
-    var locLinks = [
-        "Location-RUQ.html",
-        "Location-LUQ.html",
-        "Location-Subxi.html",
-        "Location-Bladder.html",
-        "Location-Lung.html"
-    ];
-    var max = (locLinks.length)
-    var randomNumber = Math.floor(Math.random() * max);
-    var link = locLinks[randomNumber];
-    window.location.href = link;
-}
-
-function ShowRandomLoc() {
-    var locNames = [
-        "Right Upper Quadrant",
-        "Left Upper Quadrant",
-        "Subxiphoid",
-        "Bladder",
-        "Lungs"
-    ];
-    var max = (locNames.length);
-    var randomNumber = Math.floor(Math.random() * max);
-    var ReviewLoc = locNames[randomNumber];
-    document.getElementById("ReviewLocation").innerHTML = ReviewLoc;
-    if (ReviewLoc === "Right Upper Quadrant") {
-        document.getElementById("rLocLink").href = "./Location-RUQ.html"
-    }
-    ;
-    if (ReviewLoc === "Left Upper Quadrant") {
-        document.getElementById("rLocLink").href = "./Location-LUQ.html"
-    }
-    ;
-    if (ReviewLoc === "Subxiphoid") {
-        document.getElementById("rLocLink").href = "./Location-Subxi.html"
-    }
-    ;
-    if (ReviewLoc === "Bladder") {
-        document.getElementById("rLocLink").href = "./Location-Bladder.html"
-    }
-    ;
-    if (ReviewLoc === "Lungs") {
-        document.getElementById("rLocLink").href = "./Location-Lung.html"
-    }
-    ;
-
-}
-
-function ShowRandomAxn() {
-    var axnNames = [
-        "Observation",
-        "CT Scan",
-        "Surgery",
-        "Intervention"
-    ];
-    var max = (axnNames.length);
-    var randomNumber = Math.floor(Math.random() * max);
-    var ReviewAxn = axnNames[randomNumber];
-    document.getElementById("ReviewAction").innerHTML = ReviewAxn;
-    if (ReviewAxn === "Observation") {
-        document.getElementById("rAxnLink").href = "./ActionInfo-Obs.html"
-    }
-    ;
-    if (ReviewAxn === "CT Scan") {
-        document.getElementById("rAxnLink").href = "./ActionInfo-CT.html"
-    }
-    ;
-    if (ReviewAxn === "Surgery") {
-        document.getElementById("rAxnLink").href = "./ActionInfo-Surgery.html"
-    }
-    ;
-    if (ReviewAxn === "Intervention") {
-        document.getElementById("rAxnLink").href = "./ActionInfo-Intervene.html"
-    }
-    ;
-
-}
-
-function ShowReviews() {
-    ShowRandomLoc();
-    ShowRandomAxn();
-}
-
-function RandomAxn() {
-    var axnLinks = [
-        "ActionInfo-Obs.html",
-        "ActionInfo-CT.html",
-        "ActionInfo-Surgery.html",
-        "ActionInfo-Intervene.html",
-    ];
-    var max = (axnLinks.length)
-    var randomNumber = Math.floor(Math.random() * max);
-    var link = axnLinks[randomNumber];
-    window.location.href = link;
-}
-
 //The code below is used to build a chart from the data in the table
 function BuildChart(labels, values, chartTitle) {
     var ctx = document.getElementById("progressChart").getContext('2d');
@@ -193,6 +95,7 @@ function shiftReviewMain(detailsList,) {
     // Iterate list and display summary for each user
     let totalPoints = 0; let counter = 1;
     let progressLabels = []; let progressValues=[] ; // labels => represents case #, values => the score per case
+    // Handle each case in the csData list of session data information
     detailsList.forEach(function (detail) {
         // create row element
         let tableRowElement = document.createElement("tr");
@@ -211,7 +114,12 @@ function shiftReviewMain(detailsList,) {
         totalPoints += parseInt(detail.totalScore);
         // add hyperlink to outcome to user action column. linking back to outcome page
         let td5a = document.createElement("a")
-        td5a.setAttribute("href", outComeDetailPage);
+        td5a.onclick = function(){ // TODO : testing how to relocate to outcome
+            localStorage.review = true;
+            localStorage.reviewData = JSON.stringify(detail) ;
+            window.location.replace(outComeDetailPage);
+        }
+        td5a.setAttribute("href", '#'); // Enable to UI element to look selectable. Handling re-direct on click event handler
         td5a.innerText = detail.userAction; // col 5 case key action
         td5.appendChild(td5a);
         // add data to rows
@@ -236,11 +144,34 @@ function shiftReviewMain(detailsList,) {
     BuildChart(progressLabels,progressValues, "Progress Chat");
 }
 
-$(document).ready(function () {
+async function shiftReviewNew(){
+    await shiftReviewResetTasks();
+    window.location.replace("MainUI.html");
+}
+async function shiftReviewResetTasks(){
+    // Reset the localstorage
+    let localStorageKeyList = ["case1Title", "cSData", "case1KeyAction", "case1Score", "vScore", "case1Action",
+        "case1KeyImg", "case1Outcome", "caseNum",
+        "casesDoneList", "case1KeyLoc", "minutes", "seconds", "caseIdList", "nTotalCases"]
+    console.log("Clearing local storage");
+    localStorageKeyList.forEach(function(key){
+        localStorage.removeItem(key);
+        // resetting for the next session;
+    });
+}
+// EVENT HANDLERS
+function goToProgressReport() {  window.location.replace('ProgressReport.html');  }
+function continueReview(){ window.location.replace("MainUI.html"); }
+
+/**
+ * Main Entry point for the Shift Review Script
+ */
+$(document).ready(async function () {
     if (localStorage.cSData) {
         shiftReviewMain(JSON.parse(localStorage.cSData));
     } else {
         alert("No Shift Data. No case data recorded for user.");
+        window.location.replace('MainUI.html');
     }
 });
 

@@ -179,6 +179,14 @@ setTimeout(function () {
     clearInterval(timer);
 }, 999999);
 
+
+
+function goToOutcome(){
+    console.log("Navigating to outcome");
+    localStorage.review = false;
+    window.location.replace('Outcome.html');
+}
+
 function switchLUQ() {
     newLocation = "Left Upper Quadrant";
     document.getElementById("currentLocation").innerText = ("Current Location: " + newLocation);
@@ -250,7 +258,7 @@ function actionObs() {
     record_time();
     record_views();
     doga("case", "finish_case", "Obs");
-    window.location.href = "Outcome.html";
+    goToOutcome();
 }
 
 function actionCT() {
@@ -261,7 +269,7 @@ function actionCT() {
     record_time();
     record_views();
     doga("case", "finish_case", "CT");
-    window.location.href = "Outcome.html";
+    goToOutcome();
 }
 
 function actionSurg() {
@@ -272,7 +280,7 @@ function actionSurg() {
     record_time();
     record_views();
     doga("case", "finish_case", "Surg");
-    window.location.href = "Outcome.html";
+    goToOutcome();
 }
 
 function actionIntervene() {
@@ -283,7 +291,7 @@ function actionIntervene() {
     record_time();
     record_views();
     doga("case", "finish_case", "Int");
-    window.location.href = "Outcome.html";
+    goToOutcome();
 }
 
 firebase.auth().onAuthStateChanged(user => {

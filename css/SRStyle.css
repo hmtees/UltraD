@@ -41,8 +41,6 @@
   }
   
  #progressChart {
-  border-radius: 2vw;
-  border: 4px solid #FF3500;
   max-width: 40vw;
 }
 .chartjs-render-monitor{
@@ -53,8 +51,6 @@
     list-style-type: none;
     text-align: left;
     background-color: #0096DF;
-    border: 4px solid #FF3500;
-    border-radius: 8px;
     padding: 10px 10px 20px;
     box-sizing: border-box;
     font-size: 2vw;
@@ -62,7 +58,6 @@
   
 #progresstable {
   width:100%;
-  border-color: #FF3500;
 }
 
   .results-buttons {
@@ -114,7 +109,9 @@
     align-items: center;
     display:grid;
   }
-
+.navNextButtons {
+  color: #0096DF;
+}
 #rLocLink>a{
   color:#FFFFFF;
 }
