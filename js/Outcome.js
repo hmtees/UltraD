@@ -256,15 +256,22 @@ async function addUserActionsToSessionHistory() {
 function progressNextCase() {
     window.location.replace('MainUI.html');
 }
-function sameCase() {
-    localStorage.retry = true
-    // since user if retrying, remove this case from cases done 
+function retryCase(){
+    localStorage.retry = true;
+    console.log("Retry Case is enabled.");
+    // Correction for casesDone tracking
     if (localStorage.casesDoneList) {
         let casesDone = JSON.parse(localStorage.casesDoneList);
-        casesDone.pop(); // remove the most recent case added. 
+        casesDone.pop(); // remove the most recent case added.
         localStorage.casesDoneList = JSON.stringify(casesDone);
     } else {
         throw new Error('Cases Done list should have populated');
+    }
+    // Correction for shift review tracking
+    if (localStorage.cSData){
+        let csData = JSON.parse(localStorage.cSData);
+        csData.pop(); // remove the most recent case added.
+        localStorage.cSData = JSON.stringify(csData);
     }
     window.location.replace('MainUI.html');
 }

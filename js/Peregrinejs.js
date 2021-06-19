@@ -24,11 +24,6 @@ function doga(category, action, label) {
     });
 }
 
-$(document).ready(async function () {
-    // Script entry point
-    await main();
-});
-
 const random = async (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
 async function getRandomCases() {
@@ -65,14 +60,17 @@ async function getCasesFromDB() {
 }
 
 async function getIndex() {
-    if (localStorage.getItem("retry") === null) {
+    // just in case this is the first time user gets to page
+    if (localStorage.retry === undefined){
         localStorage.retry = false;
-        return await random(0, parseInt(localStorage.getItem("nTotalCases")));
-    } else if (JSON.parse(localStorage.getItem("retry")) === false) {
+    }
+    // check if we are retrying a case from outcome page
+    let isUserRetryingCase = JSON.parse(localStorage.retry);
+    if ( isUserRetryingCase) {
+        localStorage.retry = false;
+        return localStorage.caseNum;
+    }else{
         return await getRandomCases();
-    } else {
-        localStorage.retry = false;
-        return parseInt(localStorage.getItem("caseNum"));
     }
 }
 
@@ -82,9 +80,9 @@ async function populateCase() {
 
             localStorage.nTotalCases = String(casesArr.length);
             localStorage.caseIdList = JSON.stringify(casesArr);
-
             console.log('Number of cases ' + casesArr.length);
             choosenCaseIndex = await getIndex();
+            console.log("Case index " + choosenCaseIndex);
             caseIdChosen = casesArr[choosenCaseIndex];
             localStorage.setItem('caseNum', String(choosenCaseIndex));
             console.log(`Case_index=${choosenCaseIndex} , case_id=${casesArr[choosenCaseIndex]}`);
@@ -302,3 +300,8 @@ firebase.auth().onAuthStateChanged(user => {
         console.log('no user apparently')
     }
 })
+
+$(document).ready(async function () {
+    // Script entry point
+    await main();
+});
