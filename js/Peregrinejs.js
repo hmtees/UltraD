@@ -150,10 +150,8 @@ async function drawDivWithObj(caseObj, parent, loc) {
     localStorage.case1KeyImg = caseObj["keyimage"].trim();
     keyLocation = caseObj["keylocation"];
     localStorage.case1KeyLoc = caseObj["keylocation"];
-    console.log("Key Location: " + localStorage.case1KeyLoc);
     keyAction = caseObj["answer"];
     localStorage.case1KeyAction = caseObj["answer"];
-    console.log("Key Action: " + localStorage.case1KeyAction);
 
     var $caseDiv = $("<div/>");
     var casedetails = $("<p></p>").html("A " + age + "-year-old " + gender + " " + scenario);
