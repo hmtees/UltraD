@@ -17,6 +17,11 @@ var cPoint_incorrectAction = 100; // Int - Points awarded for the incorrect acti
 var rememberBoxLink = "#";
 var actionTakenIconLink = "#";
 
+/**
+ * {
+ *     case1Title : localStorage
+ * }
+ */
 function recordUserSessionData(){
     console.log("Recording session data ");
     let tmpData = {
@@ -144,7 +149,7 @@ function displayActionTaken(){
 
 }
 function calculateDecisionScoreAndDisplay() {
-    if (localStorage.case1Action === localStorage.case1KeyAction) {
+    if (localStorage.case1Action.trim() === localStorage.case1KeyAction.trim()) {
         isUserCorrectOnCase = true; decision_score = cPoints_correctAction;
         document.getElementById("result").innerText = "Success!!";
         if (isUserIdPresent){
@@ -256,6 +261,7 @@ async function addUserActionsToSessionHistory() {
 function progressNextCase() {
     window.location.replace('MainUI.html');
 }
+
 function retryCase(){
     localStorage.retry = true;
     console.log("Retry Case is enabled.");
@@ -280,14 +286,22 @@ async function checkPreviousNavigationPoint() {
     /**
      * Check localstorage.review. Usually set from mainUi script before navigation to page. goToOutcome()
      */
-    if (localStorage.review === null){
-        console.log('LocalStorage.review is not set up yet');
-    }else if(localStorage.review ){
+    if (localStorage.review === undefined){
+        localStorage.review = false;
+    }
+
+    if(localStorage.review ){
         console.log('localStorage.review is true. Reviewing case from shift review');
+        if (localStorage.reviewData){
+            // Use the data here for the page display purposes.
+             let dataObj = JSON.parse(localStorage.reviewData);
+            console.log("Review data available." + localStorage.reviewData);
+        }
         // TODO : Check the localStorage.reviewData as well before displaying the data.
         // TODO : If this flag is true and the data is not there then throw an error, alert the user, navigate to the shift review page. - Might have to this about this.
         localStorage.review = false; // reset flag
-        checkIfUidPresent(); //TODO : Change such that outcome page shows the information from the shift review page.
+        checkIfUidPresent();
+        //TODO : Change such that outcome page shows the information from the shift review page.
         // TODO : Gather data needed and supply it from the localstorage.reviewData
         // TODO : Under shift review provide this data from localStorage.reviewData = localStorage.csData[index]
         // TODO before navigation from the shift review page when clicked
