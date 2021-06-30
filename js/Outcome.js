@@ -144,7 +144,7 @@ function displayActionTaken(){
 
 }
 function calculateDecisionScoreAndDisplay() {
-    if (localStorage.case1Action === localStorage.case1KeyAction) {
+    if (localStorage.case1Action.trim() === localStorage.case1KeyAction.trim()) {
         isUserCorrectOnCase = true; decision_score = cPoints_correctAction;
         document.getElementById("result").innerText = "Success!!";
         if (isUserIdPresent){
