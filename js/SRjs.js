@@ -109,12 +109,12 @@ function shiftReviewMain(detailsList,) {
         td1.innerText = String(caseCounter);
         caseCounter++; // col case num
         td2.innerText = detail.totalScore; // col 2  Score
-        td3.innerText = detail.cTitle; // col 3 Case title
+        td3.innerText = detail.caseTitle; // col 3 Case title
         td4.innerText = detail.keyLoc // col 4 case key location
         totalPoints += parseInt(detail.totalScore);
         // add hyperlink to outcome to user action column. linking back to outcome page
         let td5a = document.createElement("a")
-        td5a.onclick = function(){ // TODO : testing how to relocate to outcome
+        td5a.onclick = function(){
             localStorage.review = true;
             localStorage.reviewData = JSON.stringify(detail) ;
             window.location.replace(outComeDetailPage);
@@ -156,7 +156,6 @@ async function shiftReviewResetTasks(){
     console.log("Clearing local storage");
     localStorageKeyList.forEach(function(key){
         localStorage.removeItem(key);
-        // resetting for the next session;
     });
 }
 // EVENT HANDLERS

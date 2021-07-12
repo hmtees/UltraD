@@ -1,13 +1,8 @@
-/*
-TO-DO
-Check for sign-in on Review Shift, Progress Report, Next Case links
-    Send to signup if not signed in
-*/
 
 //Connect to the firestore
 var db = firebase.firestore();
 var time_score;
-var view_score;
+//var view_score;
 var decision_score = 0;
 var isUserIdPresent = false;
 var isUserCorrectOnCase = false;
@@ -16,7 +11,74 @@ var cPoint_incorrectAction = 100; // Int - Points awarded for the incorrect acti
 
 var rememberBoxLink = "#";
 var actionTakenIconLink = "#";
+let userData = {};
+let isReviewingACase = false;
 
+function populateUserData(onPopulationComplete){
+    if (isReviewingACase){
+        console.log("Populating user data from review Data");
+        userData = JSON.parse(localStorage.reviewData) ;
+    }else{
+        console.log("Populating user data from localStorage");
+        userData = {
+            caseTitle : localStorage.case1Title.trim(),
+            keyLoc : localStorage.case1KeyLoc.trim(),
+            userAction : localStorage.case1Action.trim(),
+            cAction : localStorage.case1KeyAction.trim(),
+            caseKeyImg : localStorage.case1KeyImg.trim(),
+            caseOutcome : localStorage.case1Outcome.trim(),
+            min : parseInt(localStorage.minutes) ,
+            sec : parseInt(localStorage.seconds) ,
+            v_score : parseInt(localStorage.vScore) ,
+        }
+        if (localStorage.userId){
+            userData.userId = localStorage.userId.trim()
+        }else {console.log("User is not logged in");}
+        //Remember box shows the correct action the user should have taken\
+        switch(userData.cAction) {
+            case "Observation":
+                userData.rememberBox = '../ProgramFiles/RememberBoxes/Light/RememberObs.svg'
+                break;
+            case "CT Scan":
+                userData.rememberBox = '../ProgramFiles/RememberBoxes/Light/RememberCT.svg';
+                break;
+            case "Surgery":
+                userData.rememberBox = '../ProgramFiles/RememberBoxes/Light/RememberSurg.svg';
+                break;
+            case "Intervention":
+                userData.rememberBox = '../ProgramFiles/RememberBoxes/Light/RememberInt.svg';
+                break;
+            default:
+                throw new Error("This case does not have a record of the correct action the user should have taken");
+        }
+        // Action logo shows the action the user choose
+        switch (userData.userAction) {
+            case "Observation":
+                userData.actionIcon = '../ProgramFiles/Icons/obs.png';
+                break;
+            case "CT Scan":
+                userData.actionIcon = '../ProgramFiles/Icons/ctScan.png';
+                break;
+            case "Surgery":
+                userData.actionIcon = '../ProgramFiles/Icons/surg.png';
+                break;
+            case "Intervention":
+                userData.actionIcon = '../ProgramFiles/Icons/intervention.png';
+                break;
+            default:
+                throw new Error("No record of the action the user performed");
+        }
+        rememberBoxLink = userData.rememberBox; actionTakenIconLink = userData.actionIcon;
+        // scoring
+        userData.time_score = -0.5 * (userData.min * 60) + userData.sec ;
+        userData.view_score = 20 * (userData.v_score);
+        isUserCorrectOnCase = userData.userAction === userData.cAction;
+        userData.decisionScore = (isUserCorrectOnCase) ? cPoints_correctAction : cPoint_incorrectAction ;
+        userData.totalScore = userData.decisionScore + userData.view_score + userData.time_score;
+    }
+    localStorage.case1Score = userData.totalScore;
+    onPopulationComplete(); // Callback
+}
 /**
  * {
  *     case1Title : localStorage
@@ -24,77 +86,63 @@ var actionTakenIconLink = "#";
  */
 function recordUserSessionData(){
     console.log("Recording session data ");
-    let tmpData = {
-        totalScore : (time_score + decision_score + view_score),
-        cTitle : localStorage.case1Title,
-        keyLoc : localStorage.case1KeyLoc,
-        userAction : localStorage.case1Action,
-        case1KeyImg : "https://drive.google.com/uc?export=view&id=" + localStorage.case1KeyImg.trim(),
-        case1Outcome : localStorage.case1Outcome,
-        rememberBox : rememberBoxLink,
-        actionIcon : actionTakenIconLink,
-    }
     // Check if the csData list data structure exists.
-    if (localStorage.cSData){
-        console.log("user session data is already being tracked");
-        let data = JSON.parse(localStorage.cSData);
-        data.push(tmpData);
-        localStorage.cSData = JSON.stringify(data);
-    }else{
-        console.log("no user data has been tracked so far, start tracking");
-        // TODO : create new object - record data - create and add to list
-        localStorage.cSData = JSON.stringify([tmpData]);
+    if (!isReviewingACase){
+        // then save the user data
+        if (localStorage.cSData){
+            console.log("user session data is already being tracked");
+            let data = JSON.parse(localStorage.cSData);
+            data.push(userData);
+            localStorage.cSData = JSON.stringify(data);
+        }else{
+            console.log("no user data has been tracked so far, start tracking");
+            localStorage.cSData = JSON.stringify([userData]);
+        }
     }
 }
-
-function displayActionTaken(){
-    //Show Action Taken
-    document.getElementById("action").innerHTML = localStorage.case1Action;
-    //display Explanation
-    document.getElementById("explanation").innerText = (localStorage.case1Outcome);
-    // Figure out the action icon to display
-    let actionTmp = ""; let actionTakenIcon = localStorage.case1Action.trim();
-    if (actionTakenIcon === "Observation") {
-        actionTmp = '../ProgramFiles/Icons/obs.png';
-    }else
-    if (actionTakenIcon === "CT Scan") {
-        actionTmp = '../ProgramFiles/Icons/ctScan.png';
-    } else
-    if (actionTakenIcon === "Surgery") {
-        actionTmp = '../ProgramFiles/Icons/surg.png';
-    } else
-    if (actionTakenIcon === "Intervention") {
-        actionTmp = '../ProgramFiles/Icons/intervention.png';
+/**
+ * Shows the case diagnosis, displays the FAST scan for the area the user is supposed to focus on
+ * Shows the explanation for the case, caseOutcome.
+ */
+function displayExplanation() {
+    // DISPLAY EXPLANATION | DIAGNOSIS | KEYIMAGE
+    document.getElementById("explanation").innerText = (userData.caseOutcome);
+    document.getElementById("diagnosis").innerText = (`Case : ${userData.caseTitle}` );
+    document.getElementById("keyImage").src = `../caseData/${userData.caseKeyImg}.gif`;
+    // DISPLAY RESULT OF ACTION
+    if (userData.decisionScore === cPoints_correctAction)
+    {
+        document.getElementById("result").innerText = "Success!!";
+        if (isUserIdPresent){
+            var file_path = '/users/' + localStorage.userId + '/Actions/' + localStorage.case1KeyAction
+            docRef = db.doc(file_path)
+            addScore(docRef, 'correct')
+        }else{
+            console.log("No user id - not saving user case actions to db");
+        }
     }
-    document.getElementById("actionicon").src = actionTmp;
-    actionTakenIconLink = actionTmp; // will be saved to session data later =
-    let remLinkTmp = "";
-    //Show correct Remember Box
-    let correctAction = localStorage.case1KeyAction.trim();
-    if (correctAction === "Observation") {
-        remLinkTmp = '../ProgramFiles/RememberBoxes/Light/RememberObs.svg';
-    }else
-    if (correctAction === "CT Scan") {
-        remLinkTmp = '../ProgramFiles/RememberBoxes/Light/RememberCT.svg';
-    }else
-    if (correctAction === "Surgery") {
-        remLinkTmp = '../ProgramFiles/RememberBoxes/Light/RememberSurg.svg';
-    }else
-    if (correctAction === "Intervention") {
-        remLinkTmp = '../ProgramFiles/RememberBoxes/Light/RememberInt.svg';
+    else {
+        document.getElementById("result").innerText = "Uh Oh...";
+        if (isUserIdPresent){
+            var file_path = '/users/' + localStorage.userId + '/Actions/' + localStorage.case1KeyAction
+            docRef = db.doc(file_path)
+            addScore(docRef, 'incorrect')
+        }else{
+            console.log("No user id - not saving user case actions to db");
+        }
     }
-    document.getElementById("rememberBox").src = remLinkTmp;
-    rememberBoxLink = remLinkTmp;
-
-    //Score Calculator
-    //console.log(decision_score);
-    $('#decPoints1').text(decision_score);
-    $('#imgPoints1').text(view_score);
-    $('#timePoints1').text(time_score);
-    localStorage.case1Score = time_score + decision_score + view_score;
-    $('#totalPoints1').text(time_score + decision_score + view_score);
-    $('#c1points').text(time_score + decision_score + view_score + " Points");
-
+    // DISPLAY ACTION TAKEN
+    document.getElementById("action").innerHTML = userData.userAction;
+    document.getElementById("explanation").innerText = userData.caseOutcome;
+    document.getElementById("actionicon").src = userData.actionIcon;
+    document.getElementById("rememberBox").src = userData.rememberBox;
+    // DISPLAY SCORES
+    $('#decPoints1').text(userData.decisionScore);
+    $('#imgPoints1').text(userData.view_score);
+    $('#timePoints1').text(userData.time_score);
+    $('#totalPoints1').text(userData.totalScore);
+    $('#c1points').text(userData.totalScore + " Points");
+    // RECORD USER ACTION TO DB - AND SESSION STORAGE
     if (isUserIdPresent){
         //go to the sessions collection for current user
         var file_path = '/users/' + localStorage.userId + '/sessions'
@@ -140,57 +188,11 @@ function displayActionTaken(){
                 }
             });
         });
-        recordUserSessionData();
     }
     else{
         console.log("No user id - could not save user session data");
-        recordUserSessionData();
     }
-
-}
-function calculateDecisionScoreAndDisplay() {
-    if (localStorage.case1Action.trim() === localStorage.case1KeyAction.trim()) {
-        isUserCorrectOnCase = true; decision_score = cPoints_correctAction;
-        document.getElementById("result").innerText = "Success!!";
-        if (isUserIdPresent){
-            var file_path = '/users/' + localStorage.userId + '/Actions/' + localStorage.case1KeyAction
-            docRef = db.doc(file_path)
-            addScore(docRef, 'correct')
-        }else{
-            console.log("No user id - not saving user case actions to db");
-        }
-    } else {
-        isUserCorrectOnCase = false; decision_score = cPoint_incorrectAction;
-        document.getElementById("result").innerText = "Uh Oh...";
-        if (isUserIdPresent){
-            var file_path = '/users/' + localStorage.userId + '/Actions/' + localStorage.case1KeyAction
-            docRef = db.doc(file_path)
-            addScore(docRef, 'incorrect')
-        }else{
-            console.log("No user id - not saving user case actions to db");
-        }
-    }
-    displayActionTaken();
-}
-function getTimeAndVScore(){
-    let min = parseInt(localStorage.minutes) ;
-    let sec = parseInt(localStorage.seconds) ;
-    let vScore = parseInt(localStorage.vScore) ;
-    time_score = -1 * (min * 60) + sec;
-    view_score = 20 * (vScore);
-}
-
-/**
- * Shows the case diagnosis, displays the FAST scan for the area the user is supposed to focus on
- * Shows the explanation for the case, caseOutcome.
- */
-function displayExplanation() {
-    document.getElementById("explanation").innerText = (localStorage.case1Outcome);
-    //display case title & Key Image
-    document.getElementById("diagnosis").innerText = ("Case : " + localStorage.case1Title);
-    document.getElementById("keyImage").src = `../caseData/${localStorage.case1KeyImg.trim()}.gif`;
-    getTimeAndVScore();
-    calculateDecisionScoreAndDisplay();
+    recordUserSessionData();
 }
 function checkIfUidPresent(){
     if (localStorage.userId){
@@ -200,7 +202,6 @@ function checkIfUidPresent(){
     }
     displayExplanation();
 }
-//Function for adding the correct or incorrect actions to the database
 function addScore(docRef, status) {
 
     // In a transaction, add the new rating and update the aggregate totals
@@ -239,29 +240,9 @@ function addScore(docRef, status) {
         });
     });
 }
-async function addUserActionsToSessionHistory() {
-    console.log("Tracking user action history");
-    /**
-     * case_history = {
-     *     case1KeyImg : ,
-     *     case1KeyLoc : ,
-     *     case1KeyAction : ,
-     *     case1Title : ,
-     *     case1Action : ,
-     *     case1Outcome : ,
-     *     minutes : ,
-     *     seconds : ,
-     *     case1ViewScore : ,
-     *     case1Score : ,
-     * }
-     * TODO - Add this to the list of user actions.
-     * TODO - Remember to deque the session addition when a user retries.
-     */
-}
 function progressNextCase() {
     window.location.replace('MainUI.html');
 }
-
 function retryCase(){
     localStorage.retry = true;
     console.log("Retry Case is enabled.");
@@ -281,44 +262,27 @@ function retryCase(){
     }
     window.location.replace('MainUI.html');
 }
-
 async function checkPreviousNavigationPoint() {
-    /**
-     * Check localstorage.review. Usually set from mainUi script before navigation to page. goToOutcome()
-     */
+    // localStorage.review is set in the shift review script.
     if (localStorage.review === undefined){
         localStorage.review = false;
     }
 
-    if(localStorage.review ){
+    if(JSON.parse(localStorage.review) === true ){
         console.log('localStorage.review is true. Reviewing case from shift review');
         if (localStorage.reviewData){
             // Use the data here for the page display purposes.
-             let dataObj = JSON.parse(localStorage.reviewData);
-            console.log("Review data available." + localStorage.reviewData);
+            isReviewingACase = true;
         }
-        // TODO : Check the localStorage.reviewData as well before displaying the data.
-        // TODO : If this flag is true and the data is not there then throw an error, alert the user, navigate to the shift review page. - Might have to this about this.
         localStorage.review = false; // reset flag
-        checkIfUidPresent();
-        //TODO : Change such that outcome page shows the information from the shift review page.
-        // TODO : Gather data needed and supply it from the localstorage.reviewData
-        // TODO : Under shift review provide this data from localStorage.reviewData = localStorage.csData[index]
-        // TODO before navigation from the shift review page when clicked
-        // TODO : Change event listener for the on click for the list to a function - this function will set localstorage.review and localStorage.reviewData
-        // TODO : Outcome page should show this and reset the data objects (2)
-
-    }else{
-        // set up and reviewing
+        populateUserData(checkIfUidPresent)
+    }
+    else{
         console.log('localStorage.review is false. Continue as usual');
-        checkIfUidPresent();
+        populateUserData(checkIfUidPresent)
     }
 }
-
-/**
- * Main Entry point to the script. First check the previous navigation point to
- * know what data to show on the screen.
- */
+// MAIN ENTRY POINT
 $(document).ready(async function () {
     await checkPreviousNavigationPoint();
 });
